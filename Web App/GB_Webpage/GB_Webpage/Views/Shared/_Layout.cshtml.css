@@ -51,8 +51,17 @@ li.nav-item {
 }
 
 .footer {
+	margin-top: 3ex;
 	height: 10ex;
 	width: 100%;
+}
+
+
+
+ul li:hover {
+	border-radius: 1ex 1ex 1ex 1ex;
+	height: 100%;
+	background-color: #cacbcf;
 }
 
 /*
