@@ -1,5 +1,4 @@
-﻿
-.fixed-background {
+﻿.fixed-background {
 	animation: banner 0.5s;
 	background-image: url(images/Background.jpg);
 	background-repeat: no-repeat;
@@ -14,15 +13,19 @@
 }
 
 .introduction-container {
+	margin-bottom: 3ex;
 	padding-top: 3ex;
-	height: 25ex;
+	text-align: center;
+}
+
+h1 {
+	margin-bottom: 1ex;
 }
 
 .introduced-text {
 	font-family: 'Oxygen', sans-serif;
 	text-align: center;
 	font-size: 2.8ex;
-	width: 80ex;
 }
 
 .row-bottom-margin {
@@ -39,7 +42,6 @@ div.col-6 {
 }
 
 .square-container {
-	margin-top: -2ex;
 	justify-content: center;
 	align-items: center;
 	display: flex;
@@ -48,14 +50,14 @@ div.col-6 {
 }
 
 .square-element {
-	border: 0.05ex solid #00246C;
 	background-color: #65677A;
 	height: 60%;
-	width: 100%;
+	width: 70%;
 }
 
 .centered-text-container {
 	height: 100%;
+	font-family: 'Oxygen', sans-serif;
 	text-align: center;
 	justify-content: center;
 	align-items: center;
@@ -77,22 +79,22 @@ div.square-element {
 
 .b1 {
 	animation: move-text1 30s infinite;
-	font-size: 27px;
+	font-size: 0.3ex;
 }
 
 .b2 {
 	animation: move-text2 30s infinite;
-	font-size: 31px;
+	font-size: 0.4ex;
 }
 
 .b3 {
 	animation: move-text3 30s infinite;
-	font-size: 31px;
+	font-size: 0.4ex;
 }
 
 .b4 {
 	animation: move-text4 30s infinite;
-	font-size: 25px;
+	font-size: 0.3ex;
 }
 
 
@@ -176,5 +178,66 @@ div.square-element {
 
 	to {
 		opacity: 1;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+	.square-container {
+		height: 85%;
+	}
+
+	.square-element {
+		width: 80%;
+	}
+
+	.b1 {
+		width: 30%;
+	}
+
+	.b2 {
+		width: 27%;
+	}
+
+	.b3 {
+		width: 25%;
+		font-size: 0.37ex;
+	}
+
+	.b4 {
+		width: 25%;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.rightside-container {
+		height: 70ex;
+	}
+}
+
+
+@media only screen and (max-width: 540px) {
+
+	.square-element {
+		width: 90%;
+	}
+
+	.b1 {
+		width: 80%;
+		font-size: 0.28ex;
+	}
+
+	.b2 {
+		width: 50%;
+		font-size: 0.28ex;
+	}
+
+	.b3 {
+		width: 70%;
+		font-size: 0.27ex;
+	}
+
+	.b4 {
+		width: 80%;
+		font-size: 0.24ex;
 	}
 }
