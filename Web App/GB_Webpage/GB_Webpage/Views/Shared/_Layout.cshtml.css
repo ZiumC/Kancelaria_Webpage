@@ -50,6 +50,11 @@ li.nav-item {
 	
 }
 
+.footer {
+	height: 10ex;
+	width: 100%;
+}
+
 /*
 .footer {
 	position: absolute;
