@@ -1,0 +1,32 @@
+﻿
+.fixed-background {
+	animation: banner 1s;
+	background-image: url(images/Background.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 38vh;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.quoted-text {
+	font-size: 4ex;
+}
+
+.row-bottom-margin {
+	margin-bottom: -3ex;
+}
+div.col-6 {
+	text-align: right;
+}
+
+
+@keyframes banner {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
