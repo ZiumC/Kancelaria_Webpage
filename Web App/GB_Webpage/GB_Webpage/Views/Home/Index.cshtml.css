@@ -13,6 +13,17 @@
 	font-size: 4ex;
 }
 
+.introduction-container {
+	padding-top: 3ex;
+	height: 25ex;
+}
+
+.introduced-text {
+	text-align: center;
+	font-size: 2.5ex;
+	width: 100ex;
+}
+
 .row-bottom-margin {
 	margin-bottom: -3ex;
 }
