@@ -39,10 +39,22 @@ button.accept-policy {
   line-height: inherit;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+ul.navbar-nav{
+	justify-content: end;
+	align-content: end;
+	padding-right: 2ex;
 }
+
+li.nav-item {
+	font-size: 3ex;
+	
+}
+
+/*
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	white-space: nowrap;
+	line-height: 60px;
+}*/
