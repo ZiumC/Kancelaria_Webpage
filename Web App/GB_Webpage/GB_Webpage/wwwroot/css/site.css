@@ -33,3 +33,11 @@ body {
         opacity: 1;
     }
 }
+
+/*Idk why 'img' element in 'Team.cshtml' doesn't see 'Team.cshtml.css' styles*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+    #photo_of_lawyer {
+        width: 95%
+    }
+}

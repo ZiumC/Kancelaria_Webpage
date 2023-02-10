@@ -41,7 +41,7 @@ div.introduction-container div {
 
 .note-container {
 	padding-top: 2ex;
-	width: 80%;
+	width: 70%;
 	margin: auto;
 }
 
@@ -55,4 +55,20 @@ div.note-container > p:last-child {
 
 div.note-container > p:last-child:hover {
 	text-decoration: underline;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.note-container {
+		width:90%;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.note-container {
+		width: 100%;
+	}
+
+	img {
+		width:70%
+	}
 }
