@@ -68,7 +68,25 @@ div.note-container > p:last-child:hover {
 		width: 100%;
 	}
 
+	.title-text {
+		font-size: 7ex;
+	}
+
 	img {
 		width:70%
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.note-container {
+		width: 90%;
+	}
+
+	div.introduction-container div {
+		width: 90%;
+	}
+
+	.title-text {
+		font-size: 6.4ex;
 	}
 }
