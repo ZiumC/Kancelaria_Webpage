@@ -37,9 +37,9 @@ div.card {
 	margin-bottom: 4ex;
 }
 
-div.card:hover {
-	border: 0.1ex solid #183B7A;
-}
+	div.card:hover {
+		border: 0.1ex solid #183B7A;
+	}
 
 .separation-line {
 	margin: auto;
@@ -55,4 +55,50 @@ ul li, p {
 #leftside-accordion, #rightside-accordion {
 	margin-top: 5ex;
 	width: 80%;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	#leftside-accordion, #rightside-accordion {
+		width: 90%;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+	.title-text {
+		font-size: 7ex;
+	}
+
+	#leftside-accordion, #rightside-accordion {
+		width: 90%;
+	}
+
+	.card-header-text {
+		font-size: 2.2ex;
+	}
+
+	ul li, p {
+		font-size: 2ex;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.title-text {
+		font-size: 6.4ex;
+	}
+
+	#leftside-accordion, #rightside-accordion {
+		width: 90%;
+	}
+
+	#rightside-accordion {
+		margin-top: 0ex;
+	}
+
+	.card-header-text {
+		font-size: 2.2ex;
+	}
+
+	ul li, p {
+		font-size: 2ex;
+	}
 }
