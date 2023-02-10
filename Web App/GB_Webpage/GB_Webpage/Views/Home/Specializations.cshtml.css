@@ -19,6 +19,7 @@
 }
 
 div.card-header {
+	border: none;
 	background-color: white;
 	text-align: center;
 }
@@ -34,6 +35,17 @@ div.card-header {
 
 div.card {
 	margin-bottom: 4ex;
+}
+
+div.card:hover {
+	border: 0.1ex solid #183B7A;
+}
+
+.separation-line {
+	margin: auto;
+	width: 90%;
+	height: 0.15ex;
+	background: #183B7A;
 }
 
 ul li, p {
