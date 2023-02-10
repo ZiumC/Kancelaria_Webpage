@@ -28,3 +28,31 @@ div.introduction-container div {
 	text-align: center;
 	font-size: 2.8ex;
 }
+
+.photo-container {
+	padding-top: 3ex;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin: auto;
+}
+
+.note-container {
+	padding-top: 2ex;
+	width: 80%;
+	margin: auto;
+}
+
+.note {
+	text-align: center;
+}
+
+div.note-container > p:last-child {
+	padding-top: 5ex;
+}
+
+div.note-container > p:last-child:hover {
+	text-decoration: underline;
+}
