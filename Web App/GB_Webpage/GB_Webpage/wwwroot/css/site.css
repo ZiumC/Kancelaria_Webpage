@@ -3,6 +3,16 @@ html {
   min-height: 100%;
 }
 
+.text-dark {
+    text-decoration: none;
+}
+
+img.arrow {
+    margin-left: 0.5ex;
+    width: 4%;
+    height: 4%;
+}
+
 .content-text {
     font-family: 'Oxygen', sans-serif;
     text-align: justify;
