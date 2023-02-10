@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Home\Index - Copy.cshtml.css" />
     <None Remove="Views\Home\Index.cshtml.css" />
   </ItemGroup>
 

@@ -18,7 +18,12 @@ namespace GB_Webpage.Controllers
 			return View();
 		}
 
-		public IActionResult Privacy()
+        public IActionResult Specializations()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
 		{
 			return View();
 		}

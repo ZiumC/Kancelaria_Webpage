@@ -1,0 +1,43 @@
+﻿.title-rectangle {
+	height: 15ex;
+	width: 100%;
+	background-color: #183B7A;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.title-text {
+	color: white;
+	font-size: 9ex;
+}
+
+.cards-container {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+div.card-header {
+	background-color: white;
+	text-align: center;
+}
+
+.card-header-text {
+	font-family: 'Oxygen', sans-serif;
+	font-weight: bold;
+	font-size: 2.5ex;
+	color: black;
+	text-decoration: none;
+	white-space: normal;
+}
+
+div.card {
+	margin-bottom: 4ex;
+}
+
+
+#leftside-accordion {
+	margin-top: 5ex;
+	width: 80%;
+}
