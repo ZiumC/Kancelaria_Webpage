@@ -37,7 +37,7 @@ div.card {
 }
 
 
-#leftside-accordion {
+#leftside-accordion, #rightside-accordion {
 	margin-top: 5ex;
 	width: 80%;
 }
