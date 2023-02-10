@@ -1,0 +1,30 @@
+﻿.title-rectangle {
+	height: 13ex;
+	width: 100%;
+	background-color: #183B7A;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.title-text {
+	color: white;
+	font-size: 7.7ex;
+}
+
+.introduction-container {
+	margin-bottom: 3ex;
+	padding-top: 3ex;
+	text-align: center;
+}
+
+div.introduction-container div {
+	margin: auto;
+	width: 80%;
+}
+
+.introduced-text {
+	font-family: 'Oxygen', sans-serif;
+	text-align: center;
+	font-size: 2.8ex;
+}
