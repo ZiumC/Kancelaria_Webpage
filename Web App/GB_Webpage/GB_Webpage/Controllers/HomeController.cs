@@ -28,6 +28,11 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
+        public IActionResult Cooperation()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
 		{
 			return View();
