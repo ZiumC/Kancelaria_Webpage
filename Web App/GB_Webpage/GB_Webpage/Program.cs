@@ -16,8 +16,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+//removing default controller
+//app.MapControllerRoute(
+//	name: "default",
+//	pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
-	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "default",
+    pattern: "/{action=Index}/{id?}",
+    defaults: new { controller = "Home", action = "Index" });
 
 app.Run();
