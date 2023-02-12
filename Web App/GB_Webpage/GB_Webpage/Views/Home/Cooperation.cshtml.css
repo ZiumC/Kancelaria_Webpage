@@ -28,3 +28,38 @@ div.introduction-container div {
 	text-align: center;
 	font-size: 2.8ex;
 }
+
+ul li {
+	font-weight: bold;
+}
+
+.square-container {
+	height: 35ex;
+	width: 100%;
+	margin-top: 4ex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.square-element {
+	height: 100%;
+	width: 70%;
+	margin: auto;
+	background-color: #65677A;
+}
+
+div.square-element > p {
+	height: 100%;
+	width: 60%;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	font-size: 3ex;
+	font-family: 'Oxygen', sans-serif;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
