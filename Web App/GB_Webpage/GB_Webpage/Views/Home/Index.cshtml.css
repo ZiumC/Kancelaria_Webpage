@@ -26,6 +26,8 @@ h1 {
 	font-family: 'Oxygen', sans-serif;
 	text-align: center;
 	font-size: 2.8ex;
+	width: 80%;
+	margin: auto;
 }
 
 .row-bottom-margin {
