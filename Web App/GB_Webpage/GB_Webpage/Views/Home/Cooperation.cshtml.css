@@ -70,12 +70,12 @@ div.square-element {
 }
 
 .b1 {
-	animation: move-text1 5s infinite;
+	animation: move-text1 15s infinite;
 	font-size: 3.5ex;
 }
 
 .b2 {
-	animation: move-text2 5s infinite;
+	animation: move-text2 15s infinite;
 	font-size: 3.1ex;
 }
 
