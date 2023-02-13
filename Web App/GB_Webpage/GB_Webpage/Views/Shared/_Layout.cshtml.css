@@ -101,38 +101,82 @@ h5.card-title {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	animation: transition 0.5s;
-
 	display:none;
 }
 
 .custom-modal {
 	background-color: white;
-	width: 50%;
-	height: 50%;
+	width: 55%;
+	height: auto;
+	max-height: 95%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	border-radius: 1ex;
+	overflow-y: auto;
+}
+
+div.modal-content-container > p {
+	font-family: 'Oxygen', sans-serif;
+	text-align: justify;
+	font-size: 1.85ex;
 }
 
 .modal-content-container {
-	max-width: 80%;
+	margin-top: 2ex;
+	margin-bottom: 2ex;
+	max-width: 90%;
 }
 
 .modalInfo {
 	word-break: break-word;
 }
 
+/*Adjustring size of 'cookie more information'*/
+@media only screen and (min-width: 999px) and (max-width: 1274px) {
+	.custom-modal {
+		width:65%;
+	}
+}
 
+@media only screen and (min-width: 722px) and (max-width: 998px) {
+	.custom-modal {
+		width: 85%;
+	}
+}
 
+@media only screen and (min-width: 500px) and (max-width: 721px) {
+	.custom-modal {
+		width: 95%;
+	}
 
-/*
-.footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	white-space: nowrap;
-	line-height: 60px;
-}*/
+	.modal-content-container {
+		font-size: 1.6ex;
+	}
+	h5.modal-title {
+		font-size: 2.5ex;
+	}
+
+	div.modal-content-container > p {
+		text-align: left;
+	}
+}
+
+@media only screen and (max-width: 499px) {
+	.custom-modal {
+		width: 100%;
+	}
+
+	.modal-content-container {
+		font-size: 1.5ex;
+	}
+
+	h5.modal-title {
+		font-size: 2ex;
+	}
+
+	div.modal-content-container > p {
+		text-align: left;
+	}
+}
