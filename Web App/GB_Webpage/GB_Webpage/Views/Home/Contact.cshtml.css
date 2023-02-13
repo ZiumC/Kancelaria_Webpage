@@ -101,3 +101,33 @@ div.button-container input {
 div.map-container div:first-child {
 	height: 40ex;
 }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.title-text {
+		font-size: 7ex;
+	}
+}
+
+@media only screen and (min-width: 496px) and (max-width: 767px) {
+	.contact-information {
+		padding-top: 0ex;
+		padding-bottom: 4ex;
+	}
+
+	.title-text {
+		font-size: 6.4ex;
+	}
+}
+
+@media only screen and (max-width: 495px) {
+	.contact-information {
+		padding-top: 0ex;
+		padding-bottom: 4ex;
+		font-size: 2ex;
+	}
+
+	.rightside-container {
+		font-size: 1.7ex;
+	}
+
+}
