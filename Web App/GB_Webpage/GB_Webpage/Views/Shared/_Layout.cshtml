@@ -12,6 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <header>
@@ -57,6 +60,24 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+    </div>
+
+    <div class="row cookie-container">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title text-white">Ciasteczka</h5>
+                <p class="card-text text-white">
+                    Ta strona używa plików cookies, korzystanie z tej strony oznacza
+                    zhodę na ich wykorzystanie.<p>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button id="hide" class="btn btn-secondary">Ukryj powiadomienie</button>
+                            <button id="moreInfo" class="btn btn-secondary">Dowiedz się więcej</button>
+
+                        </div>
+                    </div>
+            </div>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
