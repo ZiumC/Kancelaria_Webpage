@@ -37,9 +37,9 @@ div.card {
 	margin-bottom: 4ex;
 }
 
-	div.card:hover {
-		border: 0.1ex solid #183B7A;
-	}
+div.card:hover {
+	border: 0.1ex solid #183B7A;
+}
 
 .separation-line {
 	margin: auto;

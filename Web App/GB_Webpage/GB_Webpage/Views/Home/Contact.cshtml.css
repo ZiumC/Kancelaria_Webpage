@@ -45,6 +45,16 @@ h5 {
 	font-size: 2.5ex;
 }
 
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+	a:hover {
+		color: #183B7A;
+		text-decoration: underline;
+	}
+
 div.leftside-container div:first-child {
 	margin: auto;
 	height: auto;
@@ -62,9 +72,15 @@ div.leftside-container p:last-child {
 	color: rgba(255, 52, 52, 0.993);
 }
 
-
 #error-name, #error-email, #error-text {
-	margin-left: 1ex;
+	margin-left: 0.5ex;
+	font-size: 1.5ex;
+}
+
+div.row div.col:last-child {
+	text-align: right;
+	margin-right: 0.5ex;
+	font-size: 1.5ex;
 }
 
 .button-container {

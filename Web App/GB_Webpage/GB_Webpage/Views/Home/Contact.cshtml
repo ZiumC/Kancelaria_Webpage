@@ -30,9 +30,14 @@
                     <h4 class="content-text">Kancelaria Radcy Prawnego Grzegorz Bochnacki</h4>
                     <h5 class="content-text">Budynek "Babka Tower"</h5>
                     <p class="content-text">
-                        Al. Jana Pawła II 80 lok. D39, VIII piętro <br />00-175 Warszawa
+                        Al. Jana Pawła II 80 lok. D39, VIII piętro <br />
+                        00-175 Warszawa <br />
+                        Wejście od strony ulicy <strong>'Dzika'</strong>
                     </p>
-                    <p class="content-text">Telefon: 22 627 27 33<br /> E-mail: <a href="mailto:" kancelaria@bochnacki.com">kancelaria@bochnacki.com</a></p>
+                    <p class="content-text">
+                        Telefon: 22 627 27 33<br />
+                        E-mail: <a href="mailto:" kancelaria@bochnacki.com">kancelaria@bochnacki.com</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -40,24 +45,31 @@
         <div class="col-md-6 ">
             <div class="rightside-container">
                 <div class="row">
-                    <form>
+                    <form class="content-text">
                         <div class="form-heading">
                             <div class="form-group">
-                                <label for="Name" class="content-text">Imię i Nazwisko: <span class="symbol-required">*</span></label>
+                                <label for="Name">Imię i Nazwisko: <span class="symbol-required">*</span></label>
                                 <input asp-for="Name" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
-                                <span id="error-name" class="text-danger content-text">asdasd</span>
+                                <span id="error-name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label for="Email" class="content-text">E-mail: <span class="symbol-required">*</span></label>
+                                <label for="Email">E-mail: <span class="symbol-required">*</span></label>
                                 <input asp-for="Email" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
-                                <span id="error-email" class="text-danger content-text">asdasd</span>
+                                <span id="error-email" class="text-danger"></span>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="Message" class="content-text">Wiadomość: <span class="symbol-required">*</span></label>
-                            <textarea asp-for="Message" class="form-control contact-message" type="text" rows="13" placeholder="3-1000 znaków" autocomplete="off"></textarea>
-                            <span id="error-text" class="text-danger content-text">asdads</span>
+                            <label for="Message">Wiadomość: <span class="symbol-required">*</span></label>
+                            <textarea asp-for="Message" class="form-control contact-message" maxlength="5000" type="text" rows="13" placeholder="10-5000 znaków" autocomplete="off"></textarea>
+                            <div class="row">
+                                <div class="col">
+                                    <span id="error-text" class="text-danger"></span>
+                                </div>
+                                <div class="col">
+                                    <span id="counter">*/5000</span>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="button-container">
@@ -67,14 +79,15 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="map-container">
-            <div class="mapouter">
-                <div class="gmap_canvas">
-                    <iframe width="100%" height="100%" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.416175112363!2d20.981828315991773!3d52.253987263661124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecb88a8ece855%3A0x848710e55395c9a!2sal.%20Jana%20Paw%C5%82a%20II%2080%2C%2000-175%20Warszawa%2C%20Poland!5e0!3m2!1sen!2sus!4v1658313597374!5m2!1sen!2sus" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                    <a href="https://putlocker-is.org"></a><a href="https://www.embedgooglemap.net"></a>
-                </div>
+    <div class="map-container">
+        <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe width="100%" height="100%" id="gmap_canvas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2442.416175112363!2d20.981828315991773!3d52.253987263661124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecb88a8ece855%3A0x848710e55395c9a!2sal.%20Jana%20Paw%C5%82a%20II%2080%2C%2000-175%20Warszawa%2C%20Poland!5e0!3m2!1sen!2sus!4v1658313597374!5m2!1sen!2sus" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                <a href="https://putlocker-is.org"></a><a href="https://www.embedgooglemap.net"></a>
             </div>
         </div>
+    </div>
 </body>
 </html>
