@@ -20,8 +20,8 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-action="Index"><img src="~/images/logo_pl.png" alt="Logo"/></a>
-                
+                <a class="navbar-brand" asp-area="" asp-action="Index"><img src="~/images/logo_pl.png" alt="Logo" /></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -68,17 +68,32 @@
                 <h5 class="card-title text-white">Ciasteczka</h5>
                 <p class="card-text text-white">
                     Ta strona używa plików cookies, korzystanie z tej strony oznacza
-                    zhodę na ich wykorzystanie.<p>
+                    zhodę na ich wykorzystanie.
+                <p>
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button id="hide" class="btn btn-secondary">Ukryj powiadomienie</button>
                             <button id="moreInfo" class="btn btn-secondary">Dowiedz się więcej</button>
-
                         </div>
                     </div>
             </div>
         </div>
     </div>
+
+    <div class="custom-modal-bg">
+            <div class="custom-modal">
+                <h5 class="modal-title">Ciasteczka</h5>
+                <div class="modal-content-container">
+                    <p class="modalInfo">
+                    </p>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary">Close</button>
+                </div>
+
+            </div>
+        </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">

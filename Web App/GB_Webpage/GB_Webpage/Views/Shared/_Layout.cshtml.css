@@ -90,6 +90,41 @@ h5.card-title {
 	font-weight: bold;
 }
 
+/*Cookie more information*/
+.custom-modal-bg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: transition 0.5s;
+
+	display:none;
+}
+
+.custom-modal {
+	background-color: white;
+	width: 50%;
+	height: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 1ex;
+}
+
+.modal-content-container {
+	max-width: 80%;
+}
+
+.modalInfo {
+	word-break: break-word;
+}
+
 
 
 
