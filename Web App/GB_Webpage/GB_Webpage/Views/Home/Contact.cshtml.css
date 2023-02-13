@@ -28,3 +28,22 @@ div.introduction-container div {
 	text-align: center;
 	font-size: 2.8ex;
 }
+
+.contact-information {
+	margin: auto;
+	width: 85%;
+}
+
+h4 {
+	font-weight: bold;
+	font-size: 3ex;
+}
+
+h5 {
+	font-weight: bold;
+	font-size: 2.5ex;
+}
+
+div.leftside-container p:last-child {
+	font-size: 2.2ex;
+}
