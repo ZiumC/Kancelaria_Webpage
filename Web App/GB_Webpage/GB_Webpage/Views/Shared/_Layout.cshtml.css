@@ -64,6 +64,31 @@ ul li:hover {
 	background-color: #cacbcf;
 }
 
+/*Cookie section*/
+/*Cookie first window*/
+.cookie-container {
+	text-align: left;
+	position: fixed;
+	bottom: 0ex;
+	right: 5ex;
+}
+
+div.cookie-container div:first-child {
+	width: 60ex;
+	background-color: #183B7A;
+}
+
+div.card div:first-child {
+	right: 5ex;
+	width: 100%;
+}
+
+h5.card-title {
+	text-align: center;
+}
+
+
+
 /*
 .footer {
 	position: absolute;
