@@ -90,6 +90,16 @@ h5.card-title {
 	font-weight: bold;
 }
 
+@media only screen and (max-width: 565px) {
+	.cookie-container {
+		width: 65%;
+		height: auto;
+	}
+	#hide {
+		margin-bottom: 1ex;
+	}
+}
+
 /*Cookie more information*/
 .custom-modal-bg {
 	position: fixed;
