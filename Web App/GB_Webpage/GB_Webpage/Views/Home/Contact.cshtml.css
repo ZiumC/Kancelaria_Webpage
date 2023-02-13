@@ -30,6 +30,7 @@ div.introduction-container div {
 }
 
 .contact-information {
+	padding-top: 10ex;
 	margin: auto;
 	width: 85%;
 }
@@ -44,12 +45,17 @@ h5 {
 	font-size: 2.5ex;
 }
 
+div.leftside-container div:first-child {
+	margin: auto;
+	height: auto;
+}
+
 div.leftside-container p:last-child {
 	font-size: 2.2ex;
 }
 
 .form-heading {
-	width: 65%;	
+	width: 65%;
 }
 
 .symbol-required {
@@ -62,10 +68,18 @@ div.leftside-container p:last-child {
 }
 
 .button-container {
-	margin:auto;
+	margin: auto;
 }
 
 div.button-container input {
 	display: block;
-	width:100%
+	width: 100%
+}
+
+.map-container {
+	margin-top: 10ex;
+}
+
+div.map-container div:first-child {
+	height: 40ex;
 }
