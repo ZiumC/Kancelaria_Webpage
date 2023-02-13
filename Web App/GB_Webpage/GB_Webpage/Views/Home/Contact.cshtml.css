@@ -30,19 +30,25 @@ div.introduction-container div {
 }
 
 .contact-information {
+	text-align: left;
+	font-size: 2.2ex;
 	padding-top: 10ex;
 	margin: auto;
-	width: 85%;
+	width: 90%;
 }
 
 h4 {
 	font-weight: bold;
-	font-size: 3ex;
+	font-size: 2.5ex;
 }
 
 h5 {
 	font-weight: bold;
-	font-size: 2.5ex;
+	font-size: 2.3ex;
+}
+
+div.contact-information p:last-child {
+	font-size: 2ex;
 }
 
 a {
@@ -50,18 +56,14 @@ a {
 	text-decoration: none;
 }
 
-	a:hover {
-		color: #183B7A;
-		text-decoration: underline;
-	}
+a:hover {
+	color: #183B7A;
+	text-decoration: underline;
+}
 
 div.leftside-container div:first-child {
 	margin: auto;
 	height: auto;
-}
-
-div.leftside-container p:last-child {
-	font-size: 2.2ex;
 }
 
 .form-heading {
