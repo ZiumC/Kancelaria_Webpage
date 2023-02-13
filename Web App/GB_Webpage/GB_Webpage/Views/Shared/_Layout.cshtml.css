@@ -72,6 +72,7 @@ ul li:hover {
 	position: fixed;
 	bottom: -1ex;
 	right: 5ex;
+	display:block;
 }
 
 div.cookie-container div:first-child {
