@@ -28,6 +28,14 @@ body {
     max-height: 40ex;
 }
 
+.alert-container {
+    font-size: 1.8ex;
+}
+
+div.alert-container div:first-child {
+    text-align: center;
+}
+
 @keyframes opacity-animation {
     from {
         opacity: 0;

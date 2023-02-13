@@ -5,6 +5,7 @@
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	margin-bottom: 3ex;
 }
 
 .title-text {
@@ -14,7 +15,6 @@
 
 .introduction-container {
 	margin-bottom: 3ex;
-	padding-top: 3ex;
 	text-align: center;
 }
 
@@ -102,7 +102,7 @@ div.map-container div:first-child {
 	height: 40ex;
 }
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
+@media all and (min-width: 768px) and (max-width: 991px) {
 	.title-text {
 		font-size: 7ex;
 	}
