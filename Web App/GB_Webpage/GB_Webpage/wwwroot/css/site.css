@@ -24,6 +24,10 @@ body {
     animation-timing-function: linear;
 }
 
+.contact-message {
+    max-height: 40ex;
+}
+
 @keyframes opacity-animation {
     from {
         opacity: 0;

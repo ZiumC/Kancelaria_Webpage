@@ -1,4 +1,5 @@
-﻿@{
+﻿@model EmailForm;
+@{
     ViewData["Title"] = "Kontakt | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
 }
 <!DOCTYPE html>
@@ -40,7 +41,32 @@
 
         <div class="col-md-6 ">
             <div class="rightside-container">
-               
+                <div class="row">
+                    <form>
+                        <div class="form-heading">
+                            <div class="form-group">
+                                <label for="Name" class="content-text">Imię i Nazwisko: <span class="symbol-required">*</span></label>
+                                <input asp-for="Name" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
+                                <span id="error-name" class="text-danger content-text">asdasd</span>
+                            </div>
+                            <div class="form-group">
+                                <label for="Email" class="content-text">E-mail: <span class="symbol-required">*</span></label>
+                                <input asp-for="Email" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
+                                <span id="error-email" class="text-danger content-text">asdasd</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Message" class="content-text">Wiadomość: <span class="symbol-required">*</span></label>
+                            <textarea asp-for="Message" class="form-control contact-message" type="text" rows="13" placeholder="3-1000 znaków" autocomplete="off"></textarea>
+                            <span id="error-text" class="text-danger content-text">asdads</span>
+                        </div>
+
+                        <div class="button-container">
+                            <input type="submit" value="Wyślij" class="btn btn-secondary" onclick="" />
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
