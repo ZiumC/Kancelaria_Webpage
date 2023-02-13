@@ -67,9 +67,10 @@ ul li:hover {
 /*Cookie section*/
 /*Cookie first window*/
 .cookie-container {
+	font-size: 1.9ex;
 	text-align: left;
 	position: fixed;
-	bottom: 0ex;
+	bottom: -1ex;
 	right: 5ex;
 }
 
@@ -85,7 +86,10 @@ div.card div:first-child {
 
 h5.card-title {
 	text-align: center;
+	font-size: 3ex;
+	font-weight: bold;
 }
+
 
 
 
