@@ -199,3 +199,14 @@ div.modal-content-container > p {
 		text-align: left;
 	}
 }
+
+/*Buttons of languages section*/
+.language-icon {
+	height: 3ex;
+	width: 3ex;
+}
+
+.settings-bar {
+	margin-right: 5ex;
+	margin-left: auto;
+}
