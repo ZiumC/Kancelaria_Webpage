@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-action="Index"><img src="~/images/logo_pl.png" alt="Logo" /></a>
 
@@ -48,25 +48,22 @@
 
                     </ul>
                 </div>
-
             </div>
         </nav>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <ul class="navbar-nav settings-bar">
-                    <form>
-                        <button name="pl_flag" class="btn btn-sm">
-                            <img class="language-icon" src="/images/poland-flag.png" />
-                        </button>
-                        <button name="en_flag" class="btn btn-sm">
-                            <img class="language-icon" src="/images/uk-flag.png" />
-                        </button>
-                        <button name="de_flag" class="btn btn-sm">
-                            <img class="language-icon" src="/images/germany-flag.png" />
-                        </button>
-                    </form>
-                </ul>
-            </div>
+        <nav class="navbar-light bg-white">
+            <ul class="navbar-nav settings-bar">
+                <form>
+                    <button name="pl_flag" class="btn btn-sm">
+                        <img class="language-icon" src="/images/poland-flag.png" />
+                    </button>
+                    <button name="en_flag" class="btn btn-sm">
+                        <img class="language-icon" src="/images/uk-flag.png" />
+                    </button>
+                    <button name="de_flag" class="btn btn-sm">
+                        <img class="language-icon" src="/images/germany-flag.png" />
+                    </button>
+                </form>
+            </ul>
         </nav>
     </header>
     <div class="container">
