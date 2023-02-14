@@ -59,7 +59,7 @@ li.nav-item {
 
 
 
-ul li:hover {
+ul.flex-grow-1 li:hover {
 	border-radius: 1ex 1ex 1ex 1ex;
 	height: 100%;
 	background-color: #cacbcf;
@@ -202,12 +202,20 @@ div.modal-content-container > p {
 }
 
 /*Buttons of languages section*/
+header nav:last-child {
+	text-align: right;
+}
+
 .language-icon {
 	height: 3ex;
 	width: 3ex;
 }
 
 .settings-bar {
-	text-align: right;
+	display: -webkit-inline-box;
 	margin-right: 1ex;
+}
+
+ul.settings-bar li:last-child {
+	margin-left: 4ex;
 }
