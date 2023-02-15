@@ -206,7 +206,7 @@ header nav:last-child {
 	text-align: right;
 }
 
-.language-icon {
+.settings-icon {
 	height: 3ex;
 	width: 3ex;
 }
@@ -218,4 +218,13 @@ header nav:last-child {
 
 ul.settings-bar li:last-child {
 	margin-left: 4ex;
+}
+
+/*Button of theme selection*/
+.light-theme {
+	content: url(icons/light.png);
+}
+
+.dark-theme {
+	content: url(icons/dark.png);
 }
