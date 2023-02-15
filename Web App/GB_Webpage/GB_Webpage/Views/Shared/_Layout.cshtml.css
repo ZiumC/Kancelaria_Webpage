@@ -111,7 +111,7 @@ h5.card-title {
 }
 
 /*Cookie more information*/
-.custom-modal-bg {
+.cookie-modal-bg {
 	position: fixed;
 	width: 100%;
 	height: 100%;
@@ -124,8 +124,8 @@ h5.card-title {
 	display:none;
 }
 
-.custom-modal {
-	background-color: white;
+.cookie-modal {
+	background-color:white;
 	width: 55%;
 	height: auto;
 	max-height: 95%;
@@ -155,19 +155,19 @@ div.modal-content-container > p {
 
 /*Adjustring size of 'cookie more information'*/
 @media only screen and (min-width: 999px) and (max-width: 1274px) {
-	.custom-modal {
-		width:65%;
+	.cookie-modal {
+		width: 65%;
 	}
 }
 
 @media only screen and (min-width: 722px) and (max-width: 998px) {
-	.custom-modal {
+	.cookie-modal {
 		width: 85%;
 	}
 }
 
 @media only screen and (min-width: 500px) and (max-width: 721px) {
-	.custom-modal {
+	.cookie-modal {
 		width: 95%;
 	}
 
@@ -184,7 +184,7 @@ div.modal-content-container > p {
 }
 
 @media only screen and (max-width: 499px) {
-	.custom-modal {
+	.cookie-modal {
 		width: 100%;
 	}
 
@@ -226,10 +226,6 @@ ul.settings-bar li:last-child {
 	width: 3ex;
 	display: table;
 	margin: 0 auto;
-}
-.light-theme:focus, .dark-theme:focus {
-	outline: none;
-	box-shadow: none;
 }
 
 .light-theme {

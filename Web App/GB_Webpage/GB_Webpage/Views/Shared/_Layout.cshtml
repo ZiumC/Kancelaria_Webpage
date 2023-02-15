@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-action="Index"><img src="~/images/logo_pl.png" alt="Logo" /></a>
 
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar-light bg-white mb-3">
+        <nav class="navbar-light mb-3">
             <ul class="navbar-nav settings-bar">
                 <li>
                     <form>
@@ -67,8 +67,8 @@
                 </li>
 
                 <li>
-                    <button class="btn btn-sm" onclick="changeTheme();">
-                        <i id="themeIcon" class="dark-theme"></i>
+                    <button id="theme-button" class="btn btn-sm" onclick="setTheme();">
+                        <i id="theme-icon" class="dark-theme"></i>
                     </button>
                 </li>
                 
@@ -99,8 +99,8 @@
         </div>
     </div>
 
-    <div id="about-cookies" class="custom-modal-bg">
-        <div class="custom-modal">
+    <div id="about-cookies" class="cookie-modal-bg">
+        <div id="cookie-modal-content" class="cookie-modal">
             <div class="modal-content-container">
                 <h5 class="modal-title">Czym są pliki cookie?</h5>
                 <p class="modalInfo">
