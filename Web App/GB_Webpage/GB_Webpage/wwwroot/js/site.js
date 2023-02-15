@@ -44,3 +44,15 @@ function getCookie(name) {
 function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
+
+function changeTheme() {
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.querySelector('body');
+
+    if (themeIcon.classList == 'dark-theme') {
+        themeIcon.classList = 'light-theme';
+
+    } else {
+        themeIcon.classList = 'dark-theme';
+    }
+}

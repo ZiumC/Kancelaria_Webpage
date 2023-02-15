@@ -221,6 +221,17 @@ ul.settings-bar li:last-child {
 }
 
 /*Button of theme selection*/
+.light-theme, .dark-theme {
+	height: 3ex;
+	width: 3ex;
+	display: table;
+	margin: 0 auto;
+}
+.light-theme:focus, .dark-theme:focus {
+	outline: none;
+	box-shadow: none;
+}
+
 .light-theme {
 	content: url(icons/light.png);
 }
