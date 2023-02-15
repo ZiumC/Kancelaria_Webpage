@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-action="Index"><img src="~/images/logo_pl.png" alt="Logo" /></a>
 
@@ -24,26 +24,26 @@
                 </button>
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul id="menu-bar" class="navbar-nav flex-grow-1">
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-action="index">O nas</a>
+                            <a class="nav-link" asp-area="" asp-action="index">O nas</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-action="specializations">Specjalizacje</a>
+                            <a class="nav-link" asp-area="" asp-action="specializations">Specjalizacje</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-action="team">Zespół</a>
+                            <a class="nav-link" asp-area="" asp-action="team">Zespół</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-action="cooperation">Współpraca</a>
+                            <a class="nav-link" asp-area="" asp-action="cooperation">Współpraca</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-action="contact">Kontakt</a>
+                            <a class="nav-link" asp-area="" asp-action="contact">Kontakt</a>
                         </li>
 
                     </ul>
