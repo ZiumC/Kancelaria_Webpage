@@ -28,6 +28,7 @@ function isCookiePanelHidded() {
 window.onload = function () {
 
     isCookiePanelHidded();
+    changeThemeIcon();
 
     const body = document.querySelector('body');
     const nav = document.querySelector('nav');
@@ -79,6 +80,26 @@ function setThemeFor(element) {
     }
 
     element.style.transition = '1s';
+}
+
+function changeThemeIcon() {
+
+    const theme = getCookie("theme");
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (theme == "dark") {
+
+        themeIcon.classList = 'dark-theme';
+
+    } else if (theme == "light") {
+
+        themeIcon.classList = 'light-theme';
+
+    } else {
+
+        themeIcon.classList = 'dark-theme';
+
+    }
 }
 
 function setTheme() {
