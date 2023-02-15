@@ -37,7 +37,7 @@ function getCookie(name) {
             .pop()
             .split(';')
             .shift();
-    } 
+    }
 
 }
 
@@ -45,14 +45,50 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
 
-function changeTheme() {
-    const themeIcon = document.getElementById('themeIcon');
-    const body = document.querySelector('body');
+function setThemeFor(element) {
 
-    if (themeIcon.classList == 'dark-theme') {
-        themeIcon.classList = 'light-theme';
+    const theme = getCookie("theme");
+
+    if (theme == "dark") {
+
+        element.style.background = "white";
+        element.style.color = "black";
+
+    } else if (theme == "light") {
+
+        element.style.background = "black";
+        element.style.color = "white";
 
     } else {
-        themeIcon.classList = 'dark-theme';
+
+        element.style.background = "white";
+        element.style.color = "black";
+
     }
+
+    element.style.transition = '1s';
+}
+
+function setTheme() {
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (themeIcon.classList == 'dark-theme') {
+
+        themeIcon.classList = 'light-theme';
+        setCookie("theme", "light");
+
+    } else {
+
+        themeIcon.classList = 'dark-theme';
+        setCookie("theme", "dark");
+
+    }
+
+    const body = document.querySelector('body');
+    const nav = document.querySelector('nav');
+    const cookie = document.getElementById('cookie-modal-content');
+
+    setThemeFor(body);
+    setThemeFor(nav);
+    setThemeFor(cookie);
 }
