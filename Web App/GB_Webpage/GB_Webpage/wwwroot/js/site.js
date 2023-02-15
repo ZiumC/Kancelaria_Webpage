@@ -15,8 +15,7 @@ document.getElementById('moreInfo').onclick = function () {
     document.getElementById('about-cookies').style.display = "flex";
 };
 
-window.onload = function () {
-
+function isCookiePanelHidded() {
     const isCookieHidded = getCookie("cookie_panel_hidded");
 
     if (isCookieHidded === null || isCookieHidded === undefined || isCookieHidded != "true") {
@@ -24,6 +23,19 @@ window.onload = function () {
     } else {
         document.getElementById('cookie-panel').style.display = "none";
     }
+}
+
+window.onload = function () {
+
+    isCookiePanelHidded();
+
+    const body = document.querySelector('body');
+    const nav = document.querySelector('nav');
+    const cookie = document.getElementById('cookie-modal-content');
+
+    setThemeFor(body);
+    setThemeFor(nav);
+    setThemeFor(cookie);
 
 };
 
