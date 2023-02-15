@@ -59,7 +59,7 @@ li.nav-item {
 
 
 
-ul.flex-grow-1 li:hover {
+ul#menu-bar li:hover {
 	border-radius: 1ex 1ex 1ex 1ex;
 	height: 100%;
 	background-color: #cacbcf;
@@ -125,7 +125,6 @@ h5.card-title {
 }
 
 .cookie-modal {
-	background-color:white;
 	width: 55%;
 	height: auto;
 	max-height: 95%;

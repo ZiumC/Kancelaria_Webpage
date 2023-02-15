@@ -34,9 +34,15 @@ window.onload = function () {
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
 
-    setThemeFor(body);
-    setThemeFor(nav);
-    setThemeFor(cookie);
+    setThemeFor(body, false);
+    setThemeFor(nav, false);
+    setThemeFor(cookie, false);
+
+    var targetNav = document.querySelectorAll("ul#menu-bar li a");
+
+    for (let i = 0; i < targetNav.length; i++) {
+        setThemeFor(targetNav[i], true);
+    }
 
 };
 
@@ -58,7 +64,7 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
 
-function setThemeFor(element) {
+function setThemeFor(element, isTopNavElement) {
 
     const theme = getCookie("theme");
 
@@ -79,6 +85,9 @@ function setThemeFor(element) {
 
     }
 
+    if (isTopNavElement) {
+        element.style.background = "none";
+    }
     element.style.transition = '1s';
 }
 
@@ -121,7 +130,14 @@ function setTheme() {
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
 
-    setThemeFor(body);
-    setThemeFor(nav);
-    setThemeFor(cookie);
+    setThemeFor(body, false);
+    setThemeFor(nav, false);
+    setThemeFor(cookie, false);
+
+    var targetNav = document.querySelectorAll("ul#menu-bar li a");
+
+    for (let i = 0; i < targetNav.length; i++) {
+        setThemeFor(targetNav[i], true);
+    }
+
 }
