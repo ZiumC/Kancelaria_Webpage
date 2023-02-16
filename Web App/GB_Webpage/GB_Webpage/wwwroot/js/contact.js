@@ -46,8 +46,11 @@ function validateName() {
 
 function validateEmail() {
 
-    const email = document.getElementById('input-email').value;
+    const element = document.getElementById('input-email');
+    const email = element.value;
     const isEmailCorrect = new RegExp("^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$").test(email);
+
+    setErrorBorderTo(element);
 
     if (email.replace(/\s/g, "") == "" || email == null) {
 
@@ -66,6 +69,7 @@ function validateEmail() {
 
     } else {
 
+        setCorrectBorderTo(element);
         $("#error-email").text("");
         return true;
 
