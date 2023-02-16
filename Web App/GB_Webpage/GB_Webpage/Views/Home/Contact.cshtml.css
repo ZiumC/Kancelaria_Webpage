@@ -77,6 +77,7 @@ div.leftside-container div:first-child {
 #error-name, #error-email, #error-message, #counter {
 	margin-left: 0.5ex;
 	font-size: 1.5ex;
+	font-weight: bold;
 }
 
 div.row div.col:last-child {
