@@ -88,6 +88,7 @@ function setThemeFor(element, isTopNavElement) {
     if (isTopNavElement) {
         element.style.background = "none";
     }
+
     element.style.transition = '1s';
 }
 
@@ -140,4 +141,13 @@ function setTheme() {
         setThemeFor(targetNav[i], true);
     }
 
+    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card button");
+    var targetCardBody = document.querySelectorAll("div.row div.col-md-6 div.card div.card-body");
+    var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
+
+    for (let i = 0; i < targetCard.length; i++) {
+        setThemeFor(targetCard[i], false);
+        setThemeFor(targetCardBody[i], false);
+        setThemeFor(targetCardHeader[i], false);
+    }
 }
