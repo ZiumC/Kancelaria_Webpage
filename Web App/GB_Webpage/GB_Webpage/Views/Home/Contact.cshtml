@@ -55,17 +55,20 @@
             <div class="rightside-container">
                 <div class="row">
                     <form id="contact-form" class="content-text" method="post">
-                        <div class="form-heading">
-                            <div class="form-group">
+                        <div class="form-group">
+                            <div class="form-heading">
                                 <label for="Name">Imię i Nazwisko: <span class="symbol-required">*</span></label>
                                 <input id="input-name" asp-for="Name" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
-                                <span id="error-name" class="text-danger"></span>
                             </div>
-                            <div class="form-group">
+                            <span id="error-name" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-heading">
                                 <label for="Email">E-mail: <span class="symbol-required">*</span></label>
                                 <input asp-for="Email" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
-                                <span id="error-email" class="text-danger"></span>
                             </div>
+                            <span id="error-email" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
