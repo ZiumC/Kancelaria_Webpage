@@ -39,7 +39,7 @@ div.card {
 
 div.card:hover {
 	-webkit-animation-name: none;
-	border: 0.1ex solid #183B7A;
+	border: 0.2ex solid #183B7A;
 }
 
 .separation-line {

@@ -34,14 +34,22 @@ window.onload = function () {
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
 
-    setThemeFor(body, false);
-    setThemeFor(nav, false);
-    setThemeFor(cookie, false);
+    setThemeFor(body, false, false);
+    setThemeFor(nav, false, false);
+    setThemeFor(cookie, false, false);
 
     var targetNav = document.querySelectorAll("ul#menu-bar li a");
 
     for (let i = 0; i < targetNav.length; i++) {
-        setThemeFor(targetNav[i], true);
+        setThemeFor(targetNav[i], true, false);
+    }
+
+    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
+    var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
+
+    for (let i = 0; i < targetCard.length; i++) {
+        setThemeFor(targetCard[i], false, true);
+        setThemeFor(targetCardHeader[i], false, true);
     }
 
 };
@@ -64,7 +72,7 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
 
-function setThemeFor(element, isTopNavElement) {
+function setThemeFor(element, isTopNavElement, disableAnimation) {
 
     const theme = getCookie("theme");
 
@@ -86,10 +94,21 @@ function setThemeFor(element, isTopNavElement) {
     }
 
     if (isTopNavElement) {
+
         element.style.background = "none";
+
     }
 
-    element.style.transition = '1s';
+    if (disableAnimation) {
+
+        element.style.transition = '0s';
+
+    } else {
+
+        element.style.transition = '1s';
+
+    }
+
 }
 
 function changeThemeIcon() {
@@ -131,23 +150,21 @@ function setTheme() {
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
 
-    setThemeFor(body, false);
-    setThemeFor(nav, false);
-    setThemeFor(cookie, false);
+    setThemeFor(body, false, false);
+    setThemeFor(nav, false, false);
+    setThemeFor(cookie, false, false);
 
     var targetNav = document.querySelectorAll("ul#menu-bar li a");
 
     for (let i = 0; i < targetNav.length; i++) {
-        setThemeFor(targetNav[i], true);
+        setThemeFor(targetNav[i], true, false);
     }
 
-    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card button");
-    var targetCardBody = document.querySelectorAll("div.row div.col-md-6 div.card div.card-body");
+    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
     var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
 
     for (let i = 0; i < targetCard.length; i++) {
-        setThemeFor(targetCard[i], false);
-        setThemeFor(targetCardBody[i], false);
-        setThemeFor(targetCardHeader[i], false);
+        setThemeFor(targetCard[i], false, true);
+        setThemeFor(targetCardHeader[i], false, true);
     }
 }
