@@ -25,6 +25,44 @@ function isCookiePanelHidded() {
     }
 }
 
+function countCharacters() {
+
+    const textAreaElement = document.getElementById('input-message');
+    const counterSpanElement = document.getElementById('counter');
+
+    if (textAreaElement == undefined || textAreaElement == null) {
+        return;
+    }
+
+    if (counterSpanElement == undefined || counterSpanElement == null) {
+        return;
+    }
+
+    const maxLength = 5000;
+
+    textAreaElement.addEventListener('input', () => {
+
+        const charactersLeft = maxLength - textAreaElement.value.length;
+        counterSpanElement.textContent = charactersLeft + "/" + maxLength;
+
+        if (charactersLeft <= 20) {
+
+            counterSpanElement.style.color = 'red';
+
+        } else if (charactersLeft > 20 && charactersLeft <= 1500) {
+
+            counterSpanElement.style.color = 'orange';
+
+        } else {
+
+            setThemeToCounter();
+
+        }
+
+    });
+
+}
+
 window.onload = function () {
 
     isCookiePanelHidded();
@@ -33,7 +71,9 @@ window.onload = function () {
     setThemeToPage();
     setThemeToNavBar();
     setThemeToCard();
+    setThemeToCounter();
 
+    countCharacters();
 };
 
 function getCookie(name) {
@@ -119,6 +159,7 @@ document.getElementById('theme-button').onclick = function () {
     setThemeToPage();
     setThemeToNavBar();
     setThemeToCard();
+    setThemeToCounter();
 
 }
 
@@ -142,7 +183,7 @@ function changeThemeIcon() {
     }
 }
 
-function setThemeToPage(){
+function setThemeToPage() {
 
     const body = document.querySelector('body');
     const nav = document.querySelector('nav');
@@ -173,5 +214,13 @@ function setThemeToCard() {
         setThemeTo(targetCard[i], true);
         setThemeTo(targetCardHeader[i], true);
     }
+
+}
+
+function setThemeToCounter() {
+
+    var targetCounter = document.getElementById('counter');
+
+    setThemeTo(targetCounter, false);
 
 }
