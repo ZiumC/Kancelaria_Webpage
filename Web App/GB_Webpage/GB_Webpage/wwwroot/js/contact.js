@@ -18,8 +18,11 @@ document.getElementById('send-button').onclick = function () {
 
 function validateName() {
 
-    const name = document.getElementById('input-name').value;
+    const element = document.getElementById('input-name');
+    const name = element.value;
     const isNameCorrect = new RegExp("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$").test(name);
+
+    setErrorBorderTo(element);
 
     if (name.replace(/\s/g, "") == "" || name == null) {
 
@@ -38,6 +41,7 @@ function validateName() {
 
     } else {
 
+        setCorrectBorderTo(element);
         $("#error-name").text("");
         return true;
 
