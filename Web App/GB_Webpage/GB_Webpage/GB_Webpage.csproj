@@ -15,4 +15,8 @@
     <Content Include="Views\Home\Index.cshtml.css" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\js\contact.js" />
+  </ItemGroup>
+
 </Project>
