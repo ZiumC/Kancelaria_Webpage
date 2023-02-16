@@ -30,27 +30,9 @@ window.onload = function () {
     isCookiePanelHidded();
     changeThemeIcon();
 
-    const body = document.querySelector('body');
-    const nav = document.querySelector('nav');
-    const cookie = document.getElementById('cookie-modal-content');
-
-    setThemeFor(body, false, false);
-    setThemeFor(nav, false, false);
-    setThemeFor(cookie, false, false);
-
-    var targetNav = document.querySelectorAll("ul#menu-bar li a");
-
-    for (let i = 0; i < targetNav.length; i++) {
-        setThemeFor(targetNav[i], true, false);
-    }
-
-    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
-    var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
-
-    for (let i = 0; i < targetCard.length; i++) {
-        setThemeFor(targetCard[i], false, true);
-        setThemeFor(targetCardHeader[i], false, true);
-    }
+    setThemeToPage();
+    setThemeToNavBar();
+    setThemeToCard();
 
 };
 
@@ -72,7 +54,7 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
 
-function setThemeFor(element, isTopNavElement, disableAnimation) {
+function setThemeTo(element, isTopNavElement, disableAnimation) {
 
     const theme = getCookie("theme");
 
@@ -111,6 +93,28 @@ function setThemeFor(element, isTopNavElement, disableAnimation) {
 
 }
 
+function setTheme() {
+
+    const themeIcon = document.getElementById('theme-icon');
+
+    if (themeIcon.classList == 'dark-theme') {
+
+        themeIcon.classList = 'light-theme';
+        setCookie("theme", "light");
+
+    } else {
+
+        themeIcon.classList = 'dark-theme';
+        setCookie("theme", "dark");
+
+    }
+
+    setThemeToPage();
+    setThemeToNavBar();
+    setThemeToCard();
+
+}
+
 function changeThemeIcon() {
 
     const theme = getCookie("theme");
@@ -131,40 +135,36 @@ function changeThemeIcon() {
     }
 }
 
-function setTheme() {
-    const themeIcon = document.getElementById('theme-icon');
-
-    if (themeIcon.classList == 'dark-theme') {
-
-        themeIcon.classList = 'light-theme';
-        setCookie("theme", "light");
-
-    } else {
-
-        themeIcon.classList = 'dark-theme';
-        setCookie("theme", "dark");
-
-    }
+function setThemeToPage(){
 
     const body = document.querySelector('body');
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
 
-    setThemeFor(body, false, false);
-    setThemeFor(nav, false, false);
-    setThemeFor(cookie, false, false);
+    setThemeTo(body, false, false);
+    setThemeTo(nav, false, false);
+    setThemeTo(cookie, false, false);
+
+}
+
+function setThemeToNavBar() {
 
     var targetNav = document.querySelectorAll("ul#menu-bar li a");
 
     for (let i = 0; i < targetNav.length; i++) {
-        setThemeFor(targetNav[i], true, false);
+        setThemeTo(targetNav[i], true, false);
     }
+
+}
+
+function setThemeToCard() {
 
     var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
     var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
 
     for (let i = 0; i < targetCard.length; i++) {
-        setThemeFor(targetCard[i], false, true);
-        setThemeFor(targetCardHeader[i], false, true);
+        setThemeTo(targetCard[i], false, true);
+        setThemeTo(targetCardHeader[i], false, true);
     }
+
 }
