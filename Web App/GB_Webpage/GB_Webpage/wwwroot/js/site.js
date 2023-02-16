@@ -1,21 +1,25 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const maxMessageLength = 5000;
 
-// Write your JavaScript code.
-const maxMessageLength = 5000;
+
 
 document.getElementById('hide').onclick = function () {
     document.getElementById('cookie-panel').style.display = "none";
     setCookie("cookie_panel_hidded", "true");
 };
 
+
+
 document.getElementById('close-about-cookie').onclick = function () {
     document.getElementById('about-cookies').style.display = "none";
 };
 
+
+
 document.getElementById('moreInfo').onclick = function () {
     document.getElementById('about-cookies').style.display = "flex";
 };
+
+
 
 function isCookiePanelHidded() {
     const isCookieHidded = getCookie("cookie_panel_hidded");
@@ -26,6 +30,8 @@ function isCookiePanelHidded() {
         document.getElementById('cookie-panel').style.display = "none";
     }
 }
+
+
 
 function countCharacters() {
 
@@ -46,31 +52,13 @@ function countCharacters() {
         const charactersLeft = maxMessageLength - textAreaElement.value.length;
         counterSpanElement.textContent = charactersLeft + "/" + maxMessageLength;
 
-        const theme = getCookie('theme');
-
-        if (theme == 'dark') {
-            counterSpanElement.style.background = 'white';
-        } else {
-            counterSpanElement.style.background = 'black';
-        }
-
-        if (charactersLeft <= 20) {
-
-            counterSpanElement.style.color = 'red';
-
-        } else if (charactersLeft > 20 && charactersLeft <= 1500) {
-
-            counterSpanElement.style.color = 'orange';
-
-        } else {
-
-            setThemeToCounter();
-
-        }
+        setColorsToCounter(counterSpanElement, textAreaElement);
 
     });
 
 }
+
+
 
 window.onload = function () {
 
@@ -83,7 +71,9 @@ window.onload = function () {
     setThemeToCounter();
 
     countCharacters();
-};
+}
+
+
 
 function getCookie(name) {
 
@@ -99,9 +89,13 @@ function getCookie(name) {
 
 }
 
+
+
 function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
+
+
 
 function setThemeTo(element, disableAnimation) {
 
@@ -149,6 +143,8 @@ function setThemeTo(element, disableAnimation) {
 
 }
 
+
+
 document.getElementById('theme-button').onclick = function () {
 
     const themeIcon = document.getElementById('theme-icon');
@@ -172,6 +168,8 @@ document.getElementById('theme-button').onclick = function () {
 
 }
 
+
+
 function changeThemeIcon() {
 
     const theme = getCookie("theme");
@@ -192,6 +190,8 @@ function changeThemeIcon() {
     }
 }
 
+
+
 function setThemeToPage() {
 
     const body = document.querySelector('body');
@@ -204,6 +204,8 @@ function setThemeToPage() {
 
 }
 
+
+
 function setThemeToNavBar() {
 
     var targetNav = document.querySelectorAll("ul#menu-bar li a");
@@ -213,6 +215,8 @@ function setThemeToNavBar() {
     }
 
 }
+
+
 
 function setThemeToCard() {
 
@@ -226,31 +230,46 @@ function setThemeToCard() {
 
 }
 
-function setThemeToCounter() {
 
+
+function setThemeToCounter() {
 
     const textAreaElement = document.getElementById('input-message');
     const counterSpanElement = document.getElementById('counter');
 
-    const charactersLeft = maxMessageLength - textAreaElement.value.length;
+    setColorsToCounter(counterSpanElement, textAreaElement);
+
+}
+
+
+
+function setColorsToCounter(counter, message) {
+
+    const charactersLeft = maxMessageLength - message.value.length;
     const theme = getCookie('theme');
 
     if (theme == 'dark') {
-        counterSpanElement.style.background = 'white';
+
+        counter.style.background = 'white';
+
     } else {
-        counterSpanElement.style.background = 'black';
+
+        counter.style.background = 'black';
+
     }
 
     if (charactersLeft <= 20) {
 
-        counterSpanElement.style.color = 'red';
+        counter.style.color = 'red';
 
     } else if (charactersLeft > 20 && charactersLeft <= 1500) {
 
-        counterSpanElement.style.color = 'orange';
+        counter.style.color = 'orange';
 
     } else {
-        setThemeTo(counterSpanElement, false);
+
+        setThemeTo(counter, false);
+
     }
 
 }
