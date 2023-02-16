@@ -2,6 +2,8 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+const maxMessageLength = 5000;
+
 document.getElementById('hide').onclick = function () {
     document.getElementById('cookie-panel').style.display = "none";
     setCookie("cookie_panel_hidded", "true");
@@ -38,12 +40,19 @@ function countCharacters() {
         return;
     }
 
-    const maxLength = 5000;
 
     textAreaElement.addEventListener('input', () => {
 
-        const charactersLeft = maxLength - textAreaElement.value.length;
-        counterSpanElement.textContent = charactersLeft + "/" + maxLength;
+        const charactersLeft = maxMessageLength - textAreaElement.value.length;
+        counterSpanElement.textContent = charactersLeft + "/" + maxMessageLength;
+
+        const theme = getCookie('theme');
+
+        if (theme == 'dark') {
+            counterSpanElement.style.background = 'white';
+        } else {
+            counterSpanElement.style.background = 'black';
+        }
 
         if (charactersLeft <= 20) {
 
@@ -219,8 +228,29 @@ function setThemeToCard() {
 
 function setThemeToCounter() {
 
-    var targetCounter = document.getElementById('counter');
 
-    setThemeTo(targetCounter, false);
+    const textAreaElement = document.getElementById('input-message');
+    const counterSpanElement = document.getElementById('counter');
+
+    const charactersLeft = maxMessageLength - textAreaElement.value.length;
+    const theme = getCookie('theme');
+
+    if (theme == 'dark') {
+        counterSpanElement.style.background = 'white';
+    } else {
+        counterSpanElement.style.background = 'black';
+    }
+
+    if (charactersLeft <= 20) {
+
+        counterSpanElement.style.color = 'red';
+
+    } else if (charactersLeft > 20 && charactersLeft <= 1500) {
+
+        counterSpanElement.style.color = 'orange';
+
+    } else {
+        setThemeTo(counterSpanElement, false);
+    }
 
 }
