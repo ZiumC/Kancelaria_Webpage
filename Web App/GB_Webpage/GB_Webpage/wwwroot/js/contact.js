@@ -18,8 +18,6 @@ function validateName() {
     const name = document.getElementById('input-name').value;
     const isNameCorrect = new RegExp("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$").test(name);
 
-
-    //checking Name and Surname field
     if (name.replace(/\s/g, "") == "" || name == null) {
 
         $("#error-name").text("To pole jest wymagane.");
