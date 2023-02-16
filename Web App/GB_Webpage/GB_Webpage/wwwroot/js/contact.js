@@ -4,9 +4,10 @@ document.getElementById('send-button').onclick = function () {
 
     let isNameCorrect = validateName();
     let isEmailCorrect = validateEmail();
+    let isMessageCorrect = validateMessage();
 
 
-    if (isNameCorrect && isEmailCorrect) {
+    if (isNameCorrect && isEmailCorrect && isMessageCorrect) {
         $('#contact-form').attr('onsubmit', 'return true;');
     } else {
         $('#contact-form').attr('onsubmit', 'return false;');
@@ -65,6 +66,29 @@ function validateEmail() {
     } else {
 
         $("#error-email").text("");
+        return true;
+
+    }
+
+}
+
+function validateMessage() {
+
+    const message = document.getElementById('input-message').value;
+
+    if (message.replace(/\s/g, "") == "" || message == null) {
+
+        $("#error-message").text("Pole jest wymagane.");
+        return false;
+
+    } else if (message.length < 10 || message.length > 5000) {
+
+        $("#error-message").text("Pole powinno zawierać od 10 do 5000 znaków.");
+        return false;
+
+    } else {
+
+        $("#error-message").text("");
         return true;
 
     }
