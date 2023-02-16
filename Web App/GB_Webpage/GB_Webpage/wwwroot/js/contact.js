@@ -74,7 +74,12 @@ function validateEmail() {
 
 function validateMessage() {
 
-    const message = document.getElementById('input-message').value;
+    const element = document.getElementById('input-message');
+    const message = element.value;
+
+    setBorderTo(element, 'red');
+    setMouseLeaveBorderTo(element, 'red');
+    setMouseEnterBorderTo(element, 'lightgray');
 
     if (message.replace(/\s/g, "") == "" || message == null) {
 
@@ -88,9 +93,29 @@ function validateMessage() {
 
     } else {
 
+        setBorderTo(element, 'lightgray');
+        setMouseLeaveBorderTo(element, 'lightgray');
         $("#error-message").text("");
+
+
         return true;
 
     }
 
+}
+
+function setBorderTo(element, color) {
+    element.style.borderColor = color;
+}
+
+function setMouseLeaveBorderTo(element, color) {
+    element.addEventListener('mouseleave', () => {
+        setBorderTo(element, color);
+    });
+}
+
+function setMouseEnterBorderTo(element, color) {
+    element.addEventListener('mouseenter', () => {
+        setBorderTo(element, color);
+    });
 }
