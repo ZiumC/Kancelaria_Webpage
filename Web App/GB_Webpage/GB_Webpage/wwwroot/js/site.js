@@ -33,33 +33,6 @@ function isCookiePanelHidded() {
 
 
 
-function countCharacters() {
-
-    const textAreaElement = document.getElementById('input-message');
-    const counterSpanElement = document.getElementById('counter');
-
-    if (textAreaElement == undefined || textAreaElement == null) {
-        return;
-    }
-
-    if (counterSpanElement == undefined || counterSpanElement == null) {
-        return;
-    }
-
-
-    textAreaElement.addEventListener('input', () => {
-
-        const charactersLeft = maxMessageLength - textAreaElement.value.length;
-        counterSpanElement.textContent = charactersLeft + "/" + maxMessageLength;
-
-        setColorsToCounter(counterSpanElement, textAreaElement);
-
-    });
-
-}
-
-
-
 window.onload = function () {
 
     isCookiePanelHidded();
@@ -237,24 +210,29 @@ function setThemeToCounter() {
     const textAreaElement = document.getElementById('input-message');
     const counterSpanElement = document.getElementById('counter');
 
-    setColorsToCounter(counterSpanElement, textAreaElement);
+    setColorToTextOfCounter(counterSpanElement, textAreaElement);
 
 }
 
 
 
-function setColorsToCounter(counter, message) {
+function setColorToTextOfCounter(counter, message) {
 
     const charactersLeft = maxMessageLength - message.value.length;
     const theme = getCookie('theme');
 
+    //there is a need to implement change background when is left less than 1500 characters in message field
     if (theme == 'dark') {
 
         counter.style.background = 'white';
 
-    } else {
+    } else if (theme == 'light') {
 
         counter.style.background = 'black';
+
+    } else {
+
+        counter.style.background = 'white';
 
     }
 
@@ -271,5 +249,32 @@ function setColorsToCounter(counter, message) {
         setThemeTo(counter, false);
 
     }
+
+}
+
+
+
+function countCharacters() {
+
+    const textAreaElement = document.getElementById('input-message');
+    const counterSpanElement = document.getElementById('counter');
+
+    if (textAreaElement == undefined || textAreaElement == null) {
+        return;
+    }
+
+    if (counterSpanElement == undefined || counterSpanElement == null) {
+        return;
+    }
+
+
+    textAreaElement.addEventListener('input', () => {
+
+        const charactersLeft = maxMessageLength - textAreaElement.value.length;
+        counterSpanElement.textContent = charactersLeft + "/" + maxMessageLength;
+
+        setColorToTextOfCounter(counterSpanElement, textAreaElement);
+
+    });
 
 }
