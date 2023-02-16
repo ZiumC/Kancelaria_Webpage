@@ -54,7 +54,7 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";";
 }
 
-function setThemeTo(element, isTopNavElement, disableAnimation) {
+function setThemeTo(element, disableAnimation) {
 
     const theme = getCookie("theme");
 
@@ -75,12 +75,19 @@ function setThemeTo(element, isTopNavElement, disableAnimation) {
 
     }
 
-    if (isTopNavElement) {
+    /*
+     * Disabling bg for nav elements. 
+     * Changing bg for those elements makes visual problems.
+    */
+    if (element.classList == 'nav-link') {
 
         element.style.background = "none";
 
     }
 
+    /*
+     * By default animation is turned on.
+     */
     if (disableAnimation) {
 
         element.style.transition = '0s';
@@ -93,7 +100,7 @@ function setThemeTo(element, isTopNavElement, disableAnimation) {
 
 }
 
-function setTheme() {
+document.getElementById('theme-button').onclick = function () {
 
     const themeIcon = document.getElementById('theme-icon');
 
@@ -141,9 +148,9 @@ function setThemeToPage(){
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
 
-    setThemeTo(body, false, false);
-    setThemeTo(nav, false, false);
-    setThemeTo(cookie, false, false);
+    setThemeTo(body, false);
+    setThemeTo(nav, false);
+    setThemeTo(cookie, false);
 
 }
 
@@ -152,7 +159,7 @@ function setThemeToNavBar() {
     var targetNav = document.querySelectorAll("ul#menu-bar li a");
 
     for (let i = 0; i < targetNav.length; i++) {
-        setThemeTo(targetNav[i], true, false);
+        setThemeTo(targetNav[i], false);
     }
 
 }
@@ -163,8 +170,8 @@ function setThemeToCard() {
     var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
 
     for (let i = 0; i < targetCard.length; i++) {
-        setThemeTo(targetCard[i], false, true);
-        setThemeTo(targetCardHeader[i], false, true);
+        setThemeTo(targetCard[i], true);
+        setThemeTo(targetCardHeader[i], true);
     }
 
 }
