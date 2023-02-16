@@ -1,4 +1,5 @@
-﻿
+﻿const errorColor = 'red';
+const correctColor = 'lightgray';
 
 document.getElementById('send-button').onclick = function () {
 
@@ -77,9 +78,7 @@ function validateMessage() {
     const element = document.getElementById('input-message');
     const message = element.value;
 
-    setBorderTo(element, 'red');
-    setMouseLeaveBorderTo(element, 'red');
-    setMouseEnterBorderTo(element, 'lightgray');
+    setErrorBorderTo(element);
 
     if (message.replace(/\s/g, "") == "" || message == null) {
 
@@ -93,29 +92,38 @@ function validateMessage() {
 
     } else {
 
-        setBorderTo(element, 'lightgray');
-        setMouseLeaveBorderTo(element, 'lightgray');
+        setCorrectBorderTo(element);
         $("#error-message").text("");
-
-
         return true;
 
     }
 
 }
 
-function setBorderTo(element, color) {
+function setErrorBorderTo(element) {
+
+    setBorderColorTo(element, errorColor);
+
+    element.addEventListener('mouseleave', () => {
+        setBorderColorTo(element, errorColor);
+    });
+
+    element.addEventListener('mouseenter', () => {
+        setBorderColorTo(element, correctColor);
+    });
+}
+
+function setCorrectBorderTo(element) {
+
+    setBorderColorTo(element, correctColor);
+
+    element.addEventListener('mouseleave', () => {
+        setBorderColorTo(element, correctColor);
+    });
+
+}
+
+function setBorderColorTo(element, color) {
     element.style.borderColor = color;
 }
 
-function setMouseLeaveBorderTo(element, color) {
-    element.addEventListener('mouseleave', () => {
-        setBorderTo(element, color);
-    });
-}
-
-function setMouseEnterBorderTo(element, color) {
-    element.addEventListener('mouseenter', () => {
-        setBorderTo(element, color);
-    });
-}
