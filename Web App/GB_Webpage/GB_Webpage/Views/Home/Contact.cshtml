@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script type="text/javascript" src="/js/contact.js" defer></script>
 </head>
 <body>
 
@@ -53,11 +54,11 @@
         <div class="col-md-6 ">
             <div class="rightside-container">
                 <div class="row">
-                    <form class="content-text">
+                    <form id="contact-form" class="content-text" method="post">
                         <div class="form-heading">
                             <div class="form-group">
                                 <label for="Name">Imię i Nazwisko: <span class="symbol-required">*</span></label>
-                                <input asp-for="Name" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
+                                <input id="input-name" asp-for="Name" class="form-control" type="text" placeholder="2-50 znaków" autocomplete="off" />
                                 <span id="error-name" class="text-danger"></span>
                             </div>
                             <div class="form-group">
@@ -81,7 +82,7 @@
                         </div>
 
                         <div class="button-container">
-                            <input type="submit" value="Wyślij" class="btn btn-secondary" onclick="" />
+                            <input id="send-button" type="submit" value="Wyślij" class="btn btn-secondary" onclick="    validate();" />
                         </div>
                     </form>
                 </div>
