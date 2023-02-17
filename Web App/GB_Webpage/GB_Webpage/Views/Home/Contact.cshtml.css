@@ -21,13 +21,11 @@ div.contact-information p:last-child {
 	font-size: 2ex;
 }
 
-a {
-	color: #000000;
+#mail-note {
 	text-decoration: none;
 }
 
-a:hover {
-	color: #183B7A;
+a#mail-note:hover {
 	text-decoration: underline;
 }
 

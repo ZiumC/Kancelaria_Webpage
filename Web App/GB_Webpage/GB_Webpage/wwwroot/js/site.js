@@ -172,11 +172,15 @@ function setThemeToPage() {
     const body = document.querySelector('body');
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
+    const mailElement = document.getElementById('mail-note');
 
     setThemeTo(body, false);
     setThemeTo(nav, false);
     setThemeTo(cookie, false);
 
+    if (isExist(mailElement)) {
+        setThemeTo(mailElement, false);
+    }
 }
 
 
