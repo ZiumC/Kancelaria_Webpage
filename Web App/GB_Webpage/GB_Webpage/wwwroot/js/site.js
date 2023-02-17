@@ -173,7 +173,7 @@ function setThemeToPage() {
     const nav = document.querySelector('nav');
     const cookie = document.getElementById('cookie-modal-content');
     const mailElement = document.getElementById('mail-note');
-    const footer = document.querySelectorAll('footer');
+    const footer = document.getElementById('footer');
 
     setThemeTo(body, false);
     setThemeTo(nav, false);

@@ -51,12 +51,16 @@ li.nav-item {
 	
 }
 
-.footer {
+#footer {
 	margin-top: 3ex;
 	height: 10ex;
 	width: 100%;
+	font-size: 2ex;
 }
 
+footer div.container {
+	margin-top: 1.5ex;
+}
 
 
 ul#menu-bar li:hover {
@@ -108,14 +112,6 @@ h5.card-title {
 	#hide {
 		margin-bottom: 1ex;
 	}
-}
-
-.footer {
-	font-size: 2ex;
-}
-
-footer.footer div.container {
-	margin-top: 1.5ex;
 }
 
 /*Cookie more information*/
