@@ -3,6 +3,12 @@ html {
   min-height: 100%;
 }
 
+.introduced-text {
+    font-family: 'Oxygen', sans-serif;
+    text-align: center;
+    font-size: 2.8ex;
+}
+
 .text-dark {
     text-decoration: none;
 }
