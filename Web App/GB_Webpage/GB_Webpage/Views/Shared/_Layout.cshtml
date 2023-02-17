@@ -18,9 +18,11 @@
             <div class="container-fluid justify-content-center">
                 <a class="navbar-brand" asp-area="" asp-action="Index"><img src="~/images/logo_pl.png" alt="Logo" /></a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                <button id="hamburger-button" class="navbar-toggler dark-border" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span>
+                        <i id="menu-icon"  class="dark-menu-icon"></i>
+                    </span>
                 </button>
 
                 <div class="navbar-collapse collapse d-xl-inline-flex justify-content-between">
@@ -71,7 +73,7 @@
                         <i id="theme-icon" class="dark-theme"></i>
                     </button>
                 </li>
-                
+
             </ul>
         </nav>
     </header>

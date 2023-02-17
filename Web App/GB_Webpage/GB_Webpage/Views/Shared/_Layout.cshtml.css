@@ -1,6 +1,29 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.dark-border{
+	border: solid 0.1ex black;
+}
+
+.light-border {
+	border: solid 0.1ex white;
+}
+
+.dark-menu-icon, .light-menu-icon {
+	height: 2.5ex;
+	width: 2.5ex;
+	margin: auto;
+	padding: 0.3ex 0.3ex 0.3ex 0.3ex;
+}
+
+.light-menu-icon {
+	content: url(icons/menu-icon-light.png);
+}
+
+.dark-menu-icon {
+	content: url(icons/menu-icon-dark.png);
+}
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
