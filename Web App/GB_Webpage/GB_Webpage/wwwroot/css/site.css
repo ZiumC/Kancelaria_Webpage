@@ -3,6 +3,31 @@ html {
   min-height: 100%;
 }
 
+body {
+    animation: opacity-animation 0.1s;
+    animation-timing-function: linear;
+}
+
+.title-rectangle {
+    height: 13ex;
+    width: 100%;
+    background-color: #183B7A;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 3ex;
+}
+
+.title-text {
+    color: white;
+    font-size: 7.7ex;
+}
+
+.introduction-container {
+    margin-bottom: 3ex;
+    text-align: center;
+}
+
 .introduced-text {
 	font-family: 'Oxygen', sans-serif;
 	text-align: center;
@@ -32,11 +57,6 @@ img.arrow {
     justify-content: center;
     align-items: center;
     display: flex;
-}
-
-body {
-    animation: opacity-animation 0.1s;
-    animation-timing-function: linear;
 }
 
 .rightside-container {
