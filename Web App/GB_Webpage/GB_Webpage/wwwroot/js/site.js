@@ -1,5 +1,5 @@
 ﻿const maxMessageLength = 5000;
-
+const animationTime = "0.3s";
 
 
 document.getElementById('hide').onclick = function () {
@@ -112,7 +112,7 @@ function setThemeTo(element, disableAnimation) {
 
     } else {
 
-        element.style.transition = '1s';
+        element.style.transition = animationTime;
 
     }
 
@@ -257,7 +257,6 @@ function setThemeToCounter() {
 
 function setColorToTextOfCounter(counter, message) {
 
-
     if (!isExist(counter) || !isExist(message)) {
         return;
     }
@@ -265,7 +264,7 @@ function setColorToTextOfCounter(counter, message) {
     const charactersLeft = maxMessageLength - message.value.length;
     const theme = getCookie('theme');
 
-    //there is a need to implement change background when is left less than 1500 characters in message field
+    //need to detect what color of bg add to counter
     if (theme == 'dark') {
 
         counter.style.background = 'white';
@@ -280,6 +279,7 @@ function setColorToTextOfCounter(counter, message) {
 
     }
 
+    //coloring counter text
     if (charactersLeft <= 20) {
 
         counter.style.color = 'red';
