@@ -1,18 +1,4 @@
-﻿.title-rectangle {
-	height: 13ex;
-	width: 100%;
-	background-color: #183B7A;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-	margin-bottom: 3ex;
-}
-
-.title-text {
-	color: white;
-	font-size: 7.7ex;
-}
-
+﻿
 .cards-container {
 	justify-content: center;
 	align-items: center;
