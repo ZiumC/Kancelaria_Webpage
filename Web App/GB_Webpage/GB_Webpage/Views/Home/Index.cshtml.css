@@ -22,18 +22,21 @@ h1 {
 	margin-bottom: 1ex;
 }
 
-
 .row-bottom-margin {
 	margin-bottom: -3ex;
 }
+
 div.col-6 {
 	text-align: right;
 }
 
+div.square-element {
+	height: 65%;
+	width: 70%;
+}
 
-.rightside-container {
-	height: 100%;
-	width: 100%;
+.box {
+	width: 21.5%;
 }
 
 .square-container {
@@ -50,14 +53,6 @@ div.col-6 {
 	width: 70%;
 }
 
-.centered-text-container {
-	height: 100%;
-	font-family: 'Oxygen', sans-serif;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	display: flex;
-}
 
 div.square-element {
 	font-size: 22ex;

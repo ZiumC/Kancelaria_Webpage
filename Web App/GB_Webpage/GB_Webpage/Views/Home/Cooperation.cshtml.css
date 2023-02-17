@@ -23,34 +23,24 @@ div.introduction-container div {
 	width: 80%;
 }
 
-
 ul li {
 	font-weight: bold;
 }
 
 .square-container {
+	margin-top: 10ex;
 	height: 35ex;
 	width: 100%;
-	margin-top: 6ex;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .square-element {
-	height: 100%;
-	width: 70%;
 	margin: auto;
 	background-color: #65677A;
-}
-
-.centered-text-container {
 	height: 100%;
-	font-family: 'Oxygen', sans-serif;
-	text-align: center;
-	justify-content: center;
-	align-items: center;
-	display: flex;
+	width: 65%;
 }
 
 div.square-element {
@@ -66,18 +56,19 @@ div.square-element {
 
 .b1 {
 	animation: move-text1 15s infinite;
-	font-size: 3.5ex;
+	font-size: 3ex;
 }
 
 .b2 {
 	animation: move-text2 15s infinite;
-	font-size: 3.1ex;
+	font-size: 2.8ex;
 }
 
 .note-container {
 	padding-top: 10ex;
 	width: 70%;
 	margin: auto;
+	align-items: flex-end;
 }
 
 .note {
@@ -126,11 +117,11 @@ div.note-container > p:last-child:hover {
 
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-	.square-container {
+	div.square-container {
 		margin-top: 15ex;
 	}
 
-	.square-element {
+	div.square-element {
 		width: 80%;
 	}
 
@@ -147,11 +138,12 @@ div.note-container > p:last-child:hover {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.square-container {
+	div.square-container {
 		margin-top: 20ex;
 	}
 
-	.square-element {
+	div.square-element {
+		margin-top: 5ex;
 		width: 90%;
 	}
 
@@ -169,8 +161,13 @@ div.note-container > p:last-child:hover {
 
 @media only screen and (max-width: 490px) {
 
-	.square-element {
+	div.square-element {
+		margin-top: 1ex;
 		width: 90%;
+	}
+
+	div.note-container {
+		padding-top: 4ex;
 	}
 
 	.b1 {
@@ -182,5 +179,4 @@ div.note-container > p:last-child:hover {
 		width: 70%;
 		font-size: 3ex;
 	}
-
 }
