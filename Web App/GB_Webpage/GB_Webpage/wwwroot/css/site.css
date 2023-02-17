@@ -41,11 +41,6 @@ body {
     color: black;
 }
 
-img.arrow {
-    margin-left: 0.5ex;
-    width: 4%;
-    height: 4%;
-}
 
 .content-text {
     font-family: 'Oxygen', sans-serif;
@@ -77,6 +72,22 @@ img.arrow {
 
 div.alert-container div:first-child {
     text-align: center;
+}
+
+/*Arrow*/
+.dark-arrow, .light-arrow {
+    margin-left: 0.5ex;
+    width: 6%;
+    height: 5%;
+    margin-bottom: -0.5ex;
+}
+
+.light-arrow {
+    content: url(/icons/right-arrow-light.png);
+}
+
+.dark-arrow {
+    content: url(/icons/right-arrow-dark.png);
 }
 
 @keyframes opacity-animation {

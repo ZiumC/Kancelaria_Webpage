@@ -196,9 +196,28 @@ function setThemeToNavBar() {
 function setThemeToNote() {
 
     const note = document.getElementById('note-dark-text');
+    const cookie = getCookie('theme');
+    const arrow = document.getElementById('arrow');
 
-    setThemeTo(note, false);
+    if (isExist(note) && isExist(arrow)) {
 
+        setThemeTo(note, false);
+
+        if (cookie == 'dark') {
+
+            arrow.classList = 'dark-arrow';
+
+        } else if (cookie == 'light') {
+
+            arrow.classList = 'light-arrow';
+
+        } else {
+
+            arrow.classList = 'dark-arrow';
+
+        }
+
+    }
 }
 
 
