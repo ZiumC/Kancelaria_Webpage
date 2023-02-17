@@ -110,6 +110,14 @@ h5.card-title {
 	}
 }
 
+.footer {
+	font-size: 2ex;
+}
+
+footer.footer div.container {
+	margin-top: 1.5ex;
+}
+
 /*Cookie more information*/
 .cookie-modal-bg {
 	position: fixed;
@@ -121,7 +129,7 @@ h5.card-title {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	display:none;
+	display: none;
 }
 
 .cookie-modal {
