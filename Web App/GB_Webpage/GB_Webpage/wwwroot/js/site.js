@@ -195,27 +195,27 @@ function setThemeToNavBar() {
 
 function setThemeToNote() {
 
-    const note = document.getElementById('note-dark-text');
     const cookie = getCookie('theme');
+    const note = document.getElementById('note-dark-text');
     const arrow = document.getElementById('arrow');
 
-    if (isExist(note) && isExist(arrow)) {
+    if (!isExist(note) || !isExist(arrow)) {
+        return;
+    }
 
-        setThemeTo(note, false);
+    setThemeTo(note, false);
 
-        if (cookie == 'dark') {
+    if (cookie == 'dark') {
 
-            arrow.classList = 'dark-arrow';
+        arrow.classList = 'dark-arrow';
 
-        } else if (cookie == 'light') {
+    } else if (cookie == 'light') {
 
-            arrow.classList = 'light-arrow';
+        arrow.classList = 'light-arrow';
 
-        } else {
+    } else {
 
-            arrow.classList = 'dark-arrow';
-
-        }
+        arrow.classList = 'dark-arrow';
 
     }
 }
@@ -226,6 +226,10 @@ function setThemeToCard() {
 
     var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
     var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
+
+    if (!isExist(targetCard)) {
+        return;
+    }
 
     for (let i = 0; i < targetCard.length; i++) {
         setThemeTo(targetCard[i], true);
@@ -240,6 +244,10 @@ function setThemeToCounter() {
 
     const textAreaElement = document.getElementById('input-message');
     const counterSpanElement = document.getElementById('counter');
+
+    if (!isExist(textAreaElement) || !isExist(counterSpanElement)) {
+        return;
+    }
 
     setColorToTextOfCounter(counterSpanElement, textAreaElement);
 
