@@ -183,6 +183,8 @@ function setThemeToPage() {
     if (isExist(mailElement)) {
         setThemeTo(mailElement, false);
     }
+
+    changeMenuIcon();
 }
 
 
@@ -324,6 +326,32 @@ function countCharacters() {
     });
 
 }
+
+
+function changeMenuIcon() {
+
+    const menu = document.getElementById('menu-icon');
+    const menuButton = document.getElementById('hamburger-button');
+    const theme = getCookie('theme');
+
+    if (theme == 'dark') {
+
+        menuButton.classList = 'navbar-toggler dark-border';
+        menu.classList = 'dark-menu-icon';
+
+    } else if (theme == 'light') {
+
+        menuButton.classList = 'navbar-toggler light-border';
+        menu.classList = 'light-menu-icon';
+
+    } else {
+
+        menuButton.classList = 'navbar-toggler dark-border';
+        menu.classList = 'dark-menu-icon';
+
+    }
+}
+
 
 function isExist(element) {
 
