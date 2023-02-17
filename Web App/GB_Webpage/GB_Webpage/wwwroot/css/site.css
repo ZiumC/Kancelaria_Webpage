@@ -24,8 +24,10 @@ body {
 }
 
 .introduction-container {
-    margin-bottom: 3ex;
+    margin: auto;
+    width: 80%;
     text-align: center;
+    padding-bottom: 3ex;
 }
 
 .introduced-text {
