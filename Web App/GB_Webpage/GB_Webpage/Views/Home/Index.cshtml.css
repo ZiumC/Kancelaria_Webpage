@@ -44,13 +44,12 @@ div.square-element {
 
 .square-element {
 	background-color: #65677A;
-	height: 60%;
+	height: 50%;
 	width: 70%;
 }
 
 
 div.square-element {
-	font-size: 22ex;
 	text-justify: inter-word;
 	color: white;
 }
@@ -58,28 +57,28 @@ div.square-element {
 .box {
 	opacity: 0;
 	position: absolute;
-	width: 35vh;
+	width: 25%;
 }
 
 
 .b1 {
 	animation: move-text1 30s infinite;
-	font-size: 0.3ex;
+	font-size: 3ex;
 }
 
 .b2 {
 	animation: move-text2 30s infinite;
-	font-size: 0.4ex;
+	font-size: 3ex;
 }
 
 .b3 {
-	animation: move-text3 30s infinite;
-	font-size: 0.4ex;
+	animation: move-text4 30s infinite;
+	font-size: 3ex;
 }
 
 .b4 {
-	animation: move-text4 30s infinite;
-	font-size: 0.3ex;
+	animation: move-text3 30s infinite;
+	font-size: 3ex;
 }
 
 
@@ -166,63 +165,103 @@ div.square-element {
 	}
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1199px) {
-	.square-container {
-		height: 85%;
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+	p.box {
+		width: 20%;
 	}
 
-	.square-element {
-		width: 80%;
+	div.square-element {
+		height: 70%;
 	}
 
-	.b1 {
-		width: 30%;
+	p.b2 {
+		font-size: 3.5ex;
 	}
 
-	.b2 {
-		width: 27%;
+	p.b3 {
+		font-size: 3.5ex;
 	}
 
-	.b3 {
-		width: 25%;
-		font-size: 0.37ex;
+	p.b4 {
+		font-size: 2.8ex;
+	}
+}
+
+@media only screen and (min-width: 767px) and (max-width: 991px) {
+
+	p.box {
+		width: 22%;
 	}
 
-	.b4 {
+	div.square-element {
+		height: 50%;
+		width: 87%;
+	}
+
+	p.b2 {
+		font-size: 3.3ex;
+	}
+
+	p.b3 {
+		font-size: 3.3ex;
+	}
+
+	p.b4 {
+		font-size: 2.6ex;
 		width: 25%;
 	}
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (min-width: 500px) and (max-width: 767px) {
+
+	p.box {
+		width: 35%;
+	}
+
 	.rightside-container {
 		height: 70ex;
 	}
-}
 
-
-@media only screen and (max-width: 540px) {
-
-	.square-element {
+	div.square-element {
+		height: 60%;
 		width: 90%;
 	}
 
-	.b1 {
-		width: 80%;
-		font-size: 0.28ex;
-	}
-
-	.b2 {
+	p.b1 {
+		font-size: 2.8ex;
 		width: 50%;
-		font-size: 0.28ex;
 	}
 
-	.b3 {
-		width: 70%;
-		font-size: 0.27ex;
+	p.b4 {
+		font-size: 2.8ex;
+		width: 50%;
+	}
+}
+
+
+@media only screen and (max-width: 500px) {
+
+	p.box {
+		width: 50%;
 	}
 
-	.b4 {
-		width: 80%;
-		font-size: 0.24ex;
+	.rightside-container {
+		height: 70ex;
+	}
+
+	div.square-element {
+		height: 60%;
+		width: 95%;
+	}
+
+	p.b1 {
+		font-size: 2.5ex;
+		width: 65%;
+	}
+
+	p.b4 {
+		font-size: 2.5ex;
+		width: 65%;
 	}
 }
