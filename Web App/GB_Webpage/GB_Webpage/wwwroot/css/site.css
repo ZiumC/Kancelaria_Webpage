@@ -36,8 +36,9 @@ body {
 	font-size: 2.8ex;
 }
 
-.text-dark {
+#note-dark-text {
     text-decoration: none;
+    color: black;
 }
 
 img.arrow {

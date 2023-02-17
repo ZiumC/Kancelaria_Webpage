@@ -38,8 +38,10 @@ window.onload = function () {
     isCookiePanelHidded();
     changeThemeIcon();
 
+
     setThemeToPage();
     setThemeToNavBar();
+    setThemeToNote();
     setThemeToCard();
     setThemeToCounter();
 
@@ -136,9 +138,9 @@ document.getElementById('theme-button').onclick = function () {
 
     setThemeToPage();
     setThemeToNavBar();
+    setThemeToNote();
     setThemeToCard();
     setThemeToCounter();
-
 }
 
 
@@ -191,6 +193,16 @@ function setThemeToNavBar() {
 
 
 
+function setThemeToNote() {
+
+    const note = document.getElementById('note-dark-text');
+
+    setThemeTo(note, false);
+
+}
+
+
+
 function setThemeToCard() {
 
     var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
@@ -217,6 +229,11 @@ function setThemeToCounter() {
 
 
 function setColorToTextOfCounter(counter, message) {
+
+
+    if (!isExist(counter) || !isExist(message)) {
+        return;
+    }
 
     const charactersLeft = maxMessageLength - message.value.length;
     const theme = getCookie('theme');
@@ -259,11 +276,7 @@ function countCharacters() {
     const textAreaElement = document.getElementById('input-message');
     const counterSpanElement = document.getElementById('counter');
 
-    if (textAreaElement == undefined || textAreaElement == null) {
-        return;
-    }
-
-    if (counterSpanElement == undefined || counterSpanElement == null) {
+    if (!isExist(textAreaElement) || !isExist(counterSpanElement)) {
         return;
     }
 
@@ -276,5 +289,17 @@ function countCharacters() {
         setColorToTextOfCounter(counterSpanElement, textAreaElement);
 
     });
+
+}
+
+function isExist(element) {
+
+    if (element != null || element != undefined) {
+
+        return true;
+
+    }
+
+    return false;
 
 }
