@@ -38,6 +38,7 @@ div.square-element {
 .b2 {
 	animation: move-text2 15s infinite;
 	font-size: 2.8ex;
+	width: 20%;
 }
 
 .note-container {
@@ -120,7 +121,7 @@ div.note-container > p:last-child:hover {
 
 	div.square-element {
 		margin-top: 5ex;
-		width: 90%;
+		width: 93%;
 	}
 
 	.b1 {
@@ -129,8 +130,21 @@ div.note-container > p:last-child:hover {
 	}
 
 	.b2 {
-		width: 30%;
-		font-size: 2.7ex;
+		width: 28%;
+		font-size: 2.65ex;
+	}
+}
+
+@media only screen and (min-width: 491px) and (max-width: 767px) {
+
+	div.square-element {
+		margin-top: 5ex;
+		width: 80%;
+	}
+
+	.b2 {
+		width: 60%;
+		font-size: 2.65ex;
 	}
 }
 
