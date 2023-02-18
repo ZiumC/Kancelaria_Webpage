@@ -1,6 +1,4 @@
-﻿const errorColor = 'red';
-const correctColor = 'lightgray';
-
+﻿
 document.getElementById('send-button').onclick = function () {
 
     let isNameCorrect = validateName();
@@ -14,17 +12,36 @@ document.getElementById('send-button').onclick = function () {
         $('#contact-form').attr('onsubmit', 'return false;');
     }
 
-};
+}
+
+
+
+setTimeout(() => {
+    const box = document.getElementById('form-status');
+    $(box).slideUp(function () {
+        box.parentNode.removeChild(box);
+    })
+}, 3500);
+
+
+
+const errorColor = 'red';
+const correctColor = 'lightgray';
+const nameRegex = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$";
+const emailRegex = "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
+const spaceRegex = /\s/g;
+
+
 
 function validateName() {
 
     const element = document.getElementById('input-name');
     const name = element.value;
-    const isNameCorrect = new RegExp("^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$").test(name);
+    const isNameCorrect = new RegExp(nameRegex).test(name);
 
     setErrorBorderTo(element);
 
-    if (name.replace(/\s/g, "") == "" || name == null) {
+    if (name.replace(spaceRegex, "") == "" || name == null) {
 
         $("#error-name").text("Pole jest wymagane.");
         return false;
@@ -48,15 +65,17 @@ function validateName() {
     }
 }
 
+
+
 function validateEmail() {
 
     const element = document.getElementById('input-email');
     const email = element.value;
-    const isEmailCorrect = new RegExp("^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$").test(email);
+    const isEmailCorrect = new RegExp(emailRegex).test(email);
 
     setErrorBorderTo(element);
 
-    if (email.replace(/\s/g, "") == "" || email == null) {
+    if (email.replace(spaceRegex, "") == "" || email == null) {
 
         $("#error-email").text("Pole jest wymagane.");
         return false;
@@ -81,6 +100,8 @@ function validateEmail() {
 
 }
 
+
+
 function validateMessage() {
 
     const element = document.getElementById('input-message');
@@ -88,7 +109,7 @@ function validateMessage() {
 
     setErrorBorderTo(element);
 
-    if (message.replace(/\s/g, "") == "" || message == null) {
+    if (message.replace(spaceRegex, "") == "" || message == null) {
 
         $("#error-message").text("Pole jest wymagane.");
         return false;
@@ -108,6 +129,8 @@ function validateMessage() {
 
 }
 
+
+
 function setErrorBorderTo(element) {
 
     setBorderColorTo(element, errorColor);
@@ -121,6 +144,8 @@ function setErrorBorderTo(element) {
     });
 }
 
+
+
 function setCorrectBorderTo(element) {
 
     setBorderColorTo(element, correctColor);
@@ -131,13 +156,8 @@ function setCorrectBorderTo(element) {
 
 }
 
+
+
 function setBorderColorTo(element, color) {
     element.style.borderColor = color;
 }
-
-setTimeout(() => {
-    const box = document.getElementById('form-status');
-    $(box).slideUp(function () {
-        box.parentNode.removeChild(box);
-    })
-}, 3500);
