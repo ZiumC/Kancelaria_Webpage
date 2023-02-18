@@ -29,10 +29,18 @@ a#mail-note:hover {
 	text-decoration: underline;
 }
 
-/*div.leftside-container div:first-child {
-	margin: auto;
-	height: auto;
-}*/
+div.leftside-container div:first-child {
+	height: 10ex;
+}
+
+div#form-status div:first-child {
+	text-align: center;
+	height: fit-content
+}
+
+div#form-status div:first-child p {
+	margin-top: 1ex;
+}
 
 div.leftside-container div.contact-information {
 	margin: auto;
@@ -85,7 +93,7 @@ div.map-container div:first-child {
 
 @media only screen and (min-width: 496px) and (max-width: 767px) {
 	.contact-information {
-		padding-top: 0ex;
+		padding-top: 5ex;
 		padding-bottom: 4ex;
 	}
 
@@ -96,7 +104,7 @@ div.map-container div:first-child {
 
 @media only screen and (max-width: 495px) {
 	.contact-information {
-		padding-top: 0ex;
+		padding-top: 5ex;
 		padding-bottom: 4ex;
 		font-size: 2ex;
 	}

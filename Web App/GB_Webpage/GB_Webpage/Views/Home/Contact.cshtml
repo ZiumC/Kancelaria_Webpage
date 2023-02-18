@@ -35,16 +35,22 @@
     <div class="row">
         <div class="col-md-6 ">
             <div class="leftside-container">
-                <div class="row">
+                <div class="row content-text">
                     <div id="form-status">
                         @if (TempData["Success"] != null)
                         {
-                            <div class="alert alert-success">@Html.Raw(@TempData["Success"])</div>
+                            <div class="alert alert-success">
+                                <p>@Html.Raw(@TempData["Success"])</p>
+                            </div>
                         }
 
                         @if (TempData["Error"] != null)
                         {
-                            <div class="alert alert-danger">@Html.Raw(@TempData["Error"])</div>
+                            <div class="alert alert-danger">
+                                <p>
+                                    @Html.Raw(@TempData["Error"])
+                                </p>
+                            </div>
                         }
                     </div>
                 </div>
