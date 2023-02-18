@@ -135,3 +135,9 @@ function setBorderColorTo(element, color) {
     element.style.borderColor = color;
 }
 
+setTimeout(() => {
+    const box = document.getElementById('form-status');
+    $(box).slideUp(function () {
+        box.parentNode.removeChild(box);
+    })
+}, 3500);
