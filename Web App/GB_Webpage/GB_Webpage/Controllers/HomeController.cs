@@ -1,5 +1,6 @@
 ﻿using GB_Webpage.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
 
 namespace GB_Webpage.Controllers
@@ -46,10 +47,12 @@ namespace GB_Webpage.Controllers
 
                 if (!ModelState.IsValid)
                 {
+                    TempData["Error"] = "<strong>Formularz zawiera błędy</strong>, e-mail nie został wysłany.";
                     throw new Exception("Model state isn't valid.");
                 }
                 else
                 {
+                    TempData["Success"] = "<strong>Wszystko w porządku</strong>, e-mail został wysłany.";
                     Console.WriteLine("Model state is valid.");
                 }
 

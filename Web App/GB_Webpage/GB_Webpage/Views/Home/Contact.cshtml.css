@@ -29,7 +29,12 @@ a#mail-note:hover {
 	text-decoration: underline;
 }
 
-div.leftside-container div:first-child {
+/*div.leftside-container div:first-child {
+	margin: auto;
+	height: auto;
+}*/
+
+div.leftside-container div.contact-information {
 	margin: auto;
 	height: auto;
 }

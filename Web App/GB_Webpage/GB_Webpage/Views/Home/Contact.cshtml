@@ -35,18 +35,33 @@
     <div class="row">
         <div class="col-md-6 ">
             <div class="leftside-container">
-                <div class="contact-information content-text">
-                    <h4>Kancelaria Radcy Prawnego Grzegorz Bochnacki</h4>
-                    <h5>Budynek "Babka Tower"</h5>
-                    <p>
-                        Al. Jana Pawła II 80 lok. D39, VIII piętro <br />
-                        00-175 Warszawa <br />
-                        Wejście od strony ulicy <strong>'Dzika'</strong>
-                    </p>
-                    <p>
-                        Telefon: 22 627 27 33<br />
-                        E-mail: <a id="mail-note" href="mailto:" kancelaria@bochnacki.com">kancelaria@bochnacki.com</a>
-                    </p>
+                <div class="row">
+                    <div id="form-status">
+                        @if (TempData["Success"] != null)
+                        {
+                            <div class="alert alert-success">@Html.Raw(@TempData["Success"])</div>
+                        }
+
+                        @if (TempData["Error"] != null)
+                        {
+                            <div class="alert alert-danger">@Html.Raw(@TempData["Error"])</div>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="contact-information content-text">
+                        <h4>Kancelaria Radcy Prawnego Grzegorz Bochnacki</h4>
+                        <h5>Budynek "Babka Tower"</h5>
+                        <p>
+                            Al. Jana Pawła II 80 lok. D39, VIII piętro <br />
+                            00-175 Warszawa <br />
+                            Wejście od strony ulicy <strong>'Dzika'</strong>
+                        </p>
+                        <p>
+                            Telefon: 22 627 27 33<br />
+                            E-mail: <a id="mail-note" href="mailto:" kancelaria@bochnacki.com">kancelaria@bochnacki.com</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
