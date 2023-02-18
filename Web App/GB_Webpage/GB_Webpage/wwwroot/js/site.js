@@ -1,7 +1,4 @@
-﻿const maxMessageLength = 5000;
-const animationTime = "0.3s";
-
-
+﻿
 document.getElementById('hide').onclick = function () {
     document.getElementById('cookie-panel').style.display = "none";
     setCookie("cookie_panel_hidded", "true");
@@ -33,20 +30,20 @@ function isCookiePanelHidded() {
 
 
 
-window.onload = function () {
+//window.onload = function () {
 
-    isCookiePanelHidded();
-    changeThemeIcon();
+//    isCookiePanelHidded();
+//    changeThemeIcon();
 
 
-    setThemeToPage();
-    setThemeToNavBar();
-    setThemeToNote();
-    setThemeToCard();
-    setThemeToCounter();
+//    setThemeToPage();
+//    setThemeToNavBar();
+//    setThemeToNote();
+//    setThemeToCard();
+//    setThemeToCounter();
 
-    countCharacters();
-}
+//    countCharacters();
+//}
 
 
 
@@ -72,295 +69,295 @@ function setCookie(name, value) {
 
 
 
-function setThemeTo(element, disableAnimation) {
+//function setThemeTo(element, disableAnimation) {
 
-    const theme = getCookie("theme");
+//    const theme = getCookie("theme");
 
-    if (theme == "dark") {
+//    if (theme == "dark") {
 
-        element.style.background = "white";
-        element.style.color = "black";
+//        element.style.background = "white";
+//        element.style.color = "black";
 
-    } else if (theme == "light") {
+//    } else if (theme == "light") {
 
-        element.style.background = "black";
-        element.style.color = "white";
+//        element.style.background = "black";
+//        element.style.color = "white";
 
-    } else {
+//    } else {
 
-        element.style.background = "white";
-        element.style.color = "black";
+//        element.style.background = "white";
+//        element.style.color = "black";
 
-    }
+//    }
 
-    /*
-     * Disabling bg for nav elements. 
-     * Changing bg for those elements makes visual problems.
-    */
-    if (element.classList == 'nav-link') {
+//    /*
+//     * Disabling bg for nav elements. 
+//     * Changing bg for those elements makes visual problems.
+//    */
+//    if (element.classList == 'nav-link') {
 
-        element.style.background = "none";
+//        element.style.background = "none";
 
-    }
+//    }
 
-    /*
-     * By default animation is turned on.
-     */
-    if (disableAnimation) {
+//    /*
+//     * By default animation is turned on.
+//     */
+//    if (disableAnimation) {
 
-        element.style.transition = '0s';
+//        element.style.transition = '0s';
 
-    } else {
+//    } else {
 
-        element.style.transition = animationTime;
+//        element.style.transition = animationTime;
 
-    }
+//    }
 
-}
+//}
 
 
 
-document.getElementById('theme-button').onclick = function () {
+//document.getElementById('theme-button').onclick = function () {
 
-    const themeIcon = document.getElementById('theme-icon');
+//    const themeIcon = document.getElementById('theme-icon');
 
-    if (themeIcon.classList == 'dark-theme') {
+//    if (themeIcon.classList == 'dark-theme') {
 
-        themeIcon.classList = 'light-theme';
-        setCookie("theme", "light");
+//        themeIcon.classList = 'light-theme';
+//        setCookie("theme", "light");
 
-    } else {
+//    } else {
 
-        themeIcon.classList = 'dark-theme';
-        setCookie("theme", "dark");
+//        themeIcon.classList = 'dark-theme';
+//        setCookie("theme", "dark");
 
-    }
+//    }
 
-    setThemeToPage();
-    setThemeToNavBar();
-    setThemeToNote();
-    setThemeToCard();
-    setThemeToCounter();
-}
+//    setThemeToPage();
+//    setThemeToNavBar();
+//    setThemeToNote();
+//    setThemeToCard();
+//    setThemeToCounter();
+//}
 
 
 
-function changeThemeIcon() {
+//function changeThemeIcon() {
 
-    const theme = getCookie("theme");
-    const themeIcon = document.getElementById('theme-icon');
+//    const theme = getCookie("theme");
+//    const themeIcon = document.getElementById('theme-icon');
 
-    if (theme == "dark") {
+//    if (theme == "dark") {
 
-        themeIcon.classList = 'dark-theme';
+//        themeIcon.classList = 'dark-theme';
 
-    } else if (theme == "light") {
+//    } else if (theme == "light") {
 
-        themeIcon.classList = 'light-theme';
+//        themeIcon.classList = 'light-theme';
 
-    } else {
+//    } else {
 
-        themeIcon.classList = 'dark-theme';
+//        themeIcon.classList = 'dark-theme';
 
-    }
-}
+//    }
+//}
 
 
 
-function setThemeToPage() {
+//function setThemeToPage() {
 
-    const body = document.querySelector('body');
-    const nav = document.querySelector('nav');
-    const cookie = document.getElementById('cookie-modal-content');
-    const mailElement = document.getElementById('mail-note');
-    const footer = document.getElementById('footer');
+//    const body = document.querySelector('body');
+//    const nav = document.querySelector('nav');
+//    const cookie = document.getElementById('cookie-modal-content');
+//    const mailElement = document.getElementById('mail-note');
+//    const footer = document.getElementById('footer');
 
-    setThemeTo(body, false);
-    setThemeTo(nav, false);
-    setThemeTo(cookie, false);
-    setThemeTo(footer, false);
+//    setThemeTo(body, false);
+//    setThemeTo(nav, false);
+//    setThemeTo(cookie, false);
+//    setThemeTo(footer, false);
 
-    if (isExist(mailElement)) {
-        setThemeTo(mailElement, false);
-    }
+//    if (isExist(mailElement)) {
+//        setThemeTo(mailElement, false);
+//    }
 
-    changeMenuIcon();
-}
+//    changeMenuIcon();
+//}
 
 
 
-function setThemeToNavBar() {
+//function setThemeToNavBar() {
 
-    var targetNav = document.querySelectorAll("ul#menu-bar li a");
+//    var targetNav = document.querySelectorAll("ul#menu-bar li a");
 
-    for (let i = 0; i < targetNav.length; i++) {
-        setThemeTo(targetNav[i], false);
-    }
+//    for (let i = 0; i < targetNav.length; i++) {
+//        setThemeTo(targetNav[i], false);
+//    }
 
-}
+//}
 
 
 
-function setThemeToNote() {
+//function setThemeToNote() {
 
-    const cookie = getCookie('theme');
-    const note = document.getElementById('note-dark-text');
-    const arrow = document.getElementById('arrow');
+//    const cookie = getCookie('theme');
+//    const note = document.getElementById('note-dark-text');
+//    const arrow = document.getElementById('arrow');
 
-    if (!isExist(note) || !isExist(arrow)) {
-        return;
-    }
+//    if (!isExist(note) || !isExist(arrow)) {
+//        return;
+//    }
 
-    setThemeTo(note, false);
+//    setThemeTo(note, false);
 
-    if (cookie == 'dark') {
+//    if (cookie == 'dark') {
 
-        arrow.classList = 'dark-arrow';
+//        arrow.classList = 'dark-arrow';
 
-    } else if (cookie == 'light') {
+//    } else if (cookie == 'light') {
 
-        arrow.classList = 'light-arrow';
+//        arrow.classList = 'light-arrow';
 
-    } else {
+//    } else {
 
-        arrow.classList = 'dark-arrow';
+//        arrow.classList = 'dark-arrow';
 
-    }
-}
+//    }
+//}
 
 
 
-function setThemeToCard() {
+//function setThemeToCard() {
 
-    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
-    var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
+//    var targetCard = document.querySelectorAll("div.row div.col-md-6 div.card");
+//    var targetCardHeader = document.querySelectorAll("div.row div.col-md-6 div.card div.card-header");
 
-    if (!isExist(targetCard)) {
-        return;
-    }
+//    if (!isExist(targetCard)) {
+//        return;
+//    }
 
-    for (let i = 0; i < targetCard.length; i++) {
-        setThemeTo(targetCard[i], true);
-        setThemeTo(targetCardHeader[i], true);
-    }
+//    for (let i = 0; i < targetCard.length; i++) {
+//        setThemeTo(targetCard[i], true);
+//        setThemeTo(targetCardHeader[i], true);
+//    }
 
-}
+//}
 
 
 
-function setThemeToCounter() {
+//function setThemeToCounter() {
 
-    const textAreaElement = document.getElementById('input-message');
-    const counterSpanElement = document.getElementById('counter');
+//    const textAreaElement = document.getElementById('input-message');
+//    const counterSpanElement = document.getElementById('counter');
 
-    if (!isExist(textAreaElement) || !isExist(counterSpanElement)) {
-        return;
-    }
+//    if (!isExist(textAreaElement) || !isExist(counterSpanElement)) {
+//        return;
+//    }
 
-    setColorToTextOfCounter(counterSpanElement, textAreaElement);
+//    setColorToTextOfCounter(counterSpanElement, textAreaElement);
 
-}
+//}
 
 
 
-function setColorToTextOfCounter(counter, message) {
+//function setColorToTextOfCounter(counter, message) {
 
-    if (!isExist(counter) || !isExist(message)) {
-        return;
-    }
+//    if (!isExist(counter) || !isExist(message)) {
+//        return;
+//    }
 
-    const charactersLeft = maxMessageLength - message.value.length;
-    const theme = getCookie('theme');
+//    const charactersLeft = maxMessageLength - message.value.length;
+//    const theme = getCookie('theme');
 
-    //need to detect what color of bg add to counter
-    if (theme == 'dark') {
+//    //need to detect what color of bg add to counter
+//    if (theme == 'dark') {
 
-        counter.style.background = 'white';
+//        counter.style.background = 'white';
 
-    } else if (theme == 'light') {
+//    } else if (theme == 'light') {
 
-        counter.style.background = 'black';
+//        counter.style.background = 'black';
 
-    } else {
+//    } else {
 
-        counter.style.background = 'white';
+//        counter.style.background = 'white';
 
-    }
+//    }
 
-    //coloring counter text
-    if (charactersLeft <= 20) {
+//    //coloring counter text
+//    if (charactersLeft <= 20) {
 
-        counter.style.color = 'red';
+//        counter.style.color = 'red';
 
-    } else if (charactersLeft > 20 && charactersLeft <= 1500) {
+//    } else if (charactersLeft > 20 && charactersLeft <= 1500) {
 
-        counter.style.color = 'orange';
+//        counter.style.color = 'orange';
 
-    } else {
+//    } else {
 
-        setThemeTo(counter, false);
+//        setThemeTo(counter, false);
 
-    }
+//    }
 
-}
+//}
 
 
 
-function countCharacters() {
+//function countCharacters() {
 
-    const textAreaElement = document.getElementById('input-message');
-    const counterSpanElement = document.getElementById('counter');
+//    const textAreaElement = document.getElementById('input-message');
+//    const counterSpanElement = document.getElementById('counter');
 
-    if (!isExist(textAreaElement) || !isExist(counterSpanElement)) {
-        return;
-    }
+//    if (!isExist(textAreaElement) || !isExist(counterSpanElement)) {
+//        return;
+//    }
 
 
-    textAreaElement.addEventListener('input', () => {
+//    textAreaElement.addEventListener('input', () => {
 
-        const charactersLeft = maxMessageLength - textAreaElement.value.length;
-        counterSpanElement.textContent = charactersLeft + "/" + maxMessageLength;
+//        const charactersLeft = maxMessageLength - textAreaElement.value.length;
+//        counterSpanElement.textContent = charactersLeft + "/" + maxMessageLength;
 
-        setColorToTextOfCounter(counterSpanElement, textAreaElement);
+//        setColorToTextOfCounter(counterSpanElement, textAreaElement);
 
-    });
+//    });
 
-}
+//}
 
 
-function changeMenuIcon() {
+//function changeMenuIcon() {
 
-    const menu = document.getElementById('menu-icon');
-    const menuButton = document.getElementById('hamburger-button');
-    const theme = getCookie('theme');
+//    const menu = document.getElementById('menu-icon');
+//    const menuButton = document.getElementById('hamburger-button');
+//    const theme = getCookie('theme');
 
-    if (theme == 'dark') {
+//    if (theme == 'dark') {
 
-        menuButton.classList = 'navbar-toggler dark-border';
-        menu.classList = 'dark-menu-icon';
+//        menuButton.classList = 'navbar-toggler dark-border';
+//        menu.classList = 'dark-menu-icon';
 
-    } else if (theme == 'light') {
+//    } else if (theme == 'light') {
 
-        menuButton.classList = 'navbar-toggler light-border';
-        menu.classList = 'light-menu-icon';
+//        menuButton.classList = 'navbar-toggler light-border';
+//        menu.classList = 'light-menu-icon';
 
-    } else {
+//    } else {
 
-        menuButton.classList = 'navbar-toggler dark-border';
-        menu.classList = 'dark-menu-icon';
+//        menuButton.classList = 'navbar-toggler dark-border';
+//        menu.classList = 'dark-menu-icon';
 
-    }
-}
+//    }
+//}
 
 
-function isExist(element) {
+//function isExist(element) {
 
-    if (element != null || element != undefined) {
+//    if (element != null || element != undefined) {
 
-        return true;
+//        return true;
 
-    }
+//    }
 
-    return false;
+//    return false;
 
-}
+//}
