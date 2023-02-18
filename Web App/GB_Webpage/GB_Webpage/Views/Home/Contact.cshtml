@@ -1,4 +1,4 @@
-﻿@model EmailForm;
+﻿@model ContactModel;
 @{
     ViewData["Title"] = "Kontakt | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
 }
@@ -54,7 +54,7 @@
         <div class="col-md-6 ">
             <div class="rightside-container">
                 <div class="row">
-                    <form id="contact-form" class="content-text" method="post">
+                    <form id="contact-form" class="content-text" asp-controller="home" asp-action="validateemail" method="post">
                         <div class="form-group">
                             <div class="form-heading">
                                 <label for="Name">Imię i Nazwisko: <span class="symbol-required">*</span></label>
