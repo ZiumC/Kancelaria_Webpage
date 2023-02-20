@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="0_title_tab" xml:space="preserve">
+    <value>Specjalizacje | Grzegorz Bochnacki - Kancelaria Radcy Prawnego</value>
+  </data>
+  <data name="1_title_rectangle" xml:space="preserve">
+    <value>Specjalizacje</value>
+  </data>
+  <data name="2.1.1_leftside_container_card_header" xml:space="preserve">
+    <value>Umowy i kontrakty</value>
+    <comment>Lewy panel - nagłówek karty </comment>
+  </data>
+  <data name="2.1.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;opracowanie założeń i struktury umów oraz wzorów i gotowych projektów umów, kontraktów i porozumień cywilnych i gospodarczych,&lt;/li&gt;
+
+&lt;li&gt;przygotowanie umów i porozumień związanych z działalnością gospodarczą (np. sprzedaży, dostawy, zamiany) różnego typu umów ramowych, umów związanych z korzystaniem z rzeczy, umów pożyczki,&lt;/li&gt;
+
+&lt;li&gt;przygotowanie umów dla osób nieprowadzących działalności gospodarczej,&lt;/li&gt;
+
+&lt;li&gt;przygotowywanie umów przedwstępnych i warunkowych,&lt;/li&gt;
+
+&lt;li&gt;przygotowywanie ogólnych warunków umów, różnego rodzaju regulaminów i regulacji wewnętrznych,&lt;/li&gt;
+ 
+&lt;li&gt;przygotowywanie opinii prawnych dotyczących umów cywilnych i handlowych,&lt;/li&gt;
+
+&lt;li&gt;analizy i oceny prawne umów i porozumień oraz ich projektów,&lt;/li&gt;
+
+&lt;li&gt;negocjowanie umów i porozumień - samodzielnie lub w zespole,&lt;/li&gt;
+
+&lt;li&gt;nadzorowanie realizacji wykonania zobowiązań z umów i porozumień cywilnych i gospodarczych.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.2.1_leftside_container_card_header" xml:space="preserve">
+    <value>Sprawy korporacyjne</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.2.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;pomoc prawna przy zawiązywaniu podmiotów w formie spółek, fundacji, stowarzyszeń i innych, &lt;/li&gt;
+
+&lt;li&gt;przygotowanie dokumentów wewnętrznych, wniosków i formularzy dla potrzeb związanych z działalnością gospodarczą osób fizycznych i prawnych,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna organów spółek (zgromadzenia wspólników/akcjonariuszy, rad nadzorczych oraz zarządów,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna procesów likwidacji i upadłości podmiotów gospodarczych,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna upadłości konsumenckich,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna przekształceń kapitałowych i organizacyjnych, procesów łączenia, podziałów spółek prawa handlowego,&lt;/li&gt;
+
+&lt;li&gt;doradztwo prawne przy przekształcaniu indywidualnej działalności gospodarczej w spółki kapitałowe i osobowe,&lt;/li&gt;
+
+&lt;li&gt;opracowywanie optymalnych rozwiązań podatkowych pod kątem zmian korporacyjnych,&lt;/li&gt;
+
+&lt;li&gt;zastępstwo przed sądami, organami administracji i urzędami przy dokonywaniu rejestracji oraz ujawnianiu zmian w zakresie prowadzonej działalności gospodarczej podmiotów, prowadzonej w dowolnej formie.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.3.1_leftside_container_card_header" xml:space="preserve">
+    <value>Własność intelektualna</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.3.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;p&gt;Przygotowywanie opinii prawnych z zakresu własności intelektualnej, a także sporządzanie, weryfikacja, negocjowanie:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;umów o przeniesienie autorskich praw majątkowych,&lt;/li&gt;
+
+&lt;li&gt;umów o korzystanie z utworów (umów licencyjnych),&lt;/li&gt;
+
+&lt;li&gt;umów o przeniesienie prawa z rejestracji znaku towarowego oraz o przeniesienie prawa do zgłoszenia,&lt;/li&gt;
+
+&lt;li&gt;umów o korzystanie ze znaku towarowego (umów licencyjnych),&lt;/li&gt;
+
+&lt;li&gt;umów z artystami, wykonawcami o współudział w realizacji filmów fabularnych oraz umów wydawniczych i kooprodukcjefilmów fabularnych,&lt;/li&gt;
+
+&lt;li&gt;umów o stworzenie programu komputerowego (modyfikacji programu komputerowego) i przeniesienie praw autorskich,&lt;/li&gt;
+										
+&lt;li&gt;umów dotyczących systemów informatycznych w tym umów licencyjnych, wdrożeniowych,&lt;/li&gt;
+										
+&lt;li&gt;przygotowywanie wniosków o rejestrację znaków towarowych, wzorów użytkowych, patentów,&lt;/li&gt;
+										
+&lt;li&gt;zastępstwo w postępowaniach rejestrowych przed Urzędem Patentowym w kraju i za granicą,&lt;/li&gt;
+										
+&lt;li&gt;opracowywanie strategii i procedur związanych ochroną własności intelektualnej.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.4.1_leftside_container_card_header" xml:space="preserve">
+    <value>Przekształcenia, fuzje i przejęcia</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.4.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;doradztwo prawne przy procesie przekształcania podmiotów działających na podstawie wpisu do ewidencji działalności gospodarczej w spółki osobowe i kapitałowe,&lt;/li&gt;
+
+&lt;li&gt;doradztwo prawne w procesie łączenia i dzielenia spółek kapitałowych, &lt;/li&gt;
+										
+&lt;li&gt;doradztwo prawne w zakresie prywatyzacji i restrukturyzacji przedsiębiorców i spółek Skarbu Państwa,&lt;/li&gt;
+										
+&lt;li&gt;badania prawne (analizy prawne) mające na celu ocenę sytuacji prawnej podmiotu gospodarczego przeprowadzane zarówno na potrzeby restrukturyzacji, prywatyzacji lub realizacji projektów inwestycyjnych,&lt;/li&gt;
+										
+&lt;li&gt;doradztwo prawne w procesie kupna-sprzedaży akcji/udziałów, ocena prawna transakcji, przygotowywanie raportów i nadzór nad realizacją transakcji kapitałowych,&lt;/li&gt;
+&lt;ul&gt;
+										
+&lt;li&gt;fuzje i przejęcia spółek oraz podziały spółek,&lt;/li&gt;
+										
+&lt;li&gt;doradztwo przy projektowaniu i realizacji porozumień pomiędzy udziałowcami/akcjonariuszami, udział i reprezentacja w negocjacjach pomiędzy inwestorami.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.5.1_leftside_container_card_header" xml:space="preserve">
+    <value>Nieruchomości</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.5.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;analiza statusu prawnego nieruchomości,&lt;/li&gt;
+
+&lt;li&gt;przygotowywanie umów i udział w negocjacjach transakcji nabycia nieruchomości na wskazane cele,&lt;/li&gt;
+
+&lt;li&gt;doradztwo prawne w zakresie zawierania umów najmu i dzierżawy nieruchomości dla potrzeb mieszkaniowych bądź inwestycyjnych,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna postępowań przed właściwymi organami przy uzyskiwaniu zezwoleń na nabycie nieruchomości przez inwestorów zagranicznych,&lt;/li&gt;
+
+&lt;li&gt;pomoc prawna w doborze odpowiedniej formy nabycia lub zabezpieczenia nieruchomości,&lt;/li&gt;
+
+&lt;li&gt;badania prawne (analizy prawne) statusu nieruchomości przejętych przez Skarb Państwa w wyniku nacjonalizacji i wywłaszczenia oraz przygotowywanie wniosków i reprezentowanie byłych właścicieli w postępowaniach o zwrot nieruchomości,&lt;/li&gt;
+
+&lt;li&gt;doradztwo prawne przy przekształcaniu prawa użytkowania wieczystego nieruchomości w prawo własności i spółdzielczego własnościowego prawa do lokalu w odrębną własność,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna wspólnot mieszkańców,&lt;/li&gt;
+
+&lt;li&gt;obsługa prawna zarządców i administratorów nieruchomości.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.6.1_leftside_container_card_header" xml:space="preserve">
+    <value>Administracja</value>
+    <comment>Lewy panel - Nagłówek karty</comment>
+  </data>
+  <data name="2.6.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;obsługa prawna w zakresie poszczególnych postępowań z zakresu prawa administracyjnego (w tym procedury administracyjnej),&lt;/li&gt;
+
+&lt;li&gt;pomoc prawna przy sporządzaniu wniosków, podań i pism w sprawach i postępowaniach administracyjnych,&lt;/li&gt;
+
+&lt;li&gt;pomoc prawna przy dokonywaniu wymaganych zgłoszeń i zawiadomień,&lt;/li&gt;
+
+&lt;li&gt;reprezentowanie klientów przed urzędami, organami administracji państwowej oraz samorządowej , w tym postępowaniach odwoławczych na każdym etapie postępowania,&lt;/li&gt;
+
+&lt;li&gt;pomoc prawna dotycząca uzyskiwania wymaganych zgód i zezwoleń administracyjnych, uzyskiwanie decyzji administracyjnych,&lt;/li&gt;
+
+&lt;li&gt;zastępstwo procesowe przed sądami administracyjnymi wszystkich instancji.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="3.1.1_rightside_container_card_header" xml:space="preserve">
+    <value>Podatki</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.1.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;p&gt;We współpracy z doradcami podatkowymi:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;przygotowujemy opinie i analizy podatkowe,&lt;/li&gt;
+
+&lt;li&gt;oferujemy pomoc prawną w trakcie kontroli podatkowej i skarbowej,&lt;/li&gt;
+
+&lt;li&gt;doradzamy przy wnioskach o indywidualne interpretacje podatkowe,&lt;/li&gt;
+
+&lt;li&gt;oferujemy zastępstwo prawne w podatkowym postępowaniu odwoławczym i sądowym,&lt;/li&gt;
+
+&lt;li&gt;sporządzamy pisma w sprawach podatkowych, zabezpieczających i egzekucyjnych prowadzonych przed urzędami i izbami skarbowymi, celnymi,&lt;/li&gt;
+
+&lt;li&gt;przygotowujemy odwołania, zażalenia, skargi od decyzji i postanowień organów podatkowych,&lt;/li&gt;
+
+&lt;li&gt;oferujemy zastępstwo procesowe w postępowaniach administracyjnych oraz sądowych przed WSA i NSA.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Dodatkowa zawartość karty</comment>
+  </data>
+  <data name="3.2.1_rightside_container_card_header" xml:space="preserve">
+    <value>Prawo pracy i ubezpieczenia społeczne</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.2.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;przygotowujemy i analizujemy wzory dokumentów i regulaminów oraz procedury działania obowiązujące pracodawców w zakładach pracy,&lt;/li&gt;
+
+&lt;li&gt;przygotowujemy i opiniujemy regulaminy pracy, regulaminy wynagradzania i zakładowe układy zbiorowe,&lt;/li&gt;
+
+&lt;li&gt;reprezentujemy pracowników i pracodawców w postępowaniach w sprawach z zakresu prawa pracy przed sądami powszechnymi,&lt;/li&gt;
+
+&lt;li&gt;oferujemy pomoc prawną związaną z postępowaniem w sprawach o naruszenie praw pracowniczych prowadzonych przed inspektorem pracy,&lt;/li&gt;
+
+&lt;li&gt;wspieramy kontakty z zakładowymi organizacjami związkowymi i zakładowymi społecznymi inspektorami pracy,&lt;/li&gt;
+
+&lt;li&gt;świadczymy doradztwo w zakresie problematyki wypadków przy pracy i chorób zawodowych,&lt;/li&gt;
+
+&lt;li&gt;świadczymy doradztwo w zakresie środków prawnych stosowanych przez inspektorów pracy oraz procedur ich zaskarżania,&lt;/li&gt;
+
+&lt;li&gt;doradzamy w procesach restrukturyzacji zatrudnienia, w tym stosowaniu procedur zwolnień indywidualnych i zwolnień grupowych,&lt;/li&gt;
+
+&lt;li&gt;uczestniczymy w negocjacjach z organizacjami związkowymi i organizacjami pracodawców.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.3.1_rightside_container_card_header" xml:space="preserve">
+    <value>Prawo upadłościowe i układowe</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.3.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;przygotowywanie wniosków o ogłoszenie upadłości układowej i likwidacyjnej,&lt;/li&gt;
+
+&lt;li&gt;przygotowywanie i obsługa upadłości konsumenckich,&lt;/li&gt;
+
+&lt;li&gt;udział w prowadzonych postępowaniach upadłościowych i układowych według nowego prawa upadłościowego,&lt;/li&gt;
+
+&lt;li&gt;przygotowywanie pism procesowych w postępowaniach upadłościowych i układowych,&lt;/li&gt;
+
+&lt;li&gt;negocjowanie i zawieranie ugód przed sądami powszechnymi.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.4.1_rightside_container_card_header" xml:space="preserve">
+    <value>Spory sądowe, egzykucja</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.4.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;reprezentowanie klientów przed sądami powszechnymi we wszelkich instancjach,&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań zabezpieczających,&lt;/li&gt;
+
+&lt;li&gt;przygotowanie pism procesowych w postępowaniach cywilnych, karnych oraz administracyjnych,&lt;/li&gt;
+
+&lt;li&gt;negocjowanie i zawieranie ugód przed sądami powszechnymi,&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań egzekucyjnych po stronie dłużnika i wierzyciela,&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań przeciwegzekucyjnych, zaskarżanie postanowień komorniczych i inne środki ochrony prawnej dłużnika przed wierzycielami,&lt;/li&gt;
+
+&lt;li&gt;pomoc prawna w procesie windykacyjnym przed wszczęciem postępowań sądowych,&lt;/li&gt;
+
+&lt;li&gt;zabezpieczanie należności i zobowiązań.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.5.1_rightside_container_card_header" xml:space="preserve">
+    <value>Legalizacja pobytu cudzoziemców</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.5.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;zezwolenia na pracę typ A, B, C, D.&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań zabezpieczających,&lt;/li&gt;
+
+&lt;li&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/li&gt;
+
+&lt;li&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/li&gt;
+
+&lt;li&gt;karta czasowego pobytu na podstawie innych okoliczności,&lt;/li&gt;
+
+&lt;li&gt;karta stałego pobytu,&lt;/li&gt;
+
+&lt;li&gt;karta rezydenta długoterminowego UE,&lt;/li&gt;
+
+&lt;li&gt;zaproszenia dla cudzoziemców każdego rodzaju,&lt;/li&gt;
+
+&lt;li&gt;obywatelstwo Polskie – pomoc w uzyskaniu,&lt;/li&gt;
+
+&lt;li&gt;odwołania od decyzji administracyjnej,&lt;/li&gt;
+
+&lt;li&gt;pomoc w wypełnianiu wniosków,&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;li&gt;konsultację.&lt;/li&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+</root>
