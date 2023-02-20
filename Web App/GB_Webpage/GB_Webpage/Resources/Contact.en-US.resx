@@ -141,6 +141,14 @@
     <value>Telefon: 22 627 27 33&lt;br /&gt;E-mail: &lt;a id="mail-note" href="mailto:" kancelaria@bochnacki.com"&gt;kancelaria@bochnacki.com&lt;/a&gt;</value>
     <comment>Telefon i email</comment>
   </data>
+  <data name="3.5_leftside_container" xml:space="preserve">
+    <value>&lt;strong&gt;Everything is excellent&lt;/strong&gt;,  e-mail was sent.</value>
+    <comment>Sukces</comment>
+  </data>
+  <data name="3.6_leftside_container" xml:space="preserve">
+    <value>&lt;strong&gt;Form contains errors&lt;/strong&gt;, e-mail wasn't sent.</value>
+    <comment>Błąd</comment>
+  </data>
   <data name="4.1_rightside_container" xml:space="preserve">
     <value>Name and Surname</value>
     <comment>Formularz</comment>
