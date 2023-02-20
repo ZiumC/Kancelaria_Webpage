@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="0_title_tab" xml:space="preserve">
+    <value>Rechtsgebiete | Grzegorz Bochnacki - Kanzlei der Rechtsberater</value>
+  </data>
+  <data name="1_title_rectangle" xml:space="preserve">
+    <value>Rechtsgebiete</value>
+  </data>
+  <data name="2.1.1_leftside_container_card_header" xml:space="preserve">
+    <value>Verträge und Kontrakte</value>
+    <comment>Lewy panel - nagłówek karty </comment>
+  </data>
+  <data name="2.1.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;ausarbeitung von Voraussetzungen und Struktur von Verträgen sowie Mustern und fertigen Vertragsentwürfen, Kontrakten und zivilen sowie wirtschaftlichen Einigungen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Verträgen und Einigungen, die mit dem Gewerbe verbunden sind (z.B. Kauf-, Liefer- oder Tauschverträge), verschiedenen Rahmenverträgen, Verträgen, die mit Nutzung von Sachen verbunden sind, Darlehensverträgen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Verträgen für Personen, die kein Gewerbe betreiben,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Vorverträgen und Verträgen mit Vorbehaltsklauseln,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von allgemeinen Vertragsbedingungen, verschiedenen Ordnungen und internen Regulierungen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Rechtsgutachten, die Zivil- und Handelsverträge betreffen,&lt;/li&gt;
+
+&lt;li&gt;vuswertung und rechtliche Begutachtung von Verträgen und Einigungen sowie deren Entwürfen,&lt;/li&gt;
+
+&lt;li&gt;verhandlungen über Verträge und Einigungen - selbstständig oder im Team,&lt;/li&gt;
+
+&lt;li&gt;Überwachung von Durchführung von Verpflichtungen, die aus Verträgen sowie zivilen und wirtschaftlichen Einigungen auszuführen sind.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.2.1_leftside_container_card_header" xml:space="preserve">
+    <value>Corporate services</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.2.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;rechtsberatung beim Zusammentreten von Subjekten in Form von Gesellschaften, Stiftungen, Vereinen und anderen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von internen Dokumenten, Anträgen und Formularen, die für das Betreiben eines Gewerbes von natürlichen sowie Rechtspersonen notwendig sind,&lt;/li&gt;
+
+&lt;li&gt;rechtsdienstleistungen für Gesellschaftsorgane (Gesellschafterversammlungen/ Versammlungen von Aktionären, Aufsichtsräten und Vorständen),&lt;/li&gt;
+
+&lt;li&gt;rechtshilfe bei Auflösung und Liquidation von Wirtschaftssubjekten,&lt;/li&gt;
+
+&lt;li&gt;rechtsdienst bei Liquidation und Insolvenz von Wirtschaftssubjekten,&lt;/li&gt;
+
+&lt;li&gt;rechtsdienst bei Privatinsolvenz,&lt;/li&gt;
+
+&lt;li&gt;rechtsdient bei Kapital- sowie organisationalen Umwandlungen, Zusammenschlüssen und Teilungen von Gesellschaften des Handelsrecht,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung bei der Umwandlung von einem individuellen Gewerbe in Kapital- und Personengesellschaften,&lt;/li&gt;
+
+&lt;li&gt;vertretung vor Gerichten, Verwaltungsbehörden und anderen Behörden bei Eintragung und Änderungen im   Bereich des geführten Gewerbe von Subjekten, das in beliebiger Form geführt wird,&lt;/li&gt;
+
+&lt;li&gt;ausarbeitung von optimalen Steuerlösungen auf die Formänderung der Körperschaften hin.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.3.1_leftside_container_card_header" xml:space="preserve">
+    <value>Geistiges Eigentum</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.3.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;verträgen zur Nutzung von Werken (Lizenzverträge),&lt;/li&gt;
+
+&lt;li&gt;verträgen zur Übertragung des Rechts zum registrierten Markenzeichen und zur Übertragung des Rechts zur Anmeldung,&lt;/li&gt;
+
+&lt;li&gt;verträgen zur Übertragung von Vermögensurheberrechten,&lt;/li&gt;
+
+&lt;li&gt;verträgen zur Nutzung eines Markenzeichens (Lizenzverträge),&lt;/li&gt;
+
+&lt;li&gt;verträgen mit Künstlern, Darstellern über Teilhaberschaft bei der Realisation von Spielfilmen, Verlagsverträgen sowie Verträgen über Koproduktion von Spielfilmen,&lt;/li&gt;
+
+&lt;li&gt;verträgen über Produktion von Computerprogrammen (oder über Modifikation eines Programms) sowie Übertragung der Urheberrechte,&lt;/li&gt;
+
+&lt;li&gt;verträgen betreffend Informationssysteme darunter Lizenzverträgen und Umsetzungsverträgen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Anträgen auf Anmeldung von Markenzeichen, Gebrauchsmustern und Patenten,&lt;/li&gt;
+
+&lt;li&gt;vertretung im Anmeldungsverfahren vor dem Patentamt im In- und Ausland durch Patentanwälte,&lt;/li&gt;
+
+&lt;li&gt;ausarbeitung von Strategien und Prozeduren, die mit Schutz der Urheberrechte verbunden ist.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.4.1_leftside_container_card_header" xml:space="preserve">
+    <value>Umwandlungen, Zusammenschlüsse und Übernahmen</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.4.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;rechtsberatung bei Umwandlungsprozessen von Subjekten, die auf Grund von Eintragung im Gewerberegister tätig sind in Personen- und Kapitalgesellschaften,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung beim Zusammenschließen und Teilen von Kapitalgesellschaften,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung im Bereich der Privatisierung und Restrukturierung von Unternehmern und Gesellschaften im Eigentum des Staates,&lt;/li&gt;
+
+&lt;li&gt;rechtsuntersuchung (Auswertung) zur Beurteilung der rechtlichen Situation eines Wirtschaftssubjektes zum Zweck der Restrukturierung, Privatisierung oder Umsetzung von Investitionsprojekten,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung bei der Übertragung des Eigentums an Aktien oder Anteilen, rechtliche Begutachtung der Transaktion, Vorbereitung von Berichten und Überwachung der Durchführung von Kapitaltransaktionen,&lt;/li&gt;
+
+&lt;li&gt;zusammenschlüsse und Übernahmen von Gesellschaften sowie Teilungen von Gesellschaften,&lt;/li&gt;
+
+&lt;li&gt;beratung beim Entwerfen und Umsetzung von Einigungen zwischen Anteilseignern/Aktionären, Teilnahme an Verhandlungen zwischen Investoren sowie deren Vertretung.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.5.1_leftside_container_card_header" xml:space="preserve">
+    <value>Immobilien</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.5.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;vorbereitung von Verträgen und Teilnahme an Verhandlungen zum Erwerb von Immobilien zu bestimmten Zwecken,&lt;/li&gt;
+
+&lt;li&gt;bestellung einer Dienstbarkeit an Immobilien, vorgerichtliche Verhandlung sowie damit verbundene Rechtsstreitigkeiten,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung im Bereich der Schließung von Mietverträgen und bei der Verpachtung von Immobilien zu Wohn- oder Investitionszwecken,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung im Bereich der Nutzung von Immobilien im Zuge des betriebenen Gewerbes,&lt;/li&gt;
+
+&lt;li&gt;rechtsdienst bei Verfahren vor den zuständigen Behörden bei der Einholung von Erlaubnissen zum Erwerb der Immobilien durch ausländische Investoren, Bebauungsbedingungen, Baugenehmigungen,&lt;/li&gt;
+
+&lt;li&gt;rechtshilfe bei der Auswahl einer entsprechenden Form des Erwerbs oder Sicherung der Immobilien,&lt;/li&gt;
+
+&lt;li&gt;rechtsuntersuchung (Auswertung) des Status der Immobilien, die von dem Staat im Zuge der Verstaatlichung und Enteignung übernommen wurden sowie Vorbereitung von Anträgen und Vertretung von ehemaligen Eigentümern in Verfahren zur Rückgabe der Immobilien,&lt;/li&gt;
+
+&lt;li&gt;rechtsberatung bei der Umwandlung des Erbnießbrauchs einer Immobilie ins Eigentumsrecht sowie eines genossenschaftliches Wohnungseigentumsrechts in ein separates Eigentum,&lt;/li&gt;
+
+&lt;li&gt;rechtsdienst für Wohneigentümergemeinschaften.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.6.1_leftside_container_card_header" xml:space="preserve">
+    <value>Verwaltung</value>
+    <comment>Lewy panel - Nagłówek karty</comment>
+  </data>
+  <data name="2.6.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;rechtshilfe bei Ausfertigung von Anträgen, Gesuchen und Schriften in Verwaltungsangelegenheiten und Verwaltungsverfahren,&lt;/li&gt;
+
+&lt;li&gt;rechtsdienst im Bereich der einzelnen Verfahren im Verwaltungsrecht (darunter der Verwaltungsprozeduren),&lt;/li&gt;
+
+&lt;li&gt;rechtshilfe bezüglich der Einholung der erforderlichen Genehmigungen und Verwaltungserlaubnisse, Einholung von Verwaltungsentscheidungen,&lt;/li&gt;
+
+&lt;li&gt;rechtshilfe bei der Vollbringung von erforderlichen Anmeldungen und Mitteilungen,&lt;/li&gt;
+
+&lt;li&gt;vertretung von Mandanten vor Ämtern, staatlichen und kommunalen Verwaltungsbehörden, auch im Rechtsmittelverfahren, auf jeder Stufe des Verfahrens,&lt;/li&gt;
+
+&lt;li&gt;vertretung vor den Verwaltungsgerichten aller Instanzen.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="3.1.1_rightside_container_card_header" xml:space="preserve">
+    <value>Steuern</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.1.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;p&gt;Im Zusammenarbeit mit Rechtsberatern:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bereiten wir Steuergutachten und Steueranalysen vor,&lt;/li&gt;
+
+&lt;li&gt;bieten wir Rechtshilfe während der Steuerprüfung an,&lt;/li&gt;
+
+&lt;li&gt;beraten wir während der Erstellung von Anträgen auf individuelle Steuerauslegung,&lt;/li&gt;
+
+&lt;li&gt;bieten wir Vertretung im Rechtsmittelverfahren und Gerichtsverfahren in Steuersachen an,&lt;/li&gt;
+
+&lt;li&gt;fertigen wir Schriften in Steuersachen, Sicherungssachen und Zwangsvollstreckungssachen aus, die vor Behörden sowie Steuer- und Zollkammern geführt werden,&lt;/li&gt;
+
+&lt;li&gt;bereiten wir Berufungen, Beschwerden und Klagen auf Entscheidungen und Entschlüsse von Steuerbehörden vor,&lt;/li&gt;
+
+&lt;li&gt;bieten wir Vertretung im Verwaltungs- und Gerichtsverfahren vor dem Verwaltungsgericht der Woiwodschaft (WSA) und dem Obersten Verwaltungsgericht (NSA).&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel zawartość karty</comment>
+  </data>
+  <data name="3.2.1_rightside_container_card_header" xml:space="preserve">
+    <value>Arbeitsrecht und Sozialversicherungen</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.2.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;wir bereiten Gutachten und Analysen im Bereich des Arbeitsrechts vor,&lt;/li&gt;
+
+&lt;li&gt;wir bereiten Muster von Dokumenten und Regulierungen sowie für die Arbeitgeber geltenden Vorgehensprozeduren an Arbeitsplätzen vor und werten diese aus,&lt;/li&gt;
+
+&lt;li&gt;wir bereiten Betriebsordnungen, Gehaltsordnungen und betriebliche Tarifordnungen vor und begutachten diese,&lt;/li&gt;
+
+&lt;li&gt;wir vertreten Arbeitnehmer und Arbeitgeber in Arbeitsrechtverfahren vor ordentlichen Gerichten,&lt;/li&gt;
+
+&lt;li&gt;wir bieten Rechtshilfe mit Verfahren in Angelegenheiten der Verletzung der Arbeitnehmerrechte an und in Angelegenheiten, die vor dem Arbeitsinspektor geführt werden,&lt;/li&gt;
+
+&lt;li&gt;wir unterstützen Kontakte zu den betrieblichen Gewerkschaftsorganisationen und zu sozialen Arbeitsinspektoren in Betrieben,&lt;/li&gt;
+
+&lt;li&gt;wir leisten Beratung im Bereich der Arbeitsunfälle und Berufskrankheiten,&lt;/li&gt;
+
+&lt;li&gt;wir leisten Beratung im Bereich der Rechtsmittel, die von Arbeitsinspektoren angewendet werden, und wie diese angefochten werden können,&lt;/li&gt;
+
+&lt;li&gt;wir beraten bei der Restrukturierung der Belegschaft, sowie über die Prozeduren der Anwendung von individuellen Entlassungen und Gruppenfreistellungen,&lt;/li&gt;
+
+&lt;li&gt;wir nehmen an Verhandlungen mit Gewerkschaftsorganisationen und Arbeitnehmerorganisationen teil.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.3.1_rightside_container_card_header" xml:space="preserve">
+    <value>Insolvenz und Vergleichsrecht</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.3.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;vorbereitung von Insolvenzanträgen und Anträgen auf Insolvenzvergleich,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung und Bedienung von Privatinsolvenz,&lt;/li&gt;
+
+&lt;li&gt;teilnahme an geführten Insolvenz- und Vergleichsverfahren nach dem neuen Insolvenzrecht,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Prozessschriften in Insolvenz- und Vergleichsverfahren,&lt;/li&gt;
+
+&lt;li&gt;verhandlung und Vergleichsschließung vor ordentlichen Gerichten.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.4.1_rightside_container_card_header" xml:space="preserve">
+    <value>Gerichtliche Auseinandersetzungen</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.4.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;vertretung von Mandanten vor ordentlichen Gerichten aller Instanzen,&lt;/li&gt;
+
+&lt;li&gt;führung von Verfahren zur Sicherung von Forderungen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Prozessschriften in Zivilverfahren, Strafverfahren sowie Verwaltungsverfahren,&lt;/li&gt;
+
+&lt;li&gt;verhandlung und Vergleichsschließung vor ordentlichen Gerichten,&lt;/li&gt;
+
+&lt;li&gt;führung von Zwangsvollstreckungsverfahren als Gläubiger und Schuldner,&lt;/li&gt;
+
+&lt;li&gt;führung von Verfahren, die gegen Zwangsvollstreckungsverfahren gerichtet sind, Anfechtung von Entschlüssen von Gerichtsvollziehern sowie andere Rechtsmittel zum Schutz der Schuldners vor den Gläubigern,&lt;/li&gt;
+
+&lt;li&gt;rechtshilfe im Vindikationsverfahren vor der Einleitung des Gerichtsverfahrens,&lt;/li&gt;
+
+&lt;li&gt;sicherung von Forderungen und Schulden.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.5.1_rightside_container_card_header" xml:space="preserve">
+    <value>&lt;p style=\"color:#ff0000\"&gt;[Tą sekcję trzeba przetłumaczyć]&lt;/p&gt;</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.5.2_rightside_container_card_content" xml:space="preserve">
+    <value>"&lt;p style=\"color:#ff0000\"&gt;zezwolenia na pracę typ A, B, C, D.&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;prowadzenie postępowań zabezpieczających,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta czasowego pobytu na podstawie innych okoliczności,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta stałego pobytu,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta rezydenta długoterminowego UE,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;zaproszenia dla cudzoziemców każdego rodzaju,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;obywatelstwo Polskie – pomoc w uzyskaniu,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;odwołania od decyzji administracyjnej,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;pomoc w wypełnianiu wniosków,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;konsultację.&lt;/p&gt;",</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+</root>
