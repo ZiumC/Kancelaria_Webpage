@@ -38,6 +38,15 @@
     <EmbeddedResource Update="Resources\Specializations.pl-PL.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Team.de-DE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Team.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Team.pl-PL.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
