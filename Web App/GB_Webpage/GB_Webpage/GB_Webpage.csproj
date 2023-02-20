@@ -38,13 +38,13 @@
     <EmbeddedResource Update="Resources\Cooperation.pl-PL.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Index.de-DE.resx">
+    <EmbeddedResource Update="Resources\MainPage.de-DE.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Index.en-US.resx">
+    <EmbeddedResource Update="Resources\MainPage.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Resources\Index.pl-PL.resx">
+    <EmbeddedResource Update="Resources\MainPage.pl-PL.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Specializations.de-DE.resx">

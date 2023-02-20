@@ -1,5 +1,11 @@
-﻿@{
-    ViewData["Title"] = "O nas | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
+﻿@page
+@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<MainPage> sl;
+
+@{
+    var msg1 = sl["0_title_tab"];
+    ViewBag.Title = msg1;
 }
 <!DOCTYPE html>
 <html>
