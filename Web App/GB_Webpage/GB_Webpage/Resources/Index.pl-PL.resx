@@ -117,58 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="introduction_content" xml:space="preserve">
-    <value>Kancelaria Radcy Prawnego Grzegorza Bochnackiego świadczy usługi pomocy prawnej dla swoich Klientów nieprzerwanie &lt;strong&gt;od 2003 roku&lt;/strong&gt;.</value>
+  <data name="0_title_tab" xml:space="preserve">
+    <value>O nas | Grzegorz Bochnacki - Kancelaria Radcy Prawnego</value>
+    <comment>Nagłówek karty w przeglądarce </comment>
   </data>
-  <data name="introduction_header" xml:space="preserve">
-    <value>Kancelaria Radcy Prawnego - Grzegorz Bochnacki</value>
-  </data>
-  <data name="js_error" xml:space="preserve">
+  <data name="1_js_error" xml:space="preserve">
     <value>&lt;strong&gt;JavaScript jest wytłączony&lt;/strong&gt;, mogą się pojawić pewne ograniczenia w poprawnym działaniu strony Internetowej.&lt;strong&gt; Do poprawnego działania włącz JavaScript&lt;/strong&gt;.</value>
     <comment>Informacja, że JS jest wyłączony</comment>
   </data>
-  <data name="leftside_container_1" xml:space="preserve">
-    <value>Swoją działalność opieramy na&lt;strong&gt; solidnych podstawach i wieloletnim doświadczeniu zawodowym &lt;/strong&gt; oraz wzajemnym zaufaniu i trafnym określaniu potrzeb naszych Klientów.</value>
-    <comment>Zawartość strony</comment>
-  </data>
-  <data name="leftside_container_2" xml:space="preserve">
-    <value>Kancelaria początkowo działała  jako jednoosobowa, indywidualna Kancelaria Radcy Prawnego. Systematycznie zwiększając zakres świadczonych usług powiększał się zespół radców prawnych i prawników stale współpracujących Obecnie Zespół Kancelarii tworzy grupa radców prawnych, adwokatów, aplikantów radcowskich i adwokackich oraz prawników.</value>
-    <comment>Zawartość strony</comment>
-  </data>
-  <data name="leftside_container_3" xml:space="preserve">
-    <value>Kancelaria prowadzi kompleksową i incydentalną obsługę prawną spółek kapitałowych i osobowych oraz osób prowadzących działalność gospodarczą. Prowadzimy również obsługę prawną osób fizycznych w sprawach dotyczących wielorakich dziedzin prawa.</value>
-    <comment>Zawartość strony</comment>
-  </data>
-  <data name="leftside_container_4" xml:space="preserve">
-    <value>Bliski kontakt i znajomość specyfiki działania Klientów umożliwia nam zarówno rozwiązywanie bieżących problemów, a także opracowywanie strategii działania w  przyszłości.</value>
-    <comment>Zawartość strony</comment>
-  </data>
-  <data name="quote_1" xml:space="preserve">
+  <data name="2.1_quote" xml:space="preserve">
     <value>Sama wiedza nie wystarczy,</value>
     <comment>Cytat </comment>
   </data>
-  <data name="quote_2" xml:space="preserve">
+  <data name="2.2_quote" xml:space="preserve">
     <value>trzeba jeszcze &lt;strong&gt;wiedzieć jak ją stosować&lt;/strong&gt;.</value>
     <comment>Cytat ciag dalszy</comment>
   </data>
-  <data name="rightside_container_1" xml:space="preserve">
+  <data name="3.1_introduction" xml:space="preserve">
+    <value>Kancelaria Radcy Prawnego - Grzegorz Bochnacki</value>
+    <comment>Nagłówek wstępu</comment>
+  </data>
+  <data name="3.2_introduction" xml:space="preserve">
+    <value>Kancelaria Radcy Prawnego Grzegorza Bochnackiego świadczy usługi pomocy prawnej dla swoich Klientów nieprzerwanie &lt;strong&gt;od 2003 roku&lt;/strong&gt;.</value>
+    <comment>Zawartość wstępu</comment>
+  </data>
+  <data name="4.1_leftside_container" xml:space="preserve">
+    <value>Swoją działalność opieramy na&lt;strong&gt; solidnych podstawach i wieloletnim doświadczeniu zawodowym &lt;/strong&gt; oraz wzajemnym zaufaniu i trafnym określaniu potrzeb naszych Klientów.</value>
+    <comment>Zawartość strony</comment>
+  </data>
+  <data name="4.2_leftside_container" xml:space="preserve">
+    <value>Kancelaria początkowo działała  jako jednoosobowa, indywidualna Kancelaria Radcy Prawnego. Systematycznie zwiększając zakres świadczonych usług powiększał się zespół radców prawnych i prawników stale współpracujących Obecnie Zespół Kancelarii tworzy grupa radców prawnych, adwokatów, aplikantów radcowskich i adwokackich oraz prawników.</value>
+    <comment>Zawartość strony</comment>
+  </data>
+  <data name="4.3_leftside_container" xml:space="preserve">
+    <value>Kancelaria prowadzi kompleksową i incydentalną obsługę prawną spółek kapitałowych i osobowych oraz osób prowadzących działalność gospodarczą. Prowadzimy również obsługę prawną osób fizycznych w sprawach dotyczących wielorakich dziedzin prawa.</value>
+    <comment>Zawartość strony</comment>
+  </data>
+  <data name="4.4_leftside_container" xml:space="preserve">
+    <value>Bliski kontakt i znajomość specyfiki działania Klientów umożliwia nam zarówno rozwiązywanie bieżących problemów, a także opracowywanie strategii działania w  przyszłości.</value>
+    <comment>Zawartość strony</comment>
+  </data>
+  <data name="5.1_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Dobro Klienta stawiamy&lt;/strong&gt; na pierwszym miejscu. Dając tym samym poczucie bezpieczeństwa i osobistego zaangażowania.</value>
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
-  <data name="rightside_container_2" xml:space="preserve">
+  <data name="5.2_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Nie unikamy trudnych zagadnień prawnych, &lt;/strong&gt;które wymagają zaopiniowania.</value>
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
-  <data name="rightside_container_3" xml:space="preserve">
+  <data name="5.3_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Reprezentujemy indywidualne podejście i szacunek&lt;/strong&gt; dla każdego Klienta i jego spraw.</value>
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
-  <data name="rightside_container_4" xml:space="preserve">
+  <data name="5.4_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Zaufanie&lt;/strong&gt;, którym wielu Klientów nieustannie obdarza Kancelarię przekazując pozytywną ocenę współpracy z nami, swoim kontrahentom oraz bliskim.</value>
     <comment>Zawartość w szarym kwadracie</comment>
-  </data>
-  <data name="title_tab" xml:space="preserve">
-    <value>O nas | Grzegorz Bochnacki - Kancelaria Radcy Prawnego</value>
-    <comment>Nagłówek karty w przeglądarce </comment>
   </data>
 </root>
