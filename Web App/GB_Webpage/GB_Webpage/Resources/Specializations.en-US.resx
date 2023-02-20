@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="0_title_tab" xml:space="preserve">
+    <value>Specializations | Grzegorz Bochnacki - Legal Counsel Office</value>
+  </data>
+  <data name="1_title_rectangle" xml:space="preserve">
+    <value>Specializations</value>
+  </data>
+  <data name="2.1.1_leftside_container_card_header" xml:space="preserve">
+    <value>Agreements and contracts</value>
+    <comment>Lewy panel - nagłówek karty </comment>
+  </data>
+  <data name="2.1.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;  
+&lt;li&gt;preparing concepts and structure of agreements as well as specimens and draft agreements, contracts, civil and business settlements,&lt;/li&gt;
+  
+&lt;li&gt;drafting agreements and settlements concerning business activity (e.g. sale, delivery, exchange), different types of framework agreements, agreements concerning use of objects as well as loan agreements,&lt;/li&gt;
+
+&lt;li&gt;drafting agreements for persons, who do not conduct business activity,&lt;/li&gt;
+
+&lt;li&gt;drafting preliminary and conditional agreements,&lt;/li&gt;
+
+&lt;li&gt;preparing general provisions of the agreements, different types of regulations and internal rules,&lt;/li&gt;
+
+&lt;li&gt;preparing legal opinions concerning civil and commercial agreements,&lt;/li&gt;
+
+&lt;li&gt;legal analysis and assessments of agreements, settlements and drafts thereto,&lt;/li&gt;
+
+&lt;li&gt;individual or team negotiations of agreements and settlements,&lt;/li&gt;
+
+&lt;li&gt;supervising the execution of contractual as well as civil and business settlements liabilities.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.2.1_leftside_container_card_header" xml:space="preserve">
+    <value>Corporate services</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.2.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;legal aid by establishing companies, foundations, associations and others,&lt;/li&gt;
+ 
+&lt;li&gt;drafting internal documents, applications and forms necessary to conduct business activity by natural and legal persons,&lt;/li&gt;
+	
+&lt;li&gt;legal services for companies’ bodies (meeting of partners/shareholders and supervisory boards as well as management boards),&lt;/li&gt;
+	
+&lt;li&gt;legal aid by termination and liquidation of business entities,&lt;/li&gt;
+	
+&lt;li&gt;legal services by liquidation and bankruptcy proceedings of legal entities,&lt;/li&gt;
+	
+&lt;li&gt;legal services by personal bankruptcies,&lt;/li&gt;
+	
+&lt;li&gt;legal services by capital and organizational transformations of companies, merger proceedings as well as division of commercial companies,&lt;/li&gt;
+
+&lt;li&gt;legal counsel by transformation of sole proprietorship into corporations and partnerships,&lt;/li&gt;
+	
+&lt;li&gt;development of optimal tax solutions with reference to corporate changes,&lt;/li&gt;
+	
+&lt;li&gt;legal representation by registration and disclosure of changes in the conducted business activities of the entities before courts, administrative bodies and offices, conducted in any form.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.3.1_leftside_container_card_header" xml:space="preserve">
+    <value>Intellectual property</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.3.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;p&gt;Preparing legal opinions concerning intellectual property as well as drafting, verifiying and negotiating:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;agreement on the assignment of economic copyrights,&lt;/li&gt;
+	
+&lt;li&gt;agreement on use of works (license agreements),&lt;/li&gt;
+
+&lt;li&gt;agreement on transfer of right to register trademark and right to application,&lt;/li&gt;
+
+&lt;li&gt;agreements on use of trademark (license agreements),&lt;/li&gt;
+
+&lt;li&gt;agreements with artists and performers  for participation in feature film ma king, publishing agreements and coo productions of feature films,&lt;/li&gt;
+
+&lt;li&gt;agreement concerning creating software (modification of software) and transfer of copyrights,&lt;/li&gt;
+
+&lt;li&gt;agreements concerning IT systems, including license and implementation agreements,&lt;/li&gt;
+
+&lt;li&gt;preparing applications for registration of trademarks, utility models and patents,&lt;/li&gt;
+
+&lt;li&gt;representation by patent agents in registration proceedings before Patent Office in country and abroad,&lt;/li&gt;
+
+&lt;li&gt;development of strategies and procedures concerning protection of intellectual property.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.4.1_leftside_container_card_header" xml:space="preserve">
+    <value>Transformations, mergers and takeovers</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.4.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;legal counselling in the process of transformation of entities conducting business activity registered in the register of business activity  into partnerships and corporations,&lt;/li&gt;
+
+&lt;li&gt;legal counselling in the process of fusion and division of corporations,&lt;/li&gt;
+
+&lt;li&gt;legal counselling in the scope of privatization and reorganization of entrepreneurs and state-owned companies,&lt;/li&gt;
+
+&lt;li&gt;legal research (legal analyses) aiming at assessment of business entity’s legal situation conducted for the purposes of reorganization, privatization or execution of investment projects,&lt;/li&gt;
+
+&lt;li&gt;legal counselling in the process of transferring share ownership/shares, legal assessment of transaction, preparing reports as well as supervision of capital transaction executions,&lt;/li&gt;
+
+&lt;li&gt;companies’ divisions, mergers and takeovers,&lt;/li&gt;
+
+&lt;li&gt;legal counselling concerning preparation and execution of settlements between shareholders/stockholders, participation and representation in negotiations between investors.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.5.1_leftside_container_card_header" xml:space="preserve">
+    <value>Properties</value>
+    <comment>Lewy panel - nagłówek karty</comment>
+  </data>
+  <data name="2.5.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;analysis property's legal status,&lt;/li&gt;
+
+&lt;li&gt;drafting agreements and participation in negotiations concerning purchase of property for the indicated purposes,&lt;/li&gt;
+
+&lt;li&gt;establishment of property easement, pre-trial negotiations and court disputes in this respect,&lt;/li&gt;
+
+&lt;li&gt;legal counselling concerning conclusion of lease and tenancy agreements for housing or investment purposes,&lt;/li&gt;
+
+&lt;li&gt;legal counselling concerning use of property in the course of business activity,&lt;/li&gt;
+
+&lt;li&gt;legal services by proceedings concerning permit for acquisition of property by foreign investors, development conditions and  building permits before competent authorities,&lt;/li&gt;
+
+&lt;li&gt;legal aid by choosing appropriate form of purchase or security of property,&lt;/li&gt;
+
+&lt;li&gt;legal counselling concerning transformation of perpetual usufruct of property into right of ownership and cooperative ownership right to premises into separate ownership,&lt;/li&gt;
+
+&lt;li&gt;legal services for property managers and administrators.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="2.6.1_leftside_container_card_header" xml:space="preserve">
+    <value>Administration</value>
+    <comment>Lewy panel - Nagłówek karty</comment>
+  </data>
+  <data name="2.6.2_leftside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;legal services concerning particular proceedings in the scope of administrative law (including administrative procedure),&lt;/li&gt;
+
+&lt;li&gt;legal aid concerning preparation of applications, request and letters in administrative cases and proceedings,&lt;/li&gt;
+
+&lt;li&gt;legal aid concerning required applications and notices,&lt;/li&gt;
+
+&lt;li&gt;representing clients before offices, national administrative bodies, including appeal proceedings at every stage of proceedings,&lt;/li&gt;
+
+&lt;li&gt;legal aid concerning acceptance of required administrative permissions and notices, obtaining administrative decisions,&lt;/li&gt;
+
+&lt;li&gt;court representations before administrative courts at each level of jurisdiction.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Lewy panel -zawartość karty</comment>
+  </data>
+  <data name="3.1.1_rightside_container_card_header" xml:space="preserve">
+    <value>Taxes</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.1.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;p&gt;Together witch our tax attorneys:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;we prepare tax opinions and analyses,&lt;/li&gt;
+
+&lt;li&gt;offer legal aid during tax and fiscal audit,&lt;/li&gt;
+
+&lt;li&gt;advise on applications for individual tax interpretations,&lt;/li&gt;
+ 
+&lt;li&gt;offer legal representation in tax appeal proceedings and court proceedings,&lt;/li&gt;
+
+&lt;li&gt;draft letters in tax, securing and executive cases conducted before offices, fiscal and customs  chambers,&lt;/li&gt;
+
+&lt;li&gt;drafting appeals, claims and complaints against decisions and orders of tax authorities,&lt;/li&gt;
+
+&lt;li&gt;offer legal representation in administrative and court proceedings before regional administrative court (WSA) to supreme administrative court (NSA).&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel zawartość karty</comment>
+  </data>
+  <data name="3.2.1_rightside_container_card_header" xml:space="preserve">
+    <value>Labour law and social insurance law</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.2.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;we prepare and analyze specimens of documents and regulations as well as binding for employees in workplaces operating procedures,&lt;/li&gt;
+
+&lt;li&gt;we draft and give opinions on work regulations, remuneration regulations and collective bargaining agreements,&lt;/li&gt;
+
+&lt;li&gt;we offer legal aid concerning proceedings in cases of infringement of employees rights conducted before labour inspectorate,&lt;/li&gt;
+
+&lt;li&gt;we represent employees and employers in proceedings in labour law cases before common courts,&lt;/li&gt;
+
+&lt;li&gt;owe advise in processes of reorganization of employment, including implementation of individual and collective redundancies proceedings,&lt;/li&gt;
+
+&lt;li&gt;we support contacts with company’s trade union organizations and company’s social labour inspectorates,&lt;/li&gt;
+
+&lt;li&gt;we prepare legal opinions and analyses concerning labour law,&lt;/li&gt;
+
+&lt;li&gt;we provide legal counselling concerning accidents at work and occupational diseases,&lt;/li&gt;
+
+&lt;li&gt;we provide legal counselling concerning legal remedies used by labour inspectorates and procedures of their challenging,&lt;/li&gt;
+
+&lt;li&gt;we offer trainings for management in the scope of labour law provisions.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.3.1_rightside_container_card_header" xml:space="preserve">
+    <value>Bankruptcy and composition law</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.3.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;drafting  arrangements and liquidation bankruptcy petitions,&lt;/li&gt;
+
+&lt;li&gt;preparing and managing personal bankruptcy,&lt;/li&gt;
+
+&lt;li&gt;participation in bankruptcy and composition proceedings in accordance with new bankruptcy law,&lt;/li&gt;
+
+&lt;li&gt;drafting court papers for bankruptcy and composition proceedings,&lt;/li&gt;
+
+&lt;li&gt;negotiating and concluding settlements before common courts.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.4.1_rightside_container_card_header" xml:space="preserve">
+    <value>Court disputes, execution</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.4.2_rightside_container_card_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;representing clients before common courts at every stage of jurisdiction,&lt;/li&gt;
+
+&lt;li&gt;conducting securing proceedings,&lt;/li&gt;
+
+&lt;li&gt;drafting court papers in civil, criminal and administrative proceedings,&lt;/li&gt;
+
+&lt;li&gt;negotiating and concluding settlements before common courts,&lt;/li&gt;
+
+&lt;li&gt;conducting enforcement proceedings for debtor and creditor,&lt;/li&gt;
+
+&lt;li&gt;conducting proceedings to prevent enforcement, challenging decisions of court enforcement officer and other legal remedies for debtor against creditor,&lt;/li&gt;
+
+&lt;li&gt;legal aid in debt recovery before initiation of court proceedings,&lt;/li&gt;
+
+&lt;li&gt;securing receivables and obligations.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.5.1_rightside_container_card_header" xml:space="preserve">
+    <value>&lt;p style=\"color:#ff0000\"&gt;[Tą sekcję trzeba przetłumaczyć]&lt;/p&gt;</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="3.5.2_rightside_container_card_content" xml:space="preserve">
+    <value>"&lt;p style=\"color:#ff0000\"&gt;zezwolenia na pracę typ A, B, C, D.&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;prowadzenie postępowań zabezpieczających,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta czasowego pobytu na podstawie innych okoliczności,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta stałego pobytu,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta rezydenta długoterminowego UE,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;zaproszenia dla cudzoziemców każdego rodzaju,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;obywatelstwo Polskie – pomoc w uzyskaniu,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;odwołania od decyzji administracyjnej,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;pomoc w wypełnianiu wniosków,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;konsultację.&lt;/p&gt;",</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+</root>
