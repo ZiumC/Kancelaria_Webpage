@@ -117,46 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="introduction_content" xml:space="preserve">
-    <value>Kanzlei der Rechtsberater Grzegorz Bochnacki leistet Rechtsdienst für Unternehmer &lt;strong&gt;seit 2003&lt;/strong&gt;.</value>
+  <data name="0_title_tab" xml:space="preserve">
+    <value>Über uns | Grzegorz Bochnacki - Kanzlei der Rechtsberater</value>
   </data>
-  <data name="introduction_header" xml:space="preserve">
-    <value>Kanzlei der Rechtsberater - Grzegorz Bochnacki</value>
-  </data>
-  <data name="js_error" xml:space="preserve">
+  <data name="1_js_error" xml:space="preserve">
     <value>&lt;p style=\"color:#ff0000\"&gt;[tłumaczenie: &lt;strong&gt;JavaScript jest wytłączony&lt;/strong&gt;, mogą się pojawić pewne ograniczenia w poprawnym działaniu strony Internetowej. &lt;strong&gt;Do poprawnego działania włącz JavaScript.&lt;/strong&gt;]&lt;/p&gt;</value>
   </data>
-  <data name="leftside_container_1" xml:space="preserve">
-    <value>Unsere Tätigkeit basiert &lt;strong&gt;auf soliden Grundlagen, langjährigen Berufserfahrungen sowie dem gegenseitigen Vertrauen&lt;/strong&gt; und der richtigen Erkennung von Kundenbedürfnissen.</value>
-  </data>
-  <data name="leftside_container_2" xml:space="preserve">
-    <value>Am Anfang übte ich Tätigkeit als selbständiger Rechtsanwalt an. Zusammen mit der Erweiterung von dem Leistungsangebot wurde unser Team von Rechtsberatern und Juristen, die ständig mit unserer Kanzlei zusammenarbeiten, vergrößert. Jetzt besteht das Kanzleiteam aus Rechtsberatern, Rechtsanwälten, sowie einigen Rechteberaterreferendar und Juristen.</value>
-  </data>
-  <data name="leftside_container_3" xml:space="preserve">
-    <value>Wir erbringen Rechtsanwaltsleistungen, insbesondere im Bereich von Zivilrecht (materielles Recht), Verfahrensrecht, Medizinrecht, Gesellschaftsrecht, Arbeitsrecht, Verwaltungsrecht, Umweltrecht, Energiegesetz, Insolvenzrecht, Baurecht sowie Steuerrecht.</value>
-  </data>
-  <data name="leftside_container_4" xml:space="preserve">
-    <value>Guter Kontakt und Kenntnisse der Spezifität der Tätigkeit unserer Kunden ermöglichen uns Lösung der bestehenden Probleme, ihre Prävention sowie Vorbereitung der Aktionsstrategien in der Zukunft. Die langjährige Leistung der Rechtshilfe erlaubte uns die richtigen Erfahrungen zu sammeln, die in der alltäglichen Zusammenarbeit mit unseren Kunden nützlich sind.</value>
-  </data>
-  <data name="quote_1" xml:space="preserve">
+  <data name="2.1_quote" xml:space="preserve">
     <value>Das Wissen allen ist nicht genug,</value>
   </data>
-  <data name="quote_2" xml:space="preserve">
+  <data name="2.2_quote" xml:space="preserve">
     <value>man muss wissen, &lt;strong&gt;wie es anzuwenden.&lt;/strong&gt;</value>
   </data>
-  <data name="rightside_container_1" xml:space="preserve">
+  <data name="3.1_introduction" xml:space="preserve">
+    <value>Kanzlei der Rechtsberater - Grzegorz Bochnacki</value>
+  </data>
+  <data name="3.2_introduction" xml:space="preserve">
+    <value>Kanzlei der Rechtsberater Grzegorz Bochnacki leistet Rechtsdienst für Unternehmer &lt;strong&gt;seit 2003&lt;/strong&gt;.</value>
+  </data>
+  <data name="4.1_leftside_container" xml:space="preserve">
+    <value>Unsere Tätigkeit basiert &lt;strong&gt;auf soliden Grundlagen, langjährigen Berufserfahrungen sowie dem gegenseitigen Vertrauen&lt;/strong&gt; und der richtigen Erkennung von Kundenbedürfnissen.</value>
+  </data>
+  <data name="4.2_leftside_container" xml:space="preserve">
+    <value>Am Anfang übte ich Tätigkeit als selbständiger Rechtsanwalt an. Zusammen mit der Erweiterung von dem Leistungsangebot wurde unser Team von Rechtsberatern und Juristen, die ständig mit unserer Kanzlei zusammenarbeiten, vergrößert. Jetzt besteht das Kanzleiteam aus Rechtsberatern, Rechtsanwälten, sowie einigen Rechteberaterreferendar und Juristen.</value>
+  </data>
+  <data name="4.3_leftside_container" xml:space="preserve">
+    <value>Wir erbringen Rechtsanwaltsleistungen, insbesondere im Bereich von Zivilrecht (materielles Recht), Verfahrensrecht, Medizinrecht, Gesellschaftsrecht, Arbeitsrecht, Verwaltungsrecht, Umweltrecht, Energiegesetz, Insolvenzrecht, Baurecht sowie Steuerrecht.</value>
+  </data>
+  <data name="4.4_leftside_container" xml:space="preserve">
+    <value>Guter Kontakt und Kenntnisse der Spezifität der Tätigkeit unserer Kunden ermöglichen uns Lösung der bestehenden Probleme, ihre Prävention sowie Vorbereitung der Aktionsstrategien in der Zukunft. Die langjährige Leistung der Rechtshilfe erlaubte uns die richtigen Erfahrungen zu sammeln, die in der alltäglichen Zusammenarbeit mit unseren Kunden nützlich sind.</value>
+  </data>
+  <data name="5.1_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Guthaben unserer Kunden&lt;/strong&gt; ist immer die erste Priorität. Das gibt das Gefühl der Sicherheit und persönliches Engagements.</value>
   </data>
-  <data name="rightside_container_2" xml:space="preserve">
+  <data name="5.2_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Wir vermeiden nicht den schwierigen Rechtsfragen&lt;/strong&gt;, die Stellungnahme erfordern.</value>
   </data>
-  <data name="rightside_container_3" xml:space="preserve">
+  <data name="5.3_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Wir haben individuelle Betrachtungsweise und Respekt&lt;/strong&gt; für unsere Kunden und ihre Sachen.</value>
   </data>
-  <data name="rightside_container_4" xml:space="preserve">
+  <data name="5.4_rightside_container" xml:space="preserve">
     <value>&lt;strong&gt;Das Vertrauen&lt;/strong&gt; unserer Kunden, die ihre positive Beurteilung uber unseren Dienstleistungen weitergeben.</value>
-  </data>
-  <data name="title_tab" xml:space="preserve">
-    <value>Über uns | Grzegorz Bochnacki - Kanzlei der Rechtsberater</value>
   </data>
 </root>
