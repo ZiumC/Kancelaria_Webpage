@@ -1,5 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Zespół | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
+﻿@page
+@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<Team> t;
+
+@{
+    ViewBag.Title = t["0_title_tab"];
+    var lengthOfLeftside = 4;
 }
 <!DOCTYPE html>
 <html>
@@ -10,7 +16,7 @@
 </head>
 <body>
     <div class="title-rectangle">
-        <h1 class="title-text">Zespół</h1>
+        <h1 class="title-text">@Html.Raw(t["1_title_rectangle"])</h1>
     </div>
 
      <noscript>
@@ -24,8 +30,7 @@
     <div class="introduction-container">
         <div class="row">
             <p class="introduced-text">
-                W naszym zespole działają <strong>doświadczeni prawnicy</strong>, w tym radcowie prawni, adwokaci,
-                aplikanci radcowscy i adwokaccy, doradcy podatkowi i rzecznicy patentowi.
+                @Html.Raw(t["2.1_introduction"])
             </p>
         </div>
     </div>
@@ -33,30 +38,12 @@
     <div class="row">
         <div class="col-md-6 ">
             <div class="leftside-container">
-                <p class="content-text">
-                    Usługi pomocy prawnej świadczone są przez sprawny zespół wyspecjalizowanych
-                    prawników z zachowaniem wysokich standardów zawodowej staranności i wiedzy. Zapewniając profesjonalną
-                    obsługę prawną, przywiązujemy istotną wagę do utrzymania poufności spraw naszych Klientów i gwarantujemy
-                    jej zachowanie, na każdym etapie postępowania.
-                </p>
 
-                <p class="content-text">
-                    Włączenie adwokatów do obsługi prawnej pozwoliło na prowadzenie spraw z zakresu prawa karnego, <strong>
-                        prawa
-                        rodzinnego i spadkowego
-                    </strong>.
-                </p>
+                @for (var i = 1; i <= lengthOfLeftside; i++)
+                {
+                    <p class="content-text">@Html.Raw(t[$"3.{i}_leftside_container"])</p>
+                }
 
-                <p class="content-text">
-                    Stale współpracujący z Kancelarią Rzecznicy Patentowi prowadzą sprawy z zakresu ochrony praw autorskich,
-                    własności intelektualnej i własności przemysłowej.
-                </p>
-
-                <p class="content-text">
-                    Doradcy podatkowi wspierają działania Klientów na każdym etapie ich spraw. Na bieżąco analizują ryzyka podatkowe
-                    przy poszczególnych projektach, zwracają uwagę na zagrożenia oraz pomagają w uzyskiwaniu indywidualnych
-                    interpretacji podatkowych. Pomagamy w przygotowaniu tzw. optymalizacji podatkowych działalności Klientów.
-                </p>
             </div>
         </div>
 
@@ -70,14 +57,11 @@
                 <div class="row">
                     <div class="note-container">
                         <p class="note content-text">
-                            Potencjał wiedzy i doświadczenie jakim dysponuje zespół umożliwia <strong>
-                                realizację projektów wymagających
-                                specjalistycznej pomocy prawnej
-                            </strong> oraz znajomości uwarunkowań rynkowych i biznesowych.
+                            @Html.Raw(t["4.1_rightside_container"])
                         </p>
                         <p class="note content-text ">
                             <a id="note-dark-text" asp-controller="home" asp-action="specializations">
-                                <strong>Sprawdź zakres naszych usług</strong><i id="arrow" class="dark-arrow"></i>
+                                @Html.Raw(t["4.2_rightside_container"])<i id="arrow" class="dark-arrow"></i>
                             </a>
                         </p>
                     </div>
