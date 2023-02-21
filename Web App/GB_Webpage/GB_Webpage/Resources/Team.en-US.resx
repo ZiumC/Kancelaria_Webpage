@@ -148,6 +148,6 @@
     <comment>Zawartość strony</comment>
   </data>
   <data name="4.2_rightside_container" xml:space="preserve">
-    <value>Check the scope of our services</value>
+    <value>&lt;strong&gt;Check the scope of our services&lt;/strong&gt;</value>
   </data>
 </root>
