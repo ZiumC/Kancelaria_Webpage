@@ -1,5 +1,12 @@
-﻿@{
-    ViewData["Title"] = "Specjalizacje | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
+﻿@page
+@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<Specializations> s;
+
+@{
+    ViewBag.Title = s["0_title_tab"];
+    int lengthOfLeftside = 6;
+    int lengthOfRightside = 5;
 }
 <!DOCTYPE html>
 <html>
@@ -13,7 +20,7 @@
 </head>
 <body>
     <div class="title-rectangle">
-        <h1 class="title-text">Specjalizacje</h1>
+        <h1 class="title-text">@Html.Raw(s["1_title_rectangle"])</h1>
     </div>
 
     <noscript>
@@ -30,274 +37,38 @@
                 <div class="cards-container">
                     <div id="leftside-accordion">
 
-                        <div class="card">
+                        @for (var i = 1; i <= lengthOfLeftside; i++)
+                        {
+                            <div class="card">
 
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-1" aria-expanded="false" aria-controls="collapse-1">
-                                <div class="card-header" id="heading-1">
-                                    <h5 class="mb-1 card-header-text">
-                                        Umowy i kontrakty
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-1" class="collapse" aria-labelledby="heading-1" data-parent="#leftside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            opracowanie założeń i struktury umów oraz wzorów i gotowych projektów umów, kontraktów i porozumień cywilnych i gospodarczych,
-                                        </li>
-                                        <li>
-                                            przygotowanie umów i porozumień związanych z działalnością gospodarczą (np. sprzedaży, dostawy, zamiany) różnego typu umów ramowych,
-                                            umów związanych z korzystaniem z rzeczy, umów pożyczki,
-                                        </li>
-                                        <li>
-                                            przygotowanie umów dla osób nieprowadzących działalności gospodarczej,
-                                        </li>
-                                        <li>
-                                            przygotowywanie umów przedwstępnych i warunkowych,
-                                        </li>
-                                        <li>
-                                            przygotowywanie ogólnych warunków umów, różnego rodzaju regulaminów i regulacji wewnętrznych,
-                                        </li>
-                                        <li>
-                                            przygotowywanie opinii prawnych dotyczących umów cywilnych i handlowych,
-                                        </li>
-                                        <li>
-                                            analizy i oceny prawne umów i porozumień oraz ich projektów,
-                                        </li>
-                                        <li>
-                                            negocjowanie umów i porozumień - samodzielnie lub w zespole,
-                                        </li>
-                                        <li>
-                                            nadzorowanie realizacji wykonania zobowiązań z umów i porozumień cywilnych i gospodarczych.
-                                        </li>
-                                    </ul>
+                                <button 
+                                    class="btn btn-link btn-block card-header-text" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapse-@i" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapse-@i"
+                                >
+                                    <div class="card-header" id="heading-@i">
+                                        <h5 class="mb-1 card-header-text">
+                                            @Html.Raw(s[$"2.{i}_leftside_container_card_header"])
+                                        </h5>
+                                    </div>
+                                </button>
+
+                                <div 
+                                    id="collapse-@i" 
+                                    class="collapse" 
+                                    aria-labelledby="heading-@i" 
+                                    data-parent="#leftside-accordion"
+                                >
+                                    <div class="separation-line"></div>
+                                    <div class="card-body">
+                                        @Html.Raw(s[$"2.{i}_leftside_container_card_body"])
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
-                                <div class="card-header" id="heading-2">
-                                    <h5 class="mb-1 card-header-text">
-                                        Sprawy korporacyjne
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-2" class="collapse" aria-labelledby="heading-2" data-parent="#leftside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            pomoc prawna przy zawiązywaniu podmiotów w formie spółek, fundacji, stowarzyszeń i innych,
-                                        </li>
-                                        <li>
-                                            przygotowanie dokumentów wewnętrznych, wniosków i formularzy dla potrzeb związanych z działalnością gospodarczą
-                                            osób fizycznych i prawnych,
-                                        </li>
-                                        <li>
-                                            obsługa prawna organów spółek (zgromadzenia wspólników/akcjonariuszy, rad nadzorczych oraz zarządów,
-                                        </li>
-                                        <li>
-                                            obsługa prawna procesów likwidacji i upadłości podmiotów gospodarczych,
-                                        </li>
-                                        <li>
-                                            obsługa prawna upadłości konsumenckich,
-                                        </li>
-                                        <li>
-                                            obsługa prawna przekształceń kapitałowych i organizacyjnych, procesów łączenia, podziałów spółek prawa handlowego,
-                                        </li>
-                                        <li>
-                                            doradztwo prawne przy przekształcaniu indywidualnej działalności gospodarczej w spółki kapitałowe i osobowe,
-                                        </li>
-                                        <li>
-                                            opracowywanie optymalnych rozwiązań podatkowych pod kątem zmian korporacyjnych,
-                                        </li>
-                                        <li>
-                                            zastępstwo przed sądami, organami administracji i urzędami przy dokonywaniu rejestracji oraz ujawnianiu zmian w zakresie
-                                            prowadzonej działalności gospodarczej podmiotów, prowadzonej w dowolnej formie.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                                <div class="card-header" id="heading-3">
-                                    <h5 class="mb-1 card-header-text">
-                                        Własność intelektualna
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-3" class="collapse" aria-labelledby="heading-3" data-parent="#leftside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <p>
-                                        Przygotowywanie opinii prawnych z zakresu własności intelektualnej, a także sporządzanie, weryfikacja, negocjowanie:
-                                    </p>
-                                    <ul>
-                                        <li>
-                                            umów o przeniesienie autorskich praw majątkowych,
-                                        </li>
-                                        <li>
-                                            umów o korzystanie z utworów (umów licencyjnych),
-                                        </li>
-                                        <li>
-                                            umów o przeniesienie prawa z rejestracji znaku towarowego oraz o przeniesienie prawa do zgłoszenia,
-                                        </li>
-                                        <li>
-                                            umów o korzystanie ze znaku towarowego (umów licencyjnych),
-                                        </li>
-                                        <li>
-                                            umów z artystami, wykonawcami o współudział w realizacji filmów fabularnych oraz umów wydawniczych i kooprodukcje
-                                            filmów fabularnych,
-                                        </li>
-                                        <li>
-                                            umów o stworzenie programu komputerowego (modyfikacji programu komputerowego) i przeniesienie praw autorskich,
-                                        </li>
-                                        <li>
-                                            umów dotyczących systemów informatycznych w tym umów licencyjnych, wdrożeniowych,
-                                        </li>
-                                        <li>
-                                            przygotowywanie wniosków o rejestrację znaków towarowych, wzorów użytkowych, patentów,
-                                        </li>
-                                        <li>
-                                            zastępstwo w postępowaniach rejestrowych przed Urzędem Patentowym w kraju i za granicą,
-                                        </li>
-                                        <li>
-                                            opracowywanie strategii i procedur związanych ochroną własności intelektualnej.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
-                                <div class="card-header" id="heading-4">
-                                    <h5 class="mb-1 card-header-text">
-                                        Przekształcenia, fuzje i przejęcia
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-4" class="collapse" aria-labelledby="heading-4" data-parent="#leftside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            doradztwo prawne przy procesie przekształcania podmiotów działających na podstawie wpisu do ewidencji działalności
-                                            gospodarczej w spółki osobowe i kapitałowe,
-                                        </li>
-                                        <li>
-                                            doradztwo prawne w procesie łączenia i dzielenia spółek kapitałowych,
-                                        </li>
-                                        <li>
-                                            doradztwo prawne w zakresie prywatyzacji i restrukturyzacji przedsiębiorców i spółek Skarbu Państwa,
-                                        </li>
-                                        <li>
-                                            badania prawne (analizy prawne) mające na celu ocenę sytuacji prawnej podmiotu gospodarczego przeprowadzane zarówno
-                                            na potrzeby restrukturyzacji, prywatyzacji lub realizacji projektów inwestycyjnych,
-                                        </li>
-                                        <li>
-                                            doradztwo prawne w procesie kupna-sprzedaży akcji/udziałów, ocena prawna transakcji, przygotowywanie raportów i nadzór
-                                            nad realizacją transakcji kapitałowych,
-                                        </li>
-                                        <li>
-                                            fuzje i przejęcia spółek oraz podziały spółek,
-                                        </li>
-                                        <li>
-                                            doradztwo przy projektowaniu i realizacji porozumień pomiędzy udziałowcami/akcjonariuszami, udział i reprezentacja w
-                                            negocjacjach pomiędzy inwestorami.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
-                                <div class="card-header" id="heading-5">
-                                    <h5 class="mb-1 card-header-text">
-                                        Nieruchomości
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-5" class="collapse" aria-labelledby="heading-5" data-parent="#leftside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            analiza statusu prawnego nieruchomości,
-                                        </li>
-                                        <li>
-                                            przygotowywanie umów i udział w negocjacjach transakcji nabycia nieruchomości na wskazane cele,
-                                        </li>
-                                        <li>
-                                            doradztwo prawne w zakresie zawierania umów najmu i dzierżawy nieruchomości dla potrzeb mieszkaniowych
-                                            bądź inwestycyjnych,
-                                        </li>
-                                        <li>
-                                            obsługa prawna postępowań przed właściwymi organami przy uzyskiwaniu zezwoleń na nabycie nieruchomości przez
-                                            inwestorów zagranicznych,
-                                        </li>
-                                        <li>
-                                            pomoc prawna w doborze odpowiedniej formy nabycia lub zabezpieczenia nieruchomości,
-                                        </li>
-                                        <li>
-                                            badania prawne (analizy prawne) statusu nieruchomości przejętych przez Skarb Państwa w wyniku nacjonalizacji i wywłaszczenia oraz
-                                            przygotowywanie wniosków i reprezentowanie byłych właścicieli w postępowaniach o zwrot nieruchomości,
-                                        </li>
-                                        <li>
-                                            doradztwo prawne przy przekształcaniu prawa użytkowania wieczystego nieruchomości w prawo własności i spółdzielczego własnościowego
-                                            prawa do lokalu w odrębną własność,
-                                        </li>
-                                        <li>
-                                            obsługa prawna wspólnot mieszkańców,
-                                        </li>
-                                        <li>
-                                            obsługa prawna zarządców i administratorów nieruchomości.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
-                                <div class="card-header" id="heading-6">
-                                    <h5 class="mb-1 card-header-text">
-                                        Administracja
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-6" class="collapse" aria-labelledby="heading-6" data-parent="#leftside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            obsługa prawna w zakresie poszczególnych postępowań z zakresu prawa administracyjnego (w tym procedury administracyjnej),
-                                        </li>
-                                        <li>
-                                            pomoc prawna przy sporządzaniu wniosków, podań i pism w sprawach i postępowaniach administracyjnych,
-                                        </li>
-                                        <li>
-                                            pomoc prawna przy dokonywaniu wymaganych zgłoszeń i zawiadomień,
-                                        </li>
-                                        <li>
-                                            reprezentowanie klientów przed urzędami, organami administracji państwowej oraz samorządowej , w tym postępowaniach
-                                            odwoławczych na każdym etapie postępowania,
-                                        </li>
-                                        <li>
-                                            pomoc prawna dotycząca uzyskiwania wymaganych zgód i zezwoleń administracyjnych, uzyskiwanie decyzji administracyjnych,
-                                        </li>
-                                        <li>
-                                            zastępstwo procesowe przed sądami administracyjnymi wszystkich instancji.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        }
 
                     </div>
                 </div>
@@ -308,224 +79,38 @@
                 <div class="cards-container">
                     <div id="rightside-accordion">
 
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-7" aria-expanded="false" aria-controls="collapse-7">
-                                <div class="card-header" id="heading-7">
-                                    <h5 class="mb-1 card-header-text">
-                                        Podatki
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-7" class="collapse" aria-labelledby="heading-7" data-parent="#rightside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <p>
-                                        We współpracy z doradcami podatkowymi:
-                                    </p>
-                                    <ul>
-                                        <li>
-                                            przygotowujemy opinie i analizy podatkowe,
-                                        </li>
-                                        <li>
-                                            oferujemy pomoc prawną w trakcie kontroli podatkowej i skarbowej,
-                                        </li>
-                                        <li>
-                                            doradzamy przy wnioskach o indywidualne interpretacje podatkowe,
-                                        </li>
-                                        <li>
-                                            oferujemy zastępstwo prawne w podatkowym postępowaniu odwoławczym i sądowym,
-                                        </li>
-                                        <li>
-                                            sporządzamy pisma w sprawach podatkowych, zabezpieczających i egzekucyjnych prowadzonych przed urzędami
-                                            i izbami skarbowymi, celnymi,
-                                        </li>
-                                        <li>
-                                            przygotowujemy odwołania, zażalenia, skargi od decyzji i postanowień organów podatkowych,
-                                        </li>
-                                        <li>
-                                            oferujemy zastępstwo procesowe w postępowaniach administracyjnych oraz sądowych przed WSA i NSA.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        @for (var i = 1; i <= lengthOfRightside; i++)
+                        {
 
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-8" aria-expanded="false" aria-controls="collapse-8">
-                                <div class="card-header" id="heading-8">
-                                    <h5 class="mb-1 card-header-text">
-                                        Prawo pracy i ubezpieczenia społeczne
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-8" class="collapse" aria-labelledby="heading-8" data-parent="#rightside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            przygotowujemy opinie i analizy prawne z zakresu prawa pracy,
-                                        </li>
-                                        <li>
-                                            przygotowujemy i analizujemy wzory dokumentów i regulaminów oraz procedury działania obowiązujące
-                                            pracodawców w zakładach pracy,
-                                        </li>
-                                        <li>
-                                            przygotowujemy i opiniujemy regulaminy pracy, regulaminy wynagradzania i zakładowe układy zbiorowe,
-                                        </li>
-                                        <li>
-                                            reprezentujemy pracowników i pracodawców w postępowaniach w sprawach z zakresu prawa pracy przed
-                                            sądami powszechnymi,
-                                        </li>
-                                        <li>
-                                            oferujemy pomoc prawną związaną z postępowaniem w sprawach o naruszenie praw pracowniczych
-                                            prowadzonych przed inspektorem pracy,
-                                        </li>
-                                        <li>
-                                            wspieramy kontakty z zakładowymi organizacjami związkowymi i zakładowymi społecznymi inspektorami pracy,
-                                        </li>
-                                        <li>
-                                            świadczymy doradztwo w zakresie problematyki wypadków przy pracy i chorób zawodowych,
-                                        </li>
-                                        <li>
-                                            świadczymy doradztwo w zakresie środków prawnych stosowanych przez inspektorów pracy oraz procedur ich zaskarżania,
-                                        </li>
-                                        <li>
-                                            doradzamy w procesach restrukturyzacji zatrudnienia, w tym stosowaniu procedur zwolnień indywidualnych i zwolnień grupowych,
-                                        </li>
-                                        <li>
-                                            uczestniczymy w negocjacjach z organizacjami związkowymi i organizacjami pracodawców.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                            var nextIdForCollapseAndHeading = lengthOfLeftside + i;
 
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-9" aria-expanded="false" aria-controls="collapse-9">
-                                <div class="card-header" id="heading-9">
-                                    <h5 class="mb-1 card-header-text">
-                                        Prawo upadłościowe i układowe
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-9" class="collapse" aria-labelledby="heading-9" data-parent="#rightside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            przygotowywanie wniosków o ogłoszenie upadłości układowej i likwidacyjnej,
-                                        </li>
-                                        <li>
-                                            przygotowywanie i obsługa upadłości konsumenckich,
-                                        </li>
-                                        <li>
-                                            udział w prowadzonych postępowaniach upadłościowych i układowych według nowego prawa upadłościowego,
-                                        </li>
-                                        <li>
-                                            przygotowywanie pism procesowych w postępowaniach upadłościowych i układowych,
-                                        </li>
-                                        <li>
-                                            negocjowanie i zawieranie ugód przed sądami powszechnymi.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                            <div class="card">
+                                <button 
+                                    class="btn btn-link btn-block card-header-text" 
+                                    data-toggle="collapse" 
+                                    data-target="#collapse-@nextIdForCollapseAndHeading" 
+                                    aria-expanded="false" 
+                                    aria-controls="collapse-@nextIdForCollapseAndHeading">
+                                    <div class="card-header" id="heading-@nextIdForCollapseAndHeading">
+                                        <h5 class="mb-1 card-header-text">
+                                            @Html.Raw(s[$"3.{i}_rightside_container_card_header"])
+                                        </h5>
+                                    </div>
+                                </button>
 
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-10" aria-expanded="false" aria-controls="collapse-10">
-                                <div class="card-header" id="heading-10">
-                                    <h5 class="mb-1 card-header-text">
-                                        Spory sądowe, egzykucja
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-10" class="collapse" aria-labelledby="heading-10" data-parent="#rightside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            reprezentowanie klientów przed sądami powszechnymi we wszelkich instancjach,
-                                        </li>
-                                        <li>
-                                            prowadzenie postępowań zabezpieczających,
-                                        </li>
-                                        <li>
-                                            przygotowanie pism procesowych w postępowaniach cywilnych, karnych oraz administracyjnych,
-                                        </li>
-                                        <li>
-                                            negocjowanie i zawieranie ugód przed sądami powszechnymi,
-                                        </li>
-                                        <li>
-                                            prowadzenie postępowań egzekucyjnych po stronie dłużnika i wierzyciela,
-                                        </li>
-                                        <li>
-                                            prowadzenie postępowań przeciwegzekucyjnych, zaskarżanie postanowień komorniczych i inne środki ochrony
-                                            prawnej dłużnika przed wierzycielami,
-                                        </li>
-                                        <li>
-                                            pomoc prawna w procesie windykacyjnym przed wszczęciem postępowań sądowych,
-                                        </li>
-                                        <li>
-                                            zabezpieczanie należności i zobowiązań.
-                                        </li>
-                                    </ul>
+                                <div 
+                                    id="collapse-@nextIdForCollapseAndHeading" 
+                                    class="collapse" 
+                                    aria-labelledby="heading-@nextIdForCollapseAndHeading"
+                                 data-parent="#rightside-accordion">
+                                    <div class="separation-line"></div>
+                                    <div class="card-body">
+                                        @Html.Raw(s[$"3.{i}_rightside_container_card_body"])
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="card">
-                            <button class="btn btn-link btn-block card-header-text" data-toggle="collapse" data-target="#collapse-11" aria-expanded="false" aria-controls="collapse-11">
-                                <div class="card-header" id="heading-11">
-                                    <h5 class="mb-1 card-header-text">
-                                        Legalizacja pobytu cudzoziemców
-                                    </h5>
-                                </div>
-                            </button>
-                            <div id="collapse-11" class="collapse" aria-labelledby="heading-11" data-parent="#rightside-accordion">
-                                <div class="separation-line"></div>
-                                <div class="card-body">
-                                    <ul>
-                                        <li>
-                                            zezwolenia na pracę typ A, B, C, D.
-                                        </li>
-                                        <li>
-                                            prowadzenie postępowań zabezpieczających,
-                                        </li>
-                                        <li>
-                                            oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,
-                                        </li>
-                                        <li>
-                                            sprawy związane z jednolitym pobytem czasowym i pracą,
-                                        </li>
-                                        <li>
-                                            karta czasowego pobytu na podstawie innych okoliczności,
-                                        </li>
-                                        <li>
-                                            karta stałego pobytu,
-                                        </li>
-                                        <li>
-                                            karta rezydenta długoterminowego UE,
-                                        </li>
-                                        <li>
-                                            zaproszenia dla cudzoziemców każdego rodzaju,
-                                        </li>
-                                        <li>
-                                            obywatelstwo Polskie – pomoc w uzyskaniu,
-                                        </li>
-                                        <li>
-                                            odwołania od decyzji administracyjnej,
-                                        </li>
-                                        <li>
-                                            pomoc w wypełnianiu wniosków,
-                                        </li>
-                                        <li>
-                                            konsultację.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        }
 
                     </div>
                 </div>
