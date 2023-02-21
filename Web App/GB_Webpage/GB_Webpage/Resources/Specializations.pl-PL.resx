@@ -123,11 +123,7 @@
   <data name="1_title_rectangle" xml:space="preserve">
     <value>Specjalizacje</value>
   </data>
-  <data name="2.1.1_leftside_container_card_header" xml:space="preserve">
-    <value>Umowy i kontrakty</value>
-    <comment>Lewy panel - nagłówek karty </comment>
-  </data>
-  <data name="2.1.2_leftside_container_card_content" xml:space="preserve">
+  <data name="2.1_leftside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;opracowanie założeń i struktury umów oraz wzorów i gotowych projektów umów, kontraktów i porozumień cywilnych i gospodarczych,&lt;/li&gt;
 
@@ -149,11 +145,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.2.1_leftside_container_card_header" xml:space="preserve">
-    <value>Sprawy korporacyjne</value>
-    <comment>Lewy panel - nagłówek karty</comment>
+  <data name="2.1_leftside_container_card_header" xml:space="preserve">
+    <value>Umowy i kontrakty</value>
+    <comment>Lewy panel - nagłówek karty </comment>
   </data>
-  <data name="2.2.2_leftside_container_card_content" xml:space="preserve">
+  <data name="2.2_leftside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;pomoc prawna przy zawiązywaniu podmiotów w formie spółek, fundacji, stowarzyszeń i innych, &lt;/li&gt;
 
@@ -175,11 +171,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.3.1_leftside_container_card_header" xml:space="preserve">
-    <value>Własność intelektualna</value>
+  <data name="2.2_leftside_container_card_header" xml:space="preserve">
+    <value>Sprawy korporacyjne</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.3.2_leftside_container_card_content" xml:space="preserve">
+  <data name="2.3_leftside_container_card_body" xml:space="preserve">
     <value>&lt;p&gt;Przygotowywanie opinii prawnych z zakresu własności intelektualnej, a także sporządzanie, weryfikacja, negocjowanie:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -205,11 +201,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.4.1_leftside_container_card_header" xml:space="preserve">
-    <value>Przekształcenia, fuzje i przejęcia</value>
+  <data name="2.3_leftside_container_card_header" xml:space="preserve">
+    <value>Własność intelektualna</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.4.2_leftside_container_card_content" xml:space="preserve">
+  <data name="2.4_leftside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;doradztwo prawne przy procesie przekształcania podmiotów działających na podstawie wpisu do ewidencji działalności gospodarczej w spółki osobowe i kapitałowe,&lt;/li&gt;
 
@@ -228,11 +224,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.5.1_leftside_container_card_header" xml:space="preserve">
-    <value>Nieruchomości</value>
+  <data name="2.4_leftside_container_card_header" xml:space="preserve">
+    <value>Przekształcenia, fuzje i przejęcia</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.5.2_leftside_container_card_content" xml:space="preserve">
+  <data name="2.5_leftside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;analiza statusu prawnego nieruchomości,&lt;/li&gt;
 
@@ -254,11 +250,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.6.1_leftside_container_card_header" xml:space="preserve">
-    <value>Administracja</value>
-    <comment>Lewy panel - Nagłówek karty</comment>
+  <data name="2.5_leftside_container_card_header" xml:space="preserve">
+    <value>Nieruchomości</value>
+    <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.6.2_leftside_container_card_content" xml:space="preserve">
+  <data name="2.6_leftside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;obsługa prawna w zakresie poszczególnych postępowań z zakresu prawa administracyjnego (w tym procedury administracyjnej),&lt;/li&gt;
 
@@ -274,11 +270,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="3.1.1_rightside_container_card_header" xml:space="preserve">
-    <value>Podatki</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
+  <data name="2.6_leftside_container_card_header" xml:space="preserve">
+    <value>Administracja</value>
+    <comment>Lewy panel - Nagłówek karty</comment>
   </data>
-  <data name="3.1.2_rightside_container_card_content" xml:space="preserve">
+  <data name="3.1_rightside_container_card_body" xml:space="preserve">
     <value>&lt;p&gt;We współpracy z doradcami podatkowymi:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -298,11 +294,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel zawartość karty</comment>
   </data>
-  <data name="3.2.1_rightside_container_card_header" xml:space="preserve">
-    <value>Prawo pracy i ubezpieczenia społeczne</value>
+  <data name="3.1_rightside_container_card_header" xml:space="preserve">
+    <value>Podatki</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.2.2_rightside_container_card_content" xml:space="preserve">
+  <data name="3.2_rightside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;przygotowujemy i analizujemy wzory dokumentów i regulaminów oraz procedury działania obowiązujące pracodawców w zakładach pracy,&lt;/li&gt;
 
@@ -324,11 +320,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.3.1_rightside_container_card_header" xml:space="preserve">
-    <value>Prawo upadłościowe i układowe</value>
+  <data name="3.2_rightside_container_card_header" xml:space="preserve">
+    <value>Prawo pracy i ubezpieczenia społeczne</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.3.2_rightside_container_card_content" xml:space="preserve">
+  <data name="3.3_rightside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;przygotowywanie wniosków o ogłoszenie upadłości układowej i likwidacyjnej,&lt;/li&gt;
 
@@ -342,11 +338,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.4.1_rightside_container_card_header" xml:space="preserve">
-    <value>Spory sądowe, egzykucja</value>
+  <data name="3.3_rightside_container_card_header" xml:space="preserve">
+    <value>Prawo upadłościowe i układowe</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.4.2_rightside_container_card_content" xml:space="preserve">
+  <data name="3.4_rightside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;reprezentowanie klientów przed sądami powszechnymi we wszelkich instancjach,&lt;/li&gt;
 
@@ -366,11 +362,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.5.1_rightside_container_card_header" xml:space="preserve">
-    <value>Legalizacja pobytu cudzoziemców</value>
+  <data name="3.4_rightside_container_card_header" xml:space="preserve">
+    <value>Spory sądowe, egzykucja</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.5.2_rightside_container_card_content" xml:space="preserve">
+  <data name="3.5_rightside_container_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;zezwolenia na pracę typ A, B, C, D.&lt;/li&gt;
 
@@ -397,5 +393,9 @@
 
 &lt;li&gt;konsultację.&lt;/li&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="3.5_rightside_container_card_header" xml:space="preserve">
+    <value>Legalizacja pobytu cudzoziemców</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
   </data>
 </root>
