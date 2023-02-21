@@ -127,18 +127,18 @@
     <value>Naszą misją jest świadczenie usług prawnych &lt;strong&gt;na najwyższym poziomie&lt;/strong&gt;, które pomogą Klientom podejmować właściwe decyzje.</value>
   </data>
   <data name="3.1_leftside_container" xml:space="preserve">
-    <value>Kancelaria Radcy Prawnego Grzegorz Bochnacki</value>
+    <value>&lt;h4&gt;Kancelaria Radcy Prawnego Grzegorz Bochnacki&lt;/h4&gt;</value>
   </data>
   <data name="3.2_leftside_container" xml:space="preserve">
-    <value>Budynek "Babka Tower"</value>
+    <value>&lt;h5&gt;Budynek "Babka Tower"&lt;/h5&gt;</value>
     <comment>Miejsce</comment>
   </data>
   <data name="3.3_leftside_container" xml:space="preserve">
-    <value>Al. Jana Pawła II 80 lok. D39, VIII piętro &lt;br /&gt; 00-175 Warszawa &lt;br /&gt; Wejście od strony ulicy &lt;strong&gt;'Dzika'&lt;/strong&gt;</value>
+    <value>&lt;p&gt;Al. Jana Pawła II 80 lok. D39, VIII piętro &lt;br /&gt; 00-175 Warszawa &lt;br /&gt; Wejście od strony ulicy &lt;strong&gt;'Dzika'&lt;/strong&gt;&lt;/p&gt;</value>
     <comment>Adres</comment>
   </data>
   <data name="3.4_leftside_container" xml:space="preserve">
-    <value>Telefon: 22 627 27 33&lt;br /&gt;E-mail: &lt;a id="mail-note" href="mailto:" kancelaria@bochnacki.com"&gt;kancelaria@bochnacki.com&lt;/a&gt;</value>
+    <value>&lt;p&gt;Telefon: 22 627 27 33&lt;br /&gt;E-mail: &lt;a id="mail-note" href="mailto:" kancelaria@bochnacki.com"&gt;kancelaria@bochnacki.com&lt;/a&gt;&lt;/p&gt;</value>
     <comment>Telefon i email</comment>
   </data>
   <data name="3.5_leftside_container" xml:space="preserve">
@@ -160,5 +160,9 @@
   <data name="4.3_rightside_container" xml:space="preserve">
     <value>Wyślij</value>
     <comment>Formularz</comment>
+  </data>
+  <data name="4.4_rightside_container" xml:space="preserve">
+    <value>znaków</value>
+    <comment>Formularz - placeholder</comment>
   </data>
 </root>

@@ -127,26 +127,26 @@
     <value>Unsere Mission ist Rechtsbetreuung &lt;strong&gt;die unseren Kunden&lt;/strong&gt;, die richtigen Entscheidungen zu treffen hilft, auf dem höchsten Niveau zu sichern.</value>
   </data>
   <data name="3.1_leftside_container" xml:space="preserve">
-    <value>Kanzlei des Rechtsberaters Grzegorz Bochnacki</value>
+    <value>&lt;h4&gt;Kanzlei des Rechtsberaters Grzegorz Bochnacki&lt;/h4&gt;</value>
   </data>
   <data name="3.2_leftside_container" xml:space="preserve">
-    <value>Budynek "Babka Tower"</value>
+    <value>&lt;h5&gt;Budynek "Babka Tower"&lt;/h5&gt;</value>
     <comment>Miejsce</comment>
   </data>
   <data name="3.3_leftside_container" xml:space="preserve">
-    <value>Al. Jana Pawła II 80 App. D39, VIII Etage im Gebäude&lt;br /&gt;00-175 Warschau</value>
+    <value>&lt;p&gt;Al. Jana Pawła II 80 App. D39, VIII Etage im Gebäude&lt;br /&gt;00-175 Warschau&lt;/p&gt;</value>
     <comment>Adres</comment>
   </data>
   <data name="3.4_leftside_container" xml:space="preserve">
-    <value>Telefon: 22 627 27 33&lt;br /&gt;E-mail: &lt;a id="mail-note" href="mailto:" kancelaria@bochnacki.com"&gt;kancelaria@bochnacki.com&lt;/a&gt;</value>
+    <value>&lt;p&gt;Telefon: 22 627 27 33&lt;br /&gt;E-mail: &lt;a id="mail-note" href="mailto:" kancelaria@bochnacki.com"&gt;kancelaria@bochnacki.com&lt;/a&gt;&lt;/p&gt;</value>
     <comment>Telefon i email</comment>
   </data>
   <data name="3.5_leftside_container" xml:space="preserve">
-    <value>&lt;p style=\"color:#ff0000\"&gt;&lt;strong&gt;Wszystko w porządku&lt;/strong&gt;, e-mail został wysłany.&lt;/p&gt;</value>
+    <value>&lt;p style="color:#ff0000"&gt;&lt;strong&gt;Wszystko w porządku&lt;/strong&gt;, e-mail został wysłany.&lt;/p&gt;</value>
     <comment>Sukces</comment>
   </data>
   <data name="3.6_leftside_container" xml:space="preserve">
-    <value>&lt;p style=\"color:#ff0000\"&gt;&lt;strong&gt;Coś poszło nie tak&lt;/strong&gt;, e-mail nie został przesłany.&lt;/p&gt;</value>
+    <value>&lt;p style="color:#ff0000"&gt;&lt;strong&gt;Coś poszło nie tak&lt;/strong&gt;, e-mail nie został przesłany.&lt;/p&gt;</value>
     <comment>Błąd</comment>
   </data>
   <data name="4.1_rightside_container" xml:space="preserve">
@@ -160,5 +160,9 @@
   <data name="4.3_rightside_container" xml:space="preserve">
     <value>Sended</value>
     <comment>Formularz</comment>
+  </data>
+  <data name="4.4_rightside_container" xml:space="preserve">
+    <value>zeichen</value>
+    <comment>Formularz - placeholder</comment>
   </data>
 </root>
