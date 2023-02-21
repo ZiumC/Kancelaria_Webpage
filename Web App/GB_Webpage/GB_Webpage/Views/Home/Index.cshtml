@@ -1,14 +1,14 @@
 ﻿@page
 @using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
-@inject IStringLocalizer<MainPage> mp;
+@inject IStringLocalizer<MainPage> mainPage;
 
 @{
-    ViewBag.Title = mp["0_title_tab"];
-    var quote1 = @Html.Raw(mp["2.1_quote"]);
-    var quote2 = @Html.Raw(mp["2.2_quote"]);
-    var introduction1 = @Html.Raw(mp["3.1_introduction"]);
-    var introduction2 = @Html.Raw(mp["3.2_introduction"]);
+    ViewBag.Title = mainPage["0_title_tab"];
+    var quote1 = @Html.Raw(mainPage["2.1_quote"]);
+    var quote2 = @Html.Raw(mainPage["2.2_quote"]);
+    var introduction1 = @Html.Raw(mainPage["3.1_introduction"]);
+    var introduction2 = @Html.Raw(mainPage["3.2_introduction"]);
 
     var lengthOfLeftside = 4;
     var lengthOfRightside = 4;
@@ -63,7 +63,7 @@
 
                 @for (var i = 1; i <= lengthOfLeftside; i++)
                 {
-                    <p class="content-text">@Html.Raw(mp[$"4.{i}_leftside_container"])</p>
+                    <p class="content-text">@Html.Raw(mainPage[$"4.{i}_leftside_container"])</p>
                 }
 
             </div>
@@ -77,7 +77,7 @@
 
                             @for (var i = 1; i <= lengthOfRightside; i++)
                             {
-                                <p class="box b-@i">@Html.Raw(mp[$"5.{i}_rightside_container"])</p>
+                                <p class="box b-@i">@Html.Raw(mainPage[$"5.{i}_rightside_container"])</p>
                             }
 
                         </div>

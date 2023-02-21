@@ -1,10 +1,10 @@
 ﻿@page
 @using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
-@inject IStringLocalizer<Specializations> s;
+@inject IStringLocalizer<Specializations> specializations;
 
 @{
-    ViewBag.Title = s["0_title_tab"];
+    ViewBag.Title = specializations["0_title_tab"];
     int lengthOfLeftside = 6;
     int lengthOfRightside = 5;
 }
@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="title-rectangle">
-        <h1 class="title-text">@Html.Raw(s["1_title_rectangle"])</h1>
+        <h1 class="title-text">@Html.Raw(specializations["1_title_rectangle"])</h1>
     </div>
 
     <noscript>
@@ -50,7 +50,7 @@
                                 >
                                     <div class="card-header" id="heading-@i">
                                         <h5 class="mb-1 card-header-text">
-                                            @Html.Raw(s[$"2.{i}_leftside_container_card_header"])
+                                            @Html.Raw(specializations[$"2.{i}_leftside_container_card_header"])
                                         </h5>
                                     </div>
                                 </button>
@@ -63,7 +63,7 @@
                                 >
                                     <div class="separation-line"></div>
                                     <div class="card-body">
-                                        @Html.Raw(s[$"2.{i}_leftside_container_card_body"])
+                                        @Html.Raw(specializations[$"2.{i}_leftside_container_card_body"])
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                     aria-controls="collapse-@nextIdForCollapseAndHeading">
                                     <div class="card-header" id="heading-@nextIdForCollapseAndHeading">
                                         <h5 class="mb-1 card-header-text">
-                                            @Html.Raw(s[$"3.{i}_rightside_container_card_header"])
+                                            @Html.Raw(specializations[$"3.{i}_rightside_container_card_header"])
                                         </h5>
                                     </div>
                                 </button>
@@ -105,7 +105,7 @@
                                  data-parent="#rightside-accordion">
                                     <div class="separation-line"></div>
                                     <div class="card-body">
-                                        @Html.Raw(s[$"3.{i}_rightside_container_card_body"])
+                                        @Html.Raw(specializations[$"3.{i}_rightside_container_card_body"])
                                     </div>
                                 </div>
                             </div>
