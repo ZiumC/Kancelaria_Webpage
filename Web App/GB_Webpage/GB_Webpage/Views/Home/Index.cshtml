@@ -2,9 +2,13 @@
 @using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
 @inject IStringLocalizer<MainPage> mainPage;
+@inject IStringLocalizer<Alert> alert;
 
 @{
     ViewBag.Title = mainPage["0_title_tab"];
+
+    var jsError = @Html.Raw(alert["0_js_error"]);
+
     var quote1 = @Html.Raw(mainPage["2.1_quote"]);
     var quote2 = @Html.Raw(mainPage["2.2_quote"]);
     var introduction1 = @Html.Raw(mainPage["3.1_introduction"]);
@@ -43,7 +47,7 @@
     <noscript>
         <div class="alert-container">
             <div class="alert alert-warning content-text">
-                <strong>JavaScript jest wytłączony</strong>, mogą się pojawić pewne ograniczenia w poprawnym działaniu strony Internetowej.<strong> Do poprawnego działania włącz JavaScript</strong>.
+                @jsError
             </div>
         </div>
     </noscript>
