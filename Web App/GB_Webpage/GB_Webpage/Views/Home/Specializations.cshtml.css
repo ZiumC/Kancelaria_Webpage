@@ -31,7 +31,7 @@ div.card:hover {
 .separation-line {
 	margin: auto;
 	width: 90%;
-	height: 0.2ex;
+	height: 2px;
 	background: #183B7A;
 }
 
