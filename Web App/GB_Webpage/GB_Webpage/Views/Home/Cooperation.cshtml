@@ -1,5 +1,12 @@
-﻿@{
-    ViewData["Title"] = "Współpraca | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
+﻿@page
+@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<Cooperation> cooperation;
+
+@{
+    ViewBag.Title = cooperation["0_title_tab"];
+    var lengthOfLeftside = 5;
+    var lengthOfRightside = 2;
 }
 <!DOCTYPE html>
 <html>
@@ -11,7 +18,7 @@
 <body>
 
     <div class="title-rectangle">
-        <h1 class="title-text">Współpraca</h1>
+        <h1 class="title-text">@Html.Raw(cooperation["1_title_rectangle"])</h1>
     </div>
 
     <noscript>
@@ -25,8 +32,7 @@
     <div class="introduction-container">
         <div class="row">
             <p class="introduced-text">
-                Każda współpracująca z nami firma może <strong>czuć się bezpiecznie i pewnie</strong>, gdyż działamy
-                transparentnie i na zasadach wzajemnego zaufania.
+                @Html.Raw(cooperation["2.1_introduction"])
             </p>
         </div>
     </div>
@@ -34,36 +40,21 @@
 
     <div class="row">
         <div class="col-md-6 ">
-            <div class="leftside-container">
-                <p class="content-text">
-                    Mając na uwadze potrzeby i specyfikę działań Klientów, proponujemy następujące sposoby rozliczeń za świadczone usługi:
-                </p>
-                <ul class="content-text">
-                    <li>
-                        wynagrodzenie abonamentowe
-                    </li>
-                    <li>
-                        wynagrodzenie godzinowe
-                    </li>
-                    <li>
-                        wynagrodzenie abonamentowo - godzinowe
-                    </li>
-                    <li>
-                        wynagrodzenie z tytułu zastępstw procesowych
-                    </li>
-                </ul>
-                <p class="content-text">
-                    Każdorazowo wysokość wynagrodzenia za prowadzenie powierzonej sprawy ustalana jest indywidualnie przy uwzględnieniu
-                    stopnia skomplikowania podejmowanych czynności i wartości przedmiotu sporu.
-                </p>
-                <p class="content-text">
-                    Nasze działania podejmujemy w ścisłej współpracy z Klientem, który jest na bieżąco informowany zarówno o szansach
-                    jak i potencjalnych zagrożeniach i ryzykach w prowadzonej sprawie.
-                </p>
-                <p class="content-text">
-                    Przed podjęciem czynności zawieramy umowę o świadczenie pomocy prawnej. Zawarta umowa pozwala Klientom korzystać
-                    z doświadczeń i zasobów naszej Kancelarii oraz zapewnia stałą obsługę prawną w oczekiwanym przez Klientów zakresie.
-                </p>
+            <div class="leftside-container content-text">
+
+                @for (var i = 1; i <= lengthOfLeftside; i++)
+                {
+
+                    if (i == 2)
+                    {
+                        <strong>@Html.Raw(cooperation[$"3.{i}_leftside_container"])</strong>
+                    } else
+                    {
+                        <p>@Html.Raw(cooperation[$"3.{i}_leftside_container"])</p>
+                    }
+
+                }
+        
             </div>
         </div>
 
@@ -72,20 +63,19 @@
                 <div class="square-container">
                     <div class="square-element">
                         <div class="centered-text-square">
-                            <p class="box b1">
-                                Usługi prawne świadczone przez Kancelarię <strong>wyceniane są indywidualnie</strong>.
-                            </p>
-                            <p class="box b2">
-                                <strong>Ze starannością</strong> podchodzimy do rozliczeń z Klientami oraz
-                                dostępu do informacji o aktualnym stanie spraw.
-                            </p>
+
+                            @for (var i = 1; i <= lengthOfRightside; i++)
+                            {
+                                <p class="box b-@i">@Html.Raw(cooperation[$"4.{i}_rightside_container"])</p>
+                            }
+
                         </div>
                     </div>
                 </div>
                 <div class="note-container">
                     <p class="note content-text ">
                         <a id="note-dark-text" asp-controller="home" asp-action="contact">
-                            <strong>Zachęcamy Państwa do kontaktu i współpracy z naszą Kancelarią</strong><i id="arrow" class="dark-arrow"></i>
+                            <strong>@Html.Raw(cooperation[$"4.3_rightside_container"])</strong><i id="arrow" class="dark-arrow"></i>
                         </a>
                     </p>
                 </div>
