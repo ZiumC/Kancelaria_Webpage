@@ -1,10 +1,15 @@
 ﻿@page
 @using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
-@inject IStringLocalizer<MainPage> sl;
+@inject IStringLocalizer<MainPage> mp;
 
 @{
-    ViewBag.Title = sl["0_title_tab"];
+    ViewBag.Title = mp["0_title_tab"];
+    var quote1 = @Html.Raw(mp["2.1_quote"]);
+    var quote2 = @Html.Raw(mp["2.2_quote"]);
+    var introduction1 = @Html.Raw(mp["3.1_introduction"]);
+    var introduction2 = @Html.Raw(mp["3.2_introduction"]);
+
 }
 <!DOCTYPE html>
 <html>
@@ -18,13 +23,13 @@
     <div class="container">
         <div class="row row-bottom-margin row-right-align ">
             <div class="col"></div>
-            <div class="col-6"><p class="quoted-text">Sama wiedza nie wystarczy,</p></div>
+            <div class="col-6"><p class="quoted-text">@quote1</p></div>
             <div class="col"></div>
         </div>
         <div class="row">
             <div class="col"></div>
             <div class="col-6">
-                <p class="quoted-text">trzeba jeszcze <strong>wiedzieć jak ją stosować</strong>.</p>
+                <p class="quoted-text">@quote2</p>
             </div>
             <div class="col"></div>
         </div>
@@ -41,11 +46,10 @@
     </noscript>
 
     <div class="introduction-container">
-        <h1>Kancelaria Radcy Prawnego - Grzegorz Bochnacki</h1>
+        <h1>@introduction1</h1>
         <div class="row">
             <p class="introduced-text">
-                Kancelaria Radcy Prawnego Grzegorza Bochnackiego świadczy usługi pomocy prawnej dla
-                swoich Klientów nieprzerwanie <strong>od 2003 roku</strong>.
+                @introduction2
             </p>
         </div>
     </div>
@@ -53,26 +57,12 @@
     <div class="row">
         <div class="col-md-6 ">
             <div class="leftside-container">
-                <p class="content-text">
-                    Swoją działalność opieramy na<strong>
-                        solidnych podstawach i wieloletnim doświadczeniu zawodowym
-                    </strong> oraz wzajemnym zaufaniu i trafnym określaniu potrzeb naszych Klientów.
-                </p>
-                <p class="content-text">
-                    Kancelaria początkowo działała  jako jednoosobowa, indywidualna Kancelaria Radcy Prawnego.
-                    Systematycznie zwiększając zakres świadczonych usług powiększał się zespół radców prawnych i
-                    prawników stale współpracujących Obecnie Zespół Kancelarii tworzy grupa radców prawnych, adwokatów,
-                    aplikantów radcowskich i adwokackich oraz prawników.
-                </p>
-                <p class="content-text">
-                    Kancelaria prowadzi kompleksową i incydentalną obsługę prawną spółek kapitałowych i osobowych oraz osób
-                    prowadzących działalność gospodarczą. Prowadzimy również obsługę prawną osób fizycznych w sprawach
-                    dotyczących wielorakich dziedzin prawa.
-                </p>
-                <p class="content-text">
-                    Bliski kontakt i znajomość specyfiki działania Klientów umożliwia nam zarówno rozwiązywanie bieżących problemów,
-                    a także opracowywanie strategii działania w  przyszłości.
-                </p>
+
+                @for (var i = 1; i <= 4; i++)
+                {
+                    <p class="content-text">@Html.Raw(mp[$"4.{i}_leftside_container"])</p>
+                }
+
             </div>
         </div>
 
@@ -81,21 +71,12 @@
                 <div class="square-container">
                     <div class="square-element">
                         <div class="centered-text-square">
-                            <p class="box b1">
-                                <strong>Dobro Klienta stawiamy</strong> na pierwszym miejscu. Dając tym samym poczucie
-                                bezpieczeństwa i osobistego zaangażowania.
-                            </p>
-                            <p class="box b2">
-                                <strong>Nie unikamy trudnych zagadnień prawnych, </strong>które wymagają zaopiniowania.
-                            </p>
-                            <p class="box b3">
-                                <strong>Reprezentujemy indywidualne podejście i szacunek</strong> dla każdego Klienta
-                                i jego spraw.
-                            </p>
-                            <p class="box b4">
-                                <strong>Zaufanie</strong>, którym wielu Klientów nieustannie obdarza Kancelarię
-                                przekazując pozytywną ocenę współpracy z nami, swoim kontrahentom oraz bliskim.
-                            </p>
+
+                            @for (var i = 1; i <= 4; i++)
+                            {
+                                <p class="box b-@i">@Html.Raw(mp[$"5.{i}_rightside_container"])</p>
+                            }
+
                         </div>
                     </div>
                 </div>
