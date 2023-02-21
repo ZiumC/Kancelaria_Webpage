@@ -61,22 +61,22 @@ div.square-element {
 }
 
 
-.b1 {
+.b-1 {
 	animation: move-text1 30s infinite;
 	font-size: 3ex;
 }
 
-.b2 {
+.b-2 {
 	animation: move-text2 30s infinite;
 	font-size: 3ex;
 }
 
-.b3 {
+.b-3 {
 	animation: move-text4 30s infinite;
 	font-size: 3ex;
 }
 
-.b4 {
+.b-4 {
 	animation: move-text3 30s infinite;
 	font-size: 3ex;
 }
@@ -175,15 +175,15 @@ div.square-element {
 		height: 70%;
 	}
 
-	p.b2 {
+	p.b-2 {
 		font-size: 3.5ex;
 	}
 
-	p.b3 {
+	p.b-3 {
 		font-size: 3.5ex;
 	}
 
-	p.b4 {
+	p.b-4 {
 		font-size: 2.8ex;
 	}
 }
@@ -199,16 +199,16 @@ div.square-element {
 		width: 87%;
 	}
 
-	p.b2 {
+	p.b-2 {
 		font-size: 3.3ex;
 	}
 
-	p.b3 {
+	p.b-3 {
 		font-size: 3.1ex;
 		width: 27%;
 	}
 
-	p.b4 {
+	p.b-4 {
 		font-size: 2.6ex;
 		width: 25%;
 	}
@@ -229,12 +229,12 @@ div.square-element {
 		width: 90%;
 	}
 
-	p.b1 {
+	p.b-1 {
 		font-size: 2.8ex;
 		width: 50%;
 	}
 
-	p.b4 {
+	p.b-4 {
 		font-size: 2.8ex;
 		width: 50%;
 	}
@@ -256,12 +256,12 @@ div.square-element {
 		width: 95%;
 	}
 
-	p.b1 {
+	p.b-1 {
 		font-size: 2.5ex;
 		width: 65%;
 	}
 
-	p.b4 {
+	p.b-4 {
 		font-size: 2.5ex;
 		width: 65%;
 	}
