@@ -1,8 +1,21 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<_Layout> _layout;
+
+@{
+    var menuItemCount = 5;
+    var aspActions = new[] { "index", "specializations", "team", "cooperation", "contact" };
+}
+
+<!DOCTYPE html>
+<html lang="@Html.Raw(_layout["Selected_lang"])">
 <head>
     <meta charset="utf-8" />
+    <meta name="description" content="Grzegorz Bochnacki webpage">
+    <meta name="keywords" content="Prawo, Law, Pomoc, Help, Grzegorz, Bochnacki, Pomoc prawna, Law help, English, Polish, German">
+    <meta name="author" content="Rafał Jamróz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"]</title>
     <link rel="shortcut icon" href="~/images/tab_logo.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -22,18 +35,26 @@
                 <button id="hamburger-button" class="navbar-toggler dark-border" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span>
-                        <i id="menu-icon"  class="dark-menu-icon"></i>
+                        <i id="menu-icon" class="dark-menu-icon"></i>
                     </span>
                 </button>
 
                 <div class="navbar-collapse collapse d-xl-inline-flex justify-content-between">
                     <ul id="menu-bar" class="navbar-nav flex-grow-1">
 
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-action="index">O nas</a>
-                        </li>
 
-                        <li class="nav-item">
+                        @for (var i = 1; i <= menuItemCount; i++)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-action="@aspActions[i-1]">@Html.Raw(_layout[$"{i}_menu"])</a>
+                            </li>
+                        }
+
+                        @*<li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-action="index"></a>
+                        </li>*@
+
+                        @*<li class="nav-item">
                             <a class="nav-link" asp-area="" asp-action="specializations">Specjalizacje</a>
                         </li>
 
@@ -47,7 +68,7 @@
 
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-action="contact">Kontakt</a>
-                        </li>
+                        </li>*@
 
                     </ul>
                 </div>
