@@ -1,10 +1,10 @@
 ﻿@page
 @using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
-@inject IStringLocalizer<Team> t;
+@inject IStringLocalizer<Team> team;
 
 @{
-    ViewBag.Title = t["0_title_tab"];
+    ViewBag.Title = team["0_title_tab"];
     var lengthOfLeftside = 4;
 }
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="title-rectangle">
-        <h1 class="title-text">@Html.Raw(t["1_title_rectangle"])</h1>
+        <h1 class="title-text">@Html.Raw(team["1_title_rectangle"])</h1>
     </div>
 
      <noscript>
@@ -30,7 +30,7 @@
     <div class="introduction-container">
         <div class="row">
             <p class="introduced-text">
-                @Html.Raw(t["2.1_introduction"])
+                @Html.Raw(team["2.1_introduction"])
             </p>
         </div>
     </div>
@@ -41,7 +41,7 @@
 
                 @for (var i = 1; i <= lengthOfLeftside; i++)
                 {
-                    <p class="content-text">@Html.Raw(t[$"3.{i}_leftside_container"])</p>
+                    <p class="content-text">@Html.Raw(team[$"3.{i}_leftside_container"])</p>
                 }
 
             </div>
@@ -57,11 +57,11 @@
                 <div class="row">
                     <div class="note-container">
                         <p class="note content-text">
-                            @Html.Raw(t["4.1_rightside_container"])
+                            @Html.Raw(team["4.1_rightside_container"])
                         </p>
                         <p class="note content-text ">
                             <a id="note-dark-text" asp-controller="home" asp-action="specializations">
-                                @Html.Raw(t["4.2_rightside_container"])<i id="arrow" class="dark-arrow"></i>
+                                @Html.Raw(team["4.2_rightside_container"])<i id="arrow" class="dark-arrow"></i>
                             </a>
                         </p>
                     </div>
