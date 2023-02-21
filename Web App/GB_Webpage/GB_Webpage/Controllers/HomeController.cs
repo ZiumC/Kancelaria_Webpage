@@ -1,6 +1,8 @@
 ﻿using GB_Webpage.Models;
+using GB_Webpage.Resources;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Localization;
 using System.Diagnostics;
 
 namespace GB_Webpage.Controllers
@@ -8,10 +10,12 @@ namespace GB_Webpage.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IStringLocalizer<Contact> _contact; 
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<Contact> contact)
         {
             _logger = logger;
+            _contact = contact;
         }
 
         public IActionResult Index()
@@ -41,18 +45,20 @@ namespace GB_Webpage.Controllers
 
         public IActionResult ValidateEmail(ContactModel contact)
         {
+            Console.WriteLine(Request.Cookies[CookieRequestCultureProvider.DefaultCookieName]);
 
             try
             {
 
                 if (!ModelState.IsValid)
                 {
-                    TempData["Error"] = "<strong>Formularz zawiera błędy</strong>, e-mail nie został wysłany.";
+
+                    TempData["Error"] = $"{_contact["3.6_leftside_container"]}";
                     throw new Exception("Model state isn't valid.");
                 }
                 else
                 {
-                    TempData["Success"] = "<strong>Wszystko w porządku</strong>, e-mail został wysłany.";
+                    TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
                     Console.WriteLine("Model state is valid.");
                 }
 
