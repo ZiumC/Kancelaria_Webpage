@@ -163,7 +163,7 @@
     <comment>Zawartość strony, tekst w szarym kwadracie</comment>
   </data>
   <data name="4.3_rightside_container" xml:space="preserve">
-    <value>&lt;p style=\"color:#ff0000\"&gt;[tłumaczenie: Zachęcamy Państwa do kontaktu i współpracy z naszą Kancelarią.]&lt;/p&gt;</value>
+    <value>[tłumaczenie: Zachęcamy Państwa do kontaktu i współpracy z naszą Kancelarią.]</value>
     <comment>Zawartość strony</comment>
   </data>
 </root>

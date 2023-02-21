@@ -1,7 +1,4 @@
 ﻿
-ul li {
-	font-weight: bold;
-}
 
 .square-container {
 	margin-top: 10ex;
@@ -30,12 +27,12 @@ div.square-element {
 	width: 33vh;
 }
 
-.b1 {
+.b-1 {
 	animation: move-text1 15s infinite;
 	font-size: 3ex;
 }
 
-.b2 {
+.b-2 {
 	animation: move-text2 15s infinite;
 	font-size: 2.8ex;
 	width: 20%;
@@ -102,12 +99,12 @@ div.note-container > p:last-child:hover {
 		width: 80%;
 	}
 
-	.b1 {
+	.b-1 {
 		width: 20%;
 		font-size: 3ex;
 	}
 
-	.b2 {
+	.b-2 {
 		width: 25%;
 		font-size: 2.8ex;
 	}
@@ -124,12 +121,12 @@ div.note-container > p:last-child:hover {
 		width: 93%;
 	}
 
-	.b1 {
+	.b-1 {
 		width: 25%;
 		font-size: 3ex;
 	}
 
-	.b2 {
+	.b-2 {
 		width: 28%;
 		font-size: 2.65ex;
 	}
@@ -142,7 +139,7 @@ div.note-container > p:last-child:hover {
 		width: 80%;
 	}
 
-	.b2 {
+	.b-2 {
 		width: 60%;
 		font-size: 2.65ex;
 	}
@@ -160,12 +157,12 @@ div.note-container > p:last-child:hover {
 		padding-top: 4ex;
 	}
 
-	.b1 {
+	.b-1 {
 		width: 70%;
 		font-size: 3ex;
 	}
 
-	.b2 {
+	.b-2 {
 		width: 70%;
 		font-size: 3ex;
 	}
