@@ -10,6 +10,9 @@
     var introduction1 = @Html.Raw(mp["3.1_introduction"]);
     var introduction2 = @Html.Raw(mp["3.2_introduction"]);
 
+    var lengthOfLeftside = 4;
+    var lengthOfRightside = 4;
+
 }
 <!DOCTYPE html>
 <html>
@@ -58,7 +61,7 @@
         <div class="col-md-6 ">
             <div class="leftside-container">
 
-                @for (var i = 1; i <= 4; i++)
+                @for (var i = 1; i <= lengthOfLeftside; i++)
                 {
                     <p class="content-text">@Html.Raw(mp[$"4.{i}_leftside_container"])</p>
                 }
@@ -72,7 +75,7 @@
                     <div class="square-element">
                         <div class="centered-text-square">
 
-                            @for (var i = 1; i <= 4; i++)
+                            @for (var i = 1; i <= lengthOfRightside; i++)
                             {
                                 <p class="box b-@i">@Html.Raw(mp[$"5.{i}_rightside_container"])</p>
                             }
