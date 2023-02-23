@@ -92,6 +92,10 @@ ul#menu-bar li:hover {
 	background-color: #cacbcf;
 }
 
+ul.settings-bar li:first-child {
+	display: contents;
+}
+
 /*Cookie section*/
 /*Cookie first window*/
 .cookie-container {
@@ -100,7 +104,7 @@ ul#menu-bar li:hover {
 	position: fixed;
 	bottom: -1ex;
 	right: 5ex;
-	display:block;
+	display: block;
 }
 
 div.cookie-container div:first-child {
