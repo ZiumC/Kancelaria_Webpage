@@ -2,6 +2,7 @@
 using GB_Webpage.Resources;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
 using System.Diagnostics;
 
@@ -11,11 +12,13 @@ namespace GB_Webpage.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IStringLocalizer<Contact> _contact; 
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, IStringLocalizer<Contact> contact)
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<Contact> contact, IConfiguration configuration)
         {
             _logger = logger;
             _contact = contact;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -58,8 +61,12 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
+                    string apiKey = _configuration.GetValue<string>("SendGripApiKey");
+
+                    Console.WriteLine(apiKey);
+
                     TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
-                    Console.WriteLine("Model state is valid.");
+                    
                 }
 
                 return RedirectToAction("contact", null);
