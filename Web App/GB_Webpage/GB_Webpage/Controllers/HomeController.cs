@@ -1,5 +1,6 @@
 ﻿using GB_Webpage.Models;
 using GB_Webpage.Resources;
+using GB_Webpage.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,7 +12,7 @@ namespace GB_Webpage.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IStringLocalizer<Contact> _contact; 
+        private readonly IStringLocalizer<Contact> _contact;
         private readonly IConfiguration _configuration;
 
         public HomeController(ILogger<HomeController> logger, IStringLocalizer<Contact> contact, IConfiguration configuration)
@@ -63,10 +64,22 @@ namespace GB_Webpage.Controllers
                 {
 
                     string apiKey = _configuration.GetValue<string>("SendGripApiKey");
+                    string emailFormProvider = _configuration.GetValue<string>("EmailFormProvider");
+                    string emailRecivesForm = _configuration.GetValue<string>("EmailRecivesForm");
+                   
 
+                    SendMailService mailService = new SendMailService(apiKey, emailFormProvider, emailRecivesForm, contact);
 
+                    bool isMailSent = mailService.sendMail();
 
-                    TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
+                    if (isMailSent)
+                    {
+                        TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
+                    }
+                    else
+                    {
+                        TempData["Error"] = "coś poszło nie tak";
+                    }
                 }
 
                 return RedirectToAction("contact", null);
