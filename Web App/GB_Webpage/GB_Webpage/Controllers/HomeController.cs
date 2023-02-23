@@ -61,12 +61,12 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
+
                     string apiKey = _configuration.GetValue<string>("SendGripApiKey");
 
-                    Console.WriteLine(apiKey);
+
 
                     TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
-                    
                 }
 
                 return RedirectToAction("contact", null);
