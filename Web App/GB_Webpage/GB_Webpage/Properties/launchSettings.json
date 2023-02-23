@@ -25,5 +25,7 @@
       }
     }
   },
-  "SendGripApiKey":""
+  "SendGripApiKey": "",
+  "EmailFormProvider": "",
+  "EmailRecivesForm" : ""
 }
