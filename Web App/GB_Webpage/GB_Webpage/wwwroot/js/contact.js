@@ -28,6 +28,7 @@ setTimeout(() => {
 const errorColor = 'red';
 const correctColor = 'lightgray';
 const cookieLangName = '.AspNetCore.Culture';
+const defaulLanguageUI = 'pl';
 const nameRegex = "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$";
 const emailRegex = "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$";
 const spaceRegex = /\s/g;
@@ -37,6 +38,12 @@ const spaceRegex = /\s/g;
 function translateRequired() {
 
     var languageCookie = getCookie(cookieLangName);
+
+    if (languageCookie == null || languageCookie == undefined) {
+
+        languageCookie = defaulLanguageUI;
+
+    }
 
     const pl = "Pole jest wymagane";
     const en = "Field is required";
@@ -60,6 +67,12 @@ function translateRange(min, max) {
 
     var languageCookie = getCookie(cookieLangName);
 
+    if (languageCookie == null || languageCookie == undefined) {
+
+        languageCookie = defaulLanguageUI;
+
+    }
+
     const pl = "Pole powinno zawierać " + min + "-" + max + " znaków";
     const en = "Field should contain " + min + "-" + max + " characters";
     const de = "tłumaczenie: Pole powinno zawierać " + min + "-" + max + " znaków."
@@ -80,6 +93,12 @@ function translateRange(min, max) {
 function translateFieldProperty() {
 
     var languageCookie = getCookie(cookieLangName);
+
+    if (languageCookie == null || languageCookie == undefined) {
+
+        languageCookie = defaulLanguageUI;
+
+    }
 
     const pl = "Pole jest nieprawidłowo uzupełnione";
     const en = "Field isn't properly filled";

@@ -8,11 +8,16 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
-    options
-    .AddSupportedCultures(new string[] { "en-US", "pl-PL", "de-DE" })
-    .AddSupportedUICultures(new string[] { "en-US", "pl-PL", "de-DE" });
+    options.DefaultRequestCulture = new RequestCulture("pl-PL");
 
-    options.SetDefaultCulture("pl-PL");
+    options.AddSupportedCultures(new string[] { "en-US", "pl-PL", "de-DE" });
+    options.AddSupportedUICultures(new string[] { "en-US", "pl-PL", "de-DE" });
+
+    options.RequestCultureProviders = new List<IRequestCultureProvider>
+        {
+            new QueryStringRequestCultureProvider(),
+            new CookieRequestCultureProvider()
+        };
 
 });
 
