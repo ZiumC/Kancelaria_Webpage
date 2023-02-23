@@ -1,5 +1,4 @@
 ﻿using GB_Webpage.Models;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
@@ -21,16 +20,16 @@ namespace GB_Webpage.Services
             _contact = contact ?? throw new ArgumentNullException(nameof(contact));
         }
 
-        public bool sendMail() {
+        public async Task<bool> sendMail() {
 
             try
             {
                 var client = new SendGridClient(_apiKey);
 
                 var from = new EmailAddress(_emailFormProvider, "Kontakt Kancelaria");
+                var subject = $"Formularz - osoba {_contact.Name} napisał/a wiadomość.";
                 var to = new EmailAddress(_emailRecivesForm, "Użytkownik");
 
-                var subject = $"Formularz - osoba {_contact.Name} napisał/a wiadomość.";
                 var plainTextContent = "Form";
                 var htmlContent = 
                     "<div style=\"font-family: Oxygen, sans-serif\">" +
@@ -50,9 +49,8 @@ namespace GB_Webpage.Services
 
                 var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
 
-                var response = client.SendEmailAsync(msg);
-
-                Console.WriteLine(response);
+                var response = await client.SendEmailAsync(msg);
+                
             }
             catch (Exception e)
             {

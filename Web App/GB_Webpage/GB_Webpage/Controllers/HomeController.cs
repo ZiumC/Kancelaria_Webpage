@@ -47,7 +47,7 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
-        public IActionResult ValidateEmail(ContactModel contact)
+        public async Task<IActionResult> ValidateEmail(ContactModel contact)
         {
             Console.WriteLine(Request.Cookies[CookieRequestCultureProvider.DefaultCookieName]);
 
@@ -70,7 +70,7 @@ namespace GB_Webpage.Controllers
 
                     SendMailService mailService = new SendMailService(apiKey, emailFormProvider, emailRecivesForm, contact);
 
-                    bool isMailSent = mailService.sendMail();
+                    bool isMailSent = await mailService.sendMail();
 
                     if (isMailSent)
                     {
