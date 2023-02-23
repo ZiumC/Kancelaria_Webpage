@@ -4,14 +4,21 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>86d57467-47e1-4379-b739-9fa2cc538cbd</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Properties\launchSettings.json" />
     <None Remove="Views\Home\Index - Copy.cshtml.css" />
     <None Remove="Views\Home\Index.cshtml.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Properties\launchSettings.json" />
     <Content Include="Views\Home\Index.cshtml.css" />
   </ItemGroup>
 
