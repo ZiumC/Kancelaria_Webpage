@@ -25,7 +25,7 @@
       }
     }
   },
-  "SendGripApiKey": "",
+  "EmailKey": "",
   "EmailFormProvider": "",
   "EmailRecivesForm": ""
 }
