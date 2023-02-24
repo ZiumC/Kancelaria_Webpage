@@ -63,12 +63,12 @@ namespace GB_Webpage.Controllers
                 else
                 {
 
-                    string apiKey = _configuration.GetValue<string>("SendGripApiKey");
+                    string emailKey = _configuration.GetValue<string>("EmailKey");
                     string emailFormProvider = _configuration.GetValue<string>("EmailFormProvider");
                     string emailRecivesForm = _configuration.GetValue<string>("EmailRecivesForm");
                    
 
-                    SendMailService mailService = new SendMailService(apiKey, emailFormProvider, emailRecivesForm, contact);
+                    SendMailService mailService = new SendMailService(emailKey, emailFormProvider, emailRecivesForm, contact);
 
                     bool isMailSent = await mailService.sendMail();
 
