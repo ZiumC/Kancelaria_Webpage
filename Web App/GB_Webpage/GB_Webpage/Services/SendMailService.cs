@@ -1,6 +1,8 @@
 ﻿using GB_Webpage.Models;
+using System.IO;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection;
 
 namespace GB_Webpage.Services
 {
@@ -18,30 +20,40 @@ namespace GB_Webpage.Services
             _emailFormProvider = emailFormProvider ?? throw new ArgumentNullException(nameof(emailFormProvider));
             _emailRecivesForm = emailRecivesForm ?? throw new ArgumentNullException(nameof(emailRecivesForm));
             _contact = contact ?? throw new ArgumentNullException(nameof(contact));
-        }
+
+    }
 
         public Task<bool> sendMail() {
-
             try
             {
 
-                var fromAddress = new MailAddress(_emailFormProvider, "Kontakc kancelaria");
-                var toAddress = new MailAddress(_emailRecivesForm, "Użytkoniwk kancelarii");
+                var fromAddress = new MailAddress(_emailFormProvider, "Kontakt kancelaria");
+                var toAddress = new MailAddress(_emailRecivesForm, "Użytkownik kancelarii");
                 string fromPassword = _emailKey;
-                string subject = $"soba {_contact.Name} napisał/a wiadomość.";
+                string subject = $"Osoba {_contact.Name} napisał/a wiadomość.";
                 string htmlContent =
-                    "<div style=\"font-family: Oxygen, sans-serif\">" +
-                        "<h1 style=\"font-size: 5ex;\">Formularz kontaktowy</h1>" +
-                        "<div>" +
-                            $"<p style=\"font-size: 2ex; margin-top: 3ex\">Osoba {_contact.Name} napisał/a wiadomość o treści:</p>" +
-                            $"<i><p style=\"font-size: 1.6ex;\"> {_contact.Message} </p></i>" +
-                            "<p style=\"font-size: 2ex; margin-top: 7ex\">Dane kontaktowe tej osoby to:</p>" +
-                            "<b><p>Imię i nazwisko: </p></b>" +
-                            $"<p> {_contact.Name} </p><b>" +
-                            "<p>Adres e-mail: </p></b>" +
-                            $"<p> {_contact.Email} </p>" +
-                        "</div>" +
-                    "</div>";
+                     "<div style=\"padding: 5ex 10ex 5ex 10ex; border-radius: 2ex;\">" +
+                        "<center> <h1 style=\"font-size: 5ex;\">Formularz kontaktowy</h1></center>" +
+                        "<b><p style=\"margin-top: 4ex; margin-bottom: 1ex; font-size: 3ex;\">Osoba: Janusz napisał/a wiadomość o treści:</p></b>" +
+                        "<table style=\"width:auto; text-align: left; content-align: left; font-size: 3ex;\">" +
+                            "<tr>" +
+                                "<th></th>" +
+                                $"<td><i><p>{_contact.Message}</p></i></td>" +
+                            "</tr>" +
+                        "</table>" +
+                        "<p style=\"margin-top: 10ex; margin-bottom: 1ex; font-size: 3ex;\"><b>Dane kontaktowe tej osoby to:</b></p>" +
+                        "<table style=\"width:auto; text-align: left; content-align: left; font-size: 3ex;\">" +
+                            "<tr>" +
+                                "<th>Imię i nazwisko:</th>" +
+                                $"<td>{_contact.Name}</td>" +
+                           "</tr>" +
+                           "<tr>" +
+                                "<th>Aadres e-mail:</th>" +
+                                $"<td>{_contact.Email}</td>" +
+                           "</tr>" +
+                       "</table>" +
+                  "</div>";
+
 
                 var smtp = new SmtpClient
                 {
