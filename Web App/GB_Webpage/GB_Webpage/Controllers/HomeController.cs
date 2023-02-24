@@ -66,7 +66,7 @@ namespace GB_Webpage.Controllers
                     string emailKey = _configuration.GetValue<string>("EmailKey");
                     string emailSendsForm = _configuration.GetValue<string>("EmailSendsForm");
                     string emailRecivesForm = _configuration.GetValue<string>("EmailRecivesForm");
-                   
+
 
                     SendMailService mailService = new SendMailService(emailKey, emailSendsForm, emailRecivesForm, contact);
 
@@ -78,7 +78,7 @@ namespace GB_Webpage.Controllers
                     }
                     else
                     {
-                        TempData["Error"] = "coś poszło nie tak";
+                        TempData["Error"] = $"{_contact["3.7_leftside_container"]}";
                     }
                 }
 

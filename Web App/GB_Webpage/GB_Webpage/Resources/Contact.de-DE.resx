@@ -146,8 +146,11 @@
     <comment>Sukces</comment>
   </data>
   <data name="3.6_leftside_container" xml:space="preserve">
-    <value>&lt;p style="color:#ff0000"&gt;&lt;strong&gt;Coś poszło nie tak&lt;/strong&gt;, e-mail nie został przesłany.&lt;/p&gt;</value>
+    <value>&lt;p style="color:#ff0000"&gt;&lt;strong&gt;Formularz zawiera błędy&lt;/strong&gt;, e-mail nie został przesłany.&lt;/p&gt;</value>
     <comment>Błąd</comment>
+  </data>
+  <data name="3.7_leftside_container" xml:space="preserve">
+    <value>&lt;p style="color:#ff0000"&gt;&lt;strong&gt;Coś poszło nie tak&lt;/strong&gt;, e-mail nie został przesłany.&lt;/p&gt;</value>
   </data>
   <data name="4.1_rightside_container" xml:space="preserve">
     <value>Name und Nachname</value>
