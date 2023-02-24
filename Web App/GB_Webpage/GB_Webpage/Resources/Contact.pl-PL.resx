@@ -149,6 +149,10 @@
     <value>&lt;strong&gt;Formularz zawiera błędy&lt;/strong&gt;, e-mail nie został przesłany.</value>
     <comment>Błąd</comment>
   </data>
+  <data name="3.7_leftside_container" xml:space="preserve">
+    <value>&lt;strong&gt;Coś poszło nie tak&lt;/strong&gt;, formularz nie został wysłany.</value>
+    <comment>Nieznany błąd</comment>
+  </data>
   <data name="4.1_rightside_container" xml:space="preserve">
     <value>Imię i Nazwisko</value>
     <comment>Formularz</comment>

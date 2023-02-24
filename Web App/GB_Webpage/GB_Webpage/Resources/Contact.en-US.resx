@@ -149,6 +149,9 @@
     <value>&lt;strong&gt;Form contains errors&lt;/strong&gt;, e-mail wasn't sent.</value>
     <comment>Błąd</comment>
   </data>
+  <data name="3.7_leftside_container" xml:space="preserve">
+    <value>&lt;strong&gt;Something went wrong&lt;/strong&gt;, form wasn't send.</value>
+  </data>
   <data name="4.1_rightside_container" xml:space="preserve">
     <value>Name and Surname</value>
     <comment>Formularz</comment>
