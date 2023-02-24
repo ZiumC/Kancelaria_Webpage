@@ -1,8 +1,6 @@
 ﻿using GB_Webpage.Models;
-using System.IO;
 using System.Net;
 using System.Net.Mail;
-using System.Reflection;
 
 namespace GB_Webpage.Services
 {
@@ -10,31 +8,58 @@ namespace GB_Webpage.Services
     {
 
         private readonly string _emailKey;
-        private readonly string _emailFormProvider;
+        private readonly string _emailSendsForm;
         private readonly string _emailRecivesForm;
         private readonly ContactModel _contact;
 
-        public SendMailService(string emailKey, string emailFormProvider, string emailRecivesForm, ContactModel contact)
+        public SendMailService(string emailKey, string emailSendsForm, string emailRecivesForm, ContactModel contact)
         {
             _emailKey = emailKey ?? throw new ArgumentNullException(nameof(_emailKey));
-            _emailFormProvider = emailFormProvider ?? throw new ArgumentNullException(nameof(emailFormProvider));
+            _emailSendsForm = emailSendsForm ?? throw new ArgumentNullException(nameof(emailSendsForm));
             _emailRecivesForm = emailRecivesForm ?? throw new ArgumentNullException(nameof(emailRecivesForm));
             _contact = contact ?? throw new ArgumentNullException(nameof(contact));
 
-    }
+        }
 
-        public Task<bool> sendMail() {
+        private async Task<SmtpClient> makeClientAsync(MailAddress emailFrom, string emailKey)
+        {
+
+            return new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(emailFrom.Address, emailKey)
+            };
+
+        }
+
+        private async Task<MailMessage> makeMessageAsync(string subject, string body, MailAddress addressFrom, MailAddress addresTo)
+        {
+            return new MailMessage(addressFrom, addresTo)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+        }
+
+        public async Task<bool> sendMailAsync()
+        {
             try
             {
 
-                var fromAddress = new MailAddress(_emailFormProvider, "Kontakt kancelaria");
-                var toAddress = new MailAddress(_emailRecivesForm, "Użytkownik kancelarii");
-                string fromPassword = _emailKey;
+                MailAddress addressFrom = new MailAddress(_emailSendsForm, "Kontakt kancelaria");
+                MailAddress addressTo = new MailAddress(_emailRecivesForm, "Użytkownik kancelarii");
+                SmtpClient client = await makeClientAsync(addressFrom, _emailKey);
+
                 string subject = $"Osoba {_contact.Name} napisał/a wiadomość.";
                 string htmlContent =
                      "<div style=\"padding: 5ex 10ex 5ex 10ex; border-radius: 2ex;\">" +
                         "<center> <h1 style=\"font-size: 5ex;\">Formularz kontaktowy</h1></center>" +
-                        "<b><p style=\"margin-top: 4ex; margin-bottom: 1ex; font-size: 3ex;\">Osoba: Janusz napisał/a wiadomość o treści:</p></b>" +
+                        $"<b><p style=\"margin-top: 4ex; margin-bottom: 1ex; font-size: 3ex;\">{_contact.Name} napisał/a wiadomość o treści:</p></b>" +
                         "<table style=\"width:auto; text-align: left; content-align: left; font-size: 3ex;\">" +
                             "<tr>" +
                                 "<th></th>" +
@@ -52,37 +77,23 @@ namespace GB_Webpage.Services
                                 $"<td>{_contact.Email}</td>" +
                            "</tr>" +
                        "</table>" +
+                       "<b><p style=\"color: red;\">Wiadomość wygenerowana automatycznie, proszę na nią nie odpowiadać.</p></b>" +
                   "</div>";
 
 
-                var smtp = new SmtpClient
+                using (MailMessage message = await makeMessageAsync(subject, htmlContent, addressFrom, addressTo))
                 {
-                    Host = "smtp.gmail.com",
-                    Port = 587,
-                    EnableSsl = true,
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-                };
-
-                using (var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = htmlContent,
-                    IsBodyHtml = true
-                })
-                {
-                    smtp.Send(message);
+                    client.Send(message);
                 }
 
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                return Task.FromResult(false);
+                Console.WriteLine("Error " + e.ToString());
+                return false;
             }
 
-            return Task.FromResult(true);
+            return true;
         }
     }
 }
