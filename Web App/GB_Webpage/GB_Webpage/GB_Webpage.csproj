@@ -9,8 +9,8 @@
 
   <ItemGroup>
     <None Remove="Properties\launchSettings.json" />
-    <None Remove="Views\Home\Index - Copy.cshtml.css" />
     <None Remove="Views\Home\Index.cshtml.css" />
+    <None Remove="Views\Home\News.cshtml.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <Content Include="Properties\launchSettings.json" />
+    <Content Include="Views\Home\News.cshtml.css" />
     <Content Include="Views\Home\Index.cshtml.css" />
   </ItemGroup>
 
