@@ -1,0 +1,27 @@
+﻿
+.search-container {
+	margin: auto;
+	width: 30%;
+	padding-top: 2ex;
+	padding-bottom: 5ex;
+}
+
+table {
+	margin: auto;
+	width: 85%;
+}
+
+th {
+	vertical-align: initial;
+	padding-right: 2ex;
+}
+
+.article {
+	margin: auto;
+	padding-bottom: 2ex;
+	text-align: justify;
+}
+
+h5 {
+	font-weight: bold;
+}
