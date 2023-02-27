@@ -1,10 +1,10 @@
-﻿@using Microsoft.Extensions.Localization
+﻿
+@using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
-@inject IStringLocalizer<News> news;
 @inject IStringLocalizer<Alert> alert;
 
 @{
-    ViewBag.Title = news["0_title_tab"];
+    ViewBag.Title = "Aktualności | Grzegorz Bochnacki - Kancelaria Radcy Prawnego";
 
     var jsError = @Html.Raw(alert["0_js_error"]);
 }
@@ -19,7 +19,7 @@
 <body>
 
     <div class="title-rectangle">
-        <h1 class="title-text">@Html.Raw(news["1_title_rectangle"])</h1>
+        <h1 class="title-text">Aktualności</h1>
     </div>
 
     <noscript>
