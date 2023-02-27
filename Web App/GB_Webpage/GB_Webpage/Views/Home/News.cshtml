@@ -1,5 +1,4 @@
-﻿
-@using Microsoft.Extensions.Localization
+﻿@using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
 @inject IStringLocalizer<Alert> alert;
 
@@ -32,10 +31,26 @@
 
     <div class="row content-text">
         <div class="search-container">
-            <div class="input-group">
-                <input type="search" class="form-control" placeholder="Szukaj" aria-label="Szukaj" aria-describedby="search-addon" />
-                <button type="button" class="btn btn-outline-secondary">Szukaj</button>
-            </div>
+            <table>
+                <tr>
+                    <td>
+                        <div class="input-group">
+                            <input type="search" class="form-control" placeholder="Szukaj" aria-label="Szukaj" aria-describedby="search-addon" />
+                            <button type="button" class="btn btn-outline-secondary">Szukaj</button>
+                        </div>
+                    </td>
+                    <td>
+                        <p>
+                            Sortuj: <button class="btn btn-sm" type="button">
+                                <span>
+                                    <strong>Data</strong>
+                                    <i id="sort-arrow" class="dark-date-asc"></i>
+                                </span>
+                            </button>
+                        </p>
+                    </td>
+                </tr>
+            </table>
         </div>
         <table>
             <tr>

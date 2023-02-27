@@ -1,9 +1,49 @@
 ﻿
 .search-container {
 	margin: auto;
-	width: 30%;
+	width: 100%;
 	padding-top: 2ex;
 	padding-bottom: 5ex;
+}
+
+.search-container table tr td:first-child {
+	text-align: left;
+	vertical-align: initial;
+}
+
+.search-container table tr td:last-child {
+	padding-left: 3ex;
+	text-align: right;
+	vertical-align: initial;
+}
+
+
+.dark-date-asc, .light-date-asc, .dark-date-desc, .light-date-desc {
+	height: 3ex;
+	width: 2ex;
+	margin: auto;
+	margin-left: 1ex;
+	margin-bottom: -0.8ex;
+}
+
+.dark-date-asc {
+	content: url(icons/down-arrow-dark.png);
+}
+
+.light-date-asc {
+	content: url(icons/down-arrow-light.png);
+}
+
+.dark-date-desc {
+	content: url(icons/up-arrow-dark.png);
+}
+
+.light-date-desc {
+	content: url(icons/up-arrow-light.png);
+}
+
+p button span:first-child {
+	font-size: 2.3ex;
 }
 
 table {
