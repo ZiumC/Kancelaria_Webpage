@@ -47,6 +47,11 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
+        public IActionResult News()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> ValidateEmail(ContactModel contact)
         {
             Console.WriteLine(Request.Cookies[CookieRequestCultureProvider.DefaultCookieName]);
