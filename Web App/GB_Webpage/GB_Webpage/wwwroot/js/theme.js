@@ -11,6 +11,7 @@ window.onload = function () {
     setThemeToNote();
     setThemeToCard();
     setThemeToCounter();
+    changeThemeToSortButton();
 
     countCharacters();
 }
@@ -39,6 +40,7 @@ document.getElementById('theme-button').onclick = function () {
     setThemeToNote();
     setThemeToCard();
     setThemeToCounter();
+    changeThemeToSortButton();
 }
 
 
@@ -194,6 +196,43 @@ function setThemeToCard() {
 
 }
 
+
+
+function changeThemeToSortButton() {
+
+    const cookie = getCookie('theme');
+
+    var searchButton = document.getElementById('sort-button');
+    var sortArrow = document.getElementById('sort-arrow');
+
+    const currentClass = String(sortArrow.classList).split('-');
+    const currentSortClass = currentClass[1] + "-" + currentClass[2];
+
+
+    if (!isExist(searchButton) || !isExist(searchButton)) {
+        return;
+    }
+
+    if (!isExist(sortArrow) || !isExist(sortArrow)) {
+        return;
+    }
+
+    setThemeTo(searchButton, false);
+
+    if (cookie == 'dark') {
+
+        sortArrow.classList = 'light-' + currentSortClass;
+
+    } else if (cookie == 'light') {
+
+        sortArrow.classList = 'dark-' + currentSortClass;
+
+    } else {
+
+        sortArrow.classList = 'dark-' + currentSortClass;
+
+    }
+}
 
 
 function countCharacters() {
