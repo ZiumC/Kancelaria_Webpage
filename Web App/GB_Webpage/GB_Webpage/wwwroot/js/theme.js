@@ -205,10 +205,6 @@ function changeThemeToSortButton() {
     var searchButton = document.getElementById('sort-button');
     var sortArrow = document.getElementById('sort-arrow');
 
-    const currentClass = String(sortArrow.classList).split('-');
-    const currentSortClass = currentClass[1] + "-" + currentClass[2];
-
-
     if (!isExist(searchButton) || !isExist(searchButton)) {
         return;
     }
@@ -216,6 +212,9 @@ function changeThemeToSortButton() {
     if (!isExist(sortArrow) || !isExist(sortArrow)) {
         return;
     }
+
+    const currentClass = String(sortArrow.classList).split('-');
+    const currentSortClass = currentClass[1] + "-" + currentClass[2];
 
     setThemeTo(searchButton, false);
 
