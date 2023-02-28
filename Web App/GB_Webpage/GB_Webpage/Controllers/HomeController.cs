@@ -52,11 +52,12 @@ namespace GB_Webpage.Controllers
         {
             string url = _configuration.GetValue<string>("ApiUrl");
 
-            ArticleModel article = await HttpService.MakeGetRequest<ArticleModel>(url);
+            var articles = await HttpService.DoGetCollection<ArticleModel>(url);
 
-            if (article != null)
+            if (articles != null)
             {
-                return View(article);
+
+                return View(articles);
 
             }
 
