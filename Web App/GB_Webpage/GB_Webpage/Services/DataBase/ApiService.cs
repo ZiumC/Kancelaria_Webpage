@@ -1,5 +1,7 @@
 ﻿using GB_Webpage.Data;
+using GB_Webpage.DTOs;
 using GB_Webpage.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GB_Webpage.Services.DataBase
 {
@@ -13,9 +15,38 @@ namespace GB_Webpage.Services.DataBase
             _context = context;
         }
 
-        public async Task<ArticleModel> GetAllArticles()
+        public async Task<bool> AddArticle(ArticleDTO articleDTO)
         {
-            return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = DateTime.Now };
+            try
+            {
+
+                var addArticle = _context.Set<ArticleModel>();
+                addArticle.Add
+                    (
+                        new ArticleModel
+                        {
+                            Title = articleDTO.Title,
+                            Description = articleDTO.Description,
+                            Date = DateTime.Now.Date
+                        }
+                    );
+
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task<IEnumerable<ArticleModel>> GetAllArticlesAsync()
+        {
+            return await _context.Articles.Select(a => a).ToListAsync();
+
+            //return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = DateTime.Now };
         }
     }
 }
