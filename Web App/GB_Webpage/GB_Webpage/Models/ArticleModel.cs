@@ -15,8 +15,7 @@ namespace GB_Webpage.Models
         [Required]
         public string Description { get; set; }
 
-        [DataType(DataType.Date)]  
-        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        [Required]
         public DateTime Date { get; set; }
     }
 }

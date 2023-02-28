@@ -7,7 +7,7 @@ namespace GB_Webpage.Services
     public class HttpService
     {
 
-        public static async Task<T?> MakeGetRequest<T>(string url)
+        public static async Task<IEnumerable<T>?> DoGetCollection<T>(string url)
         {
 
             using (var client = new HttpClient())
@@ -20,7 +20,7 @@ namespace GB_Webpage.Services
 
                 if (responseResult != null)
                 {
-                    return JsonConvert.DeserializeObject<T>(responseResult);
+                    return JsonConvert.DeserializeObject<IEnumerable<T>>(responseResult);
                 }
                 else
                 {

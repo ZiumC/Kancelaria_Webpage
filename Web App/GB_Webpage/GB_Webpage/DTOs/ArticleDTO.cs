@@ -10,5 +10,8 @@ namespace GB_Webpage.DTOs
 
         [Required]
         public string Description { get; set; }
+
+        [Required]
+        public DateTime DateCreated { get; set; }
     }
 }

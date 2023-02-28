@@ -27,7 +27,7 @@ namespace GB_Webpage.Services.DataBase
                         {
                             Title = articleDTO.Title,
                             Description = articleDTO.Description,
-                            Date = DateTime.Now.Date
+                            Date = articleDTO.DateCreated
                         }
                     );
 
@@ -46,7 +46,6 @@ namespace GB_Webpage.Services.DataBase
         {
             return await _context.Articles.Select(a => a).ToListAsync();
 
-            //return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = DateTime.Now };
         }
     }
 }
