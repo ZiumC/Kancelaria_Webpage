@@ -6,11 +6,17 @@ namespace GB_Webpage.Data
     public class ApiContext : DbContext
     {
 
-        public DbSet<ArticleModel> Articles { get; set; }
 
         public ApiContext(DbContextOptions<ApiContext> options) : base(options)
         {
 
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<ArticleModel> Articles { get; set; }
     }
 }

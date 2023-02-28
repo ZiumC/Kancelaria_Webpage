@@ -1,4 +1,5 @@
 ﻿using GB_Webpage.Data;
+using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using GB_Webpage.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,30 @@ namespace GB_Webpage.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult> AddArticle(ArticleDTO articleDTO)
+        {
+            bool isAdded = await _apiService.AddArticle(articleDTO);
+
+            if (isAdded)
+            {
+                return Ok("Article has been added");
+            }
+
+            return BadRequest("Article wasn't added");
+        }
+
         [HttpGet]
         public async Task<IActionResult> GetAllArticles()
         {
-            ArticleModel model = await _apiService.GetAllArticles();
+            IEnumerable<ArticleModel> articles = await _apiService.GetAllArticlesAsync();
 
-            return Ok(model);
+            if (articles != null)
+            {
+                return Ok(articles);
+            }
+
+            return NotFound("Articles not found");
         }
     }
 }
