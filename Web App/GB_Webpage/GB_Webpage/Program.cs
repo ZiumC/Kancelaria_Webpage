@@ -1,3 +1,4 @@
+using GB_Webpage.Middlewares;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
 
@@ -33,8 +34,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 
-app.UseRequestLocalization(); 
-
+app.UseRequestLocalization();
 
 app.Use(async (context, next) =>
 {
@@ -60,6 +60,8 @@ app.Use(async (context, next) =>
 
     await next.Invoke();
 });
+
+app.UseMiddleware<RedirectWhenCultureMismatch>();
 
 app.UseStaticFiles();
 
