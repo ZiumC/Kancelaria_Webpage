@@ -3,9 +3,10 @@ using GB_Webpage.Resources;
 using GB_Webpage.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Localization;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Text.Json;
 
 namespace GB_Webpage.Controllers
 {
@@ -47,9 +48,28 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
-        public IActionResult News()
+        public async Task<IActionResult> NewsAsync()
         {
-            return View();
+
+            ArticleModel article = null;
+
+            using (var client = new HttpClient())
+            {
+                Uri uri = new Uri($"{_configuration.GetValue<string>("appUrl")}/api/articles");
+
+                HttpResponseMessage response = await client.GetAsync(uri);
+
+                //string responseResult = await response.Content.ReadAsStringAsync();
+                string responseResult = await response.Content.ReadAsStringAsync();
+
+                if (!responseResult.Replace(@"\s+", "").Equals("") || responseResult != null)
+                {
+                    article = JsonConvert.DeserializeObject<ArticleModel>(responseResult);
+                }
+
+            }
+
+            return View(article);
         }
 
         public async Task<IActionResult> ValidateEmail(ContactModel contact)

@@ -1,7 +1,7 @@
 ﻿using GB_Webpage.Data;
 using GB_Webpage.Models;
 
-namespace GB_Webpage.Services
+namespace GB_Webpage.Services.DataBase
 {
     public class ApiService : IApiService
     {
@@ -15,7 +15,7 @@ namespace GB_Webpage.Services
 
         public async Task<ArticleModel> GetAllArticles()
         {
-            return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = new DateTime()};
+            return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = DateTime.Today };
         }
     }
 }
