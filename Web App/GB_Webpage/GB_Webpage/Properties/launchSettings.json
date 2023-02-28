@@ -19,7 +19,7 @@
     },
     "IIS Express": {
       "commandName": "IISExpress",
-     "launchBrowser": true,
+      "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -28,5 +28,5 @@
   "EmailKey": "",
   "EmailSendsForm": "",
   "EmailRecivesForm": "",
-  "appUrl": "http://localhost:5254"
+  "ApiUrl": "http://localhost:5254/api/articles"
 }
