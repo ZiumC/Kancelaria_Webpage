@@ -1,8 +1,14 @@
 using GB_Webpage.Middlewares;
 using Microsoft.AspNetCore.Localization;
 using System.Globalization;
+using Microsoft.EntityFrameworkCore;
+using GB_Webpage.Data;
+using GB_Webpage.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IApiService, ApiService>();
+builder.Services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase("ArticleDb"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
