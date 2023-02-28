@@ -15,7 +15,7 @@ namespace GB_Webpage.Services.DataBase
 
         public async Task<ArticleModel> GetAllArticles()
         {
-            return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = DateTime.Today };
+            return new ArticleModel { Id = 1, Title = "Dupa", Description = "ADASDADSDa", Date = DateTime.Now };
         }
     }
 }

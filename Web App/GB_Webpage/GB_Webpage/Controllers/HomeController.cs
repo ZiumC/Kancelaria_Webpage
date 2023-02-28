@@ -59,17 +59,20 @@ namespace GB_Webpage.Controllers
 
                 HttpResponseMessage response = await client.GetAsync(uri);
 
-                //string responseResult = await response.Content.ReadAsStringAsync();
                 string responseResult = await response.Content.ReadAsStringAsync();
 
-                if (!responseResult.Replace(@"\s+", "").Equals("") || responseResult != null)
+                if (responseResult != null)
                 {
-                    article = JsonConvert.DeserializeObject<ArticleModel>(responseResult);
+                    if (!responseResult.Replace(@"\s+", "").Equals(""))
+                    {
+                        article = JsonConvert.DeserializeObject<ArticleModel>(responseResult);
+                    }
                 }
 
             }
 
             return View(article);
+
         }
 
         public async Task<IActionResult> ValidateEmail(ContactModel contact)
