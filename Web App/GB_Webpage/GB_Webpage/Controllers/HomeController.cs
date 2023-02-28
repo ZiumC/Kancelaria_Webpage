@@ -50,28 +50,17 @@ namespace GB_Webpage.Controllers
 
         public async Task<IActionResult> NewsAsync()
         {
+            string url = _configuration.GetValue<string>("ApiUrl");
 
-            ArticleModel article = null;
+            ArticleModel article = await HttpService.MakeGetRequest<ArticleModel>(url);
 
-            using (var client = new HttpClient())
+            if (article != null)
             {
-                Uri uri = new Uri($"{_configuration.GetValue<string>("appUrl")}/api/articles");
-
-                HttpResponseMessage response = await client.GetAsync(uri);
-
-                string responseResult = await response.Content.ReadAsStringAsync();
-
-                if (responseResult != null)
-                {
-                    if (!responseResult.Replace(@"\s+", "").Equals(""))
-                    {
-                        article = JsonConvert.DeserializeObject<ArticleModel>(responseResult);
-                    }
-                }
+                return View(article);
 
             }
 
-            return View(article);
+            return View();
 
         }
 
