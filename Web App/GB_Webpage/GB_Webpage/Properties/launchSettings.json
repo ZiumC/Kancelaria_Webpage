@@ -11,7 +11,7 @@
     "GB_Webpage": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      //"launchBrowser": true,
+      "launchBrowser": true,
       "applicationUrl": "http://localhost:5254",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -19,7 +19,7 @@
     },
     "IIS Express": {
       "commandName": "IISExpress",
-      //"launchBrowser": true,
+     "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
