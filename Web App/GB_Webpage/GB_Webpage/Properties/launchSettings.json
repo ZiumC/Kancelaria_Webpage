@@ -1,4 +1,4 @@
-﻿{
+{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
@@ -28,5 +28,5 @@
   "EmailKey": "",
   "EmailSendsForm": "",
   "EmailRecivesForm": "",
-  "ApiUrl": "http://localhost:5254/api/articles"
+  "ApiUrl": ""
 }
