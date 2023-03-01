@@ -44,7 +44,7 @@ namespace GB_Webpage.Services.DataBase
 
         public async Task<IEnumerable<ArticleModel>> GetAllArticlesAsync()
         {
-            return await _context.Articles.Select(a => a).ToListAsync();
+            return await _context.Articles.Select(a => a).OrderByDescending(a => a.Date).ToListAsync();
 
         }
     }
