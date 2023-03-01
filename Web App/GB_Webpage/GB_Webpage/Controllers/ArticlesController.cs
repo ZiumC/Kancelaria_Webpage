@@ -18,6 +18,36 @@ namespace GB_Webpage.Controllers
             _apiService = apiService;
         }
 
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteArticle(int id)
+        {
+            ArticleModel article = await _apiService.GetArticleByIdAsync(id);
+
+            if (article == null)
+            {
+                return NotFound($"Article not found. |{id}");
+            }
+
+            bool isDeleted = await _apiService.DeleteArticleAsync(article);
+
+            if (isDeleted)
+            {
+
+                var articles = await _apiService.GetAllArticlesAsync();
+                bool isSavedToFile = new DatabaseFileService().SaveFile(articles);
+
+                if (isSavedToFile)
+                {
+                    return Ok($"Article has been deleted. Changes HAS BEEN SAVED to physical file. |{id}");
+                }
+                else
+                {
+                    return Ok($"Article has been deleted. Changes HASN'T SAVED to physical file. |{id}");
+                }
+            }
+            return BadRequest($"Unable to delete article. |{id}");
+        }
 
         [HttpPost]
         public async Task<IActionResult> AddArticle(ArticleDTO articleDTO)
