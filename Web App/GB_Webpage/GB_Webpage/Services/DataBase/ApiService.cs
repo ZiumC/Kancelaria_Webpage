@@ -2,6 +2,8 @@
 using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
+using System.Xml.Linq;
 
 namespace GB_Webpage.Services.DataBase
 {
@@ -68,9 +70,45 @@ namespace GB_Webpage.Services.DataBase
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)
-            { 
+            {
                 Console.WriteLine(ex.ToString());
-                return false; 
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> UpdateArticleByIdAsync(int id, ArticleDTO updateArticle)
+        {
+
+            string title = updateArticle.Title;
+            string description = updateArticle.Description;
+
+            try
+            {
+                ArticleModel updateQuery = await _context.Articles
+                    .Select(a => a)
+                    .Where(a => a.Id == id)
+                    .FirstAsync();
+
+                if (title is not null && (!title.Replace("\\s", "").Equals("")))
+                {
+                    updateQuery.Title = title;
+                }
+
+                if (description is not null && (!description.Replace("\\s", "").Equals("")))
+                {
+                    updateQuery.Description = description;
+                }
+
+                updateQuery.Date = DateTime.Now;
+
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return false;
             }
             return true;
         }

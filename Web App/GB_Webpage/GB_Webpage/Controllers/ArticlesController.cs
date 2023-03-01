@@ -18,6 +18,41 @@ namespace GB_Webpage.Controllers
             _apiService = apiService;
         }
 
+        [HttpPut]
+        [Route("update/{id:int}")]
+        public async Task<IActionResult> UpdateArticle(int id, ArticleDTO article)
+        {
+            ArticleModel model = await _apiService.GetArticleByIdAsync(id);
+
+            if (model == null)
+            {
+                return NotFound($"Unable to find article. |{id}");
+            }
+
+            bool isUpdated = await _apiService.UpdateArticleByIdAsync(id, article);
+
+            if (isUpdated)
+            {
+
+                var articles = await _apiService.GetAllArticlesAsync();
+                bool isSavedToFile = new DatabaseFileService().SaveFile(articles);
+
+                if (isSavedToFile)
+                {
+                    return Ok("Article has been updated. Changes HAS BEEN SAVED to physical file");
+                }
+                else 
+                {
+                    return Ok("Article has been updated. Changes HASN'T SAVED to physical file");
+                }
+            }
+            else 
+            {
+                return BadRequest($"Unable to update article. |{id}");
+            }
+            
+        }
+
         [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult> DeleteArticle(int id)
