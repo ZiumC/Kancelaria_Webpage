@@ -38,9 +38,9 @@ div#form-status div:first-child {
 	height: fit-content
 }
 
-div#form-status div:first-child p {
-	margin-top: 1ex;
-}
+	div#form-status div:first-child p {
+		margin-top: 1ex;
+	}
 
 div.leftside-container div.contact-information {
 	margin: auto;
@@ -112,5 +112,4 @@ div.map-container div:first-child {
 	.rightside-container {
 		font-size: 1.7ex;
 	}
-
 }

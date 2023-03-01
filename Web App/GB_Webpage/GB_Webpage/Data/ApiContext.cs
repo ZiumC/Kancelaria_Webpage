@@ -1,6 +1,8 @@
 ﻿using GB_Webpage.Models;
 using GB_Webpage.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Reflection.Emit;
 
 namespace GB_Webpage.Data
 {
@@ -10,7 +12,6 @@ namespace GB_Webpage.Data
 
         public ApiContext(DbContextOptions<ApiContext> options) : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,11 +34,8 @@ namespace GB_Webpage.Data
                             Console.WriteLine(articleItem.Title);
                             art.HasData(new ArticleModel { Id = articleItem.Id, Title = articleItem.Title, Description = articleItem.Description, Date = articleItem.Date });
                         }
-
                     });
-
                 }
-
             }
 
         }

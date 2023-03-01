@@ -1,10 +1,10 @@
-{
+﻿{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:36175",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:16350",
+      "sslPort": 44343
     }
   },
   "profiles": {
@@ -12,7 +12,7 @@
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5254",
+      "applicationUrl": "https://localhost:7185;http://localhost:5230",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -28,5 +28,5 @@
   "EmailKey": "",
   "EmailSendsForm": "",
   "EmailRecivesForm": "",
-  "ApiUrl": ""
+  "ApiUrl": "https://localhost:7185/api/articles"
 }
