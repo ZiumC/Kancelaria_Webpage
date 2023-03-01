@@ -26,7 +26,17 @@ namespace GB_Webpage.Controllers
 
             if (isAdded)
             {
-                return Ok("Article has been added");
+                var articles = await _apiService.GetAllArticlesAsync();
+                bool isSavedToFile = new DatabaseFileService().SaveFile(articles);
+
+                if (isSavedToFile)
+                {
+                    return Ok("Article has been added and SAVED to physical file");
+                }
+                else 
+                {
+                    return Ok("Article has been added and NOT SAVED to physical file");
+                }
             }
 
             return BadRequest("Article wasn't added");
