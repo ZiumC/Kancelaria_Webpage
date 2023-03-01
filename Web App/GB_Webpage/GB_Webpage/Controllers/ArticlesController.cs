@@ -22,7 +22,7 @@ namespace GB_Webpage.Controllers
         [HttpPost]
         public async Task<IActionResult> AddArticle(ArticleDTO articleDTO)
         {
-            bool isAdded = await _apiService.AddArticle(articleDTO);
+            bool isAdded = await _apiService.AddArticleAsync(articleDTO);
 
             if (isAdded)
             {

@@ -15,7 +15,7 @@ namespace GB_Webpage.Services.DataBase
             _context = context;
         }
 
-        public async Task<bool> AddArticle(ArticleDTO articleDTO)
+        public async Task<bool> AddArticleAsync(ArticleDTO articleDTO)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace GB_Webpage.Services.DataBase
                         }
                     );
 
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
