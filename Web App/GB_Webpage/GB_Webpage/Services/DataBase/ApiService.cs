@@ -13,6 +13,7 @@ namespace GB_Webpage.Services.DataBase
         public ApiService(ApiContext context)
         {
             _context = context;
+            _context.Database.EnsureCreated();
         }
 
         public async Task<bool> AddArticleAsync(ArticleDTO articleDTO)

@@ -33,7 +33,7 @@ namespace GB_Webpage.Controllers
                 {
                     return Ok("Article has been added and SAVED to physical file");
                 }
-                else 
+                else
                 {
                     return Ok("Article has been added and NOT SAVED to physical file");
                 }
