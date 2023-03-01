@@ -1,32 +1,52 @@
-﻿using GB_Webpage.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace GB_Webpage.Services
 {
     public class DatabaseFileService
     {
 
-        private readonly string _path;
+        private readonly string _pathToDir;
 
         public DatabaseFileService()
         {
-            _path = "";
+            _pathToDir = $"{Environment.CurrentDirectory}/DatabaseFile";
+        }
+
+        private string GetDirFiles()
+        {
+            string[] fileEntries = Directory.GetFiles(_pathToDir);
+
+            if (fileEntries.Length > 0)
+            {
+                return fileEntries[0];
+            }
+            else
+            {
+                return _pathToDir;
+            }
+
         }
 
         public bool SaveFile<T>(T data)
         {
 
-            string jsonData = JsonConvert.SerializeObject(data);
+            string path = GetDirFiles();
 
-            if (File.Exists(_path))
+            if (Directory.Exists(path))
             {
-                File.Delete(_path);
+                path = $"{path}/{DateTime.Now.ToString("dd-MM-yyyy")}.json";
+            }
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
             }
 
             TextWriter writer = null;
             try
             {
-                writer = new StreamWriter(_path, false);
+                string jsonData = JsonConvert.SerializeObject(data);
+                writer = new StreamWriter(path, false);
                 writer.Write(jsonData);
             }
             catch (Exception ex)
