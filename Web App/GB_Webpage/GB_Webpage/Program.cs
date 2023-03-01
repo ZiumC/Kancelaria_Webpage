@@ -11,15 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IApiService, ApiService>();
 builder.Services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase("ArticleDb"));
 
-using (var scope = builder.Services.BuildServiceProvider().CreateScope())
-{
-    var scopedServices = scope.ServiceProvider;
-    var db = scopedServices.GetRequiredService<ApiContext>();
-
-    db.Database.EnsureCreated();
-
-}
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
