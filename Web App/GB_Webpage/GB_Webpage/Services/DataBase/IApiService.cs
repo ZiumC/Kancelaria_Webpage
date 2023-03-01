@@ -9,5 +9,6 @@ namespace GB_Webpage.Services
         public Task<ArticleModel?> GetArticleByIdAsync(int id);
         public Task<bool> DeleteArticleAsync(ArticleModel article);
         public Task<bool> AddArticleAsync(ArticleDTO articleDTO);
+        public Task<bool> UpdateArticleByIdAsync(int id, ArticleDTO article);
     }
 }
