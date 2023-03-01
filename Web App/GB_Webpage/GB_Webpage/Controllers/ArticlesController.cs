@@ -41,16 +41,16 @@ namespace GB_Webpage.Controllers
                 {
                     return Ok("Article has been updated. Changes HAS BEEN SAVED to physical file");
                 }
-                else 
+                else
                 {
                     return Ok("Article has been updated. Changes HASN'T SAVED to physical file");
                 }
             }
-            else 
+            else
             {
                 return BadRequest($"Unable to update article. |{id}");
             }
-            
+
         }
 
         [HttpDelete]

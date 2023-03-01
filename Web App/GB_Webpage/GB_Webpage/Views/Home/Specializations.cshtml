@@ -46,13 +46,11 @@
                         {
                             <div class="card">
 
-                                <button 
-                                    class="btn btn-link btn-block card-header-text" 
-                                    data-toggle="collapse" 
-                                    data-target="#collapse-@i" 
-                                    aria-expanded="false" 
-                                    aria-controls="collapse-@i"
-                                >
+                                <button class="btn btn-link btn-block card-header-text"
+                                        data-toggle="collapse"
+                                        data-target="#collapse-@i"
+                                        aria-expanded="false"
+                                        aria-controls="collapse-@i">
                                     <div class="card-header" id="heading-@i">
                                         <h5 class="mb-1 card-header-text">
                                             @Html.Raw(specializations[$"2.{i}_leftside_container_card_header"])
@@ -60,12 +58,10 @@
                                     </div>
                                 </button>
 
-                                <div 
-                                    id="collapse-@i" 
-                                    class="collapse" 
-                                    aria-labelledby="heading-@i" 
-                                    data-parent="#leftside-accordion"
-                                >
+                                <div id="collapse-@i"
+                                     class="collapse"
+                                     aria-labelledby="heading-@i"
+                                     data-parent="#leftside-accordion">
                                     <div class="separation-line"></div>
                                     <div class="card-body">
                                         @Html.Raw(specializations[$"2.{i}_leftside_container_card_body"])
@@ -90,12 +86,11 @@
                             var nextIdForCollapseAndHeading = lengthOfLeftside + i;
 
                             <div class="card">
-                                <button 
-                                    class="btn btn-link btn-block card-header-text" 
-                                    data-toggle="collapse" 
-                                    data-target="#collapse-@nextIdForCollapseAndHeading" 
-                                    aria-expanded="false" 
-                                    aria-controls="collapse-@nextIdForCollapseAndHeading">
+                                <button class="btn btn-link btn-block card-header-text"
+                                        data-toggle="collapse"
+                                        data-target="#collapse-@nextIdForCollapseAndHeading"
+                                        aria-expanded="false"
+                                        aria-controls="collapse-@nextIdForCollapseAndHeading">
                                     <div class="card-header" id="heading-@nextIdForCollapseAndHeading">
                                         <h5 class="mb-1 card-header-text">
                                             @Html.Raw(specializations[$"3.{i}_rightside_container_card_header"])
@@ -103,11 +98,10 @@
                                     </div>
                                 </button>
 
-                                <div 
-                                    id="collapse-@nextIdForCollapseAndHeading" 
-                                    class="collapse" 
-                                    aria-labelledby="heading-@nextIdForCollapseAndHeading"
-                                 data-parent="#rightside-accordion">
+                                <div id="collapse-@nextIdForCollapseAndHeading"
+                                     class="collapse"
+                                     aria-labelledby="heading-@nextIdForCollapseAndHeading"
+                                     data-parent="#rightside-accordion">
                                     <div class="separation-line"></div>
                                     <div class="card-body">
                                         @Html.Raw(specializations[$"3.{i}_rightside_container_card_body"])

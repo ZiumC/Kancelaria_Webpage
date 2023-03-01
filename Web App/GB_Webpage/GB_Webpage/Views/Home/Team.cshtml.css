@@ -24,13 +24,13 @@ div.note-container > p:last-child {
 	padding-top: 5ex;
 }
 
-div.note-container > p:last-child:hover {
-	text-decoration: underline;
-}
+	div.note-container > p:last-child:hover {
+		text-decoration: underline;
+	}
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
 	.note-container {
-		width:90%;
+		width: 90%;
 	}
 }
 
@@ -44,7 +44,7 @@ div.note-container > p:last-child:hover {
 	}
 
 	img {
-		width:70%
+		width: 70%
 	}
 }
 

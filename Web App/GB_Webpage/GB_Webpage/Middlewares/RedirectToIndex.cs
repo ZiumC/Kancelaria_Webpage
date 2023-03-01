@@ -30,11 +30,13 @@ namespace GB_Webpage.Middlewares
         }
 
 
-        private string GetCurrentUICulture() {
+        private string GetCurrentUICulture()
+        {
             return Thread.CurrentThread.CurrentUICulture.ToString();
         }
 
-        private string GetCurrentURL(HttpContext context) {
+        private string GetCurrentURL(HttpContext context)
+        {
 
             return context.Request.GetDisplayUrl();
         }
