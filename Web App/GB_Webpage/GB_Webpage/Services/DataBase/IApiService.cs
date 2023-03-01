@@ -6,6 +6,6 @@ namespace GB_Webpage.Services
     public interface IApiService
     {
         public Task<IEnumerable<ArticleModel>> GetAllArticlesAsync();
-        public Task<bool> AddArticle(ArticleDTO articleDTO);
+        public Task<bool> AddArticleAsync(ArticleDTO articleDTO);
     }
 }
