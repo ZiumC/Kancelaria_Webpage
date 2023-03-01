@@ -110,4 +110,8 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DatabaseFile\" />
+  </ItemGroup>
+
 </Project>
