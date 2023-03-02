@@ -43,7 +43,7 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    return Ok("Article has been updated. Changes HASN'T SAVED to physical file");
+                    return StatusCode(209, "Article has been updated. Changes HASN'T SAVED to physical file");
                 }
             }
             else
@@ -78,7 +78,7 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    return Ok($"Article has been deleted. Changes HASN'T SAVED to physical file. |{id}");
+                    return StatusCode(209, $"Article has been deleted. Changes HASN'T SAVED to physical file. |{id}");
                 }
             }
             return BadRequest($"Unable to delete article. |{id}");
@@ -100,7 +100,7 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    return Ok("Article has been added and NOT SAVED to physical file");
+                    return StatusCode(209, "Article has been added and NOT SAVED to physical file");
                 }
             }
 
