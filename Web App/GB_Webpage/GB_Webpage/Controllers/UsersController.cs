@@ -15,6 +15,7 @@ namespace GB_Webpage.Controllers
     {
 
         private readonly IConfiguration _configuration;
+        private readonly string _folder = "RefreshToken";
 
         public UsersController(IConfiguration configuration)
         {
@@ -43,10 +44,14 @@ namespace GB_Webpage.Controllers
                 string secretSignature = _configuration["SecretSignatureKey"];
                 string issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
 
-                Console.WriteLine(issuer);
-
                 string refreshToken = UserService.GenerateRefreshToken();
                 string accessToken = UserService.GenerateAccessToken(secretSignature, request.Login, issuer, issuer);
+
+                new DatabaseFileService(_folder).SaveFile<JwtModel>(new JwtModel
+                {
+                    AccessToken = "",
+                    RefreshToken = refreshToken
+                });
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
