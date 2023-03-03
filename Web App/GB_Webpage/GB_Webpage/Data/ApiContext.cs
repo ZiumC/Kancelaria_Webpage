@@ -1,14 +1,13 @@
 ﻿using GB_Webpage.Models;
 using GB_Webpage.Services;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace GB_Webpage.Data
 {
     public class ApiContext : DbContext
     {
 
+        private readonly string _folder = "Article";
 
         public ApiContext(DbContextOptions<ApiContext> options) : base(options)
         {
@@ -18,7 +17,7 @@ namespace GB_Webpage.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            List<ArticleModel> articles = new DatabaseFileService().ReadFile<List<ArticleModel>>();
+            List<ArticleModel> articles = new DatabaseFileService(_folder).ReadFile<List<ArticleModel>>();
 
             if (articles != null)
             {

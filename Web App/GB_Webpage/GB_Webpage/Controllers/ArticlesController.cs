@@ -13,6 +13,7 @@ namespace GB_Webpage.Controllers
     {
 
         private readonly IApiService _apiService;
+        private readonly string _folder = "Article";
 
         public ArticlesController(IApiService apiService)
         {
@@ -36,7 +37,7 @@ namespace GB_Webpage.Controllers
             {
 
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = new DatabaseFileService().SaveFile(articles);
+                bool isSavedToFile = new DatabaseFileService(_folder).SaveFile(articles);
 
                 if (isSavedToFile)
                 {
@@ -71,7 +72,7 @@ namespace GB_Webpage.Controllers
             {
 
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = new DatabaseFileService().SaveFile(articles);
+                bool isSavedToFile = new DatabaseFileService(_folder).SaveFile(articles);
 
                 if (isSavedToFile)
                 {
@@ -94,7 +95,7 @@ namespace GB_Webpage.Controllers
             if (isAdded)
             {
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = new DatabaseFileService().SaveFile(articles);
+                bool isSavedToFile = new DatabaseFileService(_folder).SaveFile(articles);
 
                 if (isSavedToFile)
                 {
