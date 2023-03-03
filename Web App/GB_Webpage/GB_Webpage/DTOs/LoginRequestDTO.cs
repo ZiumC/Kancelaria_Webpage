@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GB_Webpage.Models
+namespace GB_Webpage.DTOs
 {
-    public class LoginRequestModel
+    public class LoginRequestDTO
     {
         [Required]
         public string Login { get; set; }

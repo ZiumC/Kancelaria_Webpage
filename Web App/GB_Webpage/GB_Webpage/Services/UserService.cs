@@ -1,5 +1,4 @@
 ﻿using GB_Webpage.DTOs;
-using GB_Webpage.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,9 +10,9 @@ namespace GB_Webpage.Services
 {
     public class UserService
     {
-        public static bool VerifyUserPassword(LoginRequestModel currentUser, string passedPassword, string salt)
+        public static bool VerifyUserPassword(LoginRequestDTO currentUser, string passedPassword, string salt)
         {
-            var hasher = new PasswordHasher<LoginRequestModel>();
+            var hasher = new PasswordHasher<LoginRequestDTO>();
 
             var hashedCurrentPassword = hasher.HashPassword(currentUser, currentUser.Password + salt);
 
@@ -35,7 +34,7 @@ namespace GB_Webpage.Services
             return refreshToken;
         }
 
-        public static string GenerateAccessToken(string secretSignature, string user ,string issuer, string audience) 
+        public static string GenerateAccessToken(string secretSignature, string user ,string issuer, string audience, int daysValid) 
         {
             var claims = new Claim[]
                {
@@ -52,7 +51,7 @@ namespace GB_Webpage.Services
                     issuer,
                     audience,
                     claims,
-                    expires: DateTime.UtcNow.AddMinutes(2),
+                    expires: DateTime.UtcNow.AddDays(daysValid),
                     signingCredentials: creditionals
                 );
 

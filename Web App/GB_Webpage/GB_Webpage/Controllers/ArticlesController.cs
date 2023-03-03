@@ -1,5 +1,4 @@
-﻿using GB_Webpage.Data;
-using GB_Webpage.DTOs;
+﻿using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using GB_Webpage.Services;
 using Microsoft.AspNetCore.Authorization;

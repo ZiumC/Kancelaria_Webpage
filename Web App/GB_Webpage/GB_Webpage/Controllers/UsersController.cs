@@ -2,9 +2,6 @@
 using GB_Webpage.Models;
 using GB_Webpage.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
 
 namespace GB_Webpage.Controllers
 {
@@ -17,20 +14,22 @@ namespace GB_Webpage.Controllers
         private readonly string _folder = "RefreshToken";
         private readonly string _issuer;
         private readonly string _secretSignature;
+        private readonly int _daysValid;
 
         public UsersController(IConfiguration configuration)
         {
             _configuration = configuration;
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _secretSignature = _configuration["SecretSignatureKey"];
+            _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
         }
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(LoginRequestModel request)
+        public IActionResult Login(LoginRequestDTO request)
         {
 
-            LoginRequestModel currentUser = new LoginRequestModel
+            LoginRequestDTO currentUser = new LoginRequestDTO
             {
                 Login = _configuration["User:Login"],
                 Password = _configuration["User:Password"]
@@ -47,7 +46,7 @@ namespace GB_Webpage.Controllers
             {
 
                 string refreshToken = UserService.GenerateRefreshToken();
-                string accessToken = UserService.GenerateAccessToken(_secretSignature, request.Login, _issuer, _issuer);
+                string accessToken = UserService.GenerateAccessToken(_secretSignature, request.Login, _issuer, _issuer, _daysValid);
 
                 new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
                 {
@@ -83,7 +82,7 @@ namespace GB_Webpage.Controllers
             if (areTokensValid)
             {
                 string refreshToken = UserService.GenerateRefreshToken();
-                string accessToken = UserService.GenerateAccessToken(_secretSignature, savedUserToken.UserName, _issuer, _issuer);
+                string accessToken = UserService.GenerateAccessToken(_secretSignature, savedUserToken.UserName, _issuer, _issuer, _daysValid);
 
                 new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
                 {
