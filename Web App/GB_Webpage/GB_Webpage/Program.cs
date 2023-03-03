@@ -42,15 +42,29 @@ builder.Services.AddAuthentication(options =>
 
 }).AddJwtBearer(options =>
 {
+    var issuer = builder.Configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
         ClockSkew = TimeSpan.FromMinutes(1),
-        ValidIssuer = "https://localhost:7185",
-        ValidAudience = "https://localhost:7185",
+        ValidIssuer = issuer,
+        ValidAudience = issuer,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["SecretSignatureKey"]))
+    };
+
+    options.Events = new JwtBearerEvents
+    {
+        OnAuthenticationFailed = context =>
+        {
+            if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+            {
+                context.Response.Headers.Add("Token-expired", "true");
+            }
+
+            return Task.CompletedTask;
+        }
     };
 
 });

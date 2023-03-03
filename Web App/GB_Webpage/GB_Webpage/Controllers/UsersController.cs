@@ -22,10 +22,10 @@ namespace GB_Webpage.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginRequest request)
+        public IActionResult Login(LoginRequestModel request)
         {
 
-            LoginRequest currentUser = new LoginRequest
+            LoginRequestModel currentUser = new LoginRequestModel
             {
                 Login = _configuration["User:Login"],
                 Password = _configuration["User:Password"]
