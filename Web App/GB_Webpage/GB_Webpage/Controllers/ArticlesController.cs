@@ -2,6 +2,7 @@
 using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using GB_Webpage.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GB_Webpage.Controllers
@@ -85,6 +86,7 @@ namespace GB_Webpage.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddArticle(ArticleDTO articleDTO)
         {
             bool isAdded = await _apiService.AddArticleAsync(articleDTO);

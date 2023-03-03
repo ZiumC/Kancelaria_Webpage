@@ -28,5 +28,6 @@
   "EmailKey": "",
   "EmailSendsForm": "",
   "EmailRecivesForm": "",
-  "ApiUrl": "https://localhost:7185/api/articles"
+  "ApiUrl": "https://localhost:7185/api/articles",
+  "SecretSignatureKey": ""
 }
