@@ -2,7 +2,7 @@
 
 namespace GB_Webpage.Models
 {
-    public class LoginRequest
+    public class LoginRequestModel
     {
         [Required]
         public string Login { get; set; }
