@@ -67,8 +67,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
-
 app.UseRequestLocalization();
 
 app.Use(async (context, next) =>
@@ -102,8 +100,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
 
 //removing default controller
 //app.MapControllerRoute(
