@@ -8,9 +8,9 @@ namespace GB_Webpage.Services
 
         private readonly string _pathToDir;
 
-        public DatabaseFileService()
+        public DatabaseFileService(string folder)
         {
-            _pathToDir = $"{Environment.CurrentDirectory}/DatabaseFile";
+            _pathToDir = $"{Environment.CurrentDirectory}/DatabaseFiles/{folder}";
         }
 
         private string GetDirFiles()
