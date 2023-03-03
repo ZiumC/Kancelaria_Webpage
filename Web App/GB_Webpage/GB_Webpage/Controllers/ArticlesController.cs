@@ -22,6 +22,7 @@ namespace GB_Webpage.Controllers
 
         [HttpPut]
         [Route("update/{id:int}")]
+        [Authorize]
         public async Task<IActionResult> UpdateArticle(int id, ArticleDTO article)
         {
             ArticleModel model = await _apiService.GetArticleByIdAsync(id);
@@ -57,6 +58,7 @@ namespace GB_Webpage.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
+        [Authorize]
         public async Task<IActionResult> DeleteArticle(int id)
         {
             ArticleModel article = await _apiService.GetArticleByIdAsync(id);
