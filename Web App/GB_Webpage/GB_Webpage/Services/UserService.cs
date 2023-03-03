@@ -1,4 +1,5 @@
-﻿using GB_Webpage.Models;
+﻿using GB_Webpage.DTOs;
+using GB_Webpage.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -58,6 +59,35 @@ namespace GB_Webpage.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
 
         }
+
+        public static bool ValidateUserTokens(string secretSignature, JwtDTO jwt, string issuer) 
+        {
+            SecurityToken validatedToken;
+
+            var parameters = new TokenValidationParameters
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = false,
+                ClockSkew = TimeSpan.FromMinutes(1),
+                ValidIssuer = issuer,
+                ValidAudience = issuer,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretSignature))
+            };
+
+
+            try
+            {
+                var claim = new JwtSecurityTokenHandler().ValidateToken(jwt.AccessToken, parameters, out validatedToken);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+            return true;
+        }
+
 
         
     }
