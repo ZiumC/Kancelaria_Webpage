@@ -95,6 +95,12 @@ ul.settings-bar li:first-child {
 	display: contents;
 }
 
+@media only screen and (max-width: 1199px) {
+	#menu-bar {
+		text-align: center;
+	}
+}
+
 /*Cookie section*/
 /*Cookie first window*/
 .cookie-container {
