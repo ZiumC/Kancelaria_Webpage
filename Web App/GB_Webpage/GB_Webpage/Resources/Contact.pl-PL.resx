@@ -118,23 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="0_title_tab" xml:space="preserve">
-    <value>Kontakt | Grzegorz Bochnacki - Kancelaria Radcy Prawnego</value>
+    <value>Kontakt | Kancelaria Prawna</value>
   </data>
   <data name="1_title_rectangle" xml:space="preserve">
     <value>Kontakt</value>
   </data>
   <data name="2.1_introduction" xml:space="preserve">
-    <value>Naszą misją jest świadczenie usług prawnych &lt;strong&gt;na najwyższym poziomie&lt;/strong&gt;, które pomogą Klientom podejmować właściwe decyzje.</value>
+    <value>Naszą misją jest świadczenie usług prawnych &lt;strong&gt;na najwyższym zawodowym poziomie&lt;/strong&gt;, które pomogą naszym Klientom podejmować właściwe decyzje w sprawach nam powierzonych.</value>
   </data>
   <data name="3.1_leftside_container" xml:space="preserve">
-    <value>&lt;h4&gt;Kancelaria Radcy Prawnego Grzegorz Bochnacki&lt;/h4&gt;</value>
+    <value>&lt;h4&gt;Kancelaria Prawna Bochnacki i Wspólnicy Sp. k. &lt;/h4&gt;</value>
   </data>
   <data name="3.2_leftside_container" xml:space="preserve">
     <value>&lt;h5&gt;Budynek "Babka Tower"&lt;/h5&gt;</value>
     <comment>Miejsce</comment>
   </data>
   <data name="3.3_leftside_container" xml:space="preserve">
-    <value>&lt;p&gt;Al. Jana Pawła II 80 lok. D39, VIII piętro &lt;br /&gt; 00-175 Warszawa &lt;br /&gt; Wejście od strony ulicy &lt;strong&gt;'Dzika'&lt;/strong&gt;&lt;/p&gt;</value>
+    <value>&lt;p&gt;Al. Jana Pawła II 80 lok. D39, VIII piętro &lt;br /&gt; 00-175 Warszawa &lt;br /&gt; Wejście klatka D od strony ul. &lt;strong&gt;Dzika&lt;/strong&gt;&lt;/p&gt;</value>
     <comment>Adres</comment>
   </data>
   <data name="3.4_leftside_container" xml:space="preserve">
