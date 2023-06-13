@@ -134,31 +134,31 @@
     <comment>Cytat ciag dalszy</comment>
   </data>
   <data name="3.1_introduction" xml:space="preserve">
-    <value>Kancelaria Radcy Prawnego - Grzegorz Bochnacki</value>
+    <value>Kancelaria Prawna Bochnacki i Wspólnicy Sp.k.</value>
     <comment>Nagłówek wstępu</comment>
   </data>
   <data name="3.2_introduction" xml:space="preserve">
-    <value>Kancelaria Radcy Prawnego Grzegorza Bochnackiego świadczy usługi pomocy prawnej dla swoich Klientów nieprzerwanie &lt;strong&gt;od 2003 roku&lt;/strong&gt;.</value>
+    <value>Kancelaria świadczy usługi pomocy prawnej dla swoich Klientów nieprzerwanie &lt;strong&gt;od czerwca 2003 roku&lt;/strong&gt;.</value>
     <comment>Zawartość wstępu</comment>
   </data>
   <data name="4.1_leftside_container" xml:space="preserve">
-    <value>Swoją działalność opieramy na&lt;strong&gt; solidnych podstawach i wieloletnim doświadczeniu zawodowym &lt;/strong&gt; oraz wzajemnym zaufaniu i trafnym określaniu potrzeb naszych Klientów.</value>
+    <value>Swoją działalność opieramy na &lt;strong&gt;wieloletnim doświadczeniu zawodowym&lt;/strong&gt; oraz wzajemnym zaufaniu i współpracy oraz określaniu potrzeb naszych Klientów.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="4.2_leftside_container" xml:space="preserve">
-    <value>Kancelaria początkowo działała  jako jednoosobowa, indywidualna Kancelaria Radcy Prawnego. Systematycznie zwiększając zakres świadczonych usług powiększał się zespół radców prawnych i prawników stale współpracujących Obecnie Zespół Kancelarii tworzy grupa radców prawnych, adwokatów, aplikantów radcowskich i adwokackich oraz prawników.</value>
+    <value>Kancelaria początkowo działała jako jednoosobowa, indywidualna Kancelaria Radcy Prawnego, zwiększając zakres świadczonych usług powiększała zespół prawników świadczących usługi na rzecz Klientów. Obecnie Zespół Kancelarii tworzy grupa radców prawnych, adwokatów oraz prawników specjalizujących się w poszczególnych dziedzinach prawa.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="4.3_leftside_container" xml:space="preserve">
-    <value>Kancelaria prowadzi kompleksową i incydentalną obsługę prawną spółek kapitałowych i osobowych oraz osób prowadzących działalność gospodarczą. Prowadzimy również obsługę prawną osób fizycznych w sprawach dotyczących wielorakich dziedzin prawa.</value>
+    <value>Kancelaria prowadzi obsługę prawną spółek kapitałowych i osobowych oraz osób prowadzących działalność gospodarczą. Prowadzimy również obsługę prawną osób fizycznych, fundacji i stowarzyszeń.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="4.4_leftside_container" xml:space="preserve">
-    <value>Bliski kontakt i znajomość specyfiki działania Klientów umożliwia nam zarówno rozwiązywanie bieżących problemów, a także opracowywanie strategii działania w  przyszłości.</value>
+    <value>Bliski kontakt i znajomość specyfiki działania Klientów umożliwia nam zarówno rozwiązywanie bieżących problemów, a także opracowywanie strategii działania w przyszłości.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="5.1_rightside_container" xml:space="preserve">
-    <value>&lt;strong&gt;Dobro Klienta stawiamy&lt;/strong&gt; na pierwszym miejscu. Dając tym samym poczucie bezpieczeństwa i osobistego zaangażowania.</value>
+    <value>&lt;strong&gt;Dobro Klienta stawiamy&lt;/strong&gt; na pierwszym miejscu. Dając tym samym wyraz osobistego zaangażowania oraz poczucie bezpieczeństwa naszym Klientom.</value>
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
   <data name="5.2_rightside_container" xml:space="preserve">
@@ -166,11 +166,11 @@
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
   <data name="5.3_rightside_container" xml:space="preserve">
-    <value>&lt;strong&gt;Reprezentujemy indywidualne podejście i szacunek&lt;/strong&gt; dla każdego Klienta i jego spraw.</value>
+    <value>&lt;strong&gt;Prezentujemy indywidualne podejście i szacunek&lt;/strong&gt; dla każdego Klienta i jego spraw.</value>
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
   <data name="5.4_rightside_container" xml:space="preserve">
-    <value>&lt;strong&gt;Zaufanie&lt;/strong&gt;, którym wielu Klientów nieustannie obdarza Kancelarię przekazując pozytywną ocenę współpracy z nami, swoim kontrahentom oraz bliskim.</value>
+    <value>&lt;strong&gt;Zaufanie&lt;/strong&gt;, którym Klienci obdarzają Kancelarię skutkuje pozytywną oceną współpracy i rodzi dalsze plany na przyszłość.</value>
     <comment>Zawartość w szarym kwadracie</comment>
   </data>
 </root>

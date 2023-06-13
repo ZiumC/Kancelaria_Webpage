@@ -63,7 +63,7 @@ div.square-element {
 
 .b-1 {
 	animation: move-text1 30s infinite;
-	font-size: 3ex;
+	font-size: 2.5ex;
 }
 
 .b-2 {
@@ -237,7 +237,7 @@ div.square-element {
 	}
 
 	p.b-1 {
-		font-size: 2.8ex;
+		font-size: 2.2ex;
 		width: 50%;
 	}
 
@@ -264,7 +264,7 @@ div.square-element {
 	}
 
 	p.b-1 {
-		font-size: 2.5ex;
+		font-size: 2.3ex;
 		width: 65%;
 	}
 
