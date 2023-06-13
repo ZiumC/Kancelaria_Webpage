@@ -54,3 +54,24 @@ th {
 h5 {
 	font-weight: bold;
 }
+
+#news {
+	table-layout: fixed;
+	width: 90%;
+}
+
+#news tr th.table-header-date {
+	width: 25%;
+}
+
+@media only screen and (max-width: 550px) {
+	#news tr th.table-header-date {
+		font-size: 1.3ex;
+	}
+	#news tr td div.article {
+		font-size: 1.6ex;
+	}
+	#news tr td div.article h5 {
+		font-size: 2ex;
+	}
+}

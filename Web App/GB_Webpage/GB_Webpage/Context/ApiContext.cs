@@ -17,7 +17,7 @@ namespace GB_Webpage.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            List<ArticleModel> articles = new DatabaseFileService(_folder).ReadFile<List<ArticleModel>>();
+            List<ArticleModel>? articles = new DatabaseFileService(_folder).ReadFile<List<ArticleModel>>();
 
             if (articles != null)
             {
