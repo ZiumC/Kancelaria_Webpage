@@ -21,8 +21,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     options.DefaultRequestCulture = new RequestCulture("pl-PL");
 
-    options.AddSupportedCultures(new string[] { "en-US", "pl-PL", "de-DE" });
-    options.AddSupportedUICultures(new string[] { "en-US", "pl-PL", "de-DE" });
+    var supportedCultures = new string[] { "pl-PL", "de-DE", "en-US" };
+
+    options.AddSupportedCultures(supportedCultures);
+    options.AddSupportedUICultures(supportedCultures);
 
     options.RequestCultureProviders = new List<IRequestCultureProvider>
         {
@@ -83,30 +85,32 @@ app.UseHttpsRedirection();
 
 app.UseRequestLocalization();
 
-app.Use(async (context, next) =>
-{
+//app.Use(async (context, next) =>
+//{
 
-    var contexRequestQuery = context.Request.Query;
-    string cultureQueryRequestString = context.Request.Query["culture"].ToString();
+//    var contexRequestQuery = context.Request.Query;
+//    string cultureQueryRequestString = context.Request.Query["culture"].ToString();
 
-    if (contexRequestQuery.Count() > 0 && !cultureQueryRequestString.Equals(""))
-    {
+//    if (contexRequestQuery.Count() > 0 && !cultureQueryRequestString.Equals(""))
+//    {
 
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureQueryRequestString);
+//        Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureQueryRequestString);
 
-        context.Response.Cookies.Append(
-            CookieRequestCultureProvider.DefaultCookieName,
-            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(cultureQueryRequestString)),
-            new CookieOptions() { Expires = DateTime.Now.AddYears(1) }
-            );
+//        context.Response.Cookies.Append(
+//            CookieRequestCultureProvider.DefaultCookieName,
+//            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(cultureQueryRequestString)),
+//            new CookieOptions() { Expires = DateTime.Now.AddYears(1) }
+//            );
 
 
-        context.Response.Redirect(context.Request.Headers["Referer"].ToString());
+//        context.Response.Redirect(context.Request.Headers["Referer"].ToString());
 
-    }
+//    }
 
-    await next.Invoke();
-});
+//    await next.Invoke();
+//});
+
+app.UseMiddleware<CultureCookieMiddleware>();
 
 app.UseMiddleware<RedirectWhenCultureMismatch>();
 
