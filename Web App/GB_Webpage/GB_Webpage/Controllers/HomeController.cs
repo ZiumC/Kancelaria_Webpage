@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text.Json;
 
 namespace GB_Webpage.Controllers
@@ -25,7 +26,7 @@ namespace GB_Webpage.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation("This is home page");
+            _logger.LogInformation(LogBuilder.BuildLogFrom(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             return View();
         }
 
