@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DatabaseFiles\Article\" />
+    <Folder Include="DatabaseFiles\Articles\" />
     <Folder Include="DatabaseFiles\RefreshToken\" />
   </ItemGroup>
 

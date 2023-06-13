@@ -11,7 +11,7 @@ namespace GB_Webpage.Controllers
     {
 
         private readonly IConfiguration _configuration;
-        private readonly string _folder = "RefreshToken";
+        private readonly string _folder;
         private readonly string _issuer;
         private readonly string _secretSignature;
         private readonly int _daysValid;
@@ -22,6 +22,7 @@ namespace GB_Webpage.Controllers
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _secretSignature = _configuration["SecretSignatureKey"];
             _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
+            _folder = _configuration["DatabaseStorage:RefreshTokenFolder"];
         }
 
         [HttpPost]
@@ -93,7 +94,7 @@ namespace GB_Webpage.Controllers
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
 
-            return StatusCode(452, "Tokens aren't valid to server");
+            return StatusCode(452, "Tokens aren't valid to this server");
 
         }
 

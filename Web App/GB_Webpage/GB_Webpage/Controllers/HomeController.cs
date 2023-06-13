@@ -25,6 +25,7 @@ namespace GB_Webpage.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("This is home page");
             return View();
         }
 

@@ -12,11 +12,14 @@ namespace GB_Webpage.Controllers
     {
 
         private readonly IApiService _apiService;
-        private readonly string _folder = "Article";
+        private readonly IConfiguration _configuration;
+        private readonly string _folder;
 
-        public ArticlesController(IApiService apiService)
+        public ArticlesController(IApiService apiService, IConfiguration configuration)
         {
             _apiService = apiService;
+            _configuration = configuration;
+            _folder = _configuration["DatabaseStorage:ArticlesFolder"];
         }
 
         [HttpPut]
