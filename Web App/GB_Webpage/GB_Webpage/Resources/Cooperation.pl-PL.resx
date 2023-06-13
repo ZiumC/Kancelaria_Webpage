@@ -124,34 +124,34 @@
     <value>Współpraca</value>
   </data>
   <data name="2.1_introduction" xml:space="preserve">
-    <value>Każda współpracująca z nami firma może &lt;strong&gt;czuć się bezpiecznie i pewnie&lt;/strong&gt;, gdyż działamy transparentnie i na zasadach wzajemnego zaufania.</value>
+    <value>Nasza współpraca prowadzona jest na &lt;strong&gt;indywidualnych zasadach uzgodnionych z Klientem &lt;/strong&gt; zgodnie z jego potrzebami w sposób transparentny i oparty na wzajemnym zaufaniu.</value>
   </data>
   <data name="3.1_leftside_container" xml:space="preserve">
-    <value>Mając na uwadze potrzeby i specyfikę działań Klientów, proponujemy następujące sposoby rozliczeń za świadczone usługi:</value>
+    <value>Mając na uwadze potrzeby i ich indywidualną specyfikę, proponujemy następujące sposoby rozliczeń za świadczone usługi pomoce prawnej:</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="3.2_leftside_container" xml:space="preserve">
     <value>&lt;ul&gt;
-&lt;li&gt;wynagrodzenie abonamentowe&lt;/li&gt;
+&lt;li&gt;wynagrodzenie abonamentowe,&lt;/li&gt;
 
-&lt;li&gt;wynagrodzenie godzinowe&lt;/li&gt;
+&lt;li&gt;wynagrodzenie godzinowe,&lt;/li&gt;
 
-&lt;li&gt;wynagrodzenie abonamentowo - godzinowe&lt;/li&gt;
+&lt;li&gt;wynagrodzenie abonamentowo – godzinowe,&lt;/li&gt;
 
-&lt;li&gt;wynagrodzenie z tytułu zastępstw procesowych&lt;/li&gt;
+&lt;li&gt;wynagrodzenie z tytułu zastępstw procesowych i administracyjnych.&lt;/li&gt;
 &lt;/ul&gt;</value>
     <comment>Zawartość strony, element UL</comment>
   </data>
   <data name="3.3_leftside_container" xml:space="preserve">
-    <value>Każdorazowo wysokość wynagrodzenia za prowadzenie powierzonej sprawy ustalana jest indywidualnie przy uwzględnieniu stopnia skomplikowania podejmowanych czynności i wartości przedmiotu sporu.</value>
+    <value>Każdorazowo wysokość wynagrodzenia za prowadzenie powierzonej sprawy ustalana jest indywidualnie przy uwzględnieniu stopnia jej skomplikowania, podejmowanych czynności i wartości przedmiotu sporu.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="3.4_leftside_container" xml:space="preserve">
-    <value>Nasze działania podejmujemy w ścisłej współpracy z Klientem, który jest na bieżąco informowany zarówno o szansach jak i potencjalnych zagrożeniach i ryzykach w prowadzonej sprawie.</value>
+    <value>Nasze działania podejmujemy w ścisłej współpracy z Klientem, który jest na bieżąco informowany o szansach jak i potencjalnych ryzykach w prowadzonej sprawie.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="3.5_leftside_container" xml:space="preserve">
-    <value>Przed podjęciem czynności zawieramy umowę o świadczenie pomocy prawnej. Zawarta umowa pozwala Klientom korzystać z doświadczeń i zasobów naszej Kancelarii oraz zapewnia stałą obsługę prawną w oczekiwanym przez Klientów zakresie.</value>
+    <value>Przed podjęciem zleconych czynności zawieramy umowę o świadczenie pomocy prawnej. Zawarta umowa pozwala Klientom korzystać z doświadczeń i zasobów naszej Kancelarii oraz zapewnia stałą obsługę prawną w określonym zakresie.</value>
     <comment>Zawartość strony</comment>
   </data>
   <data name="4.1_rightside_container" xml:space="preserve">
@@ -159,7 +159,7 @@
     <comment>Zawartość strony, tekst w szarym kwadracie</comment>
   </data>
   <data name="4.2_rightside_container" xml:space="preserve">
-    <value>&lt;strong&gt;Ze starannością&lt;/strong&gt; podchodzimy do rozliczeń z Klientami oraz dostępu do informacji o aktualnym stanie spraw.</value>
+    <value>&lt;strong&gt;Z należytą starannością&lt;/strong&gt; podchodzimy do rozliczeń z Klientami oraz dostępu do informacji o aktualnym stanie spraw.</value>
     <comment>Zawartość strony, tekst w szarym kwadracie</comment>
   </data>
   <data name="4.3_rightside_container" xml:space="preserve">

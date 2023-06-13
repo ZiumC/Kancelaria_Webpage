@@ -34,7 +34,7 @@ div.square-element {
 
 .b-2 {
 	animation: move-text2 15s infinite;
-	font-size: 2.8ex;
+	font-size: 2.7ex;
 	width: 20%;
 }
 
@@ -106,7 +106,7 @@ div.note-container > p:last-child:hover {
 
 	.b-2 {
 		width: 25%;
-		font-size: 2.8ex;
+		font-size: 2.5ex;
 	}
 }
 
@@ -127,7 +127,7 @@ div.note-container > p:last-child:hover {
 
 	.b-2 {
 		width: 28%;
-		font-size: 2.65ex;
+		font-size: 2.55ex;
 	}
 }
 
@@ -140,7 +140,7 @@ div.note-container > p:last-child:hover {
 
 	.b-2 {
 		width: 60%;
-		font-size: 2.65ex;
+		font-size: 2.55ex;
 	}
 }
 
@@ -163,6 +163,6 @@ div.note-container > p:last-child:hover {
 
 	.b-2 {
 		width: 70%;
-		font-size: 3ex;
+		font-size: 2.55ex;
 	}
 }
