@@ -6,7 +6,7 @@ namespace GB_Webpage.Middlewares
     {
         private readonly RequestDelegate _next;
         private readonly string _subPage = "/news";
-        private readonly string _culture = "pl-PL";
+        private readonly string _cultureAllowed = "pl-PL";
 
 
         public CultureMismatchMiddleware(RequestDelegate next)
@@ -21,7 +21,7 @@ namespace GB_Webpage.Middlewares
 
             //if someone is in 'news' fold and his UI culture is different than pl-PL, this person
             //is redirected to index because 'news' fold should be avaiable only in pl-PL culture
-            if (currentURL.Contains(_subPage) && !currentCulture.Contains(_culture))
+            if (currentURL.Contains(_subPage) && !currentCulture.Contains(_cultureAllowed))
             {
                 httpContext.Response.Redirect("/");
             }

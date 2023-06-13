@@ -36,9 +36,10 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 builder.Services.AddRazorPages();
 builder.Services.AddLocalization();
 
-//builder.Services.AddLogging(loggingBuilder => {
-//    loggingBuilder.AddFile("app.log", append: true);
-//});
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.AddFile("app.log", append: true);
+});
 
 
 builder.Services.AddAuthentication(options =>
