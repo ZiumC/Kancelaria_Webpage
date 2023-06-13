@@ -65,7 +65,7 @@ namespace GB_Webpage.Controllers
         [Route("refresh")]
         public IActionResult RefreshToken(JwtDTO jwt)
         {
-            UserRefreshTokenModel savedUserToken = new DatabaseFileService(_folder).ReadFile<UserRefreshTokenModel>();
+            UserRefreshTokenModel? savedUserToken = new DatabaseFileService(_folder).ReadFile<UserRefreshTokenModel>();
 
             if (savedUserToken == null)
             {

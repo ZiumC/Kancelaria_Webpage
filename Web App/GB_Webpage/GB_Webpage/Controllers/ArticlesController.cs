@@ -24,7 +24,7 @@ namespace GB_Webpage.Controllers
         [Authorize]
         public async Task<IActionResult> UpdateArticle(int id, ArticleDTO article)
         {
-            ArticleModel model = await _apiService.GetArticleByIdAsync(id);
+            ArticleModel? model = await _apiService.GetArticleByIdAsync(id);
 
             if (model == null)
             {
@@ -60,11 +60,11 @@ namespace GB_Webpage.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteArticle(int id)
         {
-            ArticleModel article = await _apiService.GetArticleByIdAsync(id);
+            ArticleModel? article = await _apiService.GetArticleByIdAsync(id);
 
             if (article == null)
             {
-                return NotFound($"Article not found. |{id}");
+                return NotFound($"Article not found. | {id}");
             }
 
             bool isDeleted = await _apiService.DeleteArticleAsync(article);
@@ -77,14 +77,14 @@ namespace GB_Webpage.Controllers
 
                 if (isSavedToFile)
                 {
-                    return Ok($"Article has been deleted. Changes HAS BEEN SAVED to physical file. |{id}");
+                    return Ok($"Article has been deleted. Changes HAS BEEN SAVED to physical file.");
                 }
                 else
                 {
-                    return StatusCode(209, $"Article has been deleted. Changes HASN'T SAVED to physical file. |{id}");
+                    return StatusCode(209, $"Article has been deleted. Changes HASN'T SAVED to physical file.");
                 }
             }
-            return BadRequest($"Unable to delete article. |{id}");
+            return BadRequest($"Unable to delete article. | {id}");
         }
 
         [HttpPost]

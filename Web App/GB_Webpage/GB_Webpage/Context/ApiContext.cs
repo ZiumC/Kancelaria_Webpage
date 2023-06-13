@@ -30,7 +30,13 @@ namespace GB_Webpage.Data
 
                         foreach (ArticleModel articleItem in articles)
                         {
-                            art.HasData(new ArticleModel { Id = articleItem.Id, Title = articleItem.Title, Description = articleItem.Description, Date = articleItem.Date });
+                            art.HasData(new ArticleModel 
+                            { 
+                                Id = articleItem.Id, 
+                                Title = articleItem.Title, 
+                                Description = articleItem.Description, 
+                                Date = articleItem.Date 
+                            });
                         }
                     });
                 }
