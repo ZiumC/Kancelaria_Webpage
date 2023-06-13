@@ -7,10 +7,13 @@ namespace GB_Webpage.Data
     public class ApiContext : DbContext
     {
 
-        private readonly string _folder = "Article";
+        private readonly string _folder;
+        private readonly IConfiguration _configuration;
 
-        public ApiContext(DbContextOptions<ApiContext> options) : base(options)
+        public ApiContext(DbContextOptions<ApiContext> options, IConfiguration configuration) : base(options)
         {
+            _configuration = configuration;
+            _folder = _configuration["DatabaseStorage:ArticlesFolder"];
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
