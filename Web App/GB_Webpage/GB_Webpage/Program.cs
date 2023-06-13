@@ -1,6 +1,5 @@
 using GB_Webpage.Middlewares;
 using Microsoft.AspNetCore.Localization;
-using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 using GB_Webpage.Data;
 using GB_Webpage.Services;
@@ -85,34 +84,8 @@ app.UseHttpsRedirection();
 
 app.UseRequestLocalization();
 
-//app.Use(async (context, next) =>
-//{
-
-//    var contexRequestQuery = context.Request.Query;
-//    string cultureQueryRequestString = context.Request.Query["culture"].ToString();
-
-//    if (contexRequestQuery.Count() > 0 && !cultureQueryRequestString.Equals(""))
-//    {
-
-//        Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureQueryRequestString);
-
-//        context.Response.Cookies.Append(
-//            CookieRequestCultureProvider.DefaultCookieName,
-//            CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(cultureQueryRequestString)),
-//            new CookieOptions() { Expires = DateTime.Now.AddYears(1) }
-//            );
-
-
-//        context.Response.Redirect(context.Request.Headers["Referer"].ToString());
-
-//    }
-
-//    await next.Invoke();
-//});
-
 app.UseMiddleware<CultureCookieMiddleware>();
-
-app.UseMiddleware<RedirectWhenCultureMismatch>();
+app.UseMiddleware<CultureMismatchMiddleware>();
 
 app.UseStaticFiles();
 
@@ -120,11 +93,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-//removing default controller
-//app.MapControllerRoute(
-//	name: "default",
-//	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapControllerRoute(
     name: "default",

@@ -2,14 +2,14 @@
 
 namespace GB_Webpage.Middlewares
 {
-    public class RedirectWhenCultureMismatch
+    public class CultureMismatchMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly string _subPage = "/news";
         private readonly string _culture = "pl-PL";
 
 
-        public RedirectWhenCultureMismatch(RequestDelegate next)
+        public CultureMismatchMiddleware(RequestDelegate next)
         {
             _next = next;
         }
@@ -47,7 +47,7 @@ namespace GB_Webpage.Middlewares
     {
         public static IApplicationBuilder UseRedirectToIndex(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<RedirectWhenCultureMismatch>();
+            return builder.UseMiddleware<CultureMismatchMiddleware>();
         }
     }
 }

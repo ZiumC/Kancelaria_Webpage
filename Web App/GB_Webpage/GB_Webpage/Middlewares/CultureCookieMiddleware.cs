@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Localization;
+﻿using Microsoft.AspNetCore.Localization;
 using System.Globalization;
-using System.Threading.Tasks;
 
 namespace GB_Webpage.Middlewares
 {
@@ -33,7 +30,6 @@ namespace GB_Webpage.Middlewares
 
             if (contexRequestQuery.Count() > 0 && !cultureQueryRequestString.Equals(""))
             {
-
                 //default culture is pl-PL
                 var selectedCulture = supportedCultures[0];
 
