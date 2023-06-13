@@ -8,6 +8,10 @@ body {
     animation-timing-function: linear;
 }
 
+/*#logo {
+    width: 60%;
+}*/
+
 .title-rectangle {
     height: 13ex;
     width: 100%;
