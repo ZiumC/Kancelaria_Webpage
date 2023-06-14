@@ -1,6 +1,8 @@
 ﻿using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using GB_Webpage.Services;
+using GB_Webpage.Services.Database.Articles;
+using GB_Webpage.Services.Database.Users;
 using GB_Webpage.Services.DatabaseFiles;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +16,7 @@ namespace GB_Webpage.Controllers
         private readonly IConfiguration _configuration;
         private readonly IDatabaseFileService _databaseFileService;
         private readonly ILogger<UsersController> _logger;
+        private readonly IApiUsersService _usersService;
 
         private readonly string _refreshTokenFolder;
         private readonly string _issuer;
@@ -23,10 +26,11 @@ namespace GB_Webpage.Controllers
         private readonly Dictionary<int, string> _statuses;
         private readonly int OK = 200, UNAUTHORIZED = 403, NOT_FOUND = 404, TOKEN_BROKEN = 452;
 
-        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService, ILogger<UsersController> logger)
+        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService, ILogger<UsersController> logger, IApiUsersService usersService)
         {
-            _configuration = configuration;
             _databaseFileService = databaseFileService;
+            _configuration = configuration;
+            _usersService = usersService;
             _logger = logger;
 
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];

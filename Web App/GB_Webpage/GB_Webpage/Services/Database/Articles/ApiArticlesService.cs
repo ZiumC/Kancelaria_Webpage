@@ -3,15 +3,15 @@ using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace GB_Webpage.Services.DataBase
+namespace GB_Webpage.Services.Database.Articles
 {
-    public class ApiService : IApiService
+    public class ApiArticlesService : IApiArticlesService
     {
 
         private readonly ApiContext _context;
-        private readonly ILogger<ApiService> _logger;
+        private readonly ILogger<ApiArticlesService> _logger;
 
-        public ApiService(ILogger<ApiService> logger, ApiContext context)
+        public ApiArticlesService(ILogger<ApiArticlesService> logger, ApiContext context)
         {
             _context = context;
             _context.Database.EnsureCreated();
@@ -89,12 +89,12 @@ namespace GB_Webpage.Services.DataBase
                     .Where(a => a.Id == id)
                     .FirstAsync();
 
-                if (title is not null && (!title.Replace("\\s", "").Equals("")))
+                if (title is not null && !title.Replace("\\s", "").Equals(""))
                 {
                     updateQuery.Title = title;
                 }
 
-                if (description is not null && (!description.Replace("\\s", "").Equals("")))
+                if (description is not null && !description.Replace("\\s", "").Equals(""))
                 {
                     updateQuery.Description = description;
                 }

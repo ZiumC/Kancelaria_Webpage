@@ -1,6 +1,7 @@
 ﻿using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using GB_Webpage.Services;
+using GB_Webpage.Services.Database.Articles;
 using GB_Webpage.Services.DatabaseFiles;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ namespace GB_Webpage.Controllers
     public class ArticlesController : ControllerBase
     {
 
-        private readonly IApiService _apiService;
+        private readonly IApiArticlesService _apiService;
         private readonly IConfiguration _configuration;
         private readonly IDatabaseFileService _databaseFileService;
         private readonly ILogger<ArticlesController> _logger;
@@ -22,7 +23,7 @@ namespace GB_Webpage.Controllers
         private readonly Dictionary<int, string> _statuses;
         private readonly int OK = 200, OK_NOT_SAVED = 209, BAD_REQUEST = 400, NOT_FOUND = 404;
 
-        public ArticlesController(ILogger<ArticlesController> logger, IDatabaseFileService databaseFileService, IApiService apiService, IConfiguration configuration)
+        public ArticlesController(ILogger<ArticlesController> logger, IDatabaseFileService databaseFileService, IApiArticlesService apiService, IConfiguration configuration)
         {
             _databaseFileService = databaseFileService;
             _logger = logger;
