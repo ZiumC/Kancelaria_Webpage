@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Reflection;
 
-namespace GB_Webpage.Services
+namespace GB_Webpage.Services.DatabaseFiles
 {
     public class DatabaseFileService : IDatabaseFileService
     {
@@ -82,15 +82,15 @@ namespace GB_Webpage.Services
         {
 
             string path = GetDirFiles(folderName);
-
-            if (Directory.Exists(path))
-            {
-                return default;
-            }
-
             TextReader reader = null;
+
             try
             {
+                if (Directory.Exists(path))
+                {
+                    return default;
+                }
+
                 reader = new StreamReader(path);
                 var fileContents = reader.ReadToEnd();
                 return JsonConvert.DeserializeObject<T>(fileContents);
