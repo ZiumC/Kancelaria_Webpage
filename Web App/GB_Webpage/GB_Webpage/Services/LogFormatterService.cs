@@ -51,7 +51,7 @@ namespace GB_Webpage.Services
         /// <summary>
         /// This method allows to format exception to string.
         /// </summary>
-        /// <param name="e">Exception</param>
+        /// <param name="e">Exception.</param>
         /// <returns>Formatted string ready to save in log app.</returns>
         public static string FormatException(Exception e) 
         {
@@ -65,6 +65,12 @@ namespace GB_Webpage.Services
             return result;
         }
 
+        /// <summary>
+        /// This method allows to format action made to string.
+        /// </summary>
+        /// <param name="action">Action that has been made.</param>
+        /// <param name="details">Optional details to that action.</param>
+        /// <returns>Formatted string ready to save in log app.</returns>
         public static string FormatAction(string action, string? details) 
         {
             string result = string.Empty;
