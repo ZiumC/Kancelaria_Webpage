@@ -22,6 +22,8 @@ namespace GB_Webpage.Controllers
         private readonly string _issuer;
         private readonly string _secretSignature;
         private readonly int _daysValid;
+        private readonly int _maxAttemps;
+
 
         private readonly Dictionary<int, string> _statuses;
         private readonly int OK = 200, UNAUTHORIZED = 403, NOT_FOUND = 404, TOKEN_BROKEN = 452;
@@ -37,6 +39,7 @@ namespace GB_Webpage.Controllers
             _secretSignature = _configuration["SecretSignatureKey"];
             _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
             _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
+            _maxAttemps = int.Parse(_configuration["MaxLoginAttemps"]);
 
             _statuses = new Dictionary<int, string>()
             {
@@ -49,11 +52,20 @@ namespace GB_Webpage.Controllers
 
         [HttpPost]
         [Route("login")]
-        public IActionResult Login(LoginRequestDTO request)
+        public async Task<IActionResult> Login(LoginRequestDTO request)
         {
             string actionLog = "User logging in";
 
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+
+            BlockedUserModel? blockedUserData = await _usersService.GetUserFataFromBlacklistAsync(request.Login);
+            if (blockedUserData != null) 
+            {
+                if (blockedUserData.TotalAttemps <= _maxAttemps) 
+                {
+                    
+                }
+            }
 
             LoginRequestDTO currentUser = new LoginRequestDTO
             {
