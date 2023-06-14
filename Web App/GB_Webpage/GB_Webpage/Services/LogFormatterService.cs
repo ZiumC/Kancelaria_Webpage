@@ -52,15 +52,16 @@ namespace GB_Webpage.Services
         /// This method allows to format exception to string.
         /// </summary>
         /// <param name="e">Exception.</param>
+        /// <param name="methodName">Optional method name to exception.</param>
         /// <returns>Formatted string ready to save in log app.</returns>
-        public static string FormatException(Exception e)
+        public static string FormatException(Exception e, string? methodName)
         {
             string result = string.Empty;
 
             var stackTrace = new StackTrace(e, true);
             var frame = stackTrace.GetFrame(0);
 
-            result = $"EXCEPTION\t\tException:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
+            result = $"EXCEPTION\t\tMethod:{methodName}\tException:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
 
             return result;
         }
@@ -71,11 +72,11 @@ namespace GB_Webpage.Services
         /// <param name="action">Action that has been made.</param>
         /// <param name="details">Optional details to that action.</param>
         /// <returns>Formatted string ready to save in log app.</returns>
-        public static string FormatAction(string action, string? details)
+        public static string FormatAction(string? methodName, string action, string? details)
         {
             string result = string.Empty;
 
-            result = $"ACTION\t\tAction:{action}\tDetails:{details}";
+            result = $"ACTION\t\tMethod:{methodName}\tAction:{action}\tDetails:{details}";
 
             return result;
         }

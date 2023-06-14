@@ -14,16 +14,16 @@ namespace GB_Webpage.Controllers
         private readonly IApiService _apiService;
         private readonly IConfiguration _configuration;
         private readonly IDatabaseFileService _databaseFileService; 
-        private readonly string _folder;
         private readonly ILogger<ArticlesController> _articlesLogger;
+        private readonly string _ArticlesFolder;
 
         public ArticlesController(ILogger<ArticlesController> articlesLogger, IDatabaseFileService databaseFileService, IApiService apiService, IConfiguration configuration)
         {
-            _apiService = apiService;
-            _configuration = configuration;
-            _folder = _configuration["DatabaseStorage:ArticlesFolder"];
-            _articlesLogger = articlesLogger;
             _databaseFileService = databaseFileService;
+            _articlesLogger = articlesLogger;
+            _configuration = configuration;
+            _apiService = apiService;
+            _ArticlesFolder = _configuration["DatabaseStorage:ArticlesFolder"];
         }
 
         [HttpPut]
@@ -45,7 +45,7 @@ namespace GB_Webpage.Controllers
             if (isUpdated)
             {
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = _databaseFileService.SaveFile(articles, _folder);
+                bool isSavedToFile = _databaseFileService.SaveFile(articles, _ArticlesFolder);
 
                 if (isSavedToFile)
                 {
@@ -83,7 +83,7 @@ namespace GB_Webpage.Controllers
             {
 
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = _databaseFileService.SaveFile(articles, _folder);
+                bool isSavedToFile = _databaseFileService.SaveFile(articles, _ArticlesFolder);
 
                 if (isSavedToFile)
                 {
@@ -108,7 +108,7 @@ namespace GB_Webpage.Controllers
             if (isAdded)
             {
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = _databaseFileService.SaveFile(articles, _folder);
+                bool isSavedToFile = _databaseFileService.SaveFile(articles, _ArticlesFolder);
 
                 if (isSavedToFile)
                 {

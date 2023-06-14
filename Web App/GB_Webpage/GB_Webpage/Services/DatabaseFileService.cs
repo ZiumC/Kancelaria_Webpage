@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 
 namespace GB_Webpage.Services
 {
@@ -6,18 +7,29 @@ namespace GB_Webpage.Services
     {
 
         private readonly ILogger<DatabaseFileService> _logger;
+        private readonly IConfiguration _configuration;
 
-        public DatabaseFileService(ILogger<DatabaseFileService> logger)
+        public DatabaseFileService(ILogger<DatabaseFileService> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         private string GetDirFiles(string folder)
         {
-            string pathToDir = $"{Environment.CurrentDirectory}/DatabaseFiles/{folder}";
-            string[] fileEntries = Directory.GetFiles(pathToDir);
+            string pathToDir = $"{Environment.CurrentDirectory}/{_configuration["DatabaseStorage:MainFolder"]}/{folder}";
+            string[] fileEntries = null;
 
-            if (fileEntries.Length > 0)
+            try
+            {
+                fileEntries = Directory.GetFiles(pathToDir);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, MethodBase.GetCurrentMethod()?.Name));
+            }
+
+            if (fileEntries?.Length > 0)
             {
                 return fileEntries[0];
             }
@@ -25,36 +37,33 @@ namespace GB_Webpage.Services
             {
                 return pathToDir;
             }
-
         }
 
         public bool SaveFile<T>(T data, string folderName)
         {
-
             string path = GetDirFiles(folderName);
-
-            if (Directory.Exists(path))
-            {
-                path = $"{path}/{DateTime.Now.ToString("dd-MM-yyyy")}.json";
-            }
-
-            if (File.Exists(path))
-            {
-                File.Delete(path);
-            }
-
             TextWriter writer = null;
+
             try
             {
+                if (Directory.Exists(path))
+                {
+                    path = $"{path}/{DateTime.Now.ToString("dd-MM-yyyy")}.json";
+                }
+
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                    _logger.LogInformation(LogFormatterService.FormatAction(MethodBase.GetCurrentMethod()?.Name, "File already exist - file deleted", $"Path to file='{path}'"));
+                }
+
                 string jsonData = JsonConvert.SerializeObject(data);
                 writer = new StreamWriter(path, false);
-                //writer = new StreamWriter(null, false);
                 writer.Write(jsonData);
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex));
-                Console.WriteLine(ex.Message);
+                _logger.LogError(LogFormatterService.FormatException(ex, MethodBase.GetCurrentMethod()?.Name));
                 return false;
             }
             finally
@@ -65,6 +74,7 @@ namespace GB_Webpage.Services
                 }
             }
 
+            _logger.LogInformation(LogFormatterService.FormatAction(MethodBase.GetCurrentMethod()?.Name, "File has been saved.", $"Path to file='{path}'"));
             return true;
         }
 
@@ -87,7 +97,7 @@ namespace GB_Webpage.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                _logger.LogError(LogFormatterService.FormatException(ex, MethodBase.GetCurrentMethod()?.Name));
                 return default;
             }
             finally

@@ -11,18 +11,21 @@ namespace GB_Webpage.Controllers
     {
 
         private readonly IConfiguration _configuration;
-        private readonly string _folder;
+        private readonly IDatabaseFileService _databaseFileService;
+        private readonly string _refreshTokenFolder;
         private readonly string _issuer;
         private readonly string _secretSignature;
         private readonly int _daysValid;
 
-        public UsersController(IConfiguration configuration)
+        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService)
         {
             _configuration = configuration;
+            _databaseFileService = databaseFileService;
+
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _secretSignature = _configuration["SecretSignatureKey"];
             _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
-            _folder = _configuration["DatabaseStorage:RefreshTokenFolder"];
+            _refreshTokenFolder = _configuration["DatabaseStorage:RefreshTokenFolder"];
         }
 
         [HttpPost]
@@ -49,11 +52,11 @@ namespace GB_Webpage.Controllers
                 string refreshToken = UserService.GenerateRefreshToken();
                 string accessToken = UserService.GenerateAccessToken(_secretSignature, request.Login, _issuer, _issuer, _daysValid);
 
-                //new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
-                //{
-                //    RefreshToken = refreshToken,
-                //    UserName = request.Login
-                //});
+                _databaseFileService.SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
+                {
+                    RefreshToken = refreshToken,
+                    UserName = request.Login
+                }, _refreshTokenFolder);
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
@@ -66,8 +69,7 @@ namespace GB_Webpage.Controllers
         [Route("refresh")]
         public IActionResult RefreshToken(JwtDTO jwt)
         {
-            //UserRefreshTokenModel? savedUserToken = new DatabaseFileService(_folder).ReadFile<UserRefreshTokenModel>();
-            UserRefreshTokenModel? savedUserToken = null;
+            UserRefreshTokenModel? savedUserToken = _databaseFileService.ReadFile<UserRefreshTokenModel>(_refreshTokenFolder);
 
             if (savedUserToken == null)
             {
@@ -86,11 +88,11 @@ namespace GB_Webpage.Controllers
                 string refreshToken = UserService.GenerateRefreshToken();
                 string accessToken = UserService.GenerateAccessToken(_secretSignature, savedUserToken.UserName, _issuer, _issuer, _daysValid);
 
-                //new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
-                //{
-                //    RefreshToken = refreshToken,
-                //    UserName = savedUserToken.UserName
-                //});
+                _databaseFileService.SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
+                {
+                    RefreshToken = refreshToken,
+                    UserName = savedUserToken.UserName
+                }, _refreshTokenFolder);
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
