@@ -94,13 +94,13 @@ namespace GB_Webpage.Controllers
 
                     mailService.SendMail();
                 }
-                _logger.LogInformation(LogFormatterService.FormatAction(null, "Sended mail", $"Ok, person {contact.Name} has send mail"));
+                _logger.LogInformation(LogFormatterService.FormatAction("Sended mail", $"Ok, person {contact.Name} has send mail", null));
                 TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
                 return RedirectToAction("contact", null);
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatAction(null, "Mail not sended", null));
+                _logger.LogError(LogFormatterService.FormatAction("Mail not sended", null, null));
                 TempData["Error"] = $"{_contact["3.7_leftside_container"]}";
                 _logger.LogError(LogFormatterService.FormatException(ex, null));
                 return RedirectToAction("contact", null);

@@ -74,7 +74,7 @@ namespace GB_Webpage.Services
         /// <param name="action">Action that has been made.</param>
         /// <param name="details">Optional details to that action.</param>
         /// <returns>Formatted string ready to save in log app.</returns>
-        public static string FormatAction(string? methodName, string action, string? details)
+        public static string FormatAction(string action, string? details, string? methodName)
         {
             string result = string.Empty;
 

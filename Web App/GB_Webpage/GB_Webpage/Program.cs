@@ -15,7 +15,6 @@ builder.Services.AddScoped<IApiService, ApiService>();
 builder.Services.AddTransient<IDatabaseFileService, DatabaseFileService>();
 builder.Services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase("ArticleDb"));
 
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -33,7 +32,6 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
             new QueryStringRequestCultureProvider(),
             new CookieRequestCultureProvider()
         };
-
 });
 
 builder.Services.AddRazorPages();

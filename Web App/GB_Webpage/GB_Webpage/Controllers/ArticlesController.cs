@@ -14,35 +14,54 @@ namespace GB_Webpage.Controllers
 
         private readonly IApiService _apiService;
         private readonly IConfiguration _configuration;
-        private readonly IDatabaseFileService _databaseFileService; 
-        private readonly ILogger<ArticlesController> _articlesLogger;
+        private readonly IDatabaseFileService _databaseFileService;
+        private readonly ILogger<ArticlesController> _logger;
         private readonly string _ArticlesFolder;
+        private readonly Dictionary<int, string> statuses;
 
-        public ArticlesController(ILogger<ArticlesController> articlesLogger, IDatabaseFileService databaseFileService, IApiService apiService, IConfiguration configuration)
+        private readonly int OK = 200, OK_NOT_SAVED = 209, BAD_REQUEST = 400, NOT_FOUND = 404;
+
+        public ArticlesController(ILogger<ArticlesController> logger, IDatabaseFileService databaseFileService, IApiService apiService, IConfiguration configuration)
         {
             _databaseFileService = databaseFileService;
-            _articlesLogger = articlesLogger;
+            _logger = logger;
             _configuration = configuration;
             _apiService = apiService;
             _ArticlesFolder = _configuration["DatabaseStorage:ArticlesFolder"];
+
+            statuses = new Dictionary<int, string>()
+            {
+                { 200, "ok." },
+                { 209, "changes not saved in physical file." },
+                { 400, "something went wrong with article." },
+                { 404, "article not found." }
+            };
         }
 
         [HttpPut]
         [Route("update/{id:int}")]
         [Authorize]
-        public async Task<IActionResult> UpdateArticle(int id, ArticleDTO article)
+        public async Task<IActionResult> UpdateArticle(int id, ArticleDTO newArticle)
         {
-            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            string actionLog = "Updating article.";
 
-            ArticleModel? model = await _apiService.GetArticleByIdAsync(id);
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
-            if (model == null)
+            ArticleModel? oldArticle = await _apiService.GetArticleByIdAsync(id);
+            if (oldArticle == null)
             {
-                return NotFound($"Unable to find article. |{id}");
+                var statusResponse = SelectStatusBy(NOT_FOUND);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return NotFound($"Unable to find article. | {id}");
             }
 
-            bool isUpdated = await _apiService.UpdateArticleByIdAsync(id, article);
-
+            bool isUpdated = await _apiService.UpdateArticleByIdAsync(id, newArticle);
             if (isUpdated)
             {
                 var articles = await _apiService.GetAllArticlesAsync();
@@ -54,12 +73,28 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    return StatusCode(209, "Article has been updated. Changes HASN'T SAVED to physical file");
+                    var statusResponse = SelectStatusBy(OK_NOT_SAVED);
+
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                        $"StatusCode={statusResponse.Item1}  -  {statusResponse.Item2} (id={id}).",
+                        LogFormatterService.GetAsyncMethodName())
+                    );
+
+                    return StatusCode(209, "Article has been updated. Changes HAVEN'T BEEN SAVED to physical file");
                 }
             }
             else
             {
-                return BadRequest($"Unable to update article. |{id}");
+                var statusResponse = SelectStatusBy(BAD_REQUEST);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1}  -  {statusResponse.Item2} (id={id}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return BadRequest($"Unable to update article. | {id}");
             }
 
         }
@@ -69,20 +104,26 @@ namespace GB_Webpage.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteArticle(int id)
         {
-            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            string actionLog = "Deleting article.";
+
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
             ArticleModel? article = await _apiService.GetArticleByIdAsync(id);
-
             if (article == null)
             {
+                var statusResponse = SelectStatusBy(NOT_FOUND);
+
+                _logger.LogInformation(LogFormatterService.FormatAction(actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
                 return NotFound($"Article not found. | {id}");
             }
 
             bool isDeleted = await _apiService.DeleteArticleAsync(article);
-
             if (isDeleted)
             {
-
                 var articles = await _apiService.GetAllArticlesAsync();
                 bool isSavedToFile = _databaseFileService.SaveFile(articles, _ArticlesFolder);
 
@@ -92,20 +133,38 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    return StatusCode(209, $"Article has been deleted. Changes HASN'T SAVED to physical file.");
+                    var statusResponse = SelectStatusBy(OK_NOT_SAVED);
+
+                    _logger.LogWarning(LogFormatterService.FormatAction(actionLog,
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
+                        LogFormatterService.GetAsyncMethodName())
+                    );
+
+                    return StatusCode(209, $"Article has been deleted. Changes HAVEN'T BEEN SAVED to physical file.");
                 }
             }
-            return BadRequest($"Unable to delete article. | {id}");
+            else
+            {
+                var statusResponse = SelectStatusBy(BAD_REQUEST);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return BadRequest($"Unable to delete article. | {id}");
+            }
         }
 
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> AddArticle(ArticleDTO articleDTO)
         {
-            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            string actionLog = "Adding article.";
+
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
             bool isAdded = await _apiService.AddArticleAsync(articleDTO);
-
             if (isAdded)
             {
                 var articles = await _apiService.GetAllArticlesAsync();
@@ -117,26 +176,64 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
+                    var statusResponse = SelectStatusBy(OK_NOT_SAVED);
+
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                        LogFormatterService.GetAsyncMethodName())
+                    );
+
                     return StatusCode(209, "Article has been added and NOT SAVED to physical file");
                 }
             }
+            else
+            {
+                var statusResponse = SelectStatusBy(BAD_REQUEST);
 
-            return BadRequest("Article wasn't added");
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return BadRequest("Article haven't been added");
+            }
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllArticles()
         {
-            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            string actionLog = "Get Articles.";
+
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
             IEnumerable<ArticleModel> articles = await _apiService.GetAllArticlesAsync();
-
             if (articles != null)
             {
                 return Ok(articles);
             }
+            else
+            {
+                var statusResponse = SelectStatusBy(BAD_REQUEST);
 
-            return NotFound("Articles not found");
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return NotFound("Articles not found");
+            }
+        }
+
+        private Tuple<int, string> SelectStatusBy(int statusCode)
+        {
+            var selectedStatus = statuses
+                        .Where(s => s.Key == statusCode)
+                        .FirstOrDefault();
+
+            return Tuple.Create(selectedStatus.Key, selectedStatus.Value);
         }
     }
 }
