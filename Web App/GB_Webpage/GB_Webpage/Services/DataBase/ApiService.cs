@@ -37,7 +37,7 @@ namespace GB_Webpage.Services.DataBase
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex));
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetAsyncMethodName()));
                 return false;
             }
 
@@ -70,7 +70,7 @@ namespace GB_Webpage.Services.DataBase
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex));
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetAsyncMethodName()));
                 return false;
             }
             return true;
@@ -105,7 +105,7 @@ namespace GB_Webpage.Services.DataBase
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex));
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetAsyncMethodName()));
                 return false;
             }
             return true;
