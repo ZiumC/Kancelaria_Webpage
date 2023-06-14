@@ -47,7 +47,7 @@ namespace GB_Webpage.Data
             }
             else
             {
-                _logger.LogInformation(LogFormatterService.FormatAction(MethodBase.GetCurrentMethod()?.Name, "List of articles is empty", null));
+                _logger.LogInformation(LogFormatterService.FormatAction("List of articles is empty", null, MethodBase.GetCurrentMethod()?.Name));
             }
 
         }

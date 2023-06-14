@@ -54,7 +54,7 @@ namespace GB_Webpage.Services.DatabaseFiles
                 if (File.Exists(path))
                 {
                     File.Delete(path);
-                    _logger.LogInformation(LogFormatterService.FormatAction(MethodBase.GetCurrentMethod()?.Name, "File already exist - file deleted", $"Path to file='{path}'"));
+                    _logger.LogInformation(LogFormatterService.FormatAction("File already exist - file deleted", $"Path to file='{path}'", MethodBase.GetCurrentMethod()?.Name));
                 }
 
                 string jsonData = JsonConvert.SerializeObject(data);
@@ -74,7 +74,7 @@ namespace GB_Webpage.Services.DatabaseFiles
                 }
             }
 
-            _logger.LogInformation(LogFormatterService.FormatAction(MethodBase.GetCurrentMethod()?.Name, "File has been saved.", $"Path to file='{path}'"));
+            _logger.LogInformation(LogFormatterService.FormatAction("File has been saved.", $"Path to file='{path}'", MethodBase.GetCurrentMethod()?.Name));
             return true;
         }
 
