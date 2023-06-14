@@ -1,6 +1,7 @@
 ﻿using GB_Webpage.Models;
 using GB_Webpage.Services;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace GB_Webpage.Data
 {
@@ -26,27 +27,26 @@ namespace GB_Webpage.Data
 
             List<ArticleModel>? articles = _databaseFileService.ReadFile<List<ArticleModel>>(_articlesFolder);
 
-            if (articles != null)
+            if (articles != null && articles.Count > 0)
             {
-
-                if (articles.Count > 0)
+                modelBuilder.Entity<ArticleModel>(art =>
                 {
 
-                    modelBuilder.Entity<ArticleModel>(art =>
+                    foreach (ArticleModel articleItem in articles)
                     {
-
-                        foreach (ArticleModel articleItem in articles)
+                        art.HasData(new ArticleModel
                         {
-                            art.HasData(new ArticleModel
-                            {
-                                Id = articleItem.Id,
-                                Title = articleItem.Title,
-                                Description = articleItem.Description,
-                                Date = articleItem.Date
-                            });
-                        }
-                    });
-                }
+                            Id = articleItem.Id,
+                            Title = articleItem.Title,
+                            Description = articleItem.Description,
+                            Date = articleItem.Date
+                        });
+                    }
+                });
+            }
+            else
+            {
+                _logger.LogInformation(LogFormatterService.FormatAction(MethodBase.GetCurrentMethod()?.Name, "List of articles is empty", null));
             }
 
         }
