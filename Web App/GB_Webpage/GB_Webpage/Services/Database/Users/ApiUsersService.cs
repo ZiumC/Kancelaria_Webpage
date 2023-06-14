@@ -1,4 +1,6 @@
 ﻿using GB_Webpage.Data;
+using GB_Webpage.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace GB_Webpage.Services.Database.Users
 {
@@ -13,18 +15,31 @@ namespace GB_Webpage.Services.Database.Users
             _context.Database.EnsureCreated();
             _logger = logger;
         }
-
-        public async Task<bool> AddUserToBlocklistAsync(string userName, int attempCount, DateTime dateFrom)
+        public async Task<BlockedUserModel?> GetUserFataFromBlacklistAsync(string userName)
         {
+            BlockedUserModel? userData = await _context.BlockedUsers
+                .Where(u => u.Username.ToLower().Equals(userName.ToLower()))
+                .Select(u => new BlockedUserModel
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    DateFirstInvalidAttemp = u.DateFirstInvalidAttemp,
+                    DateBlockedTo = u.DateBlockedTo,
+
+                }).FirstOrDefaultAsync();
+
+            return userData;
+        }
+
+        public async Task<bool> AddUserToBlocklistAsync(BlockedUserModel blockedUser)
+        {
+            
+
             throw new NotImplementedException();
         }
 
-        public async Task<bool> GetUserFataFromBlacklistAsync(string userName)
-        {
-            throw new NotImplementedException();
-        }
 
-        public async Task<bool> UpdateUserInBlacklistAsync(string userName, int attempCount, DateTime dateFrom, DateTime dateTo)
+        public async Task<bool> UpdateUserInBlacklistAsync(BlockedUserModel blockedUser)
         {
             throw new NotImplementedException();
         }

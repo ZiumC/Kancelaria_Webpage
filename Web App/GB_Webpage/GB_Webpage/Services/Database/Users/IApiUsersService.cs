@@ -1,9 +1,11 @@
-﻿namespace GB_Webpage.Services.Database.Users
+﻿using GB_Webpage.Models;
+
+namespace GB_Webpage.Services.Database.Users
 {
     public interface IApiUsersService
     {
-        public Task<bool> GetUserFataFromBlacklistAsync(string userName);
-        public Task<bool> AddUserToBlocklistAsync(string userName, int attempCount, DateTime dateFrom);
-        public Task<bool> UpdateUserInBlacklistAsync(string userName, int attempCount, DateTime dateFrom, DateTime dateTo);
+        public Task<BlockedUserModel?> GetUserFataFromBlacklistAsync(string userName);
+        public Task<bool> AddUserToBlocklistAsync(BlockedUserModel blockedUser);
+        public Task<bool> UpdateUserInBlacklistAsync(BlockedUserModel blockedUser);
     }
 }
