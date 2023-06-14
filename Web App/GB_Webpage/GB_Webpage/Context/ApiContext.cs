@@ -17,7 +17,7 @@ namespace GB_Webpage.Data
         public ApiContext(ILogger<ApiContext> logger, DbContextOptions<ApiContext> options, IConfiguration configuration, IDatabaseFileService databaseFileService) : base(options)
         {
             _configuration = configuration;
-            _articlesFolder = _configuration["DatabaseStorage:ArticlesFolder"];
+            _articlesFolder = _configuration["Paths:DatabaseStorage:ArticlesFolder"];
             _databaseFileService = databaseFileService;
             _logger = logger;
         }

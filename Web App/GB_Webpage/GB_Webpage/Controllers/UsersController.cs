@@ -26,7 +26,7 @@ namespace GB_Webpage.Controllers
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _secretSignature = _configuration["SecretSignatureKey"];
             _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
-            _refreshTokenFolder = _configuration["DatabaseStorage:RefreshTokenFolder"];
+            _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
         }
 
         [HttpPost]

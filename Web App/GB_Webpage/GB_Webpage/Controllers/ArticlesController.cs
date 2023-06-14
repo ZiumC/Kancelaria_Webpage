@@ -27,14 +27,14 @@ namespace GB_Webpage.Controllers
             _logger = logger;
             _configuration = configuration;
             _apiService = apiService;
-            _ArticlesFolder = _configuration["DatabaseStorage:ArticlesFolder"];
+            _ArticlesFolder = _configuration["Paths:DatabaseStorage:ArticlesFolder"];
 
             statuses = new Dictionary<int, string>()
             {
-                { 200, "ok." },
-                { 209, "changes not saved in physical file." },
-                { 400, "something went wrong with article." },
-                { 404, "article not found." }
+                { 200, "ok" },
+                { 209, "changes not saved in physical file" },
+                { 400, "something went wrong with article" },
+                { 404, "article not found" }
             };
         }
 
@@ -69,6 +69,14 @@ namespace GB_Webpage.Controllers
 
                 if (isSavedToFile)
                 {
+                    var statusResponse = SelectStatusBy(OK);
+
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
+                        LogFormatterService.GetAsyncMethodName())
+                    );
+
                     return Ok("Article has been updated. Changes HAS BEEN SAVED to physical file");
                 }
                 else
@@ -129,6 +137,14 @@ namespace GB_Webpage.Controllers
 
                 if (isSavedToFile)
                 {
+                    var statusResponse = SelectStatusBy(OK);
+
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
+                        LogFormatterService.GetAsyncMethodName())
+                    );
+
                     return Ok($"Article has been deleted. Changes HAS BEEN SAVED to physical file.");
                 }
                 else
@@ -172,6 +188,15 @@ namespace GB_Webpage.Controllers
 
                 if (isSavedToFile)
                 {
+
+                    var statusResponse = SelectStatusBy(OK);
+
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                        LogFormatterService.GetAsyncMethodName())
+                    );
+
                     return Ok("Article has been added and SAVED to physical file");
                 }
                 else
@@ -211,6 +236,14 @@ namespace GB_Webpage.Controllers
             IEnumerable<ArticleModel> articles = await _apiService.GetAllArticlesAsync();
             if (articles != null)
             {
+                var statusResponse = SelectStatusBy(OK);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
                 return Ok(articles);
             }
             else
