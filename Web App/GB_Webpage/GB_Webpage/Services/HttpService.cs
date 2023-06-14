@@ -30,5 +30,20 @@ namespace GB_Webpage.Services
             }
 
         }
+
+        /// <summary>
+        /// This method allows to select status code from dictorany initialized in any class
+        /// </summary>
+        /// <param name="statusCode">Status code as int.</param>
+        /// <param name="statuses"> Dictionary<int, string></param>
+        /// <returns>Selected value based on passed <paramref name="statusCode"/></returns>
+        public static Tuple<int, string> SelectStatusBy(int statusCode, Dictionary<int, string> statuses)
+        {
+            var selectedStatus = statuses
+                        .Where(s => s.Key == statusCode)
+                        .FirstOrDefault();
+
+            return Tuple.Create(selectedStatus.Key, selectedStatus.Value);
+        }
     }
 }

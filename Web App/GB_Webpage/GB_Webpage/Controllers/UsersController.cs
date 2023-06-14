@@ -13,26 +13,43 @@ namespace GB_Webpage.Controllers
 
         private readonly IConfiguration _configuration;
         private readonly IDatabaseFileService _databaseFileService;
+        private readonly ILogger<UsersController> _logger;
+
         private readonly string _refreshTokenFolder;
         private readonly string _issuer;
         private readonly string _secretSignature;
         private readonly int _daysValid;
 
-        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService)
+        private readonly Dictionary<int, string> _statuses;
+        private readonly int OK = 200, UNAUTHORIZED = 403, NOT_FOUND = 404, TOKEN_BROKEN = 452;
+
+        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService, ILogger<UsersController> logger)
         {
             _configuration = configuration;
             _databaseFileService = databaseFileService;
+            _logger = logger;
 
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _secretSignature = _configuration["SecretSignatureKey"];
             _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
             _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
+
+            _statuses = new Dictionary<int, string>()
+            {
+                { 200, "login approved" },
+                { 403, "unauthorized" },
+                { 404, "data not found" },
+                { 452, "tokens are broken" }
+            };
         }
 
         [HttpPost]
         [Route("login")]
         public IActionResult Login(LoginRequestDTO request)
         {
+            string actionLog = "User logging in";
+
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
             LoginRequestDTO currentUser = new LoginRequestDTO
             {
@@ -42,7 +59,15 @@ namespace GB_Webpage.Controllers
 
             if (!request.Login.Equals(currentUser.Login))
             {
-                return Unauthorized("Login or password is wrong");
+                var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return Unauthorized("Login or password is wrong.");
             }
 
             string salt = _configuration["User:salt"];
@@ -59,31 +84,66 @@ namespace GB_Webpage.Controllers
                     UserName = request.Login
                 }, _refreshTokenFolder);
 
+                var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
+
+                _logger.LogInformation(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
+            else
+            {
+                var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
 
-            return Unauthorized("Login or password is wrong");
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
 
+                return Unauthorized("Login or password is wrong");
+            }
         }
 
         [HttpPost]
         [Route("refresh")]
         public IActionResult RefreshToken(JwtDTO jwt)
         {
-            UserRefreshTokenModel? savedUserToken = _databaseFileService.ReadFile<UserRefreshTokenModel>(_refreshTokenFolder);
+            string actionLog = "Refreshing tokens";
 
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+
+            UserRefreshTokenModel? savedUserToken = _databaseFileService.ReadFile<UserRefreshTokenModel>(_refreshTokenFolder);
             if (savedUserToken == null)
             {
+                var statusResponse = HttpService.SelectStatusBy(NOT_FOUND, _statuses);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
                 return NotFound("Refresh token not found");
             }
 
             if (!savedUserToken.RefreshToken.Equals(jwt.RefreshToken))
             {
-                return StatusCode(452, "Tokens aren't valid to server");
+                var statusResponse = HttpService.SelectStatusBy(TOKEN_BROKEN, _statuses);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return StatusCode(452, "Tokens aren't valid to server,  login again");
             }
 
             bool areTokensValid = UserService.ValidateUserTokens(_secretSignature, jwt, _issuer);
-
             if (areTokensValid)
             {
                 string refreshToken = UserService.GenerateRefreshToken();
@@ -95,12 +155,28 @@ namespace GB_Webpage.Controllers
                     UserName = savedUserToken.UserName
                 }, _refreshTokenFolder);
 
+                var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
+
+                _logger.LogInformation(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
+            else
+            {
+                var statusResponse = HttpService.SelectStatusBy(TOKEN_BROKEN, _statuses);
 
-            return StatusCode(452, "Tokens aren't valid to this server");
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
+                    LogFormatterService.GetAsyncMethodName())
+                );
 
+                return StatusCode(452, "Tokens aren't valid to this server, login again");
+            }
         }
-
     }
 }

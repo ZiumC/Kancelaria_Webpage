@@ -16,9 +16,10 @@ namespace GB_Webpage.Controllers
         private readonly IConfiguration _configuration;
         private readonly IDatabaseFileService _databaseFileService;
         private readonly ILogger<ArticlesController> _logger;
-        private readonly string _ArticlesFolder;
-        private readonly Dictionary<int, string> statuses;
 
+        private readonly string _ArticlesFolder;
+
+        private readonly Dictionary<int, string> _statuses;
         private readonly int OK = 200, OK_NOT_SAVED = 209, BAD_REQUEST = 400, NOT_FOUND = 404;
 
         public ArticlesController(ILogger<ArticlesController> logger, IDatabaseFileService databaseFileService, IApiService apiService, IConfiguration configuration)
@@ -29,7 +30,7 @@ namespace GB_Webpage.Controllers
             _apiService = apiService;
             _ArticlesFolder = _configuration["Paths:DatabaseStorage:ArticlesFolder"];
 
-            statuses = new Dictionary<int, string>()
+            _statuses = new Dictionary<int, string>()
             {
                 { 200, "ok" },
                 { 209, "changes not saved in physical file" },
@@ -50,7 +51,7 @@ namespace GB_Webpage.Controllers
             ArticleModel? oldArticle = await _apiService.GetArticleByIdAsync(id);
             if (oldArticle == null)
             {
-                var statusResponse = SelectStatusBy(NOT_FOUND);
+                var statusResponse = HttpService.SelectStatusBy(NOT_FOUND, _statuses);
 
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
@@ -69,9 +70,9 @@ namespace GB_Webpage.Controllers
 
                 if (isSavedToFile)
                 {
-                    var statusResponse = SelectStatusBy(OK);
+                    var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
 
-                    _logger.LogWarning(LogFormatterService.FormatAction(
+                    _logger.LogInformation(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
                         LogFormatterService.GetAsyncMethodName())
@@ -81,7 +82,7 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    var statusResponse = SelectStatusBy(OK_NOT_SAVED);
+                    var statusResponse = HttpService.SelectStatusBy(OK_NOT_SAVED, _statuses);
 
                     _logger.LogWarning(LogFormatterService.FormatAction(
                         actionLog,
@@ -94,7 +95,7 @@ namespace GB_Webpage.Controllers
             }
             else
             {
-                var statusResponse = SelectStatusBy(BAD_REQUEST);
+                var statusResponse = HttpService.SelectStatusBy(BAD_REQUEST, _statuses);
 
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
@@ -119,7 +120,7 @@ namespace GB_Webpage.Controllers
             ArticleModel? article = await _apiService.GetArticleByIdAsync(id);
             if (article == null)
             {
-                var statusResponse = SelectStatusBy(NOT_FOUND);
+                var statusResponse = HttpService.SelectStatusBy(NOT_FOUND, _statuses);
 
                 _logger.LogInformation(LogFormatterService.FormatAction(actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
@@ -137,9 +138,9 @@ namespace GB_Webpage.Controllers
 
                 if (isSavedToFile)
                 {
-                    var statusResponse = SelectStatusBy(OK);
+                    var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
 
-                    _logger.LogWarning(LogFormatterService.FormatAction(
+                    _logger.LogInformation(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
                         LogFormatterService.GetAsyncMethodName())
@@ -149,7 +150,7 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    var statusResponse = SelectStatusBy(OK_NOT_SAVED);
+                    var statusResponse = HttpService.SelectStatusBy(OK_NOT_SAVED, _statuses);
 
                     _logger.LogWarning(LogFormatterService.FormatAction(actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
@@ -161,7 +162,7 @@ namespace GB_Webpage.Controllers
             }
             else
             {
-                var statusResponse = SelectStatusBy(BAD_REQUEST);
+                var statusResponse = HttpService.SelectStatusBy(BAD_REQUEST, _statuses);
 
                 _logger.LogWarning(LogFormatterService.FormatAction(actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
@@ -189,9 +190,9 @@ namespace GB_Webpage.Controllers
                 if (isSavedToFile)
                 {
 
-                    var statusResponse = SelectStatusBy(OK);
+                    var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
 
-                    _logger.LogWarning(LogFormatterService.FormatAction(
+                    _logger.LogInformation(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
                         LogFormatterService.GetAsyncMethodName())
@@ -201,7 +202,7 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    var statusResponse = SelectStatusBy(OK_NOT_SAVED);
+                    var statusResponse = HttpService.SelectStatusBy(OK_NOT_SAVED, _statuses);
 
                     _logger.LogWarning(LogFormatterService.FormatAction(
                         actionLog,
@@ -214,7 +215,7 @@ namespace GB_Webpage.Controllers
             }
             else
             {
-                var statusResponse = SelectStatusBy(BAD_REQUEST);
+                var statusResponse = HttpService.SelectStatusBy(BAD_REQUEST, _statuses);
 
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
@@ -236,9 +237,9 @@ namespace GB_Webpage.Controllers
             IEnumerable<ArticleModel> articles = await _apiService.GetAllArticlesAsync();
             if (articles != null)
             {
-                var statusResponse = SelectStatusBy(OK);
+                var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
 
-                _logger.LogWarning(LogFormatterService.FormatAction(
+                _logger.LogInformation(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
                     LogFormatterService.GetAsyncMethodName())
@@ -248,7 +249,7 @@ namespace GB_Webpage.Controllers
             }
             else
             {
-                var statusResponse = SelectStatusBy(BAD_REQUEST);
+                var statusResponse = HttpService.SelectStatusBy(BAD_REQUEST, _statuses);
 
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
@@ -258,15 +259,6 @@ namespace GB_Webpage.Controllers
 
                 return NotFound("Articles not found");
             }
-        }
-
-        private Tuple<int, string> SelectStatusBy(int statusCode)
-        {
-            var selectedStatus = statuses
-                        .Where(s => s.Key == statusCode)
-                        .FirstOrDefault();
-
-            return Tuple.Create(selectedStatus.Key, selectedStatus.Value);
         }
     }
 }
