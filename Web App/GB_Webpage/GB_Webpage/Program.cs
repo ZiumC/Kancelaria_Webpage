@@ -2,16 +2,17 @@ using GB_Webpage.Middlewares;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using GB_Webpage.Data;
-using GB_Webpage.Services;
-using GB_Webpage.Services.DataBase;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using GB_Webpage.Services.DatabaseFiles;
+using GB_Webpage.Services.Database.Articles;
+using GB_Webpage.Services.Database.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddScoped<IApiService, ApiService>();
+builder.Services.AddScoped<IApiArticlesService, ApiArticlesService>();
+builder.Services.AddScoped<IApiUsersService, ApiUsersService>();
 builder.Services.AddTransient<IDatabaseFileService, DatabaseFileService>();
 builder.Services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase("ArticleDb"));
 

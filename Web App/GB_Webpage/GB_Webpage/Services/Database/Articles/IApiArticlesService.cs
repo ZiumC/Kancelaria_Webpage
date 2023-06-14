@@ -1,9 +1,9 @@
 ﻿using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 
-namespace GB_Webpage.Services
+namespace GB_Webpage.Services.Database.Articles
 {
-    public interface IApiService
+    public interface IApiArticlesService
     {
         public Task<IEnumerable<ArticleModel>> GetAllArticlesAsync();
         public Task<ArticleModel?> GetArticleByIdAsync(int id);
