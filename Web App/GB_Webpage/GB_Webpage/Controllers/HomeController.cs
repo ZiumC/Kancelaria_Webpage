@@ -4,10 +4,9 @@ using GB_Webpage.Services;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
-using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Reflection;
-using System.Text.Json;
+using System.Runtime.CompilerServices;
 
 namespace GB_Webpage.Controllers
 {
@@ -26,57 +25,64 @@ namespace GB_Webpage.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation(LogBuilder.BuildLogFrom(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             return View();
         }
 
         public IActionResult Specializations()
         {
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             return View();
         }
 
         public IActionResult Team()
         {
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             return View();
         }
 
         public IActionResult Cooperation()
         {
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             return View();
         }
 
         public IActionResult Contact()
         {
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             return View();
         }
 
         public async Task<IActionResult> NewsAsync()
         {
-            string url = _configuration.GetValue<string>("ApiUrl");
-
-            var articles = await HttpService.DoGetCollection<ArticleModel>(url);
-
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+         
+            IEnumerable<ArticleModel>? articles = new List<ArticleModel>();
+            try
+            {
+                string url = _configuration["ApiUrl"];
+                articles = await HttpService.DoGetCollection<ArticleModel>(url);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex));
+            }
+            
             if (articles != null)
             {
-
                 return View(articles);
-
             }
 
             return View();
-
         }
 
         public async Task<IActionResult> ValidateEmail(ContactModel contact)
         {
-            Console.WriteLine(Request.Cookies[CookieRequestCultureProvider.DefaultCookieName]);
-
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
             try
             {
-
                 if (!ModelState.IsValid)
                 {
-
                     TempData["Error"] = $"{_contact["3.6_leftside_container"]}";
                     throw new Exception("Model state isn't valid.");
                 }
@@ -107,7 +113,7 @@ namespace GB_Webpage.Controllers
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                _logger.LogError(LogFormatterService.FormatException(ex));
                 return RedirectToAction("contact", null);
 
             }
