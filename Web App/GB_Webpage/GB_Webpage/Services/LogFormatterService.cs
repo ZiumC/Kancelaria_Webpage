@@ -33,7 +33,7 @@ namespace GB_Webpage.Services
                 quertyString = string.Empty;
             }
 
-            result = $"Method:{methodName}\tIP:{clientIp}\tQueryString:{quertyString}";
+            result = $"REQUEST\t\tMethod:{methodName}\tIp:{clientIp}\tQueryString:{quertyString}";
 
             return result;
         }
@@ -60,7 +60,16 @@ namespace GB_Webpage.Services
             var stackTrace = new StackTrace(e, true);
             var frame = stackTrace.GetFrame(0);
 
-            result = $"->Exception:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
+            result = $"EXCEPTION\t\tException:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
+
+            return result;
+        }
+
+        public static string FormatAction(string action, string? details) 
+        {
+            string result = string.Empty;
+
+            result = $"ACTION\t\tAction:{action}\tDetails:{details}";
 
             return result;
         }

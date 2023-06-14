@@ -1,12 +1,10 @@
 ﻿using GB_Webpage.Models;
 using GB_Webpage.Resources;
 using GB_Webpage.Services;
-using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Localization;
 using System.Diagnostics;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace GB_Webpage.Controllers
 {
@@ -56,7 +54,7 @@ namespace GB_Webpage.Controllers
         public async Task<IActionResult> NewsAsync()
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
-         
+
             IEnumerable<ArticleModel>? articles = new List<ArticleModel>();
             try
             {
@@ -67,7 +65,7 @@ namespace GB_Webpage.Controllers
             {
                 _logger.LogError(LogFormatterService.FormatException(ex));
             }
-            
+
             if (articles != null)
             {
                 return View(articles);
@@ -92,28 +90,20 @@ namespace GB_Webpage.Controllers
                     string emailSendsForm = _configuration["EmailSendsForm"];
                     string emailRecivesForm = _configuration["EmailRecivesForm"];
 
-                    SendMailService mailService = new SendMailService(emailKey, emailSendsForm, emailRecivesForm, contact, _logger);
+                    SendMailService mailService = new SendMailService(emailKey, emailSendsForm, emailRecivesForm, contact);
 
-                    bool isMailSent = mailService.SendMailAsync();
-
-                    if (isMailSent)
-                    {
-                        TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
-                    }
-                    else
-                    {
-                        TempData["Error"] = $"{_contact["3.7_leftside_container"]}";
-                    }
+                    mailService.SendMail();
                 }
-
+                _logger.LogInformation(LogFormatterService.FormatAction("Sended mail", $"Ok, person {contact.Name} has send mail"));
+                TempData["Success"] = $"{_contact["3.5_leftside_container"]}";
                 return RedirectToAction("contact", null);
-
             }
             catch (Exception ex)
             {
+                _logger.LogError(LogFormatterService.FormatAction("Mail not sended", null));
+                TempData["Error"] = $"{_contact["3.7_leftside_container"]}";
                 _logger.LogError(LogFormatterService.FormatException(ex));
                 return RedirectToAction("contact", null);
-
             }
         }
 
