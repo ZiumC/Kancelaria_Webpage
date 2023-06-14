@@ -7,14 +7,16 @@ namespace GB_Webpage.Data
     public class ApiContext : DbContext
     {
 
-        private readonly string _folder;
+        private readonly string _articlesFolder;
         private readonly IConfiguration _configuration;
         private readonly ILogger<ApiContext> _logger;
+        private readonly IDatabaseFileService _databaseFileService;
 
-        public ApiContext(ILogger<ApiContext> logger, DbContextOptions<ApiContext> options, IConfiguration configuration) : base(options)
+        public ApiContext(ILogger<ApiContext> logger, DbContextOptions<ApiContext> options, IConfiguration configuration, IDatabaseFileService databaseFileService) : base(options)
         {
             _configuration = configuration;
-            _folder = _configuration["DatabaseStorage:ArticlesFolder"];
+            _articlesFolder = _configuration["DatabaseStorage:ArticlesFolder"];
+            _databaseFileService = databaseFileService;
             _logger = logger;
         }
 
@@ -22,8 +24,7 @@ namespace GB_Webpage.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            //List<ArticleModel>? articles = new DatabaseFileService(_folder).ReadFile<List<ArticleModel>>();
-            List<ArticleModel>? articles = null;
+            List<ArticleModel>? articles = _databaseFileService.ReadFile<List<ArticleModel>>(_articlesFolder);
 
             if (articles != null)
             {
@@ -36,12 +37,12 @@ namespace GB_Webpage.Data
 
                         foreach (ArticleModel articleItem in articles)
                         {
-                            art.HasData(new ArticleModel 
-                            { 
-                                Id = articleItem.Id, 
-                                Title = articleItem.Title, 
-                                Description = articleItem.Description, 
-                                Date = articleItem.Date 
+                            art.HasData(new ArticleModel
+                            {
+                                Id = articleItem.Id,
+                                Title = articleItem.Title,
+                                Description = articleItem.Description,
+                                Date = articleItem.Date
                             });
                         }
                     });
