@@ -2,8 +2,6 @@
 using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Numerics;
-using System.Xml.Linq;
 
 namespace GB_Webpage.Services.DataBase
 {
@@ -11,18 +9,19 @@ namespace GB_Webpage.Services.DataBase
     {
 
         private readonly ApiContext _context;
+        private readonly ILogger<ApiService> _logger;
 
-        public ApiService(ApiContext context)
+        public ApiService(ILogger<ApiService> logger, ApiContext context)
         {
             _context = context;
             _context.Database.EnsureCreated();
+            _logger = logger;
         }
 
         public async Task<bool> AddArticleAsync(ArticleDTO articleDTO)
         {
             try
             {
-
                 var addArticle = _context.Set<ArticleModel>();
                 addArticle.Add
                     (
@@ -38,7 +37,7 @@ namespace GB_Webpage.Services.DataBase
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                _logger.LogError(LogFormatterService.FormatException(ex));
                 return false;
             }
 
@@ -71,7 +70,7 @@ namespace GB_Webpage.Services.DataBase
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                _logger.LogError(LogFormatterService.FormatException(ex));
                 return false;
             }
             return true;
@@ -103,11 +102,10 @@ namespace GB_Webpage.Services.DataBase
                 updateQuery.Date = DateTime.Now;
 
                 await _context.SaveChangesAsync();
-
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                _logger.LogError(LogFormatterService.FormatException(ex));
                 return false;
             }
             return true;

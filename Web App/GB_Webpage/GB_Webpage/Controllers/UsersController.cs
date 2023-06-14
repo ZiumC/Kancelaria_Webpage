@@ -49,11 +49,11 @@ namespace GB_Webpage.Controllers
                 string refreshToken = UserService.GenerateRefreshToken();
                 string accessToken = UserService.GenerateAccessToken(_secretSignature, request.Login, _issuer, _issuer, _daysValid);
 
-                new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
-                {
-                    RefreshToken = refreshToken,
-                    UserName = request.Login
-                });
+                //new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
+                //{
+                //    RefreshToken = refreshToken,
+                //    UserName = request.Login
+                //});
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
@@ -66,7 +66,8 @@ namespace GB_Webpage.Controllers
         [Route("refresh")]
         public IActionResult RefreshToken(JwtDTO jwt)
         {
-            UserRefreshTokenModel? savedUserToken = new DatabaseFileService(_folder).ReadFile<UserRefreshTokenModel>();
+            //UserRefreshTokenModel? savedUserToken = new DatabaseFileService(_folder).ReadFile<UserRefreshTokenModel>();
+            UserRefreshTokenModel? savedUserToken = null;
 
             if (savedUserToken == null)
             {
@@ -85,11 +86,11 @@ namespace GB_Webpage.Controllers
                 string refreshToken = UserService.GenerateRefreshToken();
                 string accessToken = UserService.GenerateAccessToken(_secretSignature, savedUserToken.UserName, _issuer, _issuer, _daysValid);
 
-                new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
-                {
-                    RefreshToken = refreshToken,
-                    UserName = savedUserToken.UserName
-                });
+                //new DatabaseFileService(_folder).SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
+                //{
+                //    RefreshToken = refreshToken,
+                //    UserName = savedUserToken.UserName
+                //});
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }

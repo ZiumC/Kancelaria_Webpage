@@ -53,7 +53,7 @@ namespace GB_Webpage.Services
         /// </summary>
         /// <param name="e">Exception.</param>
         /// <returns>Formatted string ready to save in log app.</returns>
-        public static string FormatException(Exception e) 
+        public static string FormatException(Exception e)
         {
             string result = string.Empty;
 
@@ -71,7 +71,7 @@ namespace GB_Webpage.Services
         /// <param name="action">Action that has been made.</param>
         /// <param name="details">Optional details to that action.</param>
         /// <returns>Formatted string ready to save in log app.</returns>
-        public static string FormatAction(string action, string? details) 
+        public static string FormatAction(string action, string? details)
         {
             string result = string.Empty;
 

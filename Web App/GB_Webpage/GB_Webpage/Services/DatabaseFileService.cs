@@ -1,21 +1,21 @@
-﻿using GB_Webpage.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace GB_Webpage.Services
 {
-    public class DatabaseFileService
+    public class DatabaseFileService : IDatabaseFileService
     {
 
-        private readonly string _pathToDir;
+        private readonly ILogger<DatabaseFileService> _logger;
 
-        public DatabaseFileService(string folder)
+        public DatabaseFileService(ILogger<DatabaseFileService> logger)
         {
-            _pathToDir = $"{Environment.CurrentDirectory}/DatabaseFiles/{folder}";
+            _logger = logger;
         }
 
-        private string GetDirFiles()
+        private string GetDirFiles(string folder)
         {
-            string[] fileEntries = Directory.GetFiles(_pathToDir);
+            string pathToDir = $"{Environment.CurrentDirectory}/DatabaseFiles/{folder}";
+            string[] fileEntries = Directory.GetFiles(pathToDir);
 
             if (fileEntries.Length > 0)
             {
@@ -23,15 +23,15 @@ namespace GB_Webpage.Services
             }
             else
             {
-                return _pathToDir;
+                return pathToDir;
             }
 
         }
 
-        public bool SaveFile<T>(T data)
+        public bool SaveFile<T>(T data, string folderName)
         {
 
-            string path = GetDirFiles();
+            string path = GetDirFiles(folderName);
 
             if (Directory.Exists(path))
             {
@@ -48,10 +48,12 @@ namespace GB_Webpage.Services
             {
                 string jsonData = JsonConvert.SerializeObject(data);
                 writer = new StreamWriter(path, false);
+                //writer = new StreamWriter(null, false);
                 writer.Write(jsonData);
             }
             catch (Exception ex)
             {
+                _logger.LogError(LogFormatterService.FormatException(ex));
                 Console.WriteLine(ex.Message);
                 return false;
             }
@@ -66,10 +68,10 @@ namespace GB_Webpage.Services
             return true;
         }
 
-        public T? ReadFile<T>()
+        public T? ReadFile<T>(string folderName)
         {
 
-            string path = GetDirFiles();
+            string path = GetDirFiles(folderName);
 
             if (Directory.Exists(path))
             {
