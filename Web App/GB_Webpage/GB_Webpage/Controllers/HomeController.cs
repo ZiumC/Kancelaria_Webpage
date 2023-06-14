@@ -76,27 +76,25 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ValidateEmail(ContactModel contact)
+        public IActionResult ValidateEmail(ContactModel contact)
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
             try
             {
                 if (!ModelState.IsValid)
                 {
                     TempData["Error"] = $"{_contact["3.6_leftside_container"]}";
-                    throw new Exception("Model state isn't valid.");
+                    throw new Exception("Model isn't valid.");
                 }
                 else
                 {
+                    string emailKey = _configuration["EmailKey"];
+                    string emailSendsForm = _configuration["EmailSendsForm"];
+                    string emailRecivesForm = _configuration["EmailRecivesForm"];
 
-                    string emailKey = _configuration.GetValue<string>("EmailKey");
-                    string emailSendsForm = _configuration.GetValue<string>("EmailSendsForm");
-                    string emailRecivesForm = _configuration.GetValue<string>("EmailRecivesForm");
+                    SendMailService mailService = new SendMailService(emailKey, emailSendsForm, emailRecivesForm, contact, _logger);
 
-
-                    SendMailService mailService = new SendMailService(emailKey, emailSendsForm, emailRecivesForm, contact);
-
-                    bool isMailSent = await mailService.sendMailAsync();
+                    bool isMailSent = mailService.SendMailAsync();
 
                     if (isMailSent)
                     {
