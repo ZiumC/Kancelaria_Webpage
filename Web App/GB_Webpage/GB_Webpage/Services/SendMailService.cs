@@ -11,17 +11,18 @@ namespace GB_Webpage.Services
         private readonly string _emailSendsForm;
         private readonly string _emailRecivesForm;
         private readonly ContactModel _contact;
+        private readonly ILogger _logger;
 
-        public SendMailService(string emailKey, string emailSendsForm, string emailRecivesForm, ContactModel contact)
+        public SendMailService(string emailKey, string emailSendsForm, string emailRecivesForm, ContactModel contact, ILogger logger)
         {
             _emailKey = emailKey ?? throw new ArgumentNullException(nameof(_emailKey));
             _emailSendsForm = emailSendsForm ?? throw new ArgumentNullException(nameof(emailSendsForm));
             _emailRecivesForm = emailRecivesForm ?? throw new ArgumentNullException(nameof(emailRecivesForm));
             _contact = contact ?? throw new ArgumentNullException(nameof(contact));
-
+            _logger = logger;
         }
 
-        private async Task<SmtpClient> makeClientAsync(MailAddress emailFrom, string emailKey)
+        private SmtpClient MakeClient(MailAddress emailFrom, string emailKey)
         {
 
             return new SmtpClient
@@ -36,7 +37,7 @@ namespace GB_Webpage.Services
 
         }
 
-        private async Task<MailMessage> makeMessageAsync(string subject, string body, MailAddress addressFrom, MailAddress addresTo)
+        private MailMessage MakeMessage(string subject, string body, MailAddress addressFrom, MailAddress addresTo)
         {
             return new MailMessage(addressFrom, addresTo)
             {
@@ -46,14 +47,13 @@ namespace GB_Webpage.Services
             };
         }
 
-        public async Task<bool> sendMailAsync()
+        public bool SendMailAsync()
         {
             try
             {
-
                 MailAddress addressFrom = new MailAddress(_emailSendsForm, "Kontakt kancelaria");
                 MailAddress addressTo = new MailAddress(_emailRecivesForm, "Użytkownik kancelarii");
-                SmtpClient client = await makeClientAsync(addressFrom, _emailKey);
+                SmtpClient client = MakeClient(addressFrom, _emailKey);
 
                 string subject = $"Osoba {_contact.Name} napisał/a wiadomość.";
                 string htmlContent =
@@ -81,7 +81,7 @@ namespace GB_Webpage.Services
                   "</div>";
 
 
-                using (MailMessage message = await makeMessageAsync(subject, htmlContent, addressFrom, addressTo))
+                using (MailMessage message = MakeMessage(subject, htmlContent, addressFrom, addressTo))
                 {
                     client.Send(message);
                 }
@@ -89,7 +89,6 @@ namespace GB_Webpage.Services
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error " + e.ToString());
                 return false;
             }
 
