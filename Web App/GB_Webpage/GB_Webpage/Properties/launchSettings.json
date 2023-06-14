@@ -27,9 +27,12 @@
     }
   },
 
-  "DatabaseStorage": {
-    "ArticlesFolder": "Articles",
-    "RefreshTokenFolder": "RefreshToken"
+  "Paths": {
+    "DatabaseStorage": {
+      "MainFolder": "DatabaseFiles",
+      "ArticlesFolder": "Articles",
+      "RefreshTokenFolder": "RefreshToken"
+    }
   },
 
   "EmailKey": "",
