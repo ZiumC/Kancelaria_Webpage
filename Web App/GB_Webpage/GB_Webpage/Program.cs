@@ -11,7 +11,9 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IApiService, ApiService>();
+builder.Services.AddTransient<IDatabaseFileService, DatabaseFileService>();
 builder.Services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase("ArticleDb"));
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

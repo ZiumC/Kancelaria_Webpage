@@ -13,13 +13,17 @@ namespace GB_Webpage.Controllers
 
         private readonly IApiService _apiService;
         private readonly IConfiguration _configuration;
+        private readonly IDatabaseFileService _databaseFileService; 
         private readonly string _folder;
+        private readonly ILogger<ArticlesController> _articlesLogger;
 
-        public ArticlesController(IApiService apiService, IConfiguration configuration)
+        public ArticlesController(ILogger<ArticlesController> articlesLogger, IDatabaseFileService databaseFileService, IApiService apiService, IConfiguration configuration)
         {
             _apiService = apiService;
             _configuration = configuration;
             _folder = _configuration["DatabaseStorage:ArticlesFolder"];
+            _articlesLogger = articlesLogger;
+            _databaseFileService = databaseFileService;
         }
 
         [HttpPut]
@@ -27,6 +31,8 @@ namespace GB_Webpage.Controllers
         [Authorize]
         public async Task<IActionResult> UpdateArticle(int id, ArticleDTO article)
         {
+            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+
             ArticleModel? model = await _apiService.GetArticleByIdAsync(id);
 
             if (model == null)
@@ -38,9 +44,8 @@ namespace GB_Webpage.Controllers
 
             if (isUpdated)
             {
-
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = new DatabaseFileService(_folder).SaveFile(articles);
+                bool isSavedToFile = _databaseFileService.SaveFile(articles, _folder);
 
                 if (isSavedToFile)
                 {
@@ -63,6 +68,8 @@ namespace GB_Webpage.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteArticle(int id)
         {
+            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+
             ArticleModel? article = await _apiService.GetArticleByIdAsync(id);
 
             if (article == null)
@@ -76,7 +83,7 @@ namespace GB_Webpage.Controllers
             {
 
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = new DatabaseFileService(_folder).SaveFile(articles);
+                bool isSavedToFile = _databaseFileService.SaveFile(articles, _folder);
 
                 if (isSavedToFile)
                 {
@@ -94,12 +101,14 @@ namespace GB_Webpage.Controllers
         [Authorize]
         public async Task<IActionResult> AddArticle(ArticleDTO articleDTO)
         {
+            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+
             bool isAdded = await _apiService.AddArticleAsync(articleDTO);
 
             if (isAdded)
             {
                 var articles = await _apiService.GetAllArticlesAsync();
-                bool isSavedToFile = new DatabaseFileService(_folder).SaveFile(articles);
+                bool isSavedToFile = _databaseFileService.SaveFile(articles, _folder);
 
                 if (isSavedToFile)
                 {
@@ -117,6 +126,8 @@ namespace GB_Webpage.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllArticles()
         {
+            _articlesLogger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+
             IEnumerable<ArticleModel> articles = await _apiService.GetAllArticlesAsync();
 
             if (articles != null)

@@ -9,18 +9,21 @@ namespace GB_Webpage.Data
 
         private readonly string _folder;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<ApiContext> _logger;
 
-        public ApiContext(DbContextOptions<ApiContext> options, IConfiguration configuration) : base(options)
+        public ApiContext(ILogger<ApiContext> logger, DbContextOptions<ApiContext> options, IConfiguration configuration) : base(options)
         {
             _configuration = configuration;
             _folder = _configuration["DatabaseStorage:ArticlesFolder"];
+            _logger = logger;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            List<ArticleModel>? articles = new DatabaseFileService(_folder).ReadFile<List<ArticleModel>>();
+            //List<ArticleModel>? articles = new DatabaseFileService(_folder).ReadFile<List<ArticleModel>>();
+            List<ArticleModel>? articles = null;
 
             if (articles != null)
             {
