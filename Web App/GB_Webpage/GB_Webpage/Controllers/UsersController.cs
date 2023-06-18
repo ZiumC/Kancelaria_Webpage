@@ -55,7 +55,6 @@ namespace GB_Webpage.Controllers
         public async Task<IActionResult> Login(LoginRequestDTO request)
         {
             string actionLog = "User logging in";
-
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
             BlockedUserModel? blockedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
@@ -95,24 +94,35 @@ namespace GB_Webpage.Controllers
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
                             actionLog,
-                           "Unable to add user to bblock list.",
+                           "Unable to add user to block list.",
                             LogFormatterService.GetAsyncMethodName())
                         );
                     }
                 }
-                else 
+                else
                 {
-                    blockedUserData.Attemps = _maxAttemps - blockedUserData.Attemps;
-                    bool isUpdated = await _usersService.UpdateUserInBlacklistAsync()
+                    blockedUserData.Attemps += 1;
+                    bool isUpdated = await _usersService.UpdateUserInBlacklistAsync(blockedUserData.Id, blockedUserData);
+                    if (!isUpdated)
+                    {
+                        _logger.LogCritical(LogFormatterService.FormatAction(
+                           actionLog,
+                          "Unable to update user to block list.",
+                           LogFormatterService.GetAsyncMethodName())
+                       );
+                    }
                 }
 
-
-                return Unauthorized("Login or password is wrong.");
+                if (blockedUserData == null)
+                {
+                    return Unauthorized($"Login or password is wrong. You have {_maxAttemps} attemps left.");
+                }
+                return Unauthorized($"Login or password is wrong. You have {_maxAttemps - blockedUserData.Attemps} attemps left.");
             }
 
             string salt = _configuration["User:salt"];
 
-            if (UserService.VerifyUserPassword(currentUser, request.Password, salt))
+            if (UserService.VerifyPassword(currentUser, request.Password, salt))
             {
 
                 string refreshToken = UserService.GenerateRefreshToken();
@@ -183,7 +193,7 @@ namespace GB_Webpage.Controllers
                 return StatusCode(452, "Tokens aren't valid to server,  login again");
             }
 
-            bool areTokensValid = UserService.ValidateUserTokens(_secretSignature, jwt, _issuer);
+            bool areTokensValid = UserService.ValidateTokens(_secretSignature, jwt, _issuer);
             if (areTokensValid)
             {
                 string refreshToken = UserService.GenerateRefreshToken();
