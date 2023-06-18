@@ -1,4 +1,5 @@
 ﻿using GB_Webpage.DTOs;
+using GB_Webpage.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,18 +29,6 @@ namespace GB_Webpage.Services.User
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _salt = _configuration["User:salt"];
         }
-
-        public bool VerifyPassword(LoginRequestDTO currentUser, string password)
-        {
-            var hasher = new PasswordHasher<LoginRequestDTO>();
-
-            var hashedCurrentPassword = hasher.HashPassword(currentUser, currentUser.Password + _salt);
-
-            PasswordVerificationResult result = hasher.VerifyHashedPassword(currentUser, hashedCurrentPassword, password + _salt);
-
-            return result.ToString().Equals("Success");
-        }
-
 
         public string GenerateRefreshToken()
         {
@@ -118,7 +107,36 @@ namespace GB_Webpage.Services.User
             return true;
         }
 
+        public bool isUserValidFor(LoginRequestDTO loginRequest) 
+        {
+            UserModel user = new UserModel
+            {
+                Login = _configuration["User:Login"],
+                Password = _configuration["User:Password"]
+            };
 
+            if (!loginRequest.Login.Equals(user.Login))
+            {
+                return false;
+            }
 
+            if (!VerifyPassword(user, loginRequest.Password))
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool VerifyPassword(UserModel user, string password)
+        {
+            var hasher = new PasswordHasher<UserModel>();
+
+            var hashedCurrentPassword = hasher.HashPassword(user, user.Password + _salt);
+
+            PasswordVerificationResult result = hasher.VerifyHashedPassword(user, hashedCurrentPassword, password + _salt);
+
+            return result.ToString().Equals("Success");
+        }
     }
 }

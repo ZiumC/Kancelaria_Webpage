@@ -23,6 +23,7 @@ namespace GB_Webpage.Services.Database.Users
                 {
                     Id = u.Id,
                     Username = u.Username,
+                    Attemps = u.Attemps,
                     DateFirstInvalidAttemp = u.DateFirstInvalidAttemp,
                     DateBlockedTo = u.DateBlockedTo,
 
@@ -31,7 +32,7 @@ namespace GB_Webpage.Services.Database.Users
             return userData;
         }
 
-        public async Task<bool> AddUserToBlocklistAsync(string userName, int attemps)
+        public async Task<bool> AddUserToBlocklistAsync(string userName)
         {
             try
             {
@@ -40,7 +41,6 @@ namespace GB_Webpage.Services.Database.Users
                         new BlockedUserModel
                         {
                             Username = userName,
-                            Attemps = attemps,
                             DateFirstInvalidAttemp = DateTime.UtcNow,
                             DateBlockedTo = null
                         }
@@ -57,7 +57,7 @@ namespace GB_Webpage.Services.Database.Users
         }
 
 
-        public async Task<bool> UpdateUserInBlacklistAsync(int blockedUserId, BlockedUserModel blockedUserData)
+        public async Task<bool> UpdateUserInBlockedlistAsync(int blockedUserId, BlockedUserModel blockedUserData)
         {
             try
             {
