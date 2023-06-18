@@ -9,7 +9,7 @@ namespace GB_Webpage.Models
         [Required]
         public string Username { get; set; }
         [Required]
-        public int TotalAttemps { get; set; }
+        public int Attemps { get; set; }
         [Required]
         public DateTime DateFirstInvalidAttemp { get; set; }
         public DateTime? DateBlockedTo { get; set; }

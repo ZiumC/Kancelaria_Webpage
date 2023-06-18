@@ -59,7 +59,7 @@ namespace GB_Webpage.Controllers
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
             BlockedUserModel? blockedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
-            if (blockedUserData?.TotalAttemps > _maxAttemps)
+            if (blockedUserData?.Attemps > _maxAttemps)
             {
                 var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
 
@@ -87,6 +87,25 @@ namespace GB_Webpage.Controllers
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
                     LogFormatterService.GetAsyncMethodName())
                 );
+
+                if (blockedUserData == null)
+                {
+                    bool isUserAdded = await _usersService.AddUserToBlocklistAsync(request.Login, 1);
+                    if (!isUserAdded)
+                    {
+                        _logger.LogCritical(LogFormatterService.FormatAction(
+                            actionLog,
+                           "Unable to add user to bblock list.",
+                            LogFormatterService.GetAsyncMethodName())
+                        );
+                    }
+                }
+                else 
+                {
+                    blockedUserData.Attemps = _maxAttemps - blockedUserData.Attemps;
+                    bool isUpdated = await _usersService.UpdateUserInBlacklistAsync()
+                }
+
 
                 return Unauthorized("Login or password is wrong.");
             }

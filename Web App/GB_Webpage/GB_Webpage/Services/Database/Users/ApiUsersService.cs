@@ -31,7 +31,7 @@ namespace GB_Webpage.Services.Database.Users
             return userData;
         }
 
-        public async Task<bool> AddUserToBlocklistAsync(BlockedUserModel blockedUser)
+        public async Task<bool> AddUserToBlocklistAsync(string userName, int attempsLeft)
         {
             
 
