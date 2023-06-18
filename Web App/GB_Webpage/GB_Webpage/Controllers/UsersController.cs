@@ -58,13 +58,18 @@ namespace GB_Webpage.Controllers
 
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
 
-            BlockedUserModel? blockedUserData = await _usersService.GetUserFataFromBlacklistAsync(request.Login);
-            if (blockedUserData != null) 
+            BlockedUserModel? blockedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
+            if (blockedUserData?.TotalAttemps > _maxAttemps)
             {
-                if (blockedUserData.TotalAttemps <= _maxAttemps) 
-                {
-                    
-                }
+                var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
+
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    actionLog,
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
+                    LogFormatterService.GetAsyncMethodName())
+                );
+
+                return Unauthorized($"You can't login due to {blockedUserData?.DateBlockedTo}.");
             }
 
             LoginRequestDTO currentUser = new LoginRequestDTO

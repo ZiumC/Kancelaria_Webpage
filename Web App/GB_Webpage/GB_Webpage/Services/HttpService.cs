@@ -1,15 +1,17 @@
-﻿using GB_Webpage.Models;
-using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace GB_Webpage.Services
 {
     public class HttpService
     {
-
+        /// <summary>
+        /// This method allows to make GET request but as a result returns deserialized collection of objects. 
+        /// </summary>
+        /// <typeparam name="T">Type of object to deserialize.</typeparam>
+        /// <param name="url">Url resource</param>
+        /// <returns>Returns deserialized collection of passed type.</returns>
         public static async Task<IEnumerable<T>?> DoGetCollection<T>(string url)
         {
-
             using (var client = new HttpClient())
             {
                 Uri uri = new Uri(url);
@@ -26,13 +28,11 @@ namespace GB_Webpage.Services
                 {
                     return default;
                 }
-
             }
-
         }
 
         /// <summary>
-        /// This method allows to select status code from dictorany initialized in any class
+        /// This method allows to select status code from dictorany
         /// </summary>
         /// <param name="statusCode">Status code as int.</param>
         /// <param name="statuses"> Dictionary<int, string></param>
