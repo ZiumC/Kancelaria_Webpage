@@ -5,9 +5,9 @@ using GB_Webpage.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using GB_Webpage.Services.DatabaseFiles;
 using GB_Webpage.Services.Database.Articles;
 using GB_Webpage.Services.Database.Users;
+using GB_Webpage.Services.Database.DatabaseFiles;
 
 var builder = WebApplication.CreateBuilder(args);
 

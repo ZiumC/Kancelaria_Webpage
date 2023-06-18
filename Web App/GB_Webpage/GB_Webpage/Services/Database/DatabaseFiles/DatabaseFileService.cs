@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Reflection;
 
-namespace GB_Webpage.Services.DatabaseFiles
+namespace GB_Webpage.Services.Database.DatabaseFiles
 {
     public class DatabaseFileService : IDatabaseFileService
     {
