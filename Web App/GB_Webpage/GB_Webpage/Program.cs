@@ -8,11 +8,13 @@ using System.Text;
 using GB_Webpage.Services.Database.Articles;
 using GB_Webpage.Services.Database.Users;
 using GB_Webpage.Services.Database.DatabaseFiles;
+using GB_Webpage.Services.User;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IApiArticlesService, ApiArticlesService>();
 builder.Services.AddScoped<IApiUsersService, ApiUsersService>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddTransient<IDatabaseFileService, DatabaseFileService>();
 builder.Services.AddDbContext<ApiContext>(options => options.UseInMemoryDatabase("ArticleDb"));
 
