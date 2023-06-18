@@ -26,7 +26,11 @@
       }
     }
   },
-
+  "AppSettings": {
+    "DaysValidToken": 1,
+    "BlockadeDaysDuration": 1,
+    "MaxLoginAttemps": 3
+  },
   "Paths": {
     "DatabaseStorage": {
       "MainFolder": "DatabaseFiles",
@@ -34,7 +38,6 @@
       "RefreshTokenFolder": "RefreshToken"
     }
   },
-
   "EmailKey": "",
   "EmailSendsForm": "",
   "EmailRecivesForm": "",
