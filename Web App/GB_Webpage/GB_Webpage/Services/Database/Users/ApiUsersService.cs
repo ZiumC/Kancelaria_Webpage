@@ -15,7 +15,7 @@ namespace GB_Webpage.Services.Database.Users
             _context.Database.EnsureCreated();
             _logger = logger;
         }
-        public async Task<BlockedUserModel?> GetUserFataFromBlacklistAsync(string userName)
+        public async Task<BlockedUserModel?> GetUserDataFromBlacklistAsync(string userName)
         {
             BlockedUserModel? userData = await _context.BlockedUsers
                 .Where(u => u.Username.ToLower().Equals(userName.ToLower()))
