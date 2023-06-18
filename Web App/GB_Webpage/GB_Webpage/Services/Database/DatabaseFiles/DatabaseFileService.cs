@@ -26,7 +26,7 @@ namespace GB_Webpage.Services.Database.DatabaseFiles
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex, MethodBase.GetCurrentMethod()?.Name));
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
             }
 
             if (fileEntries?.Length > 0)
@@ -54,7 +54,7 @@ namespace GB_Webpage.Services.Database.DatabaseFiles
                 if (File.Exists(path))
                 {
                     File.Delete(path);
-                    _logger.LogInformation(LogFormatterService.FormatAction("File already exist - file deleted", $"Path to file='{path}'", MethodBase.GetCurrentMethod()?.Name));
+                    _logger.LogInformation(LogFormatterService.FormatAction("File already exist - file deleted", $"Path to file='{path}'", LogFormatterService.GetMethodName()));
                 }
 
                 string jsonData = JsonConvert.SerializeObject(data);
@@ -63,7 +63,7 @@ namespace GB_Webpage.Services.Database.DatabaseFiles
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex, MethodBase.GetCurrentMethod()?.Name));
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
                 return false;
             }
             finally
@@ -74,7 +74,7 @@ namespace GB_Webpage.Services.Database.DatabaseFiles
                 }
             }
 
-            _logger.LogInformation(LogFormatterService.FormatAction("File has been saved.", $"Path to file='{path}'", MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatAction("File has been saved.", $"Path to file='{path}'", LogFormatterService.GetMethodName()));
             return true;
         }
 
@@ -97,7 +97,7 @@ namespace GB_Webpage.Services.Database.DatabaseFiles
             }
             catch (Exception ex)
             {
-                _logger.LogError(LogFormatterService.FormatException(ex, MethodBase.GetCurrentMethod()?.Name));
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
                 return default;
             }
             finally

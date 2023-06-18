@@ -12,16 +12,14 @@ namespace GB_Webpage.Services.User
     {
         private readonly ILogger<UserService> _logger;
         private readonly IConfiguration _configuration;
-        
+
         private readonly string _secretSignature;
         private readonly string _audience;
         private readonly string _issuer;
         private readonly string _salt;
 
-        private readonly int _daysValid;
-
-        public UserService(ILogger<UserService> logger, IConfiguration configuration) 
-        { 
+        public UserService(ILogger<UserService> logger, IConfiguration configuration)
+        {
             _configuration = configuration;
             _logger = logger;
 
@@ -29,8 +27,6 @@ namespace GB_Webpage.Services.User
             _audience = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
             _salt = _configuration["User:salt"];
-
-            _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
         }
 
         public bool VerifyPassword(LoginRequestDTO currentUser, string password)
@@ -61,6 +57,16 @@ namespace GB_Webpage.Services.User
 
         public string GenerateAccessToken(string user)
         {
+            int daysValid = 1;
+            try
+            {
+                daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
+            }
+
             var claims = new Claim[]
                {
                     new Claim(ClaimTypes.Name, user),
@@ -76,7 +82,7 @@ namespace GB_Webpage.Services.User
                     _issuer,
                     _audience,
                     claims,
-                    expires: DateTime.UtcNow.AddDays(_daysValid),
+                    expires: DateTime.UtcNow.AddDays(daysValid),
                     signingCredentials: creditionals
                 );
 

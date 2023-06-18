@@ -57,7 +57,7 @@ namespace GB_Webpage.Controllers
         public async Task<IActionResult> Login(LoginRequestDTO request)
         {
             string actionLog = "User logging in";
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             BlockedUserModel? blockedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
             if (blockedUserData?.Attemps > _maxAttemps)
@@ -67,7 +67,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return Unauthorized($"You can't login due to {blockedUserData?.DateBlockedTo}.");
@@ -86,7 +86,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 if (blockedUserData == null)
@@ -97,7 +97,7 @@ namespace GB_Webpage.Controllers
                         _logger.LogCritical(LogFormatterService.FormatAction(
                             actionLog,
                            "Unable to add user to block list.",
-                            LogFormatterService.GetAsyncMethodName())
+                            LogFormatterService.GetMethodName())
                         );
                     }
                 }
@@ -110,7 +110,7 @@ namespace GB_Webpage.Controllers
                         _logger.LogCritical(LogFormatterService.FormatAction(
                            actionLog,
                           "Unable to update user to block list.",
-                           LogFormatterService.GetAsyncMethodName())
+                           LogFormatterService.GetMethodName())
                        );
                     }
                 }
@@ -142,7 +142,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogInformation(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
@@ -154,7 +154,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return Unauthorized("Login or password is wrong");
@@ -167,7 +167,7 @@ namespace GB_Webpage.Controllers
         {
             string actionLog = "Refreshing tokens";
 
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             UserRefreshTokenModel? savedUserToken = _databaseFileService.ReadFile<UserRefreshTokenModel>(_refreshTokenFolder);
             if (savedUserToken == null)
@@ -177,7 +177,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return NotFound("Refresh token not found");
@@ -190,7 +190,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return StatusCode(452, "Tokens aren't valid to server,  login again");
@@ -213,7 +213,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogInformation(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
@@ -225,7 +225,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return StatusCode(452, "Tokens aren't valid to this server, login again");

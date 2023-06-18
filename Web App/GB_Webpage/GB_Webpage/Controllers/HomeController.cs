@@ -23,37 +23,37 @@ namespace GB_Webpage.Controllers
 
         public IActionResult Index()
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             return View();
         }
 
         public IActionResult Specializations()
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             return View();
         }
 
         public IActionResult Team()
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             return View();
         }
 
         public IActionResult Cooperation()
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             return View();
         }
 
         public IActionResult Contact()
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             return View();
         }
 
         public async Task<IActionResult> NewsAsync()
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             IEnumerable<ArticleModel>? articles = new List<ArticleModel>();
             try
@@ -76,7 +76,7 @@ namespace GB_Webpage.Controllers
 
         public IActionResult ValidateEmail(ContactModel contact)
         {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, MethodBase.GetCurrentMethod()?.Name));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             try
             {
                 if (!ModelState.IsValid)
