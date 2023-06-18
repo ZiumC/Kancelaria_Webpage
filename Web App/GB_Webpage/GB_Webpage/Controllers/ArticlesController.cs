@@ -47,7 +47,7 @@ namespace GB_Webpage.Controllers
         {
             string actionLog = "Updating article.";
 
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             ArticleModel? oldArticle = await _apiService.GetArticleByIdAsync(id);
             if (oldArticle == null)
@@ -57,7 +57,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return NotFound($"Unable to find article. | {id}");
@@ -76,7 +76,7 @@ namespace GB_Webpage.Controllers
                     _logger.LogInformation(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
-                        LogFormatterService.GetAsyncMethodName())
+                        LogFormatterService.GetMethodName())
                     );
 
                     return Ok("Article has been updated. Changes HAS BEEN SAVED to physical file");
@@ -88,7 +88,7 @@ namespace GB_Webpage.Controllers
                     _logger.LogWarning(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1}  -  {statusResponse.Item2} (id={id}).",
-                        LogFormatterService.GetAsyncMethodName())
+                        LogFormatterService.GetMethodName())
                     );
 
                     return StatusCode(209, "Article has been updated. Changes HAVEN'T BEEN SAVED to physical file");
@@ -101,7 +101,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1}  -  {statusResponse.Item2} (id={id}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return BadRequest($"Unable to update article. | {id}");
@@ -116,7 +116,7 @@ namespace GB_Webpage.Controllers
         {
             string actionLog = "Deleting article.";
 
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             ArticleModel? article = await _apiService.GetArticleByIdAsync(id);
             if (article == null)
@@ -125,7 +125,7 @@ namespace GB_Webpage.Controllers
 
                 _logger.LogInformation(LogFormatterService.FormatAction(actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return NotFound($"Article not found. | {id}");
@@ -144,7 +144,7 @@ namespace GB_Webpage.Controllers
                     _logger.LogInformation(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
-                        LogFormatterService.GetAsyncMethodName())
+                        LogFormatterService.GetMethodName())
                     );
 
                     return Ok($"Article has been deleted. Changes HAS BEEN SAVED to physical file.");
@@ -155,7 +155,7 @@ namespace GB_Webpage.Controllers
 
                     _logger.LogWarning(LogFormatterService.FormatAction(actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
-                        LogFormatterService.GetAsyncMethodName())
+                        LogFormatterService.GetMethodName())
                     );
 
                     return StatusCode(209, $"Article has been deleted. Changes HAVEN'T BEEN SAVED to physical file.");
@@ -167,7 +167,7 @@ namespace GB_Webpage.Controllers
 
                 _logger.LogWarning(LogFormatterService.FormatAction(actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (id={id}).",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return BadRequest($"Unable to delete article. | {id}");
@@ -180,7 +180,7 @@ namespace GB_Webpage.Controllers
         {
             string actionLog = "Adding article.";
 
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             bool isAdded = await _apiService.AddArticleAsync(articleDTO);
             if (isAdded)
@@ -196,7 +196,7 @@ namespace GB_Webpage.Controllers
                     _logger.LogInformation(LogFormatterService.FormatAction(
                         actionLog,
                         $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                        LogFormatterService.GetAsyncMethodName())
+                        LogFormatterService.GetMethodName())
                     );
 
                     return Ok("Article has been added and SAVED to physical file");
@@ -208,7 +208,7 @@ namespace GB_Webpage.Controllers
                     _logger.LogWarning(LogFormatterService.FormatAction(
                         actionLog,
                          $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                        LogFormatterService.GetAsyncMethodName())
+                        LogFormatterService.GetMethodName())
                     );
 
                     return StatusCode(209, "Article has been added and NOT SAVED to physical file");
@@ -221,7 +221,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return BadRequest("Article haven't been added");
@@ -233,7 +233,7 @@ namespace GB_Webpage.Controllers
         {
             string actionLog = "Get Articles.";
 
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetAsyncMethodName()));
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
             IEnumerable<ArticleModel> articles = await _apiService.GetAllArticlesAsync();
             if (articles != null)
@@ -243,7 +243,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogInformation(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return Ok(articles);
@@ -255,7 +255,7 @@ namespace GB_Webpage.Controllers
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
-                    LogFormatterService.GetAsyncMethodName())
+                    LogFormatterService.GetMethodName())
                 );
 
                 return NotFound("Articles not found");

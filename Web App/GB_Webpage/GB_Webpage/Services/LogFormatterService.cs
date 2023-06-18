@@ -45,7 +45,7 @@ namespace GB_Webpage.Services
         /// </summary>
         /// <param name="methodName"></param>
         /// <returns>Returns async caller name</returns>
-        public static string GetAsyncMethodName([CallerMemberName] string methodName = "")
+        public static string GetMethodName([CallerMemberName] string methodName = "")
         {
             return methodName;
         }
