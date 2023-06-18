@@ -10,16 +10,40 @@ namespace GB_Webpage.Services.User
 {
     public class UserService : IUserService
     {
-        public bool VerifyPassword(LoginRequestDTO currentUser, string passedPassword, string salt)
+        private readonly ILogger<UserService> _logger;
+        private readonly IConfiguration _configuration;
+        
+        private readonly string _secretSignature;
+        private readonly string _audience;
+        private readonly string _issuer;
+        private readonly string _salt;
+
+        private readonly int _daysValid;
+
+        public UserService(ILogger<UserService> logger, IConfiguration configuration) 
+        { 
+            _configuration = configuration;
+            _logger = logger;
+
+            _secretSignature = _configuration["SecretSignatureKey"];
+            _audience = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
+            _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
+            _salt = _configuration["User:salt"];
+
+            _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
+        }
+
+        public bool VerifyPassword(LoginRequestDTO currentUser, string password)
         {
             var hasher = new PasswordHasher<LoginRequestDTO>();
 
-            var hashedCurrentPassword = hasher.HashPassword(currentUser, currentUser.Password + salt);
+            var hashedCurrentPassword = hasher.HashPassword(currentUser, currentUser.Password + _salt);
 
-            PasswordVerificationResult result = hasher.VerifyHashedPassword(currentUser, hashedCurrentPassword, passedPassword + salt);
+            PasswordVerificationResult result = hasher.VerifyHashedPassword(currentUser, hashedCurrentPassword, password + _salt);
 
             return result.ToString().Equals("Success");
         }
+
 
         public string GenerateRefreshToken()
         {
@@ -34,7 +58,8 @@ namespace GB_Webpage.Services.User
             return refreshToken;
         }
 
-        public string GenerateAccessToken(string secretSignature, string user, string issuer, string audience, int daysValid)
+
+        public string GenerateAccessToken(string user)
         {
             var claims = new Claim[]
                {
@@ -42,24 +67,24 @@ namespace GB_Webpage.Services.User
                     new Claim(ClaimTypes.Role, "User")
                };
 
-            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretSignature));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretSignature));
 
             SigningCredentials creditionals = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             JwtSecurityToken token = new JwtSecurityToken
                 (
-                    issuer,
-                    audience,
+                    _issuer,
+                    _audience,
                     claims,
-                    expires: DateTime.UtcNow.AddDays(daysValid),
+                    expires: DateTime.UtcNow.AddDays(_daysValid),
                     signingCredentials: creditionals
                 );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
-
         }
 
-        public bool ValidateTokens(string secretSignature, JwtDTO jwt, string issuer)
+
+        public bool ValidateTokens(JwtDTO jwt)
         {
             SecurityToken validatedToken;
 
@@ -69,9 +94,9 @@ namespace GB_Webpage.Services.User
                 ValidateAudience = true,
                 ValidateLifetime = false,
                 ClockSkew = TimeSpan.FromMinutes(1),
-                ValidIssuer = issuer,
-                ValidAudience = issuer,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretSignature))
+                ValidIssuer = _issuer,
+                ValidAudience = _audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_secretSignature))
             };
 
 
