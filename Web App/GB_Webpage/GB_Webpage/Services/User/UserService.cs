@@ -6,11 +6,11 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace GB_Webpage.Services
+namespace GB_Webpage.Services.User
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        public static bool VerifyPassword(LoginRequestDTO currentUser, string passedPassword, string salt)
+        public bool VerifyPassword(LoginRequestDTO currentUser, string passedPassword, string salt)
         {
             var hasher = new PasswordHasher<LoginRequestDTO>();
 
@@ -21,7 +21,7 @@ namespace GB_Webpage.Services
             return result.ToString().Equals("Success");
         }
 
-        public static string GenerateRefreshToken() 
+        public string GenerateRefreshToken()
         {
             var refreshToken = "";
             using (var genNumbers = RandomNumberGenerator.Create())
@@ -34,7 +34,7 @@ namespace GB_Webpage.Services
             return refreshToken;
         }
 
-        public static string GenerateAccessToken(string secretSignature, string user ,string issuer, string audience, int daysValid) 
+        public string GenerateAccessToken(string secretSignature, string user, string issuer, string audience, int daysValid)
         {
             var claims = new Claim[]
                {
@@ -59,7 +59,7 @@ namespace GB_Webpage.Services
 
         }
 
-        public static bool ValidateTokens(string secretSignature, JwtDTO jwt, string issuer) 
+        public bool ValidateTokens(string secretSignature, JwtDTO jwt, string issuer)
         {
             SecurityToken validatedToken;
 
@@ -88,6 +88,6 @@ namespace GB_Webpage.Services
         }
 
 
-        
+
     }
 }
