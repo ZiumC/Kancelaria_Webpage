@@ -2,7 +2,7 @@
 using GB_Webpage.Models;
 using GB_Webpage.Services;
 using GB_Webpage.Services.Database.Articles;
-using GB_Webpage.Services.DatabaseFiles;
+using GB_Webpage.Services.Database.DatabaseFiles;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

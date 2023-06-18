@@ -1,4 +1,4 @@
-﻿namespace GB_Webpage.Services.DatabaseFiles
+﻿namespace GB_Webpage.Services.Database.DatabaseFiles
 {
     public interface IDatabaseFileService
     {
