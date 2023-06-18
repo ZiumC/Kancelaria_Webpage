@@ -1,7 +1,6 @@
 ﻿using GB_Webpage.DTOs;
 using GB_Webpage.Models;
 using GB_Webpage.Services;
-using GB_Webpage.Services.Database.Articles;
 using GB_Webpage.Services.Database.DatabaseFiles;
 using GB_Webpage.Services.Database.Users;
 using GB_Webpage.Services.User;
@@ -18,27 +17,29 @@ namespace GB_Webpage.Controllers
         private readonly IDatabaseFileService _databaseFileService;
         private readonly ILogger<UsersController> _logger;
         private readonly IApiUsersService _usersService;
+        private readonly IUserService _userService;
 
         private readonly string _refreshTokenFolder;
-        private readonly string _issuer;
-        private readonly string _secretSignature;
-        private readonly int _daysValid;
+        //private readonly string _issuer;
+        //private readonly string _secretSignature;
+        //private readonly int _daysValid;
         private readonly int _maxAttemps;
 
 
         private readonly Dictionary<int, string> _statuses;
         private readonly int OK = 200, UNAUTHORIZED = 403, NOT_FOUND = 404, TOKEN_BROKEN = 452;
 
-        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService, ILogger<UsersController> logger, IApiUsersService usersService)
+        public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService, ILogger<UsersController> logger, IApiUsersService apiUsersService, IUserService userService)
         {
             _databaseFileService = databaseFileService;
+            _usersService = apiUsersService;
             _configuration = configuration;
-            _usersService = usersService;
+            _userService = userService;
             _logger = logger;
 
-            _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
-            _secretSignature = _configuration["SecretSignatureKey"];
-            _daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
+            //_issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
+            //_secretSignature = _configuration["SecretSignatureKey"];
+            //_daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
             _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
             _maxAttemps = int.Parse(_configuration["MaxLoginAttemps"]);
 
@@ -121,13 +122,14 @@ namespace GB_Webpage.Controllers
                 return Unauthorized($"Login or password is wrong. You have {_maxAttemps - blockedUserData.Attemps} attemps left.");
             }
 
-            string salt = _configuration["User:salt"];
+            //string salt = _configuration["User:salt"];
 
-            if (UserService.VerifyPassword(currentUser, request.Password, salt))
+
+            if (_userService.VerifyPassword(currentUser, request.Password))
             {
 
-                string refreshToken = UserService.GenerateRefreshToken();
-                string accessToken = UserService.GenerateAccessToken(_secretSignature, request.Login, _issuer, _issuer, _daysValid);
+                string refreshToken = _userService.GenerateRefreshToken();
+                string accessToken = _userService.GenerateAccessToken(request.Login);
 
                 _databaseFileService.SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
                 {
@@ -194,11 +196,11 @@ namespace GB_Webpage.Controllers
                 return StatusCode(452, "Tokens aren't valid to server,  login again");
             }
 
-            bool areTokensValid = UserService.ValidateTokens(_secretSignature, jwt, _issuer);
+            bool areTokensValid = _userService.ValidateTokens(jwt);
             if (areTokensValid)
             {
-                string refreshToken = UserService.GenerateRefreshToken();
-                string accessToken = UserService.GenerateAccessToken(_secretSignature, savedUserToken.UserName, _issuer, _issuer, _daysValid);
+                string refreshToken = _userService.GenerateRefreshToken();
+                string accessToken = _userService.GenerateAccessToken(savedUserToken.UserName);
 
                 _databaseFileService.SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
                 {
