@@ -31,17 +31,55 @@ namespace GB_Webpage.Services.Database.Users
             return userData;
         }
 
-        public async Task<bool> AddUserToBlocklistAsync(string userName, int attempsLeft)
+        public async Task<bool> AddUserToBlocklistAsync(string userName, int attemps)
         {
-            
+            try
+            {
+                var newDatabaseUser = _context.BlockedUsers.Add
+                    (
+                        new BlockedUserModel
+                        {
+                            Username = userName,
+                            Attemps = attemps,
+                            DateFirstInvalidAttemp = DateTime.UtcNow,
+                            DateBlockedTo = null
+                        }
+                    );
 
-            throw new NotImplementedException();
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetAsyncMethodName()));
+                return false;
+            }
+            return true;
         }
 
 
-        public async Task<bool> UpdateUserInBlacklistAsync(BlockedUserModel blockedUser)
+        public async Task<bool> UpdateUserInBlacklistAsync(int blockedUserId, BlockedUserModel blockedUserData)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var userQuery = await
+                    (_context.BlockedUsers
+                    .Where(bu => bu.Id == blockedUserId)
+                    .FirstAsync());
+
+                userQuery.Username = blockedUserData.Username;
+                userQuery.Attemps = blockedUserData.Attemps;
+                userQuery.DateFirstInvalidAttemp = blockedUserData.DateFirstInvalidAttemp;
+                userQuery.DateBlockedTo = blockedUserData.DateBlockedTo;
+
+                await _context.SaveChangesAsync();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetAsyncMethodName()));
+                return false;
+            }
+            return true;
         }
     }
 }

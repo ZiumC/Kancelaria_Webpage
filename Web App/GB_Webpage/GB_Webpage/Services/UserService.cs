@@ -10,7 +10,7 @@ namespace GB_Webpage.Services
 {
     public class UserService
     {
-        public static bool VerifyUserPassword(LoginRequestDTO currentUser, string passedPassword, string salt)
+        public static bool VerifyPassword(LoginRequestDTO currentUser, string passedPassword, string salt)
         {
             var hasher = new PasswordHasher<LoginRequestDTO>();
 
@@ -59,7 +59,7 @@ namespace GB_Webpage.Services
 
         }
 
-        public static bool ValidateUserTokens(string secretSignature, JwtDTO jwt, string issuer) 
+        public static bool ValidateTokens(string secretSignature, JwtDTO jwt, string issuer) 
         {
             SecurityToken validatedToken;
 

@@ -6,6 +6,6 @@ namespace GB_Webpage.Services.Database.Users
     {
         public Task<BlockedUserModel?> GetUserDataFromBlacklistAsync(string userName);
         public Task<bool> AddUserToBlocklistAsync(string userName, int attempsLeft);
-        public Task<bool> UpdateUserInBlacklistAsync(BlockedUserModel blockedUser);
+        public Task<bool> UpdateUserInBlacklistAsync(int blockedUserId, BlockedUserModel blockedUserData);
     }
 }
