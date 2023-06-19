@@ -53,6 +53,6 @@ namespace GB_Webpage.Data
         }
 
         public DbSet<ArticleModel> Articles { get; set; }
-        public DbSet<BlockedUserModel> BlockedUsers { get; set; }
+        public DbSet<SuspendedUserModel> BlockedUsers { get; set; }
     }
 }

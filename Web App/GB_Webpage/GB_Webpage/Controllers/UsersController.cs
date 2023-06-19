@@ -23,7 +23,8 @@ namespace GB_Webpage.Controllers
         //private readonly string _issuer;
         //private readonly string _secretSignature;
         //private readonly int _daysValid;
-        //private readonly int _maxAttemps;
+        private readonly int _maxAttemps;
+        private readonly int _suspendDurationDays;
 
 
         private readonly Dictionary<int, string> _statuses;
@@ -43,6 +44,29 @@ namespace GB_Webpage.Controllers
             _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
             //_maxAttemps = int.Parse(_configuration["MaxLoginAttemps"]);
 
+            int maxAttemps = 3;
+            try
+            {
+                maxAttemps = int.Parse(_configuration["AppSettings:MaxLoginAttemps"]);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
+            }
+            _maxAttemps = maxAttemps;
+
+            int suspendDurationDays = 1;
+            try
+            {
+                suspendDurationDays = int.Parse(_configuration["AppSettings:BlockadeDaysDuration"]);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
+            }
+            _suspendDurationDays = suspendDurationDays; 
+
+
             _statuses = new Dictionary<int, string>()
             {
                 { 200, "login approved" },
@@ -59,42 +83,14 @@ namespace GB_Webpage.Controllers
             string actionLog = "User logging in";
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
-            int maxAttemps = 3;
-            try
+            SuspendedUserModel? suspendedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
+            if (suspendedUserData != null)
             {
-                maxAttemps = int.Parse(_configuration["AppSettings:MaxLoginAttemps"]);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
-            }
-
-            BlockedUserModel? blockedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
-            if (blockedUserData?.Attemps >= maxAttemps)
-            {
-                var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
-
-                _logger.LogWarning(LogFormatterService.FormatAction(
-                    actionLog,
-                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is blocked to {blockedUserData.DateBlockedTo}.",
-                    LogFormatterService.GetMethodName())
-                );
-
-                if (blockedUserData.DateBlockedTo == null)
+                if (suspendedUserData.Attemps >= _maxAttemps && suspendedUserData.SuspendedDateTo == null)
                 {
-                    int blockDurationDays = 1;
-                    try
-                    {
-                        blockDurationDays = int.Parse(_configuration["AppSettings:BlockadeDaysDuration"]);
-                    }
-                    catch (Exception ex)
-                    {
-                        _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
-                    }
-
-                    blockedUserData.DateBlockedTo = DateTime.UtcNow.AddMinutes(blockDurationDays);
-
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(blockedUserData.Id, blockedUserData);
+                    suspendedUserData.SuspendedDateTo = DateTime.Now.AddMinutes(_suspendDurationDays);
+                    suspendedUserData.Attemps -= 1;
+                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
@@ -104,11 +100,33 @@ namespace GB_Webpage.Controllers
                         );
                     }
 
-                    return Unauthorized($"You can't login due to {blockedUserData.DateBlockedTo}.");
+                    var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is blocked to {suspendedUserData.SuspendedDateTo}.",
+                        LogFormatterService.GetMethodName())
+                    );
+
+                    return Unauthorized($"You can't login due to {suspendedUserData.SuspendedDateTo}.");
                 }
 
-
-                return Unauthorized($"You can't login due to {blockedUserData.DateBlockedTo}.");
+                if (suspendedUserData.SuspendedDateTo > DateTime.Now)
+                {
+                    return Unauthorized($"You can't login due to {suspendedUserData.SuspendedDateTo}.");
+                }
+                else
+                {
+                    suspendedUserData.SuspendedDateTo = null;
+                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
+                    if (!isUpdated)
+                    {
+                        _logger.LogCritical(LogFormatterService.FormatAction(
+                            actionLog,
+                            "Unable to update user in block list.",
+                            LogFormatterService.GetMethodName())
+                        );
+                    }
+                }
             }
 
             if (!_userService.isUserValidFor(request))
@@ -117,11 +135,11 @@ namespace GB_Webpage.Controllers
 
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
-                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is invalid.",
-                    LogFormatterService.GetMethodName())
-                );
+                            $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is invalid.",
+                            LogFormatterService.GetMethodName())
+                        );
 
-                if (blockedUserData == null)
+                if (suspendedUserData == null)
                 {
                     bool isUserAdded = await _usersService.AddUserToBlocklistAsync(request.Login);
                     if (!isUserAdded)
@@ -133,13 +151,12 @@ namespace GB_Webpage.Controllers
                         );
                     }
 
-                    return Unauthorized($"Login or password is wrong. You have {maxAttemps} attemps left.");
+                    return Unauthorized($"Login or password is wrong. You have {_maxAttemps} attemps left.");
                 }
                 else
                 {
-                    blockedUserData.Attemps = blockedUserData.Attemps + 1;
-
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(blockedUserData.Id, blockedUserData);
+                    suspendedUserData.Attemps = suspendedUserData.Attemps + 1;
+                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
@@ -148,7 +165,7 @@ namespace GB_Webpage.Controllers
                            LogFormatterService.GetMethodName())
                        );
                     }
-                    return Unauthorized($"Login or password is wrong. You have {maxAttemps - blockedUserData.Attemps} attemps left.");
+                    return Unauthorized($"Login or password is wrong. You have {_maxAttemps - suspendedUserData.Attemps} attemps left.");
                 }
             }
             else
@@ -170,13 +187,12 @@ namespace GB_Webpage.Controllers
                     LogFormatterService.GetMethodName())
                 );
 
-                if (blockedUserData != null)
+                if (suspendedUserData != null)
                 {
+                    suspendedUserData.Attemps = 0;
+                    suspendedUserData.SuspendedDateTo = null;
 
-                    blockedUserData.Attemps = 0;
-                    blockedUserData.DateBlockedTo = null;
-
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(blockedUserData.Id, blockedUserData);
+                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
@@ -189,85 +205,6 @@ namespace GB_Webpage.Controllers
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
-
-            //if (!request.Login.Equals(currentUser.Login))
-            //{
-            //    var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
-
-            //    _logger.LogWarning(LogFormatterService.FormatAction(
-            //        actionLog,
-            //        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-            //        LogFormatterService.GetMethodName())
-            //    );
-
-            //    if (blockedUserData == null)
-            //    {
-            //        bool isUserAdded = await _usersService.AddUserToBlocklistAsync(request.Login, 1);
-            //        if (!isUserAdded)
-            //        {
-            //            _logger.LogCritical(LogFormatterService.FormatAction(
-            //                actionLog,
-            //               "Unable to add user to block list.",
-            //                LogFormatterService.GetMethodName())
-            //            );
-            //        }
-            //    }
-            //    else
-            //    {
-            //        blockedUserData.Attemps += 1;
-            //        bool isUpdated = await _usersService.UpdateUserInBlacklistAsync(blockedUserData.Id, blockedUserData);
-            //        if (!isUpdated)
-            //        {
-            //            _logger.LogCritical(LogFormatterService.FormatAction(
-            //               actionLog,
-            //              "Unable to update user to block list.",
-            //               LogFormatterService.GetMethodName())
-            //           );
-            //        }
-            //    }
-
-            //    if (blockedUserData == null)
-            //    {
-            //        return Unauthorized($"Login or password is wrong. You have {_maxAttemps} attemps left.");
-            //    }
-            //    return Unauthorized($"Login or password is wrong. You have {_maxAttemps - blockedUserData.Attemps} attemps left.");
-            //}
-
-
-            //if (_userService.VerifyPassword(currentUser, request.Password))
-            //{
-
-            //    string refreshToken = _userService.GenerateRefreshToken();
-            //    string accessToken = _userService.GenerateAccessToken(request.Login);
-
-            //    _databaseFileService.SaveFile<UserRefreshTokenModel>(new UserRefreshTokenModel
-            //    {
-            //        RefreshToken = refreshToken,
-            //        UserName = request.Login
-            //    }, _refreshTokenFolder);
-
-            //    var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
-
-            //    _logger.LogInformation(LogFormatterService.FormatAction(
-            //        actionLog,
-            //        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-            //        LogFormatterService.GetMethodName())
-            //    );
-
-            //    return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
-            //}
-            //else
-            //{
-            //    var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
-
-            //    _logger.LogWarning(LogFormatterService.FormatAction(
-            //        actionLog,
-            //        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
-            //        LogFormatterService.GetMethodName())
-            //    );
-
-            //    return Unauthorized("Login or password is wrong");
-            //}
         }
 
         [HttpPost]

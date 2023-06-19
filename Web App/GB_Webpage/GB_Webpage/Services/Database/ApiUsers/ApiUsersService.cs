@@ -15,17 +15,17 @@ namespace GB_Webpage.Services.Database.Users
             _context.Database.EnsureCreated();
             _logger = logger;
         }
-        public async Task<BlockedUserModel?> GetUserDataFromBlacklistAsync(string userName)
+        public async Task<SuspendedUserModel?> GetUserDataFromBlacklistAsync(string userName)
         {
-            BlockedUserModel? userData = await _context.BlockedUsers
+            SuspendedUserModel? userData = await _context.BlockedUsers
                 .Where(u => u.Username.ToLower().Equals(userName.ToLower()))
-                .Select(u => new BlockedUserModel
+                .Select(u => new SuspendedUserModel
                 {
                     Id = u.Id,
                     Username = u.Username,
                     Attemps = u.Attemps,
                     DateFirstInvalidAttemp = u.DateFirstInvalidAttemp,
-                    DateBlockedTo = u.DateBlockedTo,
+                    SuspendedDateTo = u.SuspendedDateTo,
 
                 }).FirstOrDefaultAsync();
 
@@ -38,11 +38,11 @@ namespace GB_Webpage.Services.Database.Users
             {
                 var newDatabaseUser = _context.BlockedUsers.Add
                     (
-                        new BlockedUserModel
+                        new SuspendedUserModel
                         {
                             Username = userName,
                             DateFirstInvalidAttemp = DateTime.UtcNow,
-                            DateBlockedTo = null
+                            SuspendedDateTo = null
                         }
                     );
 
@@ -57,7 +57,7 @@ namespace GB_Webpage.Services.Database.Users
         }
 
 
-        public async Task<bool> UpdateUserInBlockedlistAsync(int blockedUserId, BlockedUserModel blockedUserData)
+        public async Task<bool> UpdateUserInBlockedlistAsync(int blockedUserId, SuspendedUserModel blockedUserData)
         {
             try
             {
@@ -69,7 +69,7 @@ namespace GB_Webpage.Services.Database.Users
                 userQuery.Username = blockedUserData.Username;
                 userQuery.Attemps = blockedUserData.Attemps;
                 userQuery.DateFirstInvalidAttemp = blockedUserData.DateFirstInvalidAttemp;
-                userQuery.DateBlockedTo = blockedUserData.DateBlockedTo;
+                userQuery.SuspendedDateTo = blockedUserData.SuspendedDateTo;
 
                 await _context.SaveChangesAsync();
 
