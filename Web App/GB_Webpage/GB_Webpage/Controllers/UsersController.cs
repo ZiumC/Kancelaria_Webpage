@@ -20,9 +20,6 @@ namespace GB_Webpage.Controllers
         private readonly IUserService _userService;
 
         private readonly string _refreshTokenFolder;
-        //private readonly string _issuer;
-        //private readonly string _secretSignature;
-        //private readonly int _daysValid;
         private readonly int _maxAttemps;
         private readonly int _suspendDurationDays;
 
@@ -37,34 +34,10 @@ namespace GB_Webpage.Controllers
             _configuration = configuration;
             _userService = userService;
             _logger = logger;
-
-            //_issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
-            //_secretSignature = _configuration["SecretSignatureKey"];
-            //_daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
             _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
-            //_maxAttemps = int.Parse(_configuration["MaxLoginAttemps"]);
 
-            int maxAttemps = 3;
-            try
-            {
-                maxAttemps = int.Parse(_configuration["AppSettings:MaxLoginAttemps"]);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
-            }
-            _maxAttemps = maxAttemps;
-
-            int suspendDurationDays = 1;
-            try
-            {
-                suspendDurationDays = int.Parse(_configuration["AppSettings:BlockadeDaysDuration"]);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
-            }
-            _suspendDurationDays = suspendDurationDays; 
+            _suspendDurationDays = ParseToInt(_configuration["AppSettings:SuspendDuration"], 1);
+            _maxAttemps = ParseToInt(_configuration["AppSettings:MaxLoginAttemps"], 3);
 
 
             _statuses = new Dictionary<int, string>()
@@ -276,6 +249,22 @@ namespace GB_Webpage.Controllers
 
                 return StatusCode(452, "Tokens aren't valid to this server, login again");
             }
+        }
+
+
+        private int ParseToInt(string valuetToParse, int defaultValue)
+        {
+            int result = defaultValue;
+            try
+            {
+                result = int.Parse(valuetToParse);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
+            }
+
+            return result;
         }
     }
 }
