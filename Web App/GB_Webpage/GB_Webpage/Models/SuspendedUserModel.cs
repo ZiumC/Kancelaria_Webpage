@@ -2,7 +2,7 @@
 
 namespace GB_Webpage.Models
 {
-    public class BlockedUserModel
+    public class SuspendedUserModel
     {
         [Key]
         public int Id { get; set; }
@@ -12,6 +12,6 @@ namespace GB_Webpage.Models
         public int Attemps { get; set; }
         [Required]
         public DateTime DateFirstInvalidAttemp { get; set; }
-        public DateTime? DateBlockedTo { get; set; }
+        public DateTime? SuspendedDateTo { get; set; }
     }
 }

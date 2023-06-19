@@ -51,7 +51,7 @@ namespace GB_Webpage.Services.User
             {
                 daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 _logger.LogError(LogFormatterService.FormatException(ex, LogFormatterService.GetMethodName()));
             }
@@ -107,7 +107,7 @@ namespace GB_Webpage.Services.User
             return true;
         }
 
-        public bool isUserValidFor(LoginRequestDTO loginRequest) 
+        public bool isUserValidFor(LoginRequestDTO loginRequest)
         {
             UserModel user = new UserModel
             {
