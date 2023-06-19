@@ -1,5 +1,6 @@
 ﻿using GB_Webpage.DTOs;
 using GB_Webpage.Models;
+using GB_Webpage.Services.Database.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,16 +12,18 @@ namespace GB_Webpage.Services.User
 {
     public class UserService : IUserService
     {
-        private readonly ILogger<UserService> _logger;
+        private readonly IApiUsersService _apiUsersService;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<UserService> _logger;
 
         private readonly string _secretSignature;
         private readonly string _audience;
         private readonly string _issuer;
         private readonly string _salt;
 
-        public UserService(ILogger<UserService> logger, IConfiguration configuration)
+        public UserService(ILogger<UserService> logger, IConfiguration configuration, IApiUsersService apiUsersService)
         {
+            _apiUsersService = apiUsersService;
             _configuration = configuration;
             _logger = logger;
 
