@@ -15,6 +15,13 @@ namespace GB_Webpage.Services.Database.Users
             _context.Database.EnsureCreated();
             _logger = logger;
         }
+
+
+        public async Task<IEnumerable<SuspendedUserModel>> GetAllSuspendedUsers() 
+        {
+            return await _context.BlockedUsers.ToListAsync();
+        }
+
         public async Task<SuspendedUserModel?> GetUserDataFromBlacklistAsync(string userName)
         {
             SuspendedUserModel? userData = await _context.BlockedUsers

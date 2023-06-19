@@ -67,6 +67,7 @@ namespace GB_Webpage.Controllers
                 if (suspendedUserData.Attempts >= _maxAttemps && suspendedUserData.SuspendedDateTo == null)
                 {
                     suspendedUserData.SuspendedDateTo = DateTime.Now.AddDays(_suspendDuration);
+                    //Decreasing attempt by one gives an user only one chance to correct login.
                     suspendedUserData.Attempts -= 1;
                     bool isUpdated = await _apiUsersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
@@ -85,7 +86,7 @@ namespace GB_Webpage.Controllers
                         LogFormatterService.GetMethodName())
                     );
 
-                    SaveSuspendedUsers(request.Login);
+                    SaveSuspendedUsers();
 
                     return Unauthorized($"You can't login due to {suspendedUserData.SuspendedDateTo}.");
                 }
@@ -121,7 +122,7 @@ namespace GB_Webpage.Controllers
                         LogFormatterService.GetMethodName())
                     );
 
-                    SaveSuspendedUsers(request.Login);
+                    SaveSuspendedUsers();
                 }
             }
 
@@ -148,7 +149,7 @@ namespace GB_Webpage.Controllers
                         );
                     }
 
-                    SaveSuspendedUsers(request.Login);
+                    SaveSuspendedUsers();
 
                     return Unauthorized($"Login or password is wrong. You have {_maxAttemps} attemps left.");
                 }
@@ -165,7 +166,7 @@ namespace GB_Webpage.Controllers
                        );
                     }
 
-                    SaveSuspendedUsers(request.Login);
+                    SaveSuspendedUsers();
 
                     return Unauthorized($"Login or password is wrong. You have {_maxAttemps - suspendedUserData.Attempts} attemps left.");
                 }
@@ -196,7 +197,7 @@ namespace GB_Webpage.Controllers
                        );
                     }
 
-                    SaveSuspendedUsers(request.Login);
+                    SaveSuspendedUsers();
                 }
 
                 var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
@@ -280,13 +281,13 @@ namespace GB_Webpage.Controllers
             }
         }
 
-        private async void SaveSuspendedUsers(string userName)
+        private async void SaveSuspendedUsers()
         {
             string actionLog = "Saving suspended user to db";
-            SuspendedUserModel? suspendedUser = await _apiUsersService.GetUserDataFromBlacklistAsync(userName);
+            IEnumerable<SuspendedUserModel> suspendedUser = await _apiUsersService.GetAllSuspendedUsers();
             if (suspendedUser != null)
             {
-                _databaseFileService.SaveFile<SuspendedUserModel>(
+                _databaseFileService.SaveFile<IEnumerable<SuspendedUserModel>>(
                     suspendedUser,
                     _suspendedUsersFolder
                 );
