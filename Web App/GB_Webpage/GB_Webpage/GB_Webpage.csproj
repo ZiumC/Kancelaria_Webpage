@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <Folder Include="DatabaseFiles\Articles\" />
+    <Folder Include="DatabaseFiles\SuspendedUsers\" />
     <Folder Include="DatabaseFiles\RefreshToken\" />
   </ItemGroup>
 

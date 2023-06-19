@@ -28,14 +28,15 @@
   },
   "AppSettings": {
     "DaysValidToken": 1,
-    "BlockadeDaysDuration": 1,
+    "SuspendDuration": 1,
     "MaxLoginAttemps": 3
   },
   "Paths": {
     "DatabaseStorage": {
       "MainFolder": "DatabaseFiles",
       "ArticlesFolder": "Articles",
-      "RefreshTokenFolder": "RefreshToken"
+      "RefreshTokenFolder": "RefreshToken",
+      "SuspendedUsersFolder" : "SuspendedUsers"
     }
   },
   "EmailKey": "",

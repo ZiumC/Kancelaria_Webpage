@@ -23,7 +23,7 @@ namespace GB_Webpage.Services.Database.Users
                 {
                     Id = u.Id,
                     Username = u.Username,
-                    Attemps = u.Attemps,
+                    Attempts = u.Attempts,
                     DateFirstInvalidAttemp = u.DateFirstInvalidAttemp,
                     SuspendedDateTo = u.SuspendedDateTo,
 
@@ -67,7 +67,7 @@ namespace GB_Webpage.Services.Database.Users
                     .FirstAsync());
 
                 userQuery.Username = blockedUserData.Username;
-                userQuery.Attemps = blockedUserData.Attemps;
+                userQuery.Attempts = blockedUserData.Attempts;
                 userQuery.DateFirstInvalidAttemp = blockedUserData.DateFirstInvalidAttemp;
                 userQuery.SuspendedDateTo = blockedUserData.SuspendedDateTo;
 

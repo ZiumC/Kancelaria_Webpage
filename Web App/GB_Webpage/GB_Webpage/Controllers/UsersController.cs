@@ -16,12 +16,14 @@ namespace GB_Webpage.Controllers
         private readonly IConfiguration _configuration;
         private readonly IDatabaseFileService _databaseFileService;
         private readonly ILogger<UsersController> _logger;
-        private readonly IApiUsersService _usersService;
+        private readonly IApiUsersService _apiUsersService;
         private readonly IUserService _userService;
 
+        private readonly string _suspendedUsersFolder;
         private readonly string _refreshTokenFolder;
+
+        private readonly int _suspendDuration;
         private readonly int _maxAttemps;
-        private readonly int _suspendDurationDays;
 
 
         private readonly Dictionary<int, string> _statuses;
@@ -30,13 +32,15 @@ namespace GB_Webpage.Controllers
         public UsersController(IConfiguration configuration, IDatabaseFileService databaseFileService, ILogger<UsersController> logger, IApiUsersService apiUsersService, IUserService userService)
         {
             _databaseFileService = databaseFileService;
-            _usersService = apiUsersService;
+            _apiUsersService = apiUsersService;
             _configuration = configuration;
             _userService = userService;
             _logger = logger;
+
+            _suspendedUsersFolder = _configuration["Paths:DatabaseStorage:SuspendedUsersFolder"];
             _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
 
-            _suspendDurationDays = ParseToInt(_configuration["AppSettings:SuspendDuration"], 1);
+            _suspendDuration = ParseToInt(_configuration["AppSettings:SuspendDuration"], 1);
             _maxAttemps = ParseToInt(_configuration["AppSettings:MaxLoginAttemps"], 3);
 
 
@@ -56,19 +60,20 @@ namespace GB_Webpage.Controllers
             string actionLog = "User logging in";
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
-            SuspendedUserModel? suspendedUserData = await _usersService.GetUserDataFromBlacklistAsync(request.Login);
+            SuspendedUserModel? suspendedUserData = await _apiUsersService.GetUserDataFromBlacklistAsync(request.Login);
             if (suspendedUserData != null)
             {
-                if (suspendedUserData.Attemps >= _maxAttemps && suspendedUserData.SuspendedDateTo == null)
+                //Suspending user.
+                if (suspendedUserData.Attempts >= _maxAttemps && suspendedUserData.SuspendedDateTo == null)
                 {
-                    suspendedUserData.SuspendedDateTo = DateTime.Now.AddMinutes(_suspendDurationDays);
-                    suspendedUserData.Attemps -= 1;
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
+                    suspendedUserData.SuspendedDateTo = DateTime.Now.AddDays(_suspendDuration);
+                    suspendedUserData.Attempts -= 1;
+                    bool isUpdated = await _apiUsersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
                             actionLog,
-                            "Unable to update user in block list.",
+                            "Unable to update user in block list",
                             LogFormatterService.GetMethodName())
                         );
                     }
@@ -76,69 +81,93 @@ namespace GB_Webpage.Controllers
                     var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
                     _logger.LogWarning(LogFormatterService.FormatAction(
                         actionLog,
-                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is blocked to {suspendedUserData.SuspendedDateTo}.",
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is suspended to {suspendedUserData.SuspendedDateTo}.",
+                        LogFormatterService.GetMethodName())
+                    );
+
+                    SaveSuspendedUsers(request.Login);
+
+                    return Unauthorized($"You can't login due to {suspendedUserData.SuspendedDateTo}.");
+                }
+
+                //Checking if date is gt current date. If not suspend date is clearing.
+                if (suspendedUserData.SuspendedDateTo > DateTime.Now)
+                {
+                    var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
+                    _logger.LogWarning(LogFormatterService.FormatAction(
+                        actionLog,
+                        $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is suspended to {suspendedUserData.SuspendedDateTo}.",
                         LogFormatterService.GetMethodName())
                     );
 
                     return Unauthorized($"You can't login due to {suspendedUserData.SuspendedDateTo}.");
                 }
-
-                if (suspendedUserData.SuspendedDateTo > DateTime.Now)
-                {
-                    return Unauthorized($"You can't login due to {suspendedUserData.SuspendedDateTo}.");
-                }
                 else
                 {
                     suspendedUserData.SuspendedDateTo = null;
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
+                    bool isUpdated = await _apiUsersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
                             actionLog,
-                            "Unable to update user in block list.",
+                            "Unable to clear suspended date",
                             LogFormatterService.GetMethodName())
                         );
                     }
+
+                    _logger.LogInformation(LogFormatterService.FormatAction(
+                        actionLog,
+                        "Suspend date has been cleared",
+                        LogFormatterService.GetMethodName())
+                    );
+
+                    SaveSuspendedUsers(request.Login);
                 }
             }
 
+            //Access token will be returned if user is valid
             if (!_userService.isUserValidFor(request))
             {
                 var statusResponse = HttpService.SelectStatusBy(UNAUTHORIZED, _statuses);
-
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
-                            $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). User is invalid.",
-                            LogFormatterService.GetMethodName())
-                        );
+                    $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}). Username is invalid.",
+                    LogFormatterService.GetMethodName())
+                );
 
+                //If user hadn't been suspended yet - it will be added to db. Otherwise attempts will be increased.
                 if (suspendedUserData == null)
                 {
-                    bool isUserAdded = await _usersService.AddUserToBlocklistAsync(request.Login);
+                    bool isUserAdded = await _apiUsersService.AddUserToBlocklistAsync(request.Login);
                     if (!isUserAdded)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
                             actionLog,
-                           "Unable to add user to block list.",
+                            "Unable to add user to suspended users list.",
                             LogFormatterService.GetMethodName())
                         );
                     }
+
+                    SaveSuspendedUsers(request.Login);
 
                     return Unauthorized($"Login or password is wrong. You have {_maxAttemps} attemps left.");
                 }
                 else
                 {
-                    suspendedUserData.Attemps = suspendedUserData.Attemps + 1;
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
+                    suspendedUserData.Attempts = suspendedUserData.Attempts + 1;
+                    bool isUpdated = await _apiUsersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
                     if (!isUpdated)
                     {
                         _logger.LogCritical(LogFormatterService.FormatAction(
                            actionLog,
-                          "Unable to update user to block list.",
+                          "Unable to update user in suspended users list",
                            LogFormatterService.GetMethodName())
                        );
                     }
-                    return Unauthorized($"Login or password is wrong. You have {_maxAttemps - suspendedUserData.Attemps} attemps left.");
+
+                    SaveSuspendedUsers(request.Login);
+
+                    return Unauthorized($"Login or password is wrong. You have {_maxAttemps - suspendedUserData.Attempts} attemps left.");
                 }
             }
             else
@@ -152,29 +181,30 @@ namespace GB_Webpage.Controllers
                     UserName = request.Login
                 }, _refreshTokenFolder);
 
-                var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
+                if (suspendedUserData != null)
+                {
+                    suspendedUserData.Attempts = 0;
+                    suspendedUserData.SuspendedDateTo = null;
 
+                    bool isUpdated = await _apiUsersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
+                    if (!isUpdated)
+                    {
+                        _logger.LogCritical(LogFormatterService.FormatAction(
+                           actionLog,
+                          "Unable to update user in suspended users list",
+                           LogFormatterService.GetMethodName())
+                       );
+                    }
+
+                    SaveSuspendedUsers(request.Login);
+                }
+
+                var statusResponse = HttpService.SelectStatusBy(OK, _statuses);
                 _logger.LogInformation(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2} (User={request.Login}).",
                     LogFormatterService.GetMethodName())
                 );
-
-                if (suspendedUserData != null)
-                {
-                    suspendedUserData.Attemps = 0;
-                    suspendedUserData.SuspendedDateTo = null;
-
-                    bool isUpdated = await _usersService.UpdateUserInBlockedlistAsync(suspendedUserData.Id, suspendedUserData);
-                    if (!isUpdated)
-                    {
-                        _logger.LogCritical(LogFormatterService.FormatAction(
-                           actionLog,
-                          "Unable to update user to block list.",
-                           LogFormatterService.GetMethodName())
-                       );
-                    }
-                }
 
                 return Ok(new { accessToken = accessToken, refreshToken = refreshToken });
             }
@@ -240,7 +270,6 @@ namespace GB_Webpage.Controllers
             else
             {
                 var statusResponse = HttpService.SelectStatusBy(TOKEN_BROKEN, _statuses);
-
                 _logger.LogWarning(LogFormatterService.FormatAction(
                     actionLog,
                     $"StatusCode={statusResponse.Item1} - {statusResponse.Item2}.",
@@ -248,6 +277,27 @@ namespace GB_Webpage.Controllers
                 );
 
                 return StatusCode(452, "Tokens aren't valid to this server, login again");
+            }
+        }
+
+        private async void SaveSuspendedUsers(string userName)
+        {
+            string actionLog = "Saving suspended user to db";
+            SuspendedUserModel? suspendedUser = await _apiUsersService.GetUserDataFromBlacklistAsync(userName);
+            if (suspendedUser != null)
+            {
+                _databaseFileService.SaveFile<SuspendedUserModel>(
+                    suspendedUser,
+                    _suspendedUsersFolder
+                );
+            }
+            else
+            {
+                _logger.LogCritical(LogFormatterService.FormatAction(
+                   actionLog,
+                   "Suspended user is null!",
+                   LogFormatterService.GetMethodName())
+               );
             }
         }
 
