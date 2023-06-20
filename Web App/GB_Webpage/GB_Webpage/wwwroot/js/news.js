@@ -63,28 +63,47 @@ function convertDate(d) {
 
 
 $(document).ready(function () {
+    const maxRowsToShow = 10;
+    const startRow = 0;
+
     $('#news').after('<div id="paging-nav"></div>');
-    var rowsShown = 10;
-    var rowsTotal = $('#news tbody tr').length;
-    var numPages = rowsTotal / rowsShown;
-    for (i = 0; i < numPages; i++) {
-        var pageNum = i + 1;
+    const totalRows = $('#news tbody tr').length;
+    const numberOfPages = totalRows / maxRowsToShow;
+
+    for (i = startRow; i < numberOfPages; i++) {
+        const pageNum = i + 1;
         $('#paging-nav').append('<a class="btn btn-secondary" href="#" rel="' + i + '">' + pageNum + '</a> ');
     }
-    $('#data tbody tr').hide();
-    $('#data tbody tr').slice(0, rowsShown).show();
-    $('#paging-nav a:first').addClass('active btn-primary');
-    $('#paging-nav a:first').removeClass('btn-secondary');
-    $('#paging-nav a').bind('click', function () {
-        $('#paging-nav a').addClass('btn-secondary');
-        $('#paging-nav a').removeClass('active btn-primary');
-        $(this).addClass('active btn-primary');
-        $(this).removeClass('btn-secondary');
 
-        var currPage = $(this).attr('rel');
-        var startItem = currPage * rowsShown;
-        var endItem = startItem + rowsShown;
-        $('#news tbody tr').css('opacity', '0.0').hide().slice(startItem, endItem).
-            css('display', 'table-row').animate({ opacity: 1 }, 300);
+    $('#data tbody tr').hide();
+    $('#data tbody tr').slice(startRow, maxRowsToShow).show();
+
+    styleOfNext('#paging-nav a:first');
+    showTableRange(startRow, maxRowsToShow);
+
+    $('#paging-nav a').bind('click', function () {
+
+        styleOfPrevious('#paging-nav a');
+        styleOfNext(this);
+
+        const currPage = $(this).attr('rel');
+        const startItem = currPage * maxRowsToShow;
+        const endItem = startItem + maxRowsToShow;
+        showTableRange(startItem, endItem);
     });
 });
+
+function styleOfNext(element) {
+    $(element).addClass('active btn-primary');
+    $(element).removeClass('btn-secondary');
+}
+
+function styleOfPrevious(element) {
+    $(element).addClass('btn-secondary');
+    $(element).removeClass('active btn-primary');
+}
+
+function showTableRange(start, end) {
+    $('#news tbody tr').css('opacity', '0.0').hide().slice(start, end).
+        css('display', 'table-row').animate({ opacity: 1 }, 300);
+}
