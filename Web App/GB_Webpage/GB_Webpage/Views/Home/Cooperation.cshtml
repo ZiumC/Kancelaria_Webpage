@@ -12,6 +12,8 @@
     var title = @Html.Raw(cooperation["1_title_rectangle"]);
     var subtitle = @Html.Raw(cooperation["2.1_introduction"]);
 
+    var noteText = Html.Raw(cooperation[$"4.3_rightside_container"]);
+
     var lengthOfLeftside = 5;
     var lengthOfRightside = 2;
 }
@@ -83,7 +85,7 @@
                 <div class="note-container">
                     <p class="note content-text ">
                         <a id="note-dark-text" asp-controller="home" asp-action="contact">
-                            <strong>@Html.Raw(cooperation[$"4.3_rightside_container"])</strong><i id="arrow" class="dark-arrow"></i>
+                            <strong>@noteText</strong><i id="arrow" class="dark-arrow"></i>
                         </a>
                     </p>
                 </div>

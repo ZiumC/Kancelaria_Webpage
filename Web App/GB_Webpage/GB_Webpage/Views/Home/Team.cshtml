@@ -8,8 +8,12 @@
     ViewBag.Title = team["0_title_tab"];
 
     var jsError = @Html.Raw(alert["0_js_error"]);
+
     var title = @Html.Raw(team["1_title_rectangle"]);
     var subtitle = @Html.Raw(team["2.1_introduction"]);
+
+    var noteText1 = @Html.Raw(team["4.1_rightside_container"]);
+    var noteText2 = Html.Raw(team["4.2_rightside_container"]);
 
     var lengthOfLeftside = 4;
 }
@@ -63,11 +67,11 @@
                 <div class="row">
                     <div class="note-container">
                         <p class="note content-text">
-                            @Html.Raw(team["4.1_rightside_container"])
+                            @noteText1
                         </p>
                         <p class="note content-text ">
                             <a id="note-dark-text" asp-controller="home" asp-action="specializations">
-                                @Html.Raw(team["4.2_rightside_container"])<i id="arrow" class="dark-arrow"></i>
+                                @noteText2<i id="arrow" class="dark-arrow"></i>
                             </a>
                         </p>
                     </div>
