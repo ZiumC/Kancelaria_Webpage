@@ -8,8 +8,11 @@
     ViewBag.Title = contact["0_title_tab"];
 
     var jsError = @Html.Raw(alert["0_js_error"]);
+    var title = @Html.Raw(contact["1_title_rectangle"]);
+    var subtitle = Html.Raw(contact["2.1_introduction"]);
 
     var lengthOfLeftside = 4;
+
 }
 <!DOCTYPE html>
 <html>
@@ -22,7 +25,7 @@
 <body>
 
     <div class="title-rectangle">
-        <h1 class="title-text">@Html.Raw(contact["1_title_rectangle"])</h1>
+        <h1 class="title-text">@title</h1>
     </div>
 
     <noscript>
@@ -33,10 +36,10 @@
         </div>
     </noscript>
 
-    <div class="introduction-container">
+    <div class="subtitle-container">
         <div class="row">
-            <p class="introduced-text">
-                @Html.Raw(contact["2.1_introduction"])
+            <p class="subtitle-text">
+                @subtitle
             </p>
         </div>
     </div>

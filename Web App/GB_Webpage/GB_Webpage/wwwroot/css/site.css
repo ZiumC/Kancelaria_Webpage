@@ -27,14 +27,14 @@ body {
     font-size: 7.7ex;
 }
 
-.introduction-container {
+.subtitle-container {
     margin: auto;
     width: 80%;
     text-align: center;
     padding-bottom: 3ex;
 }
 
-.introduced-text {
+.subtitle-text {
     font-family: 'Oxygen', sans-serif;
     text-align: center;
     font-size: 2.8ex;

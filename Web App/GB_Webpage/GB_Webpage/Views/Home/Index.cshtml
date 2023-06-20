@@ -9,10 +9,11 @@
 
     var jsError = @Html.Raw(alert["0_js_error"]);
 
+    var subtitle1 = @Html.Raw(mainPage["3.1_introduction"]);
+    var subtitle2 = @Html.Raw(mainPage["3.2_introduction"]);
+
     var quote1 = @Html.Raw(mainPage["2.1_quote"]);
     var quote2 = @Html.Raw(mainPage["2.2_quote"]);
-    var introduction1 = @Html.Raw(mainPage["3.1_introduction"]);
-    var introduction2 = @Html.Raw(mainPage["3.2_introduction"]);
 
     var lengthOfLeftside = 4;
     var lengthOfRightside = 4;
@@ -52,11 +53,11 @@
         </div>
     </noscript>
 
-    <div class="introduction-container">
-        <h1>@introduction1</h1>
+    <div class="subtitle-container">
+        <h1>@subtitle1</h1>
         <div class="row">
-            <p class="introduced-text">
-                @introduction2
+            <p class="subtitle-text">
+                @subtitle2
             </p>
         </div>
     </div>
