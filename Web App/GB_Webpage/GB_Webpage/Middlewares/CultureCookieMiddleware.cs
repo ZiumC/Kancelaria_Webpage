@@ -7,7 +7,8 @@ namespace GB_Webpage.Middlewares
     public class CultureCookieMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly string[] supportedCultures = new string[] { "pl-PL", "de-DE", "en-US" };
+        //private readonly string[] supportedCultures = new string[] { "pl-PL", "de-DE", "en-US" };
+        private readonly string[] supportedCultures = new string[] { "pl-PL", "en-US" };
 
         public CultureCookieMiddleware(RequestDelegate next)
         {

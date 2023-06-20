@@ -25,7 +25,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 {
     options.DefaultRequestCulture = new RequestCulture("pl-PL");
 
-    var supportedCultures = new string[] { "pl-PL", "de-DE", "en-US" };
+    //var supportedCultures = new string[] { "pl-PL", "de-DE", "en-US" };
+    var supportedCultures = new string[] { "pl-PL", "en-US" };
 
     options.AddSupportedCultures(supportedCultures);
     options.AddSupportedUICultures(supportedCultures);
