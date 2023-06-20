@@ -27,6 +27,10 @@ function sortElementsBy(type) {
 
     let newsTable = document.querySelector('#news tbody');
 
+    if (newsTable == null) {
+        return;
+    }
+
     let rows = [].slice.call(newsTable.querySelectorAll("tr"));
 
     rows.sort(function (a, b) {
