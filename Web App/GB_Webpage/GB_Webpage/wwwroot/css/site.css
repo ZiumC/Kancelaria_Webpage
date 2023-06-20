@@ -91,6 +91,16 @@ div.alert-container div:first-child {
     content: url(/icons/right-arrow-dark.png);
 }
 
+#paging-nav {
+    text-align: center;
+}
+
+#paging-nav a.btn-primary {
+    background-color: #183B7A;
+    border-color: #183B7A;
+    box-shadow: none;
+}
+
 @keyframes opacity-animation {
     from {
         opacity: 0;
