@@ -8,8 +8,17 @@
     ViewBag.Title = contact["0_title_tab"];
 
     var jsError = @Html.Raw(alert["0_js_error"]);
+
     var title = @Html.Raw(contact["1_title_rectangle"]);
     var subtitle = Html.Raw(contact["2.1_introduction"]);
+
+    var nameLabel1 = @Html.Raw(contact["4.1_rightside_container"]);
+    var nameLabel2 = @Html.Raw(contact["4.4_rightside_container"]);
+    var messageLabel1 = @Html.Raw(contact["4.2_rightside_container"]);
+    var messageLabel2 = @Html.Raw(contact["4.4_rightside_container"]);
+    var emailLabel1 = @Html.Raw(contact["4.4_rightside_container"]);
+
+    var buttonContent = @Html.Raw(contact["4.3_rightside_container"]);
 
     var lengthOfLeftside = 4;
 
@@ -85,8 +94,8 @@
                     <form id="contact-form" class="content-text" asp-controller="home" asp-action="validateemail" method="post">
                         <div class="form-group">
                             <div class="form-heading">
-                                <label for="Name">@Html.Raw(contact["4.1_rightside_container"]): <span class="symbol-required">*</span></label>
-                                <input id="input-name" asp-for="Name" class="form-control" type="text" placeholder="2-50 @Html.Raw(contact["4.4_rightside_container"])" autocomplete="off" />
+                                <label for="Name">@nameLabel1: <span class="symbol-required">*</span></label>
+                                <input id="input-name" asp-for="Name" class="form-control" type="text" placeholder="2-50 @nameLabel2" autocomplete="off" />
                             </div>
                             <span id="error-name" class="text-danger"></span>
                         </div>
@@ -94,14 +103,14 @@
                         <div class="form-group">
                             <div class="form-heading">
                                 <label for="Email">E-mail: <span class="symbol-required">*</span></label>
-                                <input id="input-email" asp-for="Email" class="form-control" type="text" placeholder="2-50 @Html.Raw(contact["4.4_rightside_container"])" autocomplete="off" />
+                                <input id="input-email" asp-for="Email" class="form-control" type="text" placeholder="2-50 @emailLabel1" autocomplete="off" />
                             </div>
                             <span id="error-email" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
-                            <label for="Message">@Html.Raw(contact["4.2_rightside_container"]): <span class="symbol-required">*</span></label>
-                            <textarea id="input-message" asp-for="Message" class="form-control contact-message" maxlength="5000" type="text" rows="13" placeholder="10-5000 @Html.Raw(contact["4.4_rightside_container"])" autocomplete="off"></textarea>
+                            <label for="Message">@messageLabel1: <span class="symbol-required">*</span></label>
+                            <textarea id="input-message" asp-for="Message" class="form-control contact-message" maxlength="5000" type="text" rows="13" placeholder="10-5000 @messageLabel2" autocomplete="off"></textarea>
                             <div class="row">
                                 <div class="col">
                                     <span id="error-message" class="text-danger"></span>
@@ -113,7 +122,7 @@
                         </div>
 
                         <div class="button-container">
-                            <input id="send-button" type="submit" value="@Html.Raw(contact["4.3_rightside_container"])" class="btn btn-secondary" onclick="    validate();" />
+                            <input id="send-button" type="submit" value="@buttonContent" class="btn btn-secondary" onclick="    validate();" />
                         </div>
                     </form>
                 </div>
