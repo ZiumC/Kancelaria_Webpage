@@ -37,11 +37,11 @@ namespace GB_Webpage.Controllers
             _userService = userService;
             _logger = logger;
 
-            _suspendedUsersFolder = _configuration["Paths:DatabaseStorage:SuspendedUsersFolder"];
-            _refreshTokenFolder = _configuration["Paths:DatabaseStorage:RefreshTokenFolder"];
+            _suspendedUsersFolder = _configuration["ApplicationSettings:DatabaseSettings:Paths:SuspendedUsersFolder"];
+            _refreshTokenFolder = _configuration["ApplicationSettings:DatabaseSettings:Paths:RefreshTokenFolder"];
 
-            _suspendDuration = ParseToInt(_configuration["AppSettings:SuspendDuration"], 1);
-            _maxAttemps = ParseToInt(_configuration["AppSettings:MaxLoginAttemps"], 3);
+            _suspendDuration = ParseToInt(_configuration["ApplicationSettings:UsersSettings:SuspendedUsersSettings:SuspendDurationDays"], 1);
+            _maxAttemps = ParseToInt(_configuration["ApplicationSettings:UsersSettings:SuspendedUsersSettings:MaxLoginAttemps"], 3);
 
 
             _statuses = new Dictionary<int, string>()

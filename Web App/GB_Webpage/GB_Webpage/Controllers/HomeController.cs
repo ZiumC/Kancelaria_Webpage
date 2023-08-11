@@ -58,7 +58,7 @@ namespace GB_Webpage.Controllers
             IEnumerable<ArticleModel>? articles = new List<ArticleModel>();
             try
             {
-                string url = _configuration["ApiUrl"];
+                string url = _configuration["ApplicationSettings:ArticlesSettings:ArticlesApiUrl"];
                 articles = await HttpService.DoGetCollection<ArticleModel>(url);
             }
             catch (Exception ex)
@@ -86,9 +86,9 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
-                    string emailKey = _configuration["EmailKey"];
-                    string emailSendsForm = _configuration["EmailSendsForm"];
-                    string emailRecivesForm = _configuration["EmailRecivesForm"];
+                    string emailKey = _configuration["ApplicationSettings:FormSettings:EmailSenderKey"];
+                    string emailSendsForm = _configuration["ApplicationSettings:FormSettings:EmailSender"];
+                    string emailRecivesForm = _configuration["ApplicationSettings:FormSettings:EmailReceiver"];
 
                     SendMailService mailService = new SendMailService(emailKey, emailSendsForm, emailRecivesForm, contact);
 

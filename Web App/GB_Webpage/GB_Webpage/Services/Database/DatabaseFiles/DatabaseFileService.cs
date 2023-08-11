@@ -17,7 +17,7 @@ namespace GB_Webpage.Services.Database.DatabaseFiles
 
         private string GetDirFiles(string folder)
         {
-            string pathToDir = $"{Environment.CurrentDirectory}/{_configuration["Paths:DatabaseStorage:MainFolder"]}/{folder}";
+            string pathToDir = $"{Environment.CurrentDirectory}/{_configuration["ApplicationSettings:DatabaseSettings:Paths:MainFolder"]}/{folder}";
             string[] fileEntries = null;
 
             try
