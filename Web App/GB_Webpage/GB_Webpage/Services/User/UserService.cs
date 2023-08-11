@@ -115,16 +115,27 @@ namespace GB_Webpage.Services.User
             UserModel user = new UserModel
             {
                 Login = _configuration["ApplicationSettings:UsersSettings:UserCreditionals:Login"],
-                Password = _configuration["ApplicationSettings:UsersSettings:UserCreditionals::Password"]
+                Password = _configuration["ApplicationSettings:UsersSettings:UserCreditionals:Password"]
             };
 
             if (!loginRequest.Login.Equals(user.Login))
             {
+                
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                    "User login",
+                    $"Username is invalid! Passed login: {loginRequest.Login}",
+                    LogFormatterService.GetMethodName())
+                );
                 return false;
             }
 
             if (!VerifyPassword(user, loginRequest.Password))
             {
+                _logger.LogWarning(LogFormatterService.FormatAction(
+                   "User login",
+                   $"Password is invalid! Passed password: {loginRequest.Password}",
+                   LogFormatterService.GetMethodName())
+               );
                 return false;
             }
 
