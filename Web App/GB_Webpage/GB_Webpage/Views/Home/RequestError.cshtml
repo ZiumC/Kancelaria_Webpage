@@ -1,14 +1,13 @@
 ﻿@page
 @using Microsoft.Extensions.Localization
 @using GB_Webpage.Resources;
-@*@inject IStringLocalizer<Team> team;
-@inject IStringLocalizer<Alert> alert;*@
+@inject IStringLocalizer<RequestError> error;
+
 
 @{
-    //ViewBag.Title = team["0_title_tab"];
-    ViewBag.Title = "Błąd";
-    //var title = @Html.Raw(team["1_title_rectangle"]);
-    //var subtitle = @Html.Raw(team["2.1_introduction"]);
+    ViewBag.Title = @Html.Raw(error["0_title_tab"]);
+    var errorText = @Html.Raw(error["1_error_text"]);
+    var errorReason = @Html.Raw(error["2_error_reason"]);
 
 }
 <!DOCTYPE html>
@@ -32,6 +31,12 @@
     </div>
 
     <div class="row">
+        <p class="subtitle-text">
+            @errorText
+        </p>
+        <p class="subtitle-text">
+            @errorReason
+        </p>
     </div>
 
 </body>
