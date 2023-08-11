@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Xml.Linq;
@@ -16,8 +17,6 @@ namespace GB_Webpage.Services
         /// <returns>Formatted string ready to save in log app.</returns>
         public static string FormatRequest(HttpContext context, string? methodName)
         {
-            string result = string.Empty;
-
             string? clientIp = context.Connection.RemoteIpAddress?.ToString();
             var clientParameters = context.Request.Query.ToList();
 
@@ -35,9 +34,7 @@ namespace GB_Webpage.Services
                 quertyString = string.Empty;
             }
 
-            result = $"REQUEST\t\tMethod:{methodName}\tIp:{clientIp}\tQueryString:{quertyString}";
-
-            return result;
+            return $"REQUEST\t\tMethod:{FormatValueToLogOf(methodName)}\tIp:{clientIp}\tQueryString:{FormatValueToLogOf(quertyString)}\t";
         }
 
         /// <summary>
@@ -58,14 +55,10 @@ namespace GB_Webpage.Services
         /// <returns>Formatted string ready to save in log app.</returns>
         public static string FormatException(Exception e, string? methodName)
         {
-            string result = string.Empty;
-
             var stackTrace = new StackTrace(e, true);
             var frame = stackTrace.GetFrame(0);
 
-            result = $"EXCEPTION\t\tMethod:{methodName}\tException:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
-
-            return result;
+            return $"EXCEPTION\t\tMethod:{FormatValueToLogOf(methodName)}\tException:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
         }
 
         /// <summary>
@@ -76,12 +69,16 @@ namespace GB_Webpage.Services
         /// <returns>Formatted string ready to save in log app.</returns>
         public static string FormatAction(string action, string? details, string? methodName)
         {
-            string result = string.Empty;
-
-            result = $"ACTION\t\tMethod:{methodName}\tAction:{action}\tDetails:{details}";
-
-            return result;
+            return $"ACTION\t\tMethod:{FormatValueToLogOf(methodName)}\tAction:{action}\tDetails:{FormatValueToLogOf(details)}";
         }
 
+        private static string FormatValueToLogOf(string? value) 
+        {
+            if (value == null || value.Replace("\\s", "").Equals(""))
+            {
+                return "-no value-";
+            }
+            return value;
+        }
     }
 }
