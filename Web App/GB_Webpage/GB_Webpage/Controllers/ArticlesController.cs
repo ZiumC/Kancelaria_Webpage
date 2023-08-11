@@ -29,7 +29,7 @@ namespace GB_Webpage.Controllers
             _logger = logger;
             _configuration = configuration;
             _apiService = apiService;
-            _ArticlesFolder = _configuration["Paths:DatabaseStorage:ArticlesFolder"];
+            _ArticlesFolder = _configuration["ApplicationSettings:DatabaseSettings:Paths:ArticlesFolder"];
 
             _statuses = new Dictionary<int, string>()
             {

@@ -54,7 +54,7 @@ builder.Services.AddAuthentication(options =>
 
 }).AddJwtBearer(options =>
 {
-    var issuer = builder.Configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
+    var issuer = builder.Configuration["ApplicationSettings:JwtSettings:Issuer"];
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -63,7 +63,7 @@ builder.Services.AddAuthentication(options =>
         ClockSkew = TimeSpan.FromMinutes(1),
         ValidIssuer = issuer,
         ValidAudience = issuer,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["SecretSignatureKey"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["ApplicationSettings:JwtSettings:SecretSignatureKey"]))
     };
 
     options.Events = new JwtBearerEvents

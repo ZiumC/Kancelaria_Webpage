@@ -21,8 +21,8 @@ namespace GB_Webpage.Data
             _configuration = configuration;
             _logger = logger;
 
-            _suspendedUsersFolder = _configuration["Paths:DatabaseStorage:SuspendedUsersFolder"];
-            _articlesFolder = _configuration["Paths:DatabaseStorage:ArticlesFolder"];
+            _suspendedUsersFolder = _configuration["ApplicationSettings:DatabaseSettings:Paths:SuspendedUsersFolder"];
+            _articlesFolder = _configuration["ApplicationSettings:DatabaseSettings:Paths:ArticlesFolder"];
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

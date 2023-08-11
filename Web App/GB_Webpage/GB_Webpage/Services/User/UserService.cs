@@ -27,10 +27,10 @@ namespace GB_Webpage.Services.User
             _configuration = configuration;
             _logger = logger;
 
-            _secretSignature = _configuration["SecretSignatureKey"];
-            _audience = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
-            _issuer = _configuration["profiles:GB_Webpage:applicationUrl"].Split(";")[0];
-            _salt = _configuration["User:salt"];
+            _secretSignature = _configuration["ApplicationSettings:JwtSettings:SecretSignatureKey"];
+            _audience = _configuration["ApplicationSettings:JwtSettings:Issuer"];
+            _issuer = _configuration["ApplicationSettings:JwtSettings:Issuer"];
+            _salt = _configuration["ApplicationSettings:UsersSettings:UserCreditionals:Salt"];
         }
 
         public string GenerateRefreshToken()
@@ -52,7 +52,7 @@ namespace GB_Webpage.Services.User
             int daysValid = 1;
             try
             {
-                daysValid = int.Parse(_configuration["profiles:GB_Webpage:DaysValidToken"]);
+                daysValid = int.Parse(_configuration["ApplicationSettings:JwtSettings:DaysValidToken"]);
             }
             catch (Exception ex)
             {
@@ -114,8 +114,8 @@ namespace GB_Webpage.Services.User
         {
             UserModel user = new UserModel
             {
-                Login = _configuration["User:Login"],
-                Password = _configuration["User:Password"]
+                Login = _configuration["ApplicationSettings:UsersSettings:UserCreditionals:Login"],
+                Password = _configuration["ApplicationSettings:UsersSettings:UserCreditionals::Password"]
             };
 
             if (!loginRequest.Login.Equals(user.Login))
