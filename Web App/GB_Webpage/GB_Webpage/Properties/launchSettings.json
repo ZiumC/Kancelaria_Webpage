@@ -15,6 +15,7 @@
       "applicationUrl": "https://localhost:443;http://localhost:80",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
+        //"ASPNETCORE_ENVIRONMENT": "Relase"
       }
     },
     "IIS Express": {
