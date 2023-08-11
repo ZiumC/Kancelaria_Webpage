@@ -58,6 +58,12 @@
     <EmbeddedResource Update="Resources\Cooperation.pl-PL.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Resources\RequestError.de-DE.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\RequestError.en-US.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\RequestError.pl-PL.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>

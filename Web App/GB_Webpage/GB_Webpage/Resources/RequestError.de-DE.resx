@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="0_title_tab" xml:space="preserve">
-    <value>Błąd! | Kancelaria Prawna</value>
+    <value>Fehler! | Kanzlei der Rechtsberater</value>
     <comment>Nagłówek karty w przeglądarce</comment>
   </data>
   <data name="1_error_text" xml:space="preserve">
-    <value>&lt;strong&gt;Coś poszło nie tak.&lt;/strong&gt;</value>
+    <value>&lt;strong&gt;Etwas ist schief gelaufen. &lt;/strong&gt;</value>
     <comment>Błąd</comment>
   </data>
   <data name="2_error_reason" xml:space="preserve">
-    <value>Szukany zasób nie może zostać znaleziony lub wystąpił inny nieoczekiwany błąd.</value>
+    <value>Die angeforderte Ressource konnte nicht gefunden werden oder es ist ein anderer Fehler aufgetreten.</value>
     <comment>Przyczyna</comment>
   </data>
 </root>
