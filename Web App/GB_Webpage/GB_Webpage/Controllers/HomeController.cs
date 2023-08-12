@@ -111,7 +111,14 @@ namespace GB_Webpage.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error(int statusCode)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, StatusCode = statusCode });
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
+
+            return View(
+                new ErrorViewModel { 
+                    RequestId = HttpContext.TraceIdentifier, 
+                    ActivtyId = Activity.Current?.Id, 
+                    StatusCode = statusCode 
+                });
         }
     }
 }

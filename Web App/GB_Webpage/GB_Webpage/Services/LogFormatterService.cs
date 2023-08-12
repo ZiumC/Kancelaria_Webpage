@@ -34,7 +34,12 @@ namespace GB_Webpage.Services
                 quertyString = string.Empty;
             }
 
-            return $"REQUEST\t\tMethod:{FormatValueToLogOf(methodName)}\tIp:{clientIp}\tQueryString:{FormatValueToLogOf(quertyString)}\tRequestId:{FormatValueToLogOf(context.TraceIdentifier)}";
+            return $"REQUEST\t\t" +
+                $"Method:{FormatValueToLogOf(methodName)}\t" +
+                $"Ip:{clientIp}\t" +
+                $"QueryString:{FormatValueToLogOf(quertyString)}\t" +
+                $"RequestId:{FormatValueToLogOf(context.TraceIdentifier)}\t" +
+                $"ActivityId:{FormatValueToLogOf(Activity.Current?.Id)}";
         }
 
         /// <summary>
@@ -58,7 +63,10 @@ namespace GB_Webpage.Services
             var stackTrace = new StackTrace(e, true);
             var frame = stackTrace.GetFrame(0);
 
-            return $"EXCEPTION\t\tMethod:{FormatValueToLogOf(methodName)}\tException:{e.Message}\tAt:{frame?.GetFileLineNumber()}";
+            return $"EXCEPTION\t\t" +
+                $"Method:{FormatValueToLogOf(methodName)}\t" +
+                $"Exception:{e.Message}\t" +
+                $"At:{frame?.GetFileLineNumber()}";
         }
 
         /// <summary>
@@ -69,7 +77,10 @@ namespace GB_Webpage.Services
         /// <returns>Formatted string ready to save in log app.</returns>
         public static string FormatAction(string action, string? details, string? methodName)
         {
-            return $"ACTION\t\tMethod:{FormatValueToLogOf(methodName)}\tAction:{action}\tDetails:{FormatValueToLogOf(details)}";
+            return $"ACTION\t\t" +
+                $"Method:{FormatValueToLogOf(methodName)}\t" +
+                $"Action:{action}\t" +
+                $"Details:{FormatValueToLogOf(details)}";
         }
 
         private static string FormatValueToLogOf(string? value) 
