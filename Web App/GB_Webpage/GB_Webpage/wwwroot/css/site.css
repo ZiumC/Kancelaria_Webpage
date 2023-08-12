@@ -15,6 +15,7 @@ body {
     justify-content: center;
     align-items: center;
     display: flex;
+    margin-top: 9ex;
     margin-bottom: 3ex;
 }
 
