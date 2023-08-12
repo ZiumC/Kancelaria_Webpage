@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="0_title_tab" xml:space="preserve">
-    <value>About us | Grzegorz Bochnacki - Legal Counsel Office</value>
+    <value>About us | Legal Counsel Office</value>
     <comment>Header in browser tab</comment>
   </data>
   <data name="1_js_error" xml:space="preserve">
