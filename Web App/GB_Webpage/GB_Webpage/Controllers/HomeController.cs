@@ -107,11 +107,7 @@ namespace GB_Webpage.Controllers
             }
         }
 
-        public IActionResult RequestError() 
-        {
-            return View();
-        }
-
+        [Route("Error/{statusCode}")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
