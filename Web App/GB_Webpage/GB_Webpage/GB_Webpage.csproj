@@ -8,6 +8,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="wwwroot\css\contact.css" />
+	  <Content Remove="wwwroot\css\cooperation.css" />
 	  <Content Remove="wwwroot\css\index.css" />
 	  <Content Remove="wwwroot\css\news.css" />
 	  <Content Remove="wwwroot\css\specializations.css" />
@@ -22,6 +24,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Include="wwwroot\css\contact.css" />
+	  <None Include="wwwroot\css\cooperation.css" />
 	  <None Include="wwwroot\css\index.css" />
 	  <None Include="wwwroot\css\news.css" />
 	  <None Include="wwwroot\css\specializations.css" />
