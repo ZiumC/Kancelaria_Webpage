@@ -18,9 +18,13 @@
 	text-align: right;
 }
 
+div.quoted-title p:first-child {
+	margin-bottom: 0.2ex;
+}
+
 .quoted-text {
 	font-size: 4ex;
-	margin-bottom: -0.5ex;
+	line-height: 2.5ex;
 }
 
 h1 {
