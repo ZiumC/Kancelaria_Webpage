@@ -1,18 +1,8 @@
-﻿@page
-@using Microsoft.Extensions.Localization
-@using GB_Webpage.Resources;
-@inject IStringLocalizer<RequestError> error;
-
-
-@{
-    ViewBag.Title = @Html.Raw(error["0_title_tab"]);
-    var errorText = @Html.Raw(error["1_error_text"]);
-    var errorReason = @Html.Raw(error["2_error_reason"]);
-
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
+    <title>Error has occured :(</title>
+    <link rel="icon" href="/images/tab_logo.png" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -20,22 +10,17 @@
 <body>
     <div class="row">
         <div class="text-center animation-container">
-            <img src="/images/notfound.gif" />
+            <p style="font-size: 20ex; color:red">:(</p>
+            <img style="margin-bottom: 10ex;" src="/images/notfound.gif" />
         </div>
     </div>
 
-    <div class="subtitle-container">
-        <div class="row">
-            
-        </div>
-    </div>
-
-    <div class="row">
+    <div class="row text-center">
         <p class="subtitle-text">
-            @errorText
+            <strong>Something went wrong.</strong>
         </p>
         <p class="subtitle-text">
-            @errorReason
+            Unable to find requested resource or different error has occurred.
         </p>
     </div>
 
