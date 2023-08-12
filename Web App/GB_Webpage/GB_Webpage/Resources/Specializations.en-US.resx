@@ -368,23 +368,4 @@
     <value>Court disputes, execution</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.5_rightside_container_card_body" xml:space="preserve">
-    <value>"&lt;p style=\"color:#ff0000\"&gt;zezwolenia na pracę typ A, B, C, D.&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;prowadzenie postępowań zabezpieczających,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;karta czasowego pobytu na podstawie innych okoliczności,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;karta stałego pobytu,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;karta rezydenta długoterminowego UE,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;zaproszenia dla cudzoziemców każdego rodzaju,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;obywatelstwo Polskie – pomoc w uzyskaniu,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;odwołania od decyzji administracyjnej,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;pomoc w wypełnianiu wniosków,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;konsultację.&lt;/p&gt;",</value>
-    <comment>Prawy panel -Zawartość karty</comment>
-  </data>
-  <data name="3.5_rightside_container_card_header" xml:space="preserve">
-    <value>&lt;p style=\"color:#ff0000\"&gt;[Tą sekcję trzeba przetłumaczyć]&lt;/p&gt;</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
-  </data>
 </root>
