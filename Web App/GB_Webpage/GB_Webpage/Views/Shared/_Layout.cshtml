@@ -33,7 +33,7 @@
     <link rel="shortcut icon" href="~/images/tab_logo.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/GB_Webpage.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/_layout.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap" rel="stylesheet">
@@ -73,32 +73,30 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar-light mb-3">
-            <ul class="navbar-nav settings-bar">
-                <li>
-                    <form method="post" action="~/?culture=pl-PL">
-                        <button type="submit" class="btn btn-sm">
-                            <img class="settings-icon" src="/lang-icons/poland-flag.png" alt="PL" />
-                        </button>
-                    </form>
-
-                    <form method="post" action="~/?culture=en-US">
-                        <button type="submit" class="btn btn-sm">
-                            <img class="settings-icon" src="/lang-icons/uk-flag.png" alt="EN" />
-                        </button>
-                    </form>
-
-                    @*<form method="post" action="~/?culture=de-DE">
-                        <button type="submit" class="btn btn-sm">
-                            <img class="settings-icon" src="/lang-icons/germany-flag.png" alt="DE" />
-                        </button>
-                    </form>*@
-                    <button id="theme-button" class="btn btn-sm">
-                        <i id="theme-icon" class="dark-theme"></i>
+        <ul class="navbar-nav settings-bar">
+            <li>
+                <form method="post" action="~/?culture=pl-PL">
+                    <button type="submit" class="btn btn-sm">
+                        <img class="settings-icon" src="/lang-icons/poland-flag.png" alt="PL" />
                     </button>
-                </li>
-            </ul>
-        </nav>
+                </form>
+
+                <form method="post" action="~/?culture=en-US">
+                    <button type="submit" class="btn btn-sm">
+                        <img class="settings-icon" src="/lang-icons/uk-flag.png" alt="EN" />
+                    </button>
+                </form>
+
+                @*<form method="post" action="~/?culture=de-DE">
+                <button type="submit" class="btn btn-sm">
+                <img class="settings-icon" src="/lang-icons/germany-flag.png" alt="DE" />
+                </button>
+                </form>*@
+                <button id="theme-button" class="btn btn-sm">
+                    <i id="theme-icon" class="dark-theme"></i>
+                </button>
+            </li>
+        </ul>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
