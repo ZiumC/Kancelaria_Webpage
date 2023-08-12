@@ -15,7 +15,12 @@
     var noteText1 = @Html.Raw(team["4.1_rightside_container"]);
     var noteText2 = Html.Raw(team["4.2_rightside_container"]);
 
-    var lengthOfLeftside = 4;
+    int lengthOfLeftside = 4;
+
+    if (@ViewBag.SelectedLanguage == "en-US")
+    {
+        lengthOfLeftside = 3;
+    }
 }
 <!DOCTYPE html>
 <html>

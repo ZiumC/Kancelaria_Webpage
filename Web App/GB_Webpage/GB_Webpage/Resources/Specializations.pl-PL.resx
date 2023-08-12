@@ -123,7 +123,55 @@
   <data name="1_title_rectangle" xml:space="preserve">
     <value>Specjalizacje</value>
   </data>
-  <data name="2.1_leftside_container_card_body" xml:space="preserve">
+  <data name="2.10_card_body" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;reprezentowanie klientów przed sądami powszechnymi we wszelkich instancjach,&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań zabezpieczających,&lt;/li&gt;
+
+&lt;li&gt;przygotowanie pism procesowych w postępowaniach cywilnych, karnych, pracowniczych oraz administracyjnych,&lt;/li&gt;
+
+&lt;li&gt;negocjowanie i zawieranie ugód przed sądami powszechnymi,&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań egzekucyjnych po stronie dłużnika i wierzyciela,&lt;/li&gt;
+
+&lt;li&gt;prowadzenie postępowań przeciw egzekucyjnych, zaskarżanie postanowień komorniczych i inne środki ochrony prawnej dłużnika przed wierzycielami,&lt;/li&gt;
+
+&lt;li&gt;prawne zabezpieczanie należności i zobowiązań.&lt;/li&gt;
+
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="2.10_card_header" xml:space="preserve">
+    <value>Spory sądowe, egzykucja</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="2.11_card_body" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;zezwolenia na pracę typ A, B, C, D.&lt;/li&gt;
+
+&lt;li&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/li&gt;
+
+&lt;li&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/li&gt;
+
+&lt;li&gt;karta stałego lub czasowego pobytu na podstawie innych okoliczności,&lt;/li&gt;
+
+&lt;li&gt;karta rezydenta długoterminowego UE,&lt;/li&gt;
+
+&lt;li&gt;zaproszenia dla cudzoziemców każdego rodzajum,&lt;/li&gt;
+
+&lt;li&gt;obywatelstwo Polskie – pomoc w uzyskaniu obywatelstwa,&lt;/li&gt;
+
+&lt;li&gt;pomoc w prowadzeniu postępowań administracyjnych w tym w wypełnianiu wniosków i prowadzeniu korespondencji.&lt;/li&gt;
+
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="2.11_card_header" xml:space="preserve">
+    <value>Legalizacja pobytu cudzoziemców</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="2.1_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;opracowanie założeń i struktury umów w sprawach cywilnych i gospodarczych,&lt;/li&gt;
 
@@ -145,11 +193,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.1_leftside_container_card_header" xml:space="preserve">
+  <data name="2.1_card_header" xml:space="preserve">
     <value>Umowy i kontrakty</value>
     <comment>Lewy panel - nagłówek karty </comment>
   </data>
-  <data name="2.2_leftside_container_card_body" xml:space="preserve">
+  <data name="2.2_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;pomoc przy zawiązywaniu spółek, fundacji, stowarzyszeń przed notariuszem oraz w systemie S-24,&lt;/li&gt;
 
@@ -171,11 +219,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.2_leftside_container_card_header" xml:space="preserve">
+  <data name="2.2_card_header" xml:space="preserve">
     <value>Sprawy korporacyjne</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.3_leftside_container_card_body" xml:space="preserve">
+  <data name="2.3_card_body" xml:space="preserve">
     <value>&lt;p&gt;Przygotowywanie opinii prawnych z zakresu własności intelektualnej, a także sporządzanie, weryfikacja, negocjowanie:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -199,11 +247,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.3_leftside_container_card_header" xml:space="preserve">
+  <data name="2.3_card_header" xml:space="preserve">
     <value>Własność intelektualna</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.4_leftside_container_card_body" xml:space="preserve">
+  <data name="2.4_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;doradztwo prawne w procesie przekształcania podmiotów działających na podstawie wpisu do ewidencji działalności gospodarczej w spółki osobowe i kapitałowe,&lt;/li&gt;
 
@@ -223,11 +271,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.4_leftside_container_card_header" xml:space="preserve">
+  <data name="2.4_card_header" xml:space="preserve">
     <value>Przekształcenia, fuzje i przejęcia</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.5_leftside_container_card_body" xml:space="preserve">
+  <data name="2.5_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;analiza statusu prawnego nieruchomości,&lt;/li&gt;
 
@@ -250,11 +298,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.5_leftside_container_card_header" xml:space="preserve">
+  <data name="2.5_card_header" xml:space="preserve">
     <value>Nieruchomości</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.6_leftside_container_card_body" xml:space="preserve">
+  <data name="2.6_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;obsługa prawna postępowań administracyjnych z różnych zakresów,&lt;/li&gt;
 
@@ -269,11 +317,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.6_leftside_container_card_header" xml:space="preserve">
+  <data name="2.6_card_header" xml:space="preserve">
     <value>Administracja</value>
     <comment>Lewy panel - Nagłówek karty</comment>
   </data>
-  <data name="3.1_rightside_container_card_body" xml:space="preserve">
+  <data name="2.7_card_body" xml:space="preserve">
     <value>&lt;p&gt;We współpracy z doradcami podatkowymi:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -293,11 +341,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel zawartość karty</comment>
   </data>
-  <data name="3.1_rightside_container_card_header" xml:space="preserve">
+  <data name="2.7_card_header" xml:space="preserve">
     <value>Podatki</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.2_rightside_container_card_body" xml:space="preserve">
+  <data name="2.8_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;przygotowujemy wzory dokumentów i regulaminów obowiązujące w zakładach pracy,&lt;/li&gt;
 
@@ -315,11 +363,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.2_rightside_container_card_header" xml:space="preserve">
+  <data name="2.8_card_header" xml:space="preserve">
     <value>Prawo pracy i ubezpieczenia społeczne</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.3_rightside_container_card_body" xml:space="preserve">
+  <data name="2.9_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;przygotowywanie wniosków o ogłoszenie upadłości, w tym upadłości konsumenckiej,&lt;/li&gt;
 
@@ -334,56 +382,8 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.3_rightside_container_card_header" xml:space="preserve">
+  <data name="2.9_card_header" xml:space="preserve">
     <value>Prawo restrukturyzacyjne i upadłościowe</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
-  </data>
-  <data name="3.4_rightside_container_card_body" xml:space="preserve">
-    <value>&lt;ul&gt;
-&lt;li&gt;reprezentowanie klientów przed sądami powszechnymi we wszelkich instancjach,&lt;/li&gt;
-
-&lt;li&gt;prowadzenie postępowań zabezpieczających,&lt;/li&gt;
-
-&lt;li&gt;przygotowanie pism procesowych w postępowaniach cywilnych, karnych, pracowniczych oraz administracyjnych,&lt;/li&gt;
-
-&lt;li&gt;negocjowanie i zawieranie ugód przed sądami powszechnymi,&lt;/li&gt;
-
-&lt;li&gt;prowadzenie postępowań egzekucyjnych po stronie dłużnika i wierzyciela,&lt;/li&gt;
-
-&lt;li&gt;prowadzenie postępowań przeciw egzekucyjnych, zaskarżanie postanowień komorniczych i inne środki ochrony prawnej dłużnika przed wierzycielami,&lt;/li&gt;
-
-&lt;li&gt;prawne zabezpieczanie należności i zobowiązań.&lt;/li&gt;
-
-&lt;/ul&gt;</value>
-    <comment>Prawy panel -Zawartość karty</comment>
-  </data>
-  <data name="3.4_rightside_container_card_header" xml:space="preserve">
-    <value>Spory sądowe, egzykucja</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
-  </data>
-  <data name="3.5_rightside_container_card_body" xml:space="preserve">
-    <value>&lt;ul&gt;
-&lt;li&gt;zezwolenia na pracę typ A, B, C, D.&lt;/li&gt;
-
-&lt;li&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/li&gt;
-
-&lt;li&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/li&gt;
-
-&lt;li&gt;karta stałego lub czasowego pobytu na podstawie innych okoliczności,&lt;/li&gt;
-
-&lt;li&gt;karta rezydenta długoterminowego UE,&lt;/li&gt;
-
-&lt;li&gt;zaproszenia dla cudzoziemców każdego rodzajum,&lt;/li&gt;
-
-&lt;li&gt;obywatelstwo Polskie – pomoc w uzyskaniu obywatelstwa,&lt;/li&gt;
-
-&lt;li&gt;pomoc w prowadzeniu postępowań administracyjnych w tym w wypełnianiu wniosków i prowadzeniu korespondencji.&lt;/li&gt;
-
-&lt;/ul&gt;</value>
-    <comment>Prawy panel -Zawartość karty</comment>
-  </data>
-  <data name="3.5_rightside_container_card_header" xml:space="preserve">
-    <value>Legalizacja pobytu cudzoziemców</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
 </root>
