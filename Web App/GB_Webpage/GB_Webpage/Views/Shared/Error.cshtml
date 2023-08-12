@@ -1,15 +1,32 @@
 ﻿@model ErrorViewModel
 @{
-    ViewData["Title"] = "404 Not found!";
+    @if (Model.StatusCode == 404)
+    {
+        ViewData["Title"] = "404 Not found!";
+    }
+    else
+    {
+        ViewData["Title"] = "Error!";
+    }
+
 }
 <html>
 <head>
     <link rel="stylesheet" href="~/css/error.css" asp-append-version="true" />
 </head>
 <body>
-
-    <h1 class="text-danger text-center">404 Not found.</h1>
-    <h2 class="text-danger">An error occurred while processing your request.</h2>
+    @if (Model.StatusCode == 404)
+    {
+        <h1 class="text-danger text-center">404 Not found.</h1>
+        <h2 class="text-danger">Unable to find requested resource.</h2>
+    }
+    else
+    {
+        <h1 class="text-danger text-center">Request status code: @Model.StatusCode</h1>
+        <h2 class="text-danger">An error occurred while processing your request.</h2>
+    }
+    <h4>Make sure your request is correct or check for misspells in your request.</h4>
+    <h4>Send us your request id, we will check what went wrong!</h4>
 
     @if (Model.ShowRequestId)
     {
