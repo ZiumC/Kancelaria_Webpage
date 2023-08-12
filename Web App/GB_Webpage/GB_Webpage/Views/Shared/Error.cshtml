@@ -1,13 +1,19 @@
 ﻿@model ErrorViewModel
+@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<Error> error;
 @{
-    @if (Model.StatusCode == 404)
-    {
-        ViewData["Title"] = "404 Not found!";
-    }
-    else
-    {
-        ViewData["Title"] = "Error!";
-    }
+
+    var notFoundTitle = @Html.Raw(error["0_title_not_found"]);
+    var generalTitle = @Html.Raw(error["0_title_general_error"]);
+
+    var errorNotFoundReason = @Html.Raw(error["1_error_reason_not_found"]);
+    var errorGeneralReason = @Html.Raw(error["1_error_reason_general"]);
+
+    var errorTip = @Html.Raw(error["2_error_tip"]);
+    var errorSuggestion = @Html.Raw(error["3_error_debug"]);
+
+    ViewBag.Title = @Html.Raw($"{error["tab_title"]} ({Model.StatusCode})");
 
 }
 <html>
@@ -17,16 +23,16 @@
 <body>
     @if (Model.StatusCode == 404)
     {
-        <h1 class="text-danger text-center">404 Not found.</h1>
-        <h2 class="text-danger">Unable to find requested resource.</h2>
+        <h1 class="text-danger text-center">@notFoundTitle</h1>
+        <h2 class="text-danger">@errorNotFoundReason</h2>
     }
     else
     {
-        <h1 class="text-danger text-center">Request status code: @Model.StatusCode</h1>
-        <h2 class="text-danger">An error occurred while processing your request.</h2>
+        <h1 class="text-danger text-center">@generalTitle @Model.StatusCode</h1>
+        <h2 class="text-danger">@errorGeneralReason</h2>
     }
-    <h4>Make sure your request is correct or check for misspells in your request.</h4>
-    <h4>Send us your request id, we will check what went wrong!</h4>
+    <h4>@errorTip</h4>
+    <h4>@errorSuggestion</h4>
 
     @if (Model.ShowRequestId)
     {
@@ -34,5 +40,13 @@
             <strong>Request ID:</strong> <code>@Model.RequestId</code>
         </p>
     }
+
+    @if (Model.ShowActivityId)
+    {
+        <p>
+            <strong>Actvity ID:</strong> <code>@Model.ActivtyId</code>
+        </p>
+    }
+
 </body>
 </html>
