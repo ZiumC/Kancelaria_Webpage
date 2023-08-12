@@ -8,9 +8,19 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="wwwroot\css\index.css" />
+	  <Content Remove="wwwroot\css\_layout.css" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Folder Include="DatabaseFiles\Articles\" />
 		<Folder Include="DatabaseFiles\SuspendedUsers\" />
 		<Folder Include="DatabaseFiles\RefreshToken\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="wwwroot\css\index.css" />
+	  <None Include="wwwroot\css\_layout.css" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -17,11 +17,11 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .light-menu-icon {
-	content: url(icons/menu-icon-light.png);
+	content: url(/icons/menu-icon-light.png);
 }
 
 .dark-menu-icon {
-	content: url(icons/menu-icon-dark.png);
+	content: url(/icons/menu-icon-dark.png);
 }
 
 a.navbar-brand {
@@ -235,8 +235,8 @@ div.modal-content-container > p {
 }
 
 /*Buttons of languages section*/
-header nav:last-child {
-	text-align: right;
+ul.settings-bar {
+	float: right;
 }
 
 .settings-icon {
@@ -262,9 +262,9 @@ ul.settings-bar li {
 }
 
 .light-theme {
-	content: url(icons/light.png);
+	content: url(/icons/light.png);
 }
 
 .dark-theme {
-	content: url(icons/dark.png);
+	content: url(/icons/dark.png);
 }
