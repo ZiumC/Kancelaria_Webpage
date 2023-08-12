@@ -34,7 +34,7 @@ namespace GB_Webpage.Services
                 quertyString = string.Empty;
             }
 
-            return $"REQUEST\t\tMethod:{FormatValueToLogOf(methodName)}\tIp:{clientIp}\tQueryString:{FormatValueToLogOf(quertyString)}\t";
+            return $"REQUEST\t\tMethod:{FormatValueToLogOf(methodName)}\tIp:{clientIp}\tQueryString:{FormatValueToLogOf(quertyString)}\tRequestId:{FormatValueToLogOf(context.TraceIdentifier)}";
         }
 
         /// <summary>
