@@ -10,6 +10,7 @@
 	<ItemGroup>
 	  <Content Remove="wwwroot\css\index.css" />
 	  <Content Remove="wwwroot\css\news.css" />
+	  <Content Remove="wwwroot\css\specializations.css" />
 	  <Content Remove="wwwroot\css\_layout.css" />
 	</ItemGroup>
 
@@ -22,6 +23,7 @@
 	<ItemGroup>
 	  <None Include="wwwroot\css\index.css" />
 	  <None Include="wwwroot\css\news.css" />
+	  <None Include="wwwroot\css\specializations.css" />
 	  <None Include="wwwroot\css\_layout.css" />
 	</ItemGroup>
 
