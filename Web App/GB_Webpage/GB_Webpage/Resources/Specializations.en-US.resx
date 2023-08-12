@@ -123,7 +123,31 @@
   <data name="1_title_rectangle" xml:space="preserve">
     <value>Specializations</value>
   </data>
-  <data name="2.1_leftside_container_card_body" xml:space="preserve">
+  <data name="2.10_card_body" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;representing clients before common courts at every stage of jurisdiction,&lt;/li&gt;
+
+&lt;li&gt;conducting securing proceedings,&lt;/li&gt;
+
+&lt;li&gt;drafting court papers in civil, criminal and administrative proceedings,&lt;/li&gt;
+
+&lt;li&gt;negotiating and concluding settlements before common courts,&lt;/li&gt;
+
+&lt;li&gt;conducting enforcement proceedings for debtor and creditor,&lt;/li&gt;
+
+&lt;li&gt;conducting proceedings to prevent enforcement, challenging decisions of court enforcement officer and other legal remedies for debtor against creditor,&lt;/li&gt;
+
+&lt;li&gt;legal aid in debt recovery before initiation of court proceedings,&lt;/li&gt;
+
+&lt;li&gt;securing receivables and obligations.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="2.10_card_header" xml:space="preserve">
+    <value>Court disputes, execution</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="2.1_card_body" xml:space="preserve">
     <value>&lt;ul&gt;  
 &lt;li&gt;preparing concepts and structure of agreements as well as specimens and draft agreements, contracts, civil and business settlements,&lt;/li&gt;
   
@@ -145,11 +169,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.1_leftside_container_card_header" xml:space="preserve">
+  <data name="2.1_card_header" xml:space="preserve">
     <value>Agreements and contracts</value>
     <comment>Lewy panel - nagłówek karty </comment>
   </data>
-  <data name="2.2_leftside_container_card_body" xml:space="preserve">
+  <data name="2.2_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;legal aid by establishing companies, foundations, associations and others,&lt;/li&gt;
  
@@ -173,11 +197,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.2_leftside_container_card_header" xml:space="preserve">
+  <data name="2.2_card_header" xml:space="preserve">
     <value>Corporate services</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.3_leftside_container_card_body" xml:space="preserve">
+  <data name="2.3_card_body" xml:space="preserve">
     <value>&lt;p&gt;Preparing legal opinions concerning intellectual property as well as drafting, verifiying and negotiating:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -203,11 +227,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.3_leftside_container_card_header" xml:space="preserve">
+  <data name="2.3_card_header" xml:space="preserve">
     <value>Intellectual property</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.4_leftside_container_card_body" xml:space="preserve">
+  <data name="2.4_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;legal counselling in the process of transformation of entities conducting business activity registered in the register of business activity  into partnerships and corporations,&lt;/li&gt;
 
@@ -225,11 +249,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.4_leftside_container_card_header" xml:space="preserve">
+  <data name="2.4_card_header" xml:space="preserve">
     <value>Transformations, mergers and takeovers</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.5_leftside_container_card_body" xml:space="preserve">
+  <data name="2.5_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;analysis property's legal status,&lt;/li&gt;
 
@@ -251,11 +275,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.5_leftside_container_card_header" xml:space="preserve">
+  <data name="2.5_card_header" xml:space="preserve">
     <value>Properties</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.6_leftside_container_card_body" xml:space="preserve">
+  <data name="2.6_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;legal services concerning particular proceedings in the scope of administrative law (including administrative procedure),&lt;/li&gt;
 
@@ -271,11 +295,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.6_leftside_container_card_header" xml:space="preserve">
+  <data name="2.6_card_header" xml:space="preserve">
     <value>Administration</value>
     <comment>Lewy panel - Nagłówek karty</comment>
   </data>
-  <data name="3.1_rightside_container_card_body" xml:space="preserve">
+  <data name="2.7_card_body" xml:space="preserve">
     <value>&lt;p&gt;Together witch our tax attorneys:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;we prepare tax opinions and analyses,&lt;/li&gt;
@@ -294,11 +318,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel zawartość karty</comment>
   </data>
-  <data name="3.1_rightside_container_card_header" xml:space="preserve">
+  <data name="2.7_card_header" xml:space="preserve">
     <value>Taxes</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.2_rightside_container_card_body" xml:space="preserve">
+  <data name="2.8_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;we prepare and analyze specimens of documents and regulations as well as binding for employees in workplaces operating procedures,&lt;/li&gt;
 
@@ -322,11 +346,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.2_rightside_container_card_header" xml:space="preserve">
+  <data name="2.8_card_header" xml:space="preserve">
     <value>Labour law and social insurance law</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.3_rightside_container_card_body" xml:space="preserve">
+  <data name="2.9_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;drafting  arrangements and liquidation bankruptcy petitions,&lt;/li&gt;
 
@@ -340,32 +364,8 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.3_rightside_container_card_header" xml:space="preserve">
+  <data name="2.9_card_header" xml:space="preserve">
     <value>Bankruptcy and composition law</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
-  </data>
-  <data name="3.4_rightside_container_card_body" xml:space="preserve">
-    <value>&lt;ul&gt;
-&lt;li&gt;representing clients before common courts at every stage of jurisdiction,&lt;/li&gt;
-
-&lt;li&gt;conducting securing proceedings,&lt;/li&gt;
-
-&lt;li&gt;drafting court papers in civil, criminal and administrative proceedings,&lt;/li&gt;
-
-&lt;li&gt;negotiating and concluding settlements before common courts,&lt;/li&gt;
-
-&lt;li&gt;conducting enforcement proceedings for debtor and creditor,&lt;/li&gt;
-
-&lt;li&gt;conducting proceedings to prevent enforcement, challenging decisions of court enforcement officer and other legal remedies for debtor against creditor,&lt;/li&gt;
-
-&lt;li&gt;legal aid in debt recovery before initiation of court proceedings,&lt;/li&gt;
-
-&lt;li&gt;securing receivables and obligations.&lt;/li&gt;
-&lt;/ul&gt;</value>
-    <comment>Prawy panel -Zawartość karty</comment>
-  </data>
-  <data name="3.4_rightside_container_card_header" xml:space="preserve">
-    <value>Court disputes, execution</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
 </root>

@@ -12,6 +12,13 @@
 
     int lengthOfLeftside = 6;
     int lengthOfRightside = 5;
+
+    if (@ViewBag.SelectedLanguage == "en-US")
+    {
+        lengthOfLeftside = 5;
+        lengthOfRightside = 5;
+    }
+
 }
 <!DOCTYPE html>
 <html>
@@ -53,7 +60,7 @@
                                         aria-controls="collapse-@i">
                                     <div class="card-header" id="heading-@i">
                                         <h5 class="mb-1 card-header-text">
-                                            @Html.Raw(specializations[$"2.{i}_leftside_container_card_header"])
+                                            @Html.Raw(specializations[$"2.{i}_card_header"])
                                         </h5>
                                     </div>
                                 </button>
@@ -64,7 +71,7 @@
                                      data-parent="#leftside-accordion">
                                     <div class="separation-line"></div>
                                     <div class="card-body">
-                                        @Html.Raw(specializations[$"2.{i}_leftside_container_card_body"])
+                                        @Html.Raw(specializations[$"2.{i}_card_body"])
                                     </div>
                                 </div>
                             </div>
@@ -80,10 +87,10 @@
                 <div class="cards-container">
                     <div id="rightside-accordion">
 
-                        @for (var i = 1; i <= lengthOfRightside; i++)
+                        @for (var i = lengthOfLeftside+1; i <= (lengthOfLeftside + lengthOfRightside); i++)
                         {
 
-                            var nextIdForCollapseAndHeading = lengthOfLeftside + i;
+                            var nextIdForCollapseAndHeading = i;
 
                             <div class="card">
                                 <button class="btn btn-link btn-block card-header-text"
@@ -93,7 +100,7 @@
                                         aria-controls="collapse-@nextIdForCollapseAndHeading">
                                     <div class="card-header" id="heading-@nextIdForCollapseAndHeading">
                                         <h5 class="mb-1 card-header-text">
-                                            @Html.Raw(specializations[$"3.{i}_rightside_container_card_header"])
+                                            @Html.Raw(specializations[$"2.{i}_card_header"])
                                         </h5>
                                     </div>
                                 </button>
@@ -104,7 +111,7 @@
                                      data-parent="#rightside-accordion">
                                     <div class="separation-line"></div>
                                     <div class="card-body">
-                                        @Html.Raw(specializations[$"3.{i}_rightside_container_card_body"])
+                                        @Html.Raw(specializations[$"2.{i}_card_body"])
                                     </div>
                                 </div>
                             </div>

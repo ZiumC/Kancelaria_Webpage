@@ -30,12 +30,42 @@ namespace GB_Webpage.Controllers
         public IActionResult Specializations()
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
+
+            string? selectedLanguage;
+            string? cultureCookie = HttpContext.Request.Cookies[".AspNetCore.Culture"];
+
+            if (cultureCookie is not null)
+            {
+                selectedLanguage = cultureCookie.Split("=")[1].Split("|")[0];
+            }
+            else 
+            {
+                selectedLanguage = "pl-PL";
+            }
+
+            ViewBag.SelectedLanguage = selectedLanguage;
+
             return View();
         }
 
         public IActionResult Team()
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
+
+            string? selectedLanguage;
+            string? cultureCookie = HttpContext.Request.Cookies[".AspNetCore.Culture"];
+
+            if (cultureCookie is not null)
+            {
+                selectedLanguage = cultureCookie.Split("=")[1].Split("|")[0];
+            }
+            else
+            {
+                selectedLanguage = "pl-PL";
+            }
+
+            ViewBag.SelectedLanguage = selectedLanguage;
+
             return View();
         }
 
@@ -112,7 +142,6 @@ namespace GB_Webpage.Controllers
         public IActionResult Error(int statusCode)
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
-
             return View(
                 new ErrorViewModel { 
                     RequestId = HttpContext.TraceIdentifier, 

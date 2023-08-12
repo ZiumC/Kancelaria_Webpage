@@ -123,7 +123,50 @@
   <data name="1_title_rectangle" xml:space="preserve">
     <value>Rechtsgebiete</value>
   </data>
-  <data name="2.1_leftside_container_card_body" xml:space="preserve">
+  <data name="2.10_card_body" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;vertretung von Mandanten vor ordentlichen Gerichten aller Instanzen,&lt;/li&gt;
+
+&lt;li&gt;führung von Verfahren zur Sicherung von Forderungen,&lt;/li&gt;
+
+&lt;li&gt;vorbereitung von Prozessschriften in Zivilverfahren, Strafverfahren sowie Verwaltungsverfahren,&lt;/li&gt;
+
+&lt;li&gt;verhandlung und Vergleichsschließung vor ordentlichen Gerichten,&lt;/li&gt;
+
+&lt;li&gt;führung von Zwangsvollstreckungsverfahren als Gläubiger und Schuldner,&lt;/li&gt;
+
+&lt;li&gt;führung von Verfahren, die gegen Zwangsvollstreckungsverfahren gerichtet sind, Anfechtung von Entschlüssen von Gerichtsvollziehern sowie andere Rechtsmittel zum Schutz der Schuldners vor den Gläubigern,&lt;/li&gt;
+
+&lt;li&gt;rechtshilfe im Vindikationsverfahren vor der Einleitung des Gerichtsverfahrens,&lt;/li&gt;
+
+&lt;li&gt;sicherung von Forderungen und Schulden.&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="2.10_card_header" xml:space="preserve">
+    <value>Gerichtliche Auseinandersetzungen</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="2.11_card_body" xml:space="preserve">
+    <value>"&lt;p style=\"color:#ff0000\"&gt;zezwolenia na pracę typ A, B, C, D.&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;prowadzenie postępowań zabezpieczających,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta czasowego pobytu na podstawie innych okoliczności,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta stałego pobytu,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;karta rezydenta długoterminowego UE,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;zaproszenia dla cudzoziemców każdego rodzaju,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;obywatelstwo Polskie – pomoc w uzyskaniu,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;odwołania od decyzji administracyjnej,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;pomoc w wypełnianiu wniosków,&lt;/p&gt;",
+    "&lt;p style=\"color:#ff0000\"&gt;konsultację.&lt;/p&gt;",</value>
+    <comment>Prawy panel -Zawartość karty</comment>
+  </data>
+  <data name="2.11_card_header" xml:space="preserve">
+    <value>&lt;p style=\"color:#ff0000\"&gt;[Tą sekcję trzeba przetłumaczyć]&lt;/p&gt;</value>
+    <comment>Prawy panel -Nagłówek karty</comment>
+  </data>
+  <data name="2.1_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;ausarbeitung von Voraussetzungen und Struktur von Verträgen sowie Mustern und fertigen Vertragsentwürfen, Kontrakten und zivilen sowie wirtschaftlichen Einigungen,&lt;/li&gt;
 
@@ -145,11 +188,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.1_leftside_container_card_header" xml:space="preserve">
+  <data name="2.1_card_header" xml:space="preserve">
     <value>Verträge und Kontrakte</value>
     <comment>Lewy panel - nagłówek karty </comment>
   </data>
-  <data name="2.2_leftside_container_card_body" xml:space="preserve">
+  <data name="2.2_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;rechtsberatung beim Zusammentreten von Subjekten in Form von Gesellschaften, Stiftungen, Vereinen und anderen,&lt;/li&gt;
 
@@ -173,11 +216,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.2_leftside_container_card_header" xml:space="preserve">
+  <data name="2.2_card_header" xml:space="preserve">
     <value>Corporate services</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.3_leftside_container_card_body" xml:space="preserve">
+  <data name="2.3_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;verträgen zur Nutzung von Werken (Lizenzverträge),&lt;/li&gt;
 
@@ -201,11 +244,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.3_leftside_container_card_header" xml:space="preserve">
+  <data name="2.3_card_header" xml:space="preserve">
     <value>Geistiges Eigentum</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.4_leftside_container_card_body" xml:space="preserve">
+  <data name="2.4_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;rechtsberatung bei Umwandlungsprozessen von Subjekten, die auf Grund von Eintragung im Gewerberegister tätig sind in Personen- und Kapitalgesellschaften,&lt;/li&gt;
 
@@ -223,11 +266,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.4_leftside_container_card_header" xml:space="preserve">
+  <data name="2.4_card_header" xml:space="preserve">
     <value>Umwandlungen, Zusammenschlüsse und Übernahmen</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.5_leftside_container_card_body" xml:space="preserve">
+  <data name="2.5_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;vorbereitung von Verträgen und Teilnahme an Verhandlungen zum Erwerb von Immobilien zu bestimmten Zwecken,&lt;/li&gt;
 
@@ -249,11 +292,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.5_leftside_container_card_header" xml:space="preserve">
+  <data name="2.5_card_header" xml:space="preserve">
     <value>Immobilien</value>
     <comment>Lewy panel - nagłówek karty</comment>
   </data>
-  <data name="2.6_leftside_container_card_body" xml:space="preserve">
+  <data name="2.6_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;rechtshilfe bei Ausfertigung von Anträgen, Gesuchen und Schriften in Verwaltungsangelegenheiten und Verwaltungsverfahren,&lt;/li&gt;
 
@@ -269,11 +312,11 @@
 &lt;/ul&gt;</value>
     <comment>Lewy panel -zawartość karty</comment>
   </data>
-  <data name="2.6_leftside_container_card_header" xml:space="preserve">
+  <data name="2.6_card_header" xml:space="preserve">
     <value>Verwaltung</value>
     <comment>Lewy panel - Nagłówek karty</comment>
   </data>
-  <data name="3.1_rightside_container_card_body" xml:space="preserve">
+  <data name="2.7_card_body" xml:space="preserve">
     <value>&lt;p&gt;Im Zusammenarbeit mit Rechtsberatern:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;bereiten wir Steuergutachten und Steueranalysen vor,&lt;/li&gt;
@@ -292,11 +335,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel zawartość karty</comment>
   </data>
-  <data name="3.1_rightside_container_card_header" xml:space="preserve">
+  <data name="2.7_card_header" xml:space="preserve">
     <value>Steuern</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.2_rightside_container_card_body" xml:space="preserve">
+  <data name="2.8_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;wir bereiten Gutachten und Analysen im Bereich des Arbeitsrechts vor,&lt;/li&gt;
 
@@ -320,11 +363,11 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.2_rightside_container_card_header" xml:space="preserve">
+  <data name="2.8_card_header" xml:space="preserve">
     <value>Arbeitsrecht und Sozialversicherungen</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
-  <data name="3.3_rightside_container_card_body" xml:space="preserve">
+  <data name="2.9_card_body" xml:space="preserve">
     <value>&lt;ul&gt;
 &lt;li&gt;vorbereitung von Insolvenzanträgen und Anträgen auf Insolvenzvergleich,&lt;/li&gt;
 
@@ -338,51 +381,8 @@
 &lt;/ul&gt;</value>
     <comment>Prawy panel -Zawartość karty</comment>
   </data>
-  <data name="3.3_rightside_container_card_header" xml:space="preserve">
+  <data name="2.9_card_header" xml:space="preserve">
     <value>Insolvenz und Vergleichsrecht</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
-  </data>
-  <data name="3.4_rightside_container_card_body" xml:space="preserve">
-    <value>&lt;ul&gt;
-&lt;li&gt;vertretung von Mandanten vor ordentlichen Gerichten aller Instanzen,&lt;/li&gt;
-
-&lt;li&gt;führung von Verfahren zur Sicherung von Forderungen,&lt;/li&gt;
-
-&lt;li&gt;vorbereitung von Prozessschriften in Zivilverfahren, Strafverfahren sowie Verwaltungsverfahren,&lt;/li&gt;
-
-&lt;li&gt;verhandlung und Vergleichsschließung vor ordentlichen Gerichten,&lt;/li&gt;
-
-&lt;li&gt;führung von Zwangsvollstreckungsverfahren als Gläubiger und Schuldner,&lt;/li&gt;
-
-&lt;li&gt;führung von Verfahren, die gegen Zwangsvollstreckungsverfahren gerichtet sind, Anfechtung von Entschlüssen von Gerichtsvollziehern sowie andere Rechtsmittel zum Schutz der Schuldners vor den Gläubigern,&lt;/li&gt;
-
-&lt;li&gt;rechtshilfe im Vindikationsverfahren vor der Einleitung des Gerichtsverfahrens,&lt;/li&gt;
-
-&lt;li&gt;sicherung von Forderungen und Schulden.&lt;/li&gt;
-&lt;/ul&gt;</value>
-    <comment>Prawy panel -Zawartość karty</comment>
-  </data>
-  <data name="3.4_rightside_container_card_header" xml:space="preserve">
-    <value>Gerichtliche Auseinandersetzungen</value>
-    <comment>Prawy panel -Nagłówek karty</comment>
-  </data>
-  <data name="3.5_rightside_container_card_body" xml:space="preserve">
-    <value>"&lt;p style=\"color:#ff0000\"&gt;zezwolenia na pracę typ A, B, C, D.&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;prowadzenie postępowań zabezpieczających,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;oświadczenia o powierzeniu wykonywania pracy powierzone cudzoziemcowi,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;sprawy związane z jednolitym pobytem czasowym i pracą,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;karta czasowego pobytu na podstawie innych okoliczności,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;karta stałego pobytu,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;karta rezydenta długoterminowego UE,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;zaproszenia dla cudzoziemców każdego rodzaju,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;obywatelstwo Polskie – pomoc w uzyskaniu,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;odwołania od decyzji administracyjnej,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;pomoc w wypełnianiu wniosków,&lt;/p&gt;",
-    "&lt;p style=\"color:#ff0000\"&gt;konsultację.&lt;/p&gt;",</value>
-    <comment>Prawy panel -Zawartość karty</comment>
-  </data>
-  <data name="3.5_rightside_container_card_header" xml:space="preserve">
-    <value>&lt;p style=\"color:#ff0000\"&gt;[Tą sekcję trzeba przetłumaczyć]&lt;/p&gt;</value>
     <comment>Prawy panel -Nagłówek karty</comment>
   </data>
 </root>
