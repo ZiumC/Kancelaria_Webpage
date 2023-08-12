@@ -16,19 +16,19 @@
 }
 
 .dark-date-asc {
-	content: url(icons/down-arrow-dark.png);
+	content: url(/icons/down-arrow-dark.png);
 }
 
 .light-date-asc {
-	content: url(icons/down-arrow-light.png);
+	content: url(/icons/down-arrow-light.png);
 }
 
 .dark-date-desc {
-	content: url(icons/up-arrow-dark.png);
+	content: url(/icons/up-arrow-dark.png);
 }
 
 .light-date-desc {
-	content: url(icons/up-arrow-light.png);
+	content: url(/icons/up-arrow-light.png);
 }
 
 p button span:first-child {
