@@ -75,13 +75,13 @@
         </nav>
         <ul class="navbar-nav settings-bar">
             <li>
-                <form method="post" action="~/?culture=pl-PL">
+                <form method="post" action="~/?culture=pl-PL" asp-antiforgery="false">
                     <button type="submit" class="btn btn-sm">
                         <img class="settings-icon" src="/lang-icons/poland-flag.png" alt="PL" />
                     </button>
                 </form>
 
-                <form method="post" action="~/?culture=en-US">
+                <form method="post" action="~/?culture=en-US" asp-antiforgery="false">
                     <button type="submit" class="btn btn-sm">
                         <img class="settings-icon" src="/lang-icons/uk-flag.png" alt="EN" />
                     </button>
