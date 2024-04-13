@@ -55,6 +55,7 @@ builder.Services.AddAuthentication(options =>
 }).AddJwtBearer(options =>
 {
     var issuer = builder.Configuration["ApplicationSettings:JwtSettings:Issuer"];
+    //var issuer = builder.Configuration[null];
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
