@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  gb_webpage:
+    image: ${DOCKER_REGISTRY-}gbwebpage
+    build:
+      context: .
+      dockerfile: GB_Webpage/Dockerfile
+    ports:
+        - "443:443" 
+        - "80:80"
