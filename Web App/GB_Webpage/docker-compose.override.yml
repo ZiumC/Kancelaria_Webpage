@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  gb_webpage:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:7112;http://+:7111
+    ports:
+      - "7111:7111"
+      - "7112:7112"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
