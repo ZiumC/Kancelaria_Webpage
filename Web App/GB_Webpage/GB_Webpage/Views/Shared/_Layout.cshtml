@@ -83,9 +83,9 @@
                 </form>
 
                 @* <form method="post" action="~/?culture=en-US">
-                    <button type="submit" class="btn btn-sm">
-                        <img class="settings-icon" src="/lang-icons/uk-flag.png" alt="EN" />
-                    </button>
+                <button type="submit" class="btn btn-sm">
+                <img class="settings-icon" src="/lang-icons/uk-flag.png" alt="EN" />
+                </button>
                 </form> *@
 
                 @*<form method="post" action="~/?culture=de-DE">
@@ -141,7 +141,10 @@
 
     <footer id="footer" class="border-top content-text">
         <div class="container">
-            &copy; 2023 - Grzegorz Bochnacki – komplementariusz Kancelaria Prawna Bochnacki i Wspólnicy Sp.k.
+            <a id="privacy-note-dark-text" asp-controller="home" asp-action="privacy">
+                Polityka prywatności<i id="privacy-arrow" class="dark-arrow"></i>
+            </a>
+            &copy; @DateTime.Now.Year - Grzegorz Bochnacki – komplementariusz Kancelaria Prawna Bochnacki i Wspólnicy Sp.k.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

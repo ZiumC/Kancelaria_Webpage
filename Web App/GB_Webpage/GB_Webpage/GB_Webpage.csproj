@@ -96,6 +96,9 @@
 		<EmbeddedResource Update="Resources\MainPage.pl-PL.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Privacy.de-DE.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Specializations.de-DE.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 		</EmbeddedResource>
@@ -113,6 +116,12 @@
 		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\Team.pl-PL.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Privacy.en-US.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\Privacy.pl-PL.resx">
+		  <Generator>PublicResXFileCodeGenerator</Generator>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\_Layout.de-DE.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>

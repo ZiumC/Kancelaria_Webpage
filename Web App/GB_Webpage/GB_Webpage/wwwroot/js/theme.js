@@ -9,6 +9,7 @@ window.onload = function () {
     setThemeToPage();
     setThemeToNavBar();
     setThemeToNote();
+    setThemeToPrivacyNote();
     setThemeToCard();
     setThemeToCounter();
     changeThemeToSortButton();
@@ -38,6 +39,7 @@ document.getElementById('theme-button').onclick = function () {
     setThemeToPage();
     setThemeToNavBar();
     setThemeToNote();
+    setThemeToPrivacyNote();
     setThemeToCard();
     setThemeToCounter();
     changeThemeToSortButton();
@@ -160,21 +162,34 @@ function setThemeToNote() {
     if (!isExist(note) || !isExist(arrow)) {
         return;
     }
-
     setThemeTo(note, false);
 
     if (cookie == 'dark') {
-
         arrow.classList = 'light-arrow';
-
     } else if (cookie == 'light') {
-
         arrow.classList = 'dark-arrow';
-
     } else {
-
         arrow.classList = 'dark-arrow';
+    }
+}
 
+function setThemeToPrivacyNote() {
+
+    const cookie = getCookie('theme');
+    const note = document.getElementById('privacy-note-dark-text');
+    const arrow = document.getElementById('privacy-arrow');
+
+    if (!isExist(note) || !isExist(arrow)) {
+        return;
+    }
+    setThemeTo(note, false);
+
+    if (cookie == 'dark') {
+        arrow.classList = 'light-arrow';
+    } else if (cookie == 'light') {
+        arrow.classList = 'dark-arrow';
+    } else {
+        arrow.classList = 'dark-arrow';
     }
 }
 
