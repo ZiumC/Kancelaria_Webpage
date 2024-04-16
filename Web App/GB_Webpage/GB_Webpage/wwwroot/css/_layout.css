@@ -163,15 +163,6 @@ h5.card-title {
 	height: 80%;
 	overflow: auto; 
 	border-radius: 1.2ex
-	/*width: 55%;
-	height: auto;
-	max-height: 95%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	border-radius: 1ex;
-	overflow-y: auto;*/
 }
 
 div.modal-content- > p {
