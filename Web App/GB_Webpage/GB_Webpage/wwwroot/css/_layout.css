@@ -275,3 +275,13 @@ ul.settings-bar li {
 .dark-theme {
 	content: url(/icons/dark.png);
 }
+
+#privacy-note-dark-text {
+	display: block;
+	margin-top: 2ex;
+	margin-bottom: 2ex
+}
+
+#privacy-arrow {
+	width: 2%;
+}

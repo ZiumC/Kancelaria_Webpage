@@ -23,10 +23,14 @@ div.card {
 	margin-bottom: 4ex;
 }
 
-	div.card:hover {
-		-webkit-animation-name: none;
-		border: 0.2ex solid #183B7A;
-	}
+#cookie {
+	margin-bottom: 0ex;
+}
+
+div.card:hover {
+	-webkit-animation-name: none;
+	border: 0.2ex solid #183B7A;
+}
 
 .separation-line {
 	margin: auto;
