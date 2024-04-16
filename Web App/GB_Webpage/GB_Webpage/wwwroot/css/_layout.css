@@ -158,7 +158,12 @@ h5.card-title {
 }
 
 .cookie-modal {
-	width: 55%;
+	position: fixed;
+	width: 90%; 
+	height: 80%;
+	overflow: auto; 
+	border-radius: 1.2ex
+	/*width: 55%;
 	height: auto;
 	max-height: 95%;
 	display: flex;
@@ -166,23 +171,34 @@ h5.card-title {
 	align-items: center;
 	flex-direction: column;
 	border-radius: 1ex;
-	overflow-y: auto;
+	overflow-y: auto;*/
 }
 
-div.modal-content-container > p {
+div.modal-content- > p {
 	font-family: 'Oxygen', sans-serif;
 	text-align: justify;
 	font-size: 1.85ex;
 }
 
-.modal-content-container {
-	margin-top: 2ex;
-	margin-bottom: 2ex;
-	max-width: 90%;
+#cookie-content {
+	width: 80%;
+	margin-top: 5ex;
+	margin-bottom: 5ex;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .modalInfo {
 	word-break: break-word;
+}
+
+@media only screen and (min-width: 1275px) {
+	.cookie-modal {
+		width: 50%;
+	}
+	#cookie-content {
+		width: 90%
+	}
 }
 
 /*Adjustring size of 'cookie more information'*/
@@ -194,16 +210,16 @@ div.modal-content-container > p {
 
 @media only screen and (min-width: 722px) and (max-width: 998px) {
 	.cookie-modal {
-		width: 85%;
+		width: 75%;
 	}
 }
 
 @media only screen and (min-width: 500px) and (max-width: 721px) {
 	.cookie-modal {
-		width: 95%;
+		width: 85%;
 	}
 
-	.modal-content-container {
+	.modal-content {
 		font-size: 1.6ex;
 	}
 
@@ -211,17 +227,17 @@ div.modal-content-container > p {
 		font-size: 2.5ex;
 	}
 
-	div.modal-content-container > p {
+	div.modal-content > p {
 		text-align: left;
 	}
 }
 
 @media only screen and (max-width: 499px) {
 	.cookie-modal {
-		width: 100%;
+		width: 95%;
 	}
 
-	.modal-content-container {
+	.modal-content {
 		font-size: 1.5ex;
 	}
 
@@ -229,7 +245,7 @@ div.modal-content-container > p {
 		font-size: 2ex;
 	}
 
-	div.modal-content-container > p {
+	div.modal-content > p {
 		text-align: left;
 	}
 }
