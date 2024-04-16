@@ -75,13 +75,10 @@ li.nav-item {
 
 #footer {
 	margin-top: 3ex;
+	margin-bottom: 5ex;
 	height: 10ex;
 	width: 100%;
 	font-size: 2ex;
-}
-
-footer div.container {
-	margin-top: 1.5ex;
 }
 
 
