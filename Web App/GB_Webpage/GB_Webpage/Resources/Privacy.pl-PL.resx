@@ -123,4 +123,273 @@
   <data name="1_title_rectangle" xml:space="preserve">
     <value>RODO</value>
   </data>
+  <data name="2.1_clausule" xml:space="preserve">
+    <value>W związku z wejściem w życie Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia
+27 kwietnia 2016 r. w sprawie ochrony osób fizycznych w związku z przetwarzaniem danych
+osobowych i w sprawie swobodnego przepływu takich danych, oraz uchylenia dyrektywy 95/46/WE
+(„&lt;strong&gt;RODO&lt;/strong&gt;”) informujemy Państwa, że &lt;strong&gt;Kancelaria Prawna Bochnacki i Wspólnicy Sp.k.&lt;/strong&gt; w Warszawie,
+pod adresem: Al. Jana Pawła II 80 lok.D39, 00-175 Warszawa, KRS 0001014977, NIP: 5252940685,
+REGON: 524262065 (dalej jako „&lt;strong&gt;Kancelaria&lt;/strong&gt;”) przetwarza między innymi dane osobowe:</value>
+  </data>
+  <data name="2.2_clausule" xml:space="preserve">
+    <value>&lt;ol type="a"&gt;
+&lt;li&gt; klientów będących osobami fizycznymi,&lt;/li&gt;
+&lt;li&gt; w przypadku klientów kancelarii będących osobami prawnymi bądź jednostkami
+organizacyjnymi nieposiadającymi osobowości prawnej - dane osobowe osób uprawnionych
+do reprezentacji takich podmiotów, pracowników i współpracowników takich klientów,&lt;/li&gt;
+&lt;li&gt; dostawców usług będących osobami fizycznymi, jak również pracowników i
+współpracowników dostawców usług,&lt;/li&gt;
+&lt;li&gt; osób zgłaszających się do Kancelarii w celu uzyskania pomocy w zakresie doradztwa
+prawnego świadczonego przez kancelarię, jak również osób, których dane zostały uzyskane
+przy okazji świadczenia takich usług na rzecz klientów Kancelarii,&lt;/li&gt;
+&lt;li&gt;osób współpracujących z Kancelarią w sposób stały bądź sporadyczny przy świadczeniu usług
+przez Kancelarię.&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="2.3_clausule" xml:space="preserve">
+    <value>W związku z powyższym Kancelaria przekazuje Państwu istotne informacje związane z faktem
+przetwarzania danych osobowych.</value>
+  </data>
+  <data name="3.10_table_content" xml:space="preserve">
+    <value>Ma Pan/Pani możliwość wniesienia sprzeciwu wobec przetwarzania
+danych osobowych, o ile przetwarzanie to odbywa się w celach
+wynikających z prawnie uzasadnionych interesów realizowanych
+przez administratora lub stronę trzecią, tj. na podstawie art. 6 ust. 1
+lit. f) RODO.
+Przyczyną takiego sprzeciwu musi być Pana/Pani szczególna sytuacja.
+Po otrzymaniu sprzeciwu przestaniemy przetwarzać Pani/ Pana dane
+w powyższych celach, co do których wyraziła Pani/ Pan sprzeciw,
+chyba że wykażemy istnienie ważnych prawnie uzasadnionych
+podstaw do przetwarzania, nadrzędnych wobec Pani/Pana
+interesów, praw i wolności lub podstaw do ustalenia, dochodzenia
+lub obrony przed roszczeniami.</value>
+  </data>
+  <data name="3.10_table_header" xml:space="preserve">
+    <value>PRAWO SPRZECIWU</value>
+  </data>
+  <data name="3.11_table_content" xml:space="preserve">
+    <value>O ile przetwarzanie danych odbywa się na podstawie zgody osoby,
+której dane dotyczą osoba ta ma możliwość cofnięcia zgody w
+dowolnym momencie, przy czym cofnięcie zgody pozostaje bez
+wpływu na zgodność z prawem przetwarzania danych, dokonanego
+na podstawie tej zgody przed jej cofnięciem.</value>
+  </data>
+  <data name="3.11_table_header" xml:space="preserve">
+    <value>PRRAWO DO COFNIĘCIA
+ZGODY</value>
+  </data>
+  <data name="3.12_table_content" xml:space="preserve">
+    <value>W zakresie przetwarzania danych osobowych w celu, o którym
+mowa w pkt 2 powyżej, obowiązek podania danych jest wymogiem
+ustawowym; z kolei w przypadku przetwarzania danych w celach, o
+których mowa w pkt 1 i 3, obowiązek podania danych jest
+wymogiem umownym - podanie danych osobowych we wszystkich
+celach, o których mowa powyżej, jest dobrowolne, jednak jest
+niezbędne do zawarcia i realizacji umowy z Kancelarią.</value>
+  </data>
+  <data name="3.12_table_header" xml:space="preserve">
+    <value>INFORMACJA CO DO
+WYMOGU LUB
+DOBROWOLNOŚCI
+PODANIA DANYCH ORAZ
+KONSEKWENCJACH ICH
+NIEPODANIA</value>
+  </data>
+  <data name="3.13_table_content" xml:space="preserve">
+    <value>Dane osobowe są podawane przez Pana/Panią lub pochodzą od
+klientów administratora w związku z realizacją umowy lub z akt
+sądowych lub źródeł dostępnych publicznie.</value>
+  </data>
+  <data name="3.13_table_header" xml:space="preserve">
+    <value>ŹRÓDŁO POCHODZENIA
+DANYCH</value>
+  </data>
+  <data name="3.14_table_content" xml:space="preserve">
+    <value>Dane udostępnione przez Panią/Pana nie będą podlegały
+profilowaniu oraz nie podejmujemy decyzji w sposób
+zautomatyzowany.</value>
+  </data>
+  <data name="3.14_table_header" xml:space="preserve">
+    <value>ZAUTOMATYZOWANIE
+PODEJMOWANYCH
+DECYZJI I PROFILOWANIE</value>
+  </data>
+  <data name="3.1_table_content" xml:space="preserve">
+    <value>Administratorem danych osobowych jest Kancelaria Prawna
+Bochnacki i Wspólnicy Spółka komandytowa z siedzibą
+w Warszawie, adres: Al. Jana Pawła II 80 lok.D39, 00-175 Warszawa,
+KRS 0001014977.</value>
+  </data>
+  <data name="3.1_table_header" xml:space="preserve">
+    <value>ADMINISTRATOR DANYCH
+OSOBOWYCH</value>
+  </data>
+  <data name="3.2_table_content" xml:space="preserve">
+    <value>Można się z nami skontaktować:&lt;ol type="a"&gt;
+&lt;li&gt;telefonicznie: + 48 22 627 27 33&lt;/li&gt;
+&lt;li&gt;pod adresem e-mail: kancelaria@bochnacki.com&lt;/li&gt;
+&lt;li&gt;w siedzibie Kancelarii: 00-175 Warszawa Aleja Jana Pawła II
+80 lok.D39&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="3.2_table_header" xml:space="preserve">
+    <value>DANE KONTAKTOWE
+ADMINISTRATORA</value>
+  </data>
+  <data name="3.3_table_content" xml:space="preserve">
+    <value>Informujemy, że Państwa dane osobowe przetwarzane będą, gdy
+jest to niezbędne do:
+&lt;ol start="1"&gt;
+&lt;li&gt;zawarcia i wykonania umowy, tj. na podstawie art. 6 ust. 1
+lit. b) RODO, w tym w szczególności umowy obsługi prawnej
+bądź umowy o świadczenie usług na rzecz Kancelarii przez
+dostawców takich usług;&lt;/li&gt;
+&lt;li&gt;wypełnienia obowiązków prawnych ciążących na
+administratorze danych osobowych na podstawie art. 6 ust.
+1 lit. c) RODO, wynikających z prawa Unii lub prawa
+polskiego;&lt;/li&gt;
+&lt;li&gt;do celów wynikających z prawnie uzasadnionych interesów
+realizowanych przez administratora lub stronę trzecią na
+podstawie art. 6 ust. 1 lit. f) RODO, za które administrator
+uznaje w szczególności: dochodzenie, ustalenie i obronę
+przed roszczeniami, zapobieganie naruszeniom, zapewnienie
+bezpieczeństwa środowiska teleinformatycznego,
+stosowanie systemów kontroli wewnętrznej, monitorowanie
+Kancelarii oraz rejestrowanie wejść i wyjść z Kancelarii,
+ustalanie konfliktów interesów i naruszeń etycznych w
+zakresie niezbędnym do przeciwdziałania nadużyciom, w
+celach archiwalnych i statystycznych, jak również
+świadczenie usług na rzecz klienta, w sytuacji, w których
+interes klienta jest nadrzędny wobec interesów, praw i
+wolności osoby, których dane dotyczą.&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="3.3_table_header" xml:space="preserve">
+    <value>CELE PRZETWARZANIA
+DANYCH, PODSTAWA
+PRAWNA ORAZ PRAWNIE
+UZASADNIONE INTERESY</value>
+  </data>
+  <data name="3.4_table_content" xml:space="preserve">
+    <value>Kancelaria przetwarza następujące kategorie danych osobowych:
+&lt;ul&gt;
+&lt;li&gt;dane mające na celu potwierdzenie tożsamości takie jak imię
+i nazwisko, numer PESEL, numer dowodu osobistego, datę
+urodzenia;&lt;/li&gt;
+&lt;li&gt;dane kontaktowe, takie jak: numer telefonu, adres email,
+adres zamieszkania, adres korespondencyjny;&lt;/li&gt;
+&lt;li&gt;dane identyfikacji podatkowej, numery statystyczne;&lt;/li&gt;
+&lt;li&gt;dane dotyczące wykształcenia oraz doświadczenia
+zawodowego – jeśli jest to konieczne z punktu widzenia
+świadczonych usług;&lt;/li&gt;
+&lt;li&gt;dane dotyczące sytuacji finansowej - jeśli jest to konieczne z
+punktu widzenia świadczonych usług;&lt;/li&gt;
+&lt;li&gt;dane dotyczące działalności zawodowej, gospodarczej;&lt;/li&gt;
+&lt;li&gt;dane dotyczące stanu cywilnego - jeśli jest to konieczne z
+punktu widzenia świadczonych usług;&lt;/li&gt;
+&lt;/ul&gt;
+Ponadto Kancelaria może przetwarzać inne kategorie danych
+osobowych, o ile nie można zakwalifikować tych danych do żadnej ze
+wskazanych grup, a przetwarzanie jest dokonywane w celach
+określonych niniejszą informacją.</value>
+  </data>
+  <data name="3.4_table_header" xml:space="preserve">
+    <value>KATEGORIE
+PRZETWARZANYCH
+DANYCH OSOBOWYCH</value>
+  </data>
+  <data name="3.5_table_content" xml:space="preserve">
+    <value>Odbiorcami danych mogą być podmioty z następujących kategorii:
+&lt;ul&gt;
+&lt;li&gt;współpracujący z Kancelarią adwokaci, radcowie prawni,
+aplikanci, notariusze, komornicy oraz inne podmioty
+świadczące usługi prawne i samodzielnie decydujące o
+celach i sposobach przetwarzania danych;&lt;/li&gt;
+&lt;li&gt;nabywcy wierzytelności kancelarii;&lt;/li&gt;
+&lt;li&gt;podmioty upoważnione na podstawie obowiązujących
+przepisów prawa (w szczególności sądy i organy
+państwowe);&lt;/li&gt;
+&lt;li&gt;biura informacji gospodarczej;&lt;/li&gt;
+&lt;li&gt;podmioty świadczące usługi:
+&lt;ol type="a"&gt;
+&lt;li&gt;informatyczne oraz nowych technologii;&lt;/li&gt;
+&lt;li&gt;płatnicze;&lt;/li&gt;
+&lt;li&gt;księgowo- finansowe;&lt;/li&gt;
+&lt;li&gt;audytorskie i kontrolne;&lt;/li&gt;
+&lt;li&gt;windykacyjne;&lt;/li&gt;
+&lt;li&gt;drukarskie;&lt;/li&gt;
+&lt;li&gt;niszczenia dokumentów;&lt;/li&gt;
+&lt;li&gt;pocztowe oraz kurierskie.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="3.5_table_header" xml:space="preserve">
+    <value>KATEGORIE ODBIORCÓW
+DANYCH</value>
+  </data>
+  <data name="3.6_table_content" xml:space="preserve">
+    <value>Kancelaria zasadniczo nie przekazuje danych osobowych poza
+Europejski Obszar Gospodarczy. Kancelaria może jednak zlecać
+wykonanie określonych usług bądź zadań informatycznych
+usługodawcom, mającym siedzibę poza Europejskim Obszarem
+Gospodarczym. W takim przypadku dane są przekazywane do
+państwa trzeciego, w stosunku do którego na podstawie decyzji
+Komisji Europejskiej stwierdzono odpowiedni stopień ochrony
+danych.</value>
+  </data>
+  <data name="3.6_table_header" xml:space="preserve">
+    <value>PRZEKAZYWANIE DANYCH
+POZA EUROPEJSKI
+OBSZAR GOSPODARCZY</value>
+  </data>
+  <data name="3.7_table_content" xml:space="preserve">
+    <value>&lt;ol type="a"&gt;
+&lt;li&gt;celem wykonania umowy/umów – nie dłużej niż przez 5 lat
+od końca roku zakończenia współpracy;&lt;/li&gt;
+&lt;li&gt;ustalenia, dochodzenia lub obrony przed roszczeniami – do
+momentu przedawnienia roszczeń, do dochodzenia których
+konieczne jest dysponowanie danymi;&lt;/li&gt;
+&lt;li&gt;w sprawach prowadzonych postępowań sądowych – dane
+będą przechowywane przez okres 10 lat, licząc od końca
+roku, w którym zakończyło się postępowanie sądowe;&lt;/li&gt;
+&lt;li&gt;celem wypełnienia ciążących na Kancelarii obowiązków
+prawnych – dane będą przetwarzane przez czas, określony
+przepisami prawa powszechnego, nakazującymi
+administratorowi przechowywanie danych.&lt;/li&gt;
+&lt;/ol&gt;</value>
+  </data>
+  <data name="3.7_table_header" xml:space="preserve">
+    <value>OKRES
+PRZECHOWYWANIA
+DANYCH</value>
+  </data>
+  <data name="3.8_table_content" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li&gt;prawo dostępu do treści swoich danych osobowych, ich
+sprostowania i uzupełnienia, ograniczenia ich przetwarzania
+i usunięcia;&lt;/li&gt;
+&lt;li&gt;prawo do przenoszenia danych osobowych, które zostały
+przez Pana/ Panią przekazane Kancelarii, tj. prawo do ich
+otrzymania w ustrukturyzowanym powszechnym formacie
+oraz ich przesłania innemu administratorowi. Prawo to może
+zostać zrealizowane wyłącznie w przypadkach, gdy
+przetwarzanie odbywa się na podstawie zgody bądź umowy
+oraz o ile jest całkowicie zautomatyzowane.&lt;/li&gt;
+&lt;/ul&gt;
+Celem skorzystania z powyższych prawa należy skontaktować się z
+Kancelarią.</value>
+  </data>
+  <data name="3.8_table_header" xml:space="preserve">
+    <value>PRZYSŁUGUJĄCE PRAWA</value>
+  </data>
+  <data name="3.9_table_content" xml:space="preserve">
+    <value>Prawo wniesienia skargi do organu nadzorczego zajmującego się
+ochroną danych osobowych w przypadku uznania, iż przetwarzanie
+danych osobowych narusza RODO.</value>
+  </data>
+  <data name="3.9_table_header" xml:space="preserve">
+    <value>PRAWO DO WNIESIENIA
+SKARGI</value>
+  </data>
 </root>
