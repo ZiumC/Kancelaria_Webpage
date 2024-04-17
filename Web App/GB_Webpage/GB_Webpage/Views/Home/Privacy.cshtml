@@ -1,0 +1,70 @@
+﻿@using Microsoft.Extensions.Localization
+@using GB_Webpage.Resources;
+@inject IStringLocalizer<Privacy> privacy;
+@inject IStringLocalizer<Alert> alert;
+
+@{
+    ViewBag.Title = privacy["0_title_tab"];
+
+    var jsError = @Html.Raw(alert["0_js_error"]);
+
+    var title = @Html.Raw(privacy["1_title_rectangle"]);
+    int clausuleLength = 2;
+    int clausuleTableLength = 14;
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/privacy.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="title-rectangle">
+        <h1 class="title-text">@title</h1>
+    </div>
+
+    <noscript>
+        <div class="alert-container">
+            <div class="alert alert-warning content-text">
+                @jsError
+            </div>
+        </div>
+    </noscript>
+    <div class="row content-text">
+        @for (var i = 1; i <= clausuleLength; i++)
+        {
+            <div>
+                @Html.Raw(privacy[$"2.{i}_clausule"])
+            </div>
+        }
+    </div>
+    <div class="row content-text">
+        <table>
+            <tr>
+                <td>
+                    @Html.Raw(privacy["2.3_clausule"])
+                </td>
+            </tr>
+            @for (var i = 1; i <= clausuleTableLength; i++)
+            {
+                <tr>
+                    <th>
+                        <p class="table-row-header">
+                            @Html.Raw(privacy[$"3.{i}_table_header"])
+                        </p>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Raw(privacy[$"3.{i}_table_content"])
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

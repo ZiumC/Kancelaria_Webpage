@@ -104,6 +104,12 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
+        public IActionResult Privacy()
+        {
+            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
+            return View();
+        }
+
         public IActionResult ValidateEmail(ContactModel contact)
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
