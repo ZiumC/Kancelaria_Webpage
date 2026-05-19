@@ -15,5 +15,8 @@ namespace GB_Webpage.Models
 
         [Required(), MinLength(10), MaxLength(5000)]
         public string Message { get; set; }
+
+        [Required()]
+        public string Captcha { get; set; }
     }
 }

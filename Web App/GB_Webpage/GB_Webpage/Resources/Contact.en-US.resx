@@ -168,4 +168,7 @@
     <value>characters</value>
     <comment>Formularz - placeholder</comment>
   </data>
+  <data name="4.5_rightside_container" xml:space="preserve">
+    <value>Give alculation</value>
+  </data>
 </root>

@@ -168,4 +168,7 @@
     <value>zeichen</value>
     <comment>Formularz - placeholder</comment>
   </data>
+  <data name="4.5_rightside_container" xml:space="preserve">
+    <value>...</value>
+  </data>
 </root>

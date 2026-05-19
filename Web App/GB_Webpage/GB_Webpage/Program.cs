@@ -9,6 +9,7 @@ using GB_Webpage.Services.Database.Articles;
 using GB_Webpage.Services.Database.Users;
 using GB_Webpage.Services.Database.DatabaseFiles;
 using GB_Webpage.Services.User;
+using NReco.Logging.File;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -83,6 +84,8 @@ builder.Services.AddAuthentication(options =>
 
 });
 
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -105,6 +108,8 @@ app.UseMiddleware<CultureMismatchMiddleware>();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();

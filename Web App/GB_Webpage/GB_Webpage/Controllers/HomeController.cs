@@ -2,9 +2,11 @@
 using GB_Webpage.Resources;
 using GB_Webpage.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Localization;
 using System.Diagnostics;
-using System.Reflection;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace GB_Webpage.Controllers
 {
@@ -38,7 +40,7 @@ namespace GB_Webpage.Controllers
             {
                 selectedLanguage = cultureCookie.Split("=")[1].Split("|")[0];
             }
-            else 
+            else
             {
                 selectedLanguage = "pl-PL";
             }
@@ -81,6 +83,36 @@ namespace GB_Webpage.Controllers
             return View();
         }
 
+        public ActionResult CaptchaImage()
+        {
+            string captcha = GenerateCaptchaText();
+            HttpContext.Session.SetString("Captcha", captcha);
+
+            using (Bitmap bmp = new Bitmap(120, 40))
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.White);
+
+                using (System.Drawing.Font font = new System.Drawing.Font("Arial", 20, FontStyle.Bold))
+                {
+                    g.DrawString(captcha, font, Brushes.Black, 10, 5);
+                }
+
+                // Optional noise
+                var rand = new Random();
+                for (int i = 0; i < 20; i++)
+                {
+                    g.DrawEllipse(Pens.Gray, rand.Next(0, 120), rand.Next(0, 40), 2, 2);
+                }
+
+                using (var ms = new MemoryStream())
+                {
+                    bmp.Save(ms, ImageFormat.Png);
+                    return File(ms.ToArray(), "image/png");
+                }
+            }
+        }
+
         public async Task<IActionResult> NewsAsync()
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
@@ -112,7 +144,10 @@ namespace GB_Webpage.Controllers
 
         public IActionResult ValidateEmail(ContactModel contact)
         {
+            var captcha = HttpContext.Session.GetString("Captcha");
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
+
+
             try
             {
                 if (!ModelState.IsValid)
@@ -122,6 +157,13 @@ namespace GB_Webpage.Controllers
                 }
                 else
                 {
+                    //recaptcha here
+                    if (captcha != contact.Captcha)
+                    {
+                        throw new Exception("Invalid captcha");
+                    }
+
+
                     string emailKey = _configuration["ApplicationSettings:FormSettings:EmailSenderKey"];
                     string emailSendsForm = _configuration["ApplicationSettings:FormSettings:EmailSender"];
                     string emailRecivesForm = _configuration["ApplicationSettings:FormSettings:EmailReceiver"];
@@ -149,11 +191,20 @@ namespace GB_Webpage.Controllers
         {
             _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
             return View(
-                new ErrorViewModel { 
-                    RequestId = HttpContext.TraceIdentifier, 
-                    ActivtyId = Activity.Current?.Id, 
-                    StatusCode = statusCode 
+                new ErrorViewModel
+                {
+                    RequestId = HttpContext.TraceIdentifier,
+                    ActivtyId = Activity.Current?.Id,
+                    StatusCode = statusCode
                 });
+        }
+
+        private string GenerateCaptchaText(int length = 6)
+        {
+            const string chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+            var random = new Random();
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
