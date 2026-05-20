@@ -4,9 +4,15 @@ using GB_Webpage.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Localization;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats.Png;
+using SixLabors.ImageSharp.PixelFormats;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.Fonts;
 
 namespace GB_Webpage.Controllers
 {
@@ -88,29 +94,27 @@ namespace GB_Webpage.Controllers
             string captcha = GenerateCaptchaText();
             HttpContext.Session.SetString("Captcha", captcha);
 
-            using (Bitmap bmp = new Bitmap(120, 40))
-            using (Graphics g = Graphics.FromImage(bmp))
+            using var image = new Image<Rgba32>(120, 40);
+
+            image.Mutate(x =>
             {
-                g.Clear(Color.White);
+                x.Fill(SixLabors.ImageSharp.Color.White);
 
-                using (System.Drawing.Font font = new System.Drawing.Font("Arial", 20, FontStyle.Bold))
-                {
-                    g.DrawString(captcha, font, Brushes.Black, 10, 5);
-                }
+                Font font = SystemFonts.CreateFont("DejaVu Sans", 20);
 
-                // Optional noise
-                var rand = new Random();
-                for (int i = 0; i < 20; i++)
-                {
-                    g.DrawEllipse(Pens.Gray, rand.Next(0, 120), rand.Next(0, 40), 2, 2);
-                }
+                x.DrawText(
+                    captcha,
+                    font,
+                    SixLabors.ImageSharp.Color.Black,
+                    new SixLabors.ImageSharp.PointF(20, 10)
+                );
+            });
 
-                using (var ms = new MemoryStream())
-                {
-                    bmp.Save(ms, ImageFormat.Png);
-                    return File(ms.ToArray(), "image/png");
-                }
-            }
+            using var ms = new MemoryStream();
+
+            image.Save(ms, new PngEncoder());
+
+            return File(ms.ToArray(), "image/png");
         }
 
         public async Task<IActionResult> NewsAsync()
