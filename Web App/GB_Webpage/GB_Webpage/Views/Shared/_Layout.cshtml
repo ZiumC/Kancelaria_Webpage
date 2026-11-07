@@ -25,8 +25,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="Kancelaria Prawna Bochnacki i Wspólnicy Sp.k.">
-    <meta property="og:site_name" content="Kancelaria Prawna Bochnacki i Wspólnicy Sp.k.">
-    <meta name="keywords" content="Prawo, Law, Pomoc, Help, Grzegorz, Bochnacki, Pomoc prawna, Law help, English, Polish">
+    <meta property="og:site_name" content="Grzegorz Bochnacki">
+    <meta name="keywords" content="Grzegorz Bochnacki, Bochnacki, Grzegorz Bochnacki i Wspólnicy, Pomoc prawna Warszawa">
     <meta name="author" content="Rafał Jamróz">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -41,6 +41,15 @@
     <script type="text/javascript" src="/js/theme.js" defer></script>
 </head>
 <body>
+    <script type="application/ld+json">
+        {
+          "context": "https://schema.org",
+          "type": "WebSite",
+          "name": "Grzegorz Bochnacki",
+          "alternateName": "Kancelaria prawna - Grzegorz Bochnacki i Wspólnicy",
+          "url": "https://www.bochnacki.net/"
+        }
+    </script>
     <header>
         <nav class="navbar navbar-expand-xl navbar-toggleable-xl border-bottom box-shadow mb-3">
             <div class="container-fluid justify-content-center">
@@ -56,17 +65,10 @@
                 <div class="navbar-collapse collapse d-xl-inline-flex justify-content-between">
                     <ul id="menu-bar" class="navbar-nav flex-grow-1">
 
-                        @if (currentCulture == null || currentCulture.Contains("pl-PL"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-action="news">Aktualności</a>
-                            </li>
-                        }
-
                         @for (var i = 1; i <= menuItemLength; i++)
                         {
                             <li class="nav-item">
-                                <a class="nav-link" asp-area="" asp-action="@aspActions[i-1]">@Html.Raw(_layout[$"{i}_menu"])</a>
+                                <a class="nav-link" asp-area="" asp-action="@aspActions[i - 1]">@Html.Raw(_layout[$"{i}_menu"])</a>
                             </li>
                         }
 
@@ -83,17 +85,6 @@
                     </button>
                 </form>
 
-                @* <form method="post" action="~/?culture=en-US">
-                <button type="submit" class="btn btn-sm">
-                <img class="settings-icon" src="/lang-icons/uk-flag.png" alt="EN" />
-                </button>
-                </form> *@
-
-                @*<form method="post" action="~/?culture=de-DE">
-                <button type="submit" class="btn btn-sm">
-                <img class="settings-icon" src="/lang-icons/germany-flag.png" alt="DE" />
-                </button>
-                </form>*@
                 <button id="theme-button" class="btn btn-sm">
                     <i id="theme-icon" class="dark-theme"></i>
                 </button>

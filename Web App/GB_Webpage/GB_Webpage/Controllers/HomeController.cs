@@ -2,14 +2,11 @@
 using GB_Webpage.Resources;
 using GB_Webpage.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Localization;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.Fonts;
@@ -117,28 +114,28 @@ namespace GB_Webpage.Controllers
             return File(ms.ToArray(), "image/png");
         }
 
-        public async Task<IActionResult> NewsAsync()
-        {
-            _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
+        //public async Task<IActionResult> NewsAsync()
+        //{
+        //    _logger.LogInformation(LogFormatterService.FormatRequest(HttpContext, LogFormatterService.GetMethodName()));
 
-            IEnumerable<ArticleModel>? articles = new List<ArticleModel>();
-            try
-            {
-                string url = _configuration["ApplicationSettings:ArticlesSettings:ArticlesApiUrl"];
-                articles = await HttpService.DoGetCollection<ArticleModel>(url);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(LogFormatterService.FormatException(ex, null));
-            }
+        //    IEnumerable<ArticleModel>? articles = new List<ArticleModel>();
+        //    try
+        //    {
+        //        string url = _configuration["ApplicationSettings:ArticlesSettings:ArticlesApiUrl"];
+        //        articles = await HttpService.DoGetCollection<ArticleModel>(url);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _logger.LogError(LogFormatterService.FormatException(ex, null));
+        //    }
 
-            if (articles != null)
-            {
-                return View(articles);
-            }
+        //    if (articles != null)
+        //    {
+        //        return View(articles);
+        //    }
 
-            return View();
-        }
+        //    return View();
+        //}
 
         public IActionResult Privacy()
         {
